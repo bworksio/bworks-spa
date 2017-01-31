@@ -9,6 +9,4 @@ new Vue({
   el: '#app',
   router: router,
   render: h => h(App)
-  // template: '<App/>',
-  // components: { App }
 })

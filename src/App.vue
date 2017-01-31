@@ -1,9 +1,11 @@
 <template>
   <div id="app">
-    <p>
-      <router-link to="/">Go to /</router-link>
-      <router-link to="/test">Go to Test</router-link>
-    </p>
+    <nav>
+      <ul>
+        <li><router-link to="/">Home</router-link></li>
+        <li><router-link to="/test">Test</router-link></li>
+      </ul>
+    </nav>
 
     <router-view></router-view>
   </div>
@@ -11,20 +13,21 @@
 
 <script>
   export default {
-    name: 'App',
-    components: {
-      // Hello
-    }
+    name: 'App'
   }
 </script>
 
-<style>
-  #app {
+<style lang="scss">
+  body {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
     margin-top: 60px;
+  }
+
+  nav {
+    ul {
+      list-style: none;
+    }
   }
 </style>
