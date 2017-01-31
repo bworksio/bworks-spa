@@ -1,20 +1,18 @@
 <template>
   <div class="node">
     <p>Route name: {{name}}</p>
-    <div v-if="error" class="error">
-      {{ error }}
-    </div>
     <transition name="slide">
       <div v-if="node" class="content" :key="node.nid">
-        <h2>{{ node.title }}</h2>
-        <p>{{ node.body }}</p>
+        <h2>{{ node.title[0].value }}</h2>
+        <p v-html="node.body[0].value"></p>
       </div>
     </transition>
   </div>
 </template>
 
 <script>
-import { getNode } from './api'
+//import { getNode } from './api'
+import { getData } from '../store'
 
 export default {
   name: 'Page',
@@ -22,12 +20,15 @@ export default {
     name: {
       type: String,
       required: true
+    },
+    lang: {
+      type: String,
+      required: true
     }
   },
   data () {
     return {
-      node: null,
-      error: null
+      node: null
     }
   },
   created () {
@@ -38,6 +39,14 @@ export default {
   },
   methods: {
     fetchData () {
+      if (!this.$store.state.initialized) {
+        // TODO Pass language from route
+        getData(this.lang).then(() => {
+          this.node = this.$store.state.nodes[1]
+        })
+      }
+
+/*
       this.error = this.node = null
       this.loading = true
       getNode(this.name, (err, node) => {
@@ -48,21 +57,13 @@ export default {
           this.node = node
         }
       })
+*/
     }
   }
 }
 </script>
 
 <style>
-.loading {
-  position: absolute;
-  top: 10px;
-  left: auto;
-  right: auto;
-}
-.error {
-  color: red;
-}
 .content {
   transition: all .35s ease;
   position: absolute;

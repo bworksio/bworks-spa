@@ -10,8 +10,9 @@
     <router-view></router-view>
 
     <transition name="fade">
-      <div id="preloading" v-if="isLoading">
-        <div class="logo" v-html="assets.bWorksLogo"></div>
+      <div v-if="isLoading" id="preloading">
+        <div v-html="assets.bWorksLogo" class="logo"></div>
+        <div v-if="error" class="error">{{ error }}</div>
       </div>
     </transition>
   </div>
@@ -27,13 +28,12 @@
         }
       }
     },
-    created () {
-      // Initialize store.
-      this.$store.commit('init')
-    },
     computed: {
       isLoading () {
-        return this.$store.state.isLoading
+        return !this.$store.state.initialized
+      },
+      error () {
+        return this.$store.state.error !== null ? this.$store.state.error.toString() : false
       }
     }
   }
@@ -70,6 +70,10 @@
       svg {
         width: 250px;
       }
+    }
+
+    .error {
+      color: red;
     }
   }
 

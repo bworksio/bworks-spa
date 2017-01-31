@@ -27,29 +27,39 @@ function getNodes (lang) {
   return axios.get(lang + '/spa_api/contents')
 }
 
+function getData (lang) {
+  return Axios.all([getQueues(), getNodes(lang)])
+    .then(Axios.spread((queues, nodes) => {
+      store.commit('setQueues', queues.data)
+      store.commit('setNodes', nodes.data)
+      store.commit('setInitialized')
+    }))
+    .catch(() => {
+      store.commit('setError', new Error('Failed loading contents, check your internet connection.'))
+    })
+}
+
 const store = new Vuex.Store({
   state: {
-    isLoading: false,
+    initialized: false,
     error: null,
     queues: {},
     nodes: {}
   },
   mutations: {
-    init (state) {
-      state.isLoading = true
-      // TODO Pass current language
-      Axios.all([getQueues(), getNodes('en')])
-        .then(Axios.spread((queues, nodes) => {
-          state.queues = queues.data
-          state.nodes = nodes.data
-          state.isLoading = false
-        }))
-        .catch(() => {
-          state.error = new Error('Failed loading contents, check your internet connection.')
-          state.isLoading = false
-        })
+    setInitialized (state, initialized = true) {
+      state.initialized = initialized
+    },
+    setQueues (state, queues) {
+      state.queues = queues
+    },
+    setNodes (state, nodes) {
+      state.nodes = nodes
+    },
+    setError (state, error) {
+      state.error = error
     }
   }
 })
 
-export default store
+export { store, getData }

@@ -12,13 +12,24 @@ export default new VueRouter({
     {
       path: '/',
       component: Page,
-      props: { name: 'home' }
+      props: { name: 'home', lang: 'en' }
     },
     {
-      path: '/test',
+      path: '/it',
       component: Page,
-      props: { name: 'test' }
+      props: { name: 'home', lang: 'it' }
     },
+    {
+      path: '/specialties',
+      component: Page,
+      props: { name: 'spacialties', lang: 'en' }
+    },
+    {
+      path: '/it/specialita',
+      component: Page,
+      props: { name: 'spacialties', lang: 'it' }
+    },
+
     {
       path: '*',
       component: NotFound
