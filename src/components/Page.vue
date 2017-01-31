@@ -1,9 +1,6 @@
 <template>
   <div class="node">
     <p>Route name: {{name}}</p>
-    <transition name="fade">
-      <div class="loading" v-if="loading">Loading...</div>
-    </transition>
     <div v-if="error" class="error">
       {{ error }}
     </div>
@@ -29,7 +26,6 @@ export default {
   },
   data () {
     return {
-      loading: false,
       node: null,
       error: null
     }
