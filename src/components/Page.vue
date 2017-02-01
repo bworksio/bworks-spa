@@ -49,13 +49,7 @@ export default {
       this.nodes = []
       getData(this.lang).then(() => {
         // Get section nodes from active queue in store
-        const nodes = this.$store.state.queues[this.name].nodes
-        this.nodes = nodes.map(nid => {
-          return {
-            nid: nid,
-            type: this.$store.state.nodes[nid].type[0].target_id
-          }
-        })
+        this.nodes = this.$store.state.queues[this.name].nodes
       })
     }
   },
