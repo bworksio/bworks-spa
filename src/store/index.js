@@ -27,25 +27,32 @@ function getNodes (lang) {
   return axios.get(lang + '/spa_api/contents')
 }
 
+/**
+ *
+ * @param lang
+ * @returns {AxiosPromise|Promise}
+ */
 function getData (lang) {
   if (!store.state.initialized) {
+    // Data not loaded yet, query queues and nodes.
     return Axios.all([getQueues(), getNodes(lang)])
       .then(Axios.spread((queues, nodes) => {
         store.commit('setQueues', queues.data)
         store.commit('setNodes', nodes.data)
-        store.commit('setInitialized')
+        store.commit('setInitialized', true)
       }))
       .catch(() => {
         store.commit('setError', new Error('Failed loading contents, check your internet connection.'))
       })
   } else {
-    // Return empty promise and resolve it immediately
+    // Return empty promise and resolve it immediately.
     return new Promise((resolve, reject) => {
       resolve()
     })
   }
 }
 
+// Store that holds all the data used throughout the application.
 const store = new Vuex.Store({
   state: {
     initialized: false,
