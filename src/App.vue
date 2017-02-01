@@ -3,7 +3,7 @@
     <nav class="menu-main">
       <ul>
         <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/test">Test</router-link></li>
+        <li><router-link to="/specialties">Specialties</router-link></li>
       </ul>
     </nav>
 

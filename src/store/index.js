@@ -28,15 +28,22 @@ function getNodes (lang) {
 }
 
 function getData (lang) {
-  return Axios.all([getQueues(), getNodes(lang)])
-    .then(Axios.spread((queues, nodes) => {
-      store.commit('setQueues', queues.data)
-      store.commit('setNodes', nodes.data)
-      store.commit('setInitialized')
-    }))
-    .catch(() => {
-      store.commit('setError', new Error('Failed loading contents, check your internet connection.'))
+  if (!store.state.initialized) {
+    return Axios.all([getQueues(), getNodes(lang)])
+      .then(Axios.spread((queues, nodes) => {
+        store.commit('setQueues', queues.data)
+        store.commit('setNodes', nodes.data)
+        store.commit('setInitialized')
+      }))
+      .catch(() => {
+        store.commit('setError', new Error('Failed loading contents, check your internet connection.'))
+      })
+  } else {
+    // Return empty promise and resolve it immediately
+    return new Promise((resolve, reject) => {
+      resolve()
     })
+  }
 }
 
 const store = new Vuex.Store({

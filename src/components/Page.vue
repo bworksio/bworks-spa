@@ -1,18 +1,16 @@
 <template>
-  <div class="node">
-    <p>Route name: {{name}}</p>
-    <transition name="slide">
-      <div v-if="node" class="content" :key="node.nid">
-        <h2>{{ node.title[0].value }}</h2>
-        <p v-html="node.body[0].value"></p>
+  <transition name="slide">
+    <div v-if="nodes" class="content" :class="name" :key="name">
+      <div v-for="nid in nodes" class="node" :class="nid">
+        <Node :nid="nid"></Node>
       </div>
-    </transition>
-  </div>
+    </div>
+  </transition>
 </template>
 
 <script>
-//import { getNode } from './api'
 import { getData } from '../store'
+import Node from './Node'
 
 export default {
   name: 'Page',
@@ -28,7 +26,7 @@ export default {
   },
   data () {
     return {
-      node: null
+      nodes: []
     }
   },
   created () {
@@ -39,26 +37,15 @@ export default {
   },
   methods: {
     fetchData () {
-      if (!this.$store.state.initialized) {
-        // TODO Pass language from route
-        getData(this.lang).then(() => {
-          this.node = this.$store.state.nodes[1]
-        })
-      }
-
-/*
-      this.error = this.node = null
-      this.loading = true
-      getNode(this.name, (err, node) => {
-        this.loading = false
-        if (err) {
-          this.error = err.toString()
-        } else {
-          this.node = node
-        }
+      // Reset nodes first, otherwise DOM won't be re-rendered on $route change.
+      this.nodes = []
+      getData(this.lang).then(() => {
+        this.nodes = this.$store.state.queues[this.name].nodes
       })
-*/
     }
+  },
+  components: {
+    Node: Node
   }
 }
 </script>

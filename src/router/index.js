@@ -22,12 +22,13 @@ export default new VueRouter({
     {
       path: '/specialties',
       component: Page,
-      props: { name: 'spacialties', lang: 'en' }
+      // FIXME Typo in machine name special[i]ties
+      props: { name: 'specialities', lang: 'en' }
     },
     {
       path: '/it/specialita',
       component: Page,
-      props: { name: 'spacialties', lang: 'it' }
+      props: { name: 'specialities', lang: 'it' }
     },
 
     {
