@@ -25,7 +25,7 @@ export default {
       'title': 'Our Work'
     },
     'it': {
-      'path': '/it/lavoro',
+      'path': '/it/lavori',
       'title': 'I nostri lavori'
     }
   }
