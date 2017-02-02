@@ -58,7 +58,8 @@ const store = new Vuex.Store({
     initialized: false,
     error: null,
     queues: {},
-    nodes: {}
+    nodes: {},
+    currentLanguage: 'en'
   },
   mutations: {
     setInitialized (state, initialized = true) {
@@ -72,6 +73,9 @@ const store = new Vuex.Store({
     },
     setError (state, error) {
       state.error = error
+    },
+    setLanguage (state, lang) {
+      state.currentLanguage = lang
     }
   }
 })

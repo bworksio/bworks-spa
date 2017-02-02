@@ -6,28 +6,27 @@ export default {
     },
     'it': {
       'path': '/it',
-      'title': 'Home'
+      'title': 'Casa'
     }
   },
-  // FIXME Typo
   'specialities': {
     'en': {
-      'path': '/specialties',
-      'title': 'Our Specialties'
+      'path': '/specialities',
+      'title': 'Our Specialities'
     },
     'it': {
       'path': '/it/specialita',
-      'title': 'Nostre specialità'
+      'title': 'Le nostre specialità'
     }
   },
-  'work': {
+  'works': {
     'en': {
       'path': '/work',
       'title': 'Our Work'
     },
     'it': {
       'path': '/it/lavoro',
-      'title': 'Nostro lavoro'
+      'title': 'I nostri lavori'
     }
   }
 }

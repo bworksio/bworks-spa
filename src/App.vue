@@ -1,11 +1,6 @@
 <template>
   <div id="app">
-    <nav class="menu-main">
-      <ul>
-        <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/specialties">Specialties</router-link></li>
-      </ul>
-    </nav>
+    <app-menu></app-menu>
 
     <router-view></router-view>
 
@@ -19,6 +14,8 @@
 </template>
 
 <script>
+  import Menu from 'components/Menu'
+
   export default {
     name: 'App',
     data () {
@@ -35,6 +32,9 @@
       error () {
         return this.$store.state.error !== null ? this.$store.state.error.toString() : false
       }
+    },
+    components: {
+      'app-menu': Menu
     }
   }
 </script>
