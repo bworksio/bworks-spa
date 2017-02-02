@@ -14,7 +14,7 @@ import { getData } from '../store'
 import bworks_basic_page from './sections/bworks_basic_page'
 import bworks_html_block from './sections/bworks_html_block'
 import bworks_project_block from './sections/bworks_project_block'
-import bworks_specialty_block from './sections/bworks_specialty_block'
+import bworks_speciality_block from './sections/bworks_speciality_block'
 
 export default {
   name: 'Page',
@@ -57,7 +57,7 @@ export default {
     bworks_basic_page,
     bworks_html_block,
     bworks_project_block,
-    bworks_specialty_block
+    bworks_speciality_block
   }
 }
 </script>

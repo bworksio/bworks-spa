@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: 'project',
+  name: 'speciality',
   props: {
     // Node id of the project
     nid: {

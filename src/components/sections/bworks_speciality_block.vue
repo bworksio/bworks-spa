@@ -10,10 +10,10 @@
 </template>
 
 <script>
-import specialty from '../nodes/specialty'
+import specialty from '../nodes/speciality'
 
 export default {
-  name: 'bworks_specialty_block',
+  name: 'bworks_speciality_block',
   props: {
     // Node id of the section
     nid: {
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  .bworks_specialty_block {
+  .bworks_speciality_block {
     ul {
       list-style: none;
     }
