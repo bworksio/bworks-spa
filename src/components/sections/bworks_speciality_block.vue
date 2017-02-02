@@ -1,16 +1,16 @@
 <template>
-  <div class="node" :class="node.type[0].target_id">
+  <div class="node" :class="node.type[0].target_id" :key="nid">
     <h2>{{ node.title[0].value }}</h2>
     <ul>
       <li v-for="specialty in node.field_entity_reference">
-        <specialty :nid="specialty.target_id" viewMode="teaser"></specialty>
+        <speciality :nid="specialty.target_id" viewMode="teaser"></speciality>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import specialty from '../nodes/speciality'
+import speciality from '../nodes/speciality'
 
 export default {
   name: 'bworks_speciality_block',
@@ -30,7 +30,7 @@ export default {
     this.node = this.$store.state.nodes[this.nid]
   },
   components: {
-    specialty
+    speciality
   }
 }
 </script>
