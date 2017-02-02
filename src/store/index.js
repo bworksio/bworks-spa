@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import config from '../config.json'
+import config from '../config/app.json'
 import Axios from 'axios'
 
 Vue.use(Vuex)
