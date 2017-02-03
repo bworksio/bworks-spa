@@ -27,7 +27,7 @@ export default {
     }
   },
   created () {
-    this.node = this.$store.state.nodes[this.nid]
+    this.node = this.$store.getters.getNode(this.nid, this.$store.state.currentLanguage)
   },
   components: {
     speciality

@@ -1,4 +1,6 @@
 {
+  "defaultLanguage": "en",
+  "activeLanguages": ["en", "it"],
   "api": {
     "baseUrl": "http://www.italomairo.com/bworks-d8/web/"
   }

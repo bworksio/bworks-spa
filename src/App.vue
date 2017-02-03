@@ -30,7 +30,7 @@
         return !this.$store.state.initialized
       },
       error () {
-        return this.$store.state.error !== null ? this.$store.state.error.toString() : false
+        return this.$store.getters.getError
       }
     },
     components: {

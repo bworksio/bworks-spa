@@ -1,6 +1,6 @@
 <template>
   <transition name="slide">
-    <div v-if="nodes" class="content" :class="name" :key="name">
+    <div v-if="nodes" class="content" :class="name" :key="lang +'/'+ name">
       <div v-for="node in nodes" class="node" :class="node.type">
         <component :is="node.type" :nid="node.nid"></component>
       </div>
@@ -38,6 +38,9 @@ export default {
     }
   },
   created () {
+    // Update current language in the store.
+    this.$store.state.currentLanguage = this.lang
+    // Update nodes to display for the current queue name.
     this.fetchData()
   },
   watch: {
@@ -49,7 +52,7 @@ export default {
       this.nodes = []
       getData(this.lang).then(() => {
         // Get section nodes from active queue in store
-        this.nodes = this.$store.state.queues[this.name].nodes
+        this.nodes = this.$store.getters.getNodesForQueue(this.name)
       })
     }
   },
