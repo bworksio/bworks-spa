@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import { store } from '../store'
 import routerConfig from '../config/routes'
 import utils from '../utils'
 import Page from '../components/Page'
@@ -20,27 +19,13 @@ utils.forEach(routerConfig, (languages, name) => {
   })
 })
 
-// Add special routes.
+// Add language independent routes.
 routes.push({
   path: '*',
-  component: NotFound,
-  // FIXME Need to implement navigation guard here as well, otherwise NotFound.beforeRouteEnter won't be triggered.
-  beforeEnter: (to, from, next) => {
-    next()
-  }
+  component: NotFound
 })
 
-const router = new VueRouter({
+export default new VueRouter({
   mode: 'history',
   routes
 })
-
-// Add navigation guard to update current language.
-router.beforeEach((to, from, next) => {
-  if (to.matched.length && to.matched[0].components.default.name !== 'NotFound') {
-    store.state.currentLanguage = to.matched[0].props.default.lang
-  }
-  next()
-})
-
-export default router

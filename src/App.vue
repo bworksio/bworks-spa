@@ -33,6 +33,24 @@
         return this.$store.getters.getError
       }
     },
+    created () {
+      this.updateLanguage()
+    },
+    watch: {
+      '$route' (to, from) {
+        this.updateLanguage()
+      }
+    },
+    methods: {
+      /**
+       * Update global language in store from current route.
+       */
+      updateLanguage () {
+        if (this.$route.matched.length && this.$route.matched[0].components.default.name !== 'NotFound') {
+          this.$store.commit('setLanguage', this.$route.matched[0].props.default.lang)
+        }
+      }
+    },
     components: {
       'app-menu': Menu
     }
