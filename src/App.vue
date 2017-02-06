@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <app-menu></app-menu>
+    <app-language-switcher></app-language-switcher>
 
     <router-view></router-view>
 
@@ -15,6 +16,7 @@
 
 <script>
   import Menu from 'components/Menu'
+  import LanguageSwitcher from 'components/LanguageSwitcher'
 
   export default {
     name: 'App',
@@ -52,7 +54,8 @@
       }
     },
     components: {
-      'app-menu': Menu
+      'app-menu': Menu,
+      'app-language-switcher': LanguageSwitcher
     }
   }
 </script>

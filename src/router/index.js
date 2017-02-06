@@ -14,7 +14,8 @@ utils.forEach(routerConfig, (languages, name) => {
     routes.push({
       path: item.path,
       component: Page,
-      props: { name, lang }
+      props: { name, lang },
+      meta: { name }
     })
   })
 })
