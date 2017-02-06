@@ -1,5 +1,6 @@
 <template>
-  <div class="node" :class="node.type[0].target_id" :style="{ 'background-image': 'url(' + node.field_header_image[0].url + ')' }">
+  <div :class="'node node-' + node.type[0].target_id"
+    :style="{ 'background-image': 'url(' + node.field_header_image[0].url + ')' }">
     <h1>{{ node.title[0].value }}</h1>
     <div v-html="node.body[0].value"></div>
   </div>
@@ -13,6 +14,10 @@
       nid: {
         type: String,
         required: true
+      },
+      lang: {
+        type: String,
+        required: true
       }
     },
     data () {
@@ -21,7 +26,7 @@
       }
     },
     created () {
-      this.node = this.$store.getters.getNode(this.nid, this.$store.state.currentLanguage)
+      this.node = this.$store.getters.getNode(this.nid, this.lang)
     }
   }
 </script>

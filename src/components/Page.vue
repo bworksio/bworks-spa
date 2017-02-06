@@ -1,9 +1,11 @@
 <template>
   <transition name="slide">
-    <div v-if="nodes" class="content" :class="name" :key="lang +'/'+ name">
-      <div v-for="node in nodes" class="node" :class="node.type">
-        <component :is="node.type" :nid="node.nid"></component>
-      </div>
+    <div v-if="nodes" :class="'page page-' + name" :key="lang +'/'+ name">
+      <component
+        v-for="node in nodes"
+        :is="node.type"
+        :nid="node.nid"
+        :lang="lang"></component>
     </div>
   </transition>
 </template>
@@ -66,7 +68,7 @@ export default {
 </script>
 
 <style>
-.content {
+.page {
   transition: all .35s ease;
   position: absolute;
 }

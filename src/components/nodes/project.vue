@@ -1,5 +1,5 @@
 <template>
-  <div class="node" :class="[node.type[0].target_id, viewMode]" :key="viewMode">
+  <div :class="'node node-' + node.type[0].target_id + ' ' + viewMode">
     <template v-if="viewMode === 'teaser'">
       <a href="#">
         <img :src="node.field_image[0].url">
@@ -16,29 +16,33 @@
 </template>
 
 <script>
-export default {
-  name: 'project',
-  props: {
-    // Node id of the project
-    nid: {
-      type: String,
-      required: true
+  export default {
+    name: 'project',
+    props: {
+      // Node id of the project
+      nid: {
+        type: String,
+        required: true
+      },
+      lang: {
+        type: String,
+        required: true
+      },
+      // View mode, teaser or full
+      viewMode: {
+        type: String,
+        default: 'full'
+      }
     },
-    // View mode, teaser or full
-    viewMode: {
-      type: String,
-      default: 'full'
+    data () {
+      return {
+        node: {}
+      }
+    },
+    created () {
+      this.node = this.$store.getters.getNode(this.nid, this.lang)
     }
-  },
-  data () {
-    return {
-      node: {}
-    }
-  },
-  created () {
-    this.node = this.$store.getters.getNode(this.nid, this.$store.state.currentLanguage)
   }
-}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
