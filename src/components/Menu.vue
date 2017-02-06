@@ -20,6 +20,15 @@
       }
     },
     created () {
+      this.fetchMenuItems()
+    },
+    watch: {
+      '$route' (to, from) {
+        this.fetchMenuItems()
+      }
+    },
+    methods: {
+      fetchMenuItems () {
       let menuItems = []
       const lang = this.$store.state.currentLanguage
       utils.forEach(routerConfig, (languages, name) => {
@@ -27,6 +36,7 @@
       })
       this.menuItems = menuItems
     }
+  }
   }
 </script>
 

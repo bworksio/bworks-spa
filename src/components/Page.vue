@@ -40,15 +40,18 @@ export default {
     }
   },
   created () {
-    // Update current language in the store.
-    this.$store.state.currentLanguage = this.lang
     // Update nodes to display for the current queue name.
     this.fetchData()
   },
   watch: {
-    '$route': 'fetchData'
+    '$route' (to, from) {
+      this.fetchData()
+    }
   },
   methods: {
+    /**
+     * Fetches the list of nodes in the current queue to display.
+     */
     fetchData () {
       // FIXME Resetting node list is required, otherwise DOM doesn't re-render on $route change.
       this.nodes = []

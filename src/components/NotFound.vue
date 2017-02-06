@@ -5,12 +5,18 @@
 </template>
 
 <script>
-export default {
-  name: 'NotFound',
-  data () {
-    return {
-      msg: 'Not found'
+  import { store } from '../store'
+
+  export default {
+    name: 'NotFound',
+    data () {
+      return {
+        msg: 'Not found'
+      }
+    },
+    beforeRouteEnter (to, from, next) {
+      store.state.initialized = true
+      next()
     }
   }
-}
 </script>
