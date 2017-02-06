@@ -5,8 +5,6 @@
 </template>
 
 <script>
-  import { store } from '../store'
-
   export default {
     name: 'NotFound',
     data () {
@@ -14,9 +12,8 @@
         msg: 'Not found'
       }
     },
-    beforeRouteEnter (to, from, next) {
-      store.state.initialized = true
-      next()
+    created () {
+      this.$store.commit('setInitialized', true)
     }
   }
 </script>

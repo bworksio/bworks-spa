@@ -45,23 +45,18 @@ function getNodes (lang) {
  * @returns {AxiosPromise|Promise}
  */
 function getData (lang) {
-  if (!store.state.initialized) {
-    // Data not loaded yet, query queues and nodes.
-    let queries = [getQueues()]
-    config.activeLanguages.forEach(activeLang => {
-      queries.push(getNodes(activeLang))
+  // Data not loaded yet, query queues and nodes.
+  let queries = [getQueues()]
+  config.activeLanguages.forEach(activeLang => {
+    queries.push(getNodes(activeLang))
+  })
+  return Axios.all(queries)
+    .then((result) => {
+      store.commit('setInitialized', true)
     })
-    return Axios.all(queries)
-      .then((result) => {
-        store.commit('setInitialized', true)
-      })
-      .catch(() => {
-        store.commit('setError', new Error('Failed loading contents, check your internet connection.'))
-      })
-  } else {
-    // Return empty promise and resolve it immediately.
-    return new Promise(resolve => { resolve() })
-  }
+    .catch(() => {
+      store.commit('setError', new Error('Failed loading contents, check your internet connection.'))
+    })
 }
 
 // Store that holds all the data used throughout the application.

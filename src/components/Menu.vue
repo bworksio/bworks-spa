@@ -29,14 +29,14 @@
     },
     methods: {
       fetchMenuItems () {
-      let menuItems = []
-      const lang = this.$store.state.currentLanguage
-      utils.forEach(routerConfig, (languages, name) => {
-        menuItems.push(languages[lang])
-      })
-      this.menuItems = menuItems
+        let menuItems = []
+        const lang = this.$store.state.currentLanguage
+        utils.forEach(routerConfig, (languages, name) => {
+          menuItems.push(languages[lang])
+        })
+        this.menuItems = menuItems
+      }
     }
-  }
   }
 </script>
 
