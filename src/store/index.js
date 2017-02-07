@@ -75,8 +75,8 @@ const store = new Vuex.Store({
     setQueues (state, queues) {
       state.queues = queues
     },
-    setNodes (state, payload) {
-      state.nodes[payload.lang] = payload.nodes
+    setNodes (state, { lang, nodes }) {
+      state.nodes[lang] = nodes
     },
     setError (state, error) {
       state.error = error
@@ -91,18 +91,14 @@ const store = new Vuex.Store({
      * @param queue
      * @returns {Array}
      */
-    getNodesForQueue: (state, getters) => queue => {
-      return state.queues[queue].nodes
-    },
+    getNodesForQueue: state => queue => state.queues[queue].nodes,
 
     /**
      * Returns all nodes from store for a given language.
      * @param lang
      * @returns {Object}
      */
-    getNodes: (state, getters) => lang => {
-      return state.nodes.hasOwnProperty(lang) ? state.nodes[lang] : {}
-    },
+    getNodes: state => lang => state.nodes.hasOwnProperty(lang) ? state.nodes[lang] : {},
 
     /**
      * Returns a single node from store for a given language, falling back to the default language.
@@ -124,9 +120,7 @@ const store = new Vuex.Store({
      * @param getters
      * @returns {String|boolean}
      */
-    getError: (state, getters) => {
-      return state.error !== null ? state.error.toString() : false
-    }
+    getError: state => state.error !== null ? state.error.toString() : false
   }
 })
 
