@@ -8,7 +8,7 @@
   </nav>
 </template>
 
-<script>
+<script type="text/javascript">
   import utils from '../utils'
   import routerConfig from '../config/routes'
 

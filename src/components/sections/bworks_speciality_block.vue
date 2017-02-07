@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/javascript">
   import speciality from '../nodes/speciality'
 
   export default {

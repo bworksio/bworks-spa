@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/javascript">
   import Menu from 'components/Menu'
   import LanguageSwitcher from 'components/LanguageSwitcher'
 

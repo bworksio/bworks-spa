@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/javascript">
   import project from '../nodes/project'
 
   export default {

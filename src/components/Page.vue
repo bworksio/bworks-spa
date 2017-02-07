@@ -10,7 +10,7 @@
   </transition>
 </template>
 
-<script>
+<script type="text/javascript">
 import { getData } from '../store'
 /* eslint-disable camelcase */
 import bworks_basic_page from './sections/bworks_basic_page'

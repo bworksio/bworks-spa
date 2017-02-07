@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/javascript">
   export default {
     name: 'bworks_basic_page',
     props: {
