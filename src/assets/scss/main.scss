@@ -9,7 +9,7 @@ h1, h2, h3, h4,
 
 h1, .h1 {
   font-size: $font-size-h1;
-  line-height: 1.366666667em;
+  line-height: 1.366666667;
   letter-spacing: .066666667em;
   font-weight: $font-weight-heavy;
   color: $brand-primary;
@@ -17,14 +17,14 @@ h1, .h1 {
 
 h2, .h2 {
   font-size: $font-size-h2;
-  line-height: 1.363636364em;
+  line-height: 1.363636364;
   letter-spacing: .066818182em;
   font-weight: $font-weight-heavy;
 }
 
 h3, .h3 {
   font-size: $font-size-h3;
-  line-height: 1.388888889em;
+  line-height: 1.388888889;
   letter-spacing: .066666667em;
   font-weight: $font-weight-bold;
   color: $brand-primary;
@@ -32,9 +32,17 @@ h3, .h3 {
 
 h4, .h4 {
   font-size: $font-size-h4;
-  line-height: 1.166666667em;
+  line-height: 1.166666667;
   letter-spacing: .044166667em;
   font-weight: $font-weight-bold;
+}
+
+@media (max-width: 737px) {
+  p {
+    font-size: .857142857rem;
+    line-height: 1.5;
+    letter-spacing: .080833333em;
+  }
 }
 
 nav {
@@ -43,20 +51,64 @@ nav {
   }
 }
 
+a.animated {
+  position: relative;
+  transition: color .15s ease-out 0s;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 120%;
+    height: 1.5em;
+    background-color: $link-color;
+    z-index: -1;
+    transform: translateX(-120%) scaleY(.227272727);
+    transition: transform .2s ease-out;
+  }
+
+  @include hover-focus {
+    color: $white;
+    transition: color .166s ease-out .034s;
+
+    &:before {
+      transform: translateX(-10%) scaleY(1);
+    }
+  }
+}
+
 #site-header {
   position: fixed;
   top: 0;
   width: 100%;
+  min-height: 75px;
+  margin: calc(1.946428571rem + 1vw) 0 1rem;
   z-index: 990;
 
-  .container {
+  .header-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
 
-    &,
-    & a {
-      color: #fff;
+  // Invert link colors
+  a {
+    color: $white;
+
+    &.animated {
+      &:before {
+        background-color: $white;
+      }
+
+      @include hover-focus {
+        color: $body-color;
+      }
     }
+  }
+}
+
+#page {
+  > .node:first-child {
+    padding-top: calc(1.946428571rem + 1vw + 75px + 1rem);
   }
 }

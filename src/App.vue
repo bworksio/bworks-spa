@@ -2,9 +2,11 @@
   <div id="app">
     <header id="site-header">
       <div class="container">
-        <a class="site-logo" href="/" v-html="assets.bWorksLogo"></a>
-        <app-menu-toggle></app-menu-toggle>
-        <a class="hire-us" href="#">Hire us</a>
+        <div class="header-wrapper">
+          <a class="logo" href="/" v-html="assets.bWorksLogo"></a>
+          <app-menu-toggle></app-menu-toggle>
+          <a class="animated" href="#">Hire us</a>
+        </div>
       </div>
     </header>
 
@@ -91,9 +93,8 @@
     .error {
       position: absolute;
       top: 75%;
-      left: auto;
-      right: auto;
       width: 100%;
+      text-align: center;
       color: red;
     }
   }

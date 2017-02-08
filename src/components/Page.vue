@@ -1,6 +1,6 @@
 <template>
   <transition name="slide">
-    <div v-if="nodes" :class="'page page-' + name" :key="lang +'/'+ name">
+    <div v-if="nodes" id="page" :class="'page-' + name" :key="lang +'/'+ name">
       <component
         v-for="node in nodes"
         :is="node.type"
