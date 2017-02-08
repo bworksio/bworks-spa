@@ -219,10 +219,11 @@ $grid-breakpoints: (
 // Define the maximum width of `.container` for different screen sizes.
 
 $container-max-widths: (
-  sm: 83.3333333%, //540px,
-  md: 83.3333333%, //720px,
-  lg: 83.3333333%, //960px,
-  xl: 83.3333333%, //1140px,
+  xs: 83.3333333%, //100%,
+  //sm: 83.3333333%, //540px,
+  //md: 83.3333333%, //720px,
+  //lg: 83.3333333%, //960px,
+  //xl: 83.3333333%, //1140px,
   xxl: 66.6666667%
 ) !default;
 @include _assert-ascending($container-max-widths, "$container-max-widths");
@@ -239,7 +240,8 @@ $grid-gutter-widths: (
   sm: $grid-gutter-width-base,
   md: $grid-gutter-width-base,
   lg: $grid-gutter-width-base,
-  xl: $grid-gutter-width-base
+  xl: $grid-gutter-width-base,
+  xxl: $grid-gutter-width-base
 ) !default;
 
 // Fonts

@@ -1,7 +1,9 @@
 <template>
   <div :class="'node node-' + node.type[0].target_id">
-    <h2>{{ node.title[0].value }}</h2>
-    <div v-html="node.body[0].value"></div>
+    <div class="container">
+      <h2>{{ node.title[0].value }}</h2>
+      <div v-html="node.body[0].value"></div>
+    </div>
   </div>
 </template>
 

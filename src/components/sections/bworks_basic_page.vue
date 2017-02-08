@@ -1,8 +1,14 @@
 <template>
   <div :class="'node node-' + node.type[0].target_id"
     :style="{ 'background-image': 'url(' + node.field_header_image[0].url + ')' }">
-    <h1>{{ node.title[0].value }}</h1>
-    <div v-html="node.body[0].value"></div>
+    <div class="container">
+      <div class="intro-text-container">
+        <div class="intro-text-wrapper">
+          <h1>{{ node.title[0].value }}</h1>
+          <div class="intro-text" v-html="node.body[0].value"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -32,4 +38,83 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
+  @import '../../assets/scss/mixins';
+
+  .node-bworks_basic_page {
+    background-position: center;
+    background-size: cover;
+    border-bottom: 8px solid $brand-primary;
+  }
+
+  .intro-text-container {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 68px;
+
+    @include media-breakpoint-only(xs) {
+      min-height: 667px;
+    }
+    @include media-breakpoint-only(sm) {
+      min-height: 375px;
+      padding-bottom: 40px;
+    }
+    @include media-breakpoint-only(md) {
+      min-height: 1024px;
+      align-items: center;
+    }
+    @include media-breakpoint-only(lg) {
+      min-height: 768px;
+    }
+    @include media-breakpoint-only(xl) {
+      min-height: 800px;
+    }
+    @include media-breakpoint-up(xxl) {
+      min-height: 903px;
+    }
+  }
+
+  .intro-text-wrapper {
+    @include media-breakpoint-only(md) {
+      padding-left: 8.3333333%;
+      padding-right: 8.3333333%;
+    }
+    @include media-breakpoint-up(lg) {
+      max-width: 55%;
+    }
+  }
+
+  h1, .h1 {
+    font-size: 1.428571429rem;
+    line-height: 1.35;
+    letter-spacing: .0665em;
+    text-shadow: 0 0 2rem rgba(0,0,0,.4);
+
+    @include media-breakpoint-up(md) {
+      font-size: 2rem;
+      line-height: 1.357142857;
+      letter-spacing: .066785714em;
+    }
+  }
+
+  .intro-text {
+    p {
+      font-weight: 900;
+      font-size: 1.285714286rem;
+      line-height: 1.222222222;
+      letter-spacing: .18em;
+      color: $white;
+      text-shadow: 0 0 2rem rgba(0,0,0,.4);
+
+      @include media-breakpoint-up(md) {
+        font-size: 1.428571429rem;
+        line-height: 1.4;
+        letter-spacing: .18em;
+      }
+    }
+
+    // Overrule bold style
+    b, strong {
+      font-weight: 900;
+    }
+  }
 </style>

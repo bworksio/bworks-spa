@@ -1,11 +1,13 @@
 <template>
   <div :class="'node node-' + node.type[0].target_id">
-    <h2>{{ node.title[0].value }}</h2>
-    <ul>
-      <li v-for="project in node.field_entity_reference">
-        <project :nid="project.target_id" :lang="lang" viewMode="teaser"></project>
-      </li>
-    </ul>
+    <div class="container">
+      <h2>{{ node.title[0].value }}</h2>
+      <ul>
+        <li v-for="project in node.field_entity_reference">
+          <project :nid="project.target_id" :lang="lang" viewMode="teaser"></project>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
