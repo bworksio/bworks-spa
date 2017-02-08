@@ -58,6 +58,8 @@ export default {
       getData(this.lang).then(() => {
         // Get section nodes from active queue in store
         this.nodes = this.$store.getters.getNodesForQueue(this.name)
+      }).catch(() => {
+        /* Error handled upstream */
       })
     }
   },

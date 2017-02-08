@@ -1,16 +1,20 @@
 <template>
-  <nav class="menu-main">
-    <ul>
-      <li v-for="item in menuItems">
-        <router-link :to="item.path">{{ item.title }}</router-link>
-      </li>
-    </ul>
-  </nav>
+  <div class="main-menu">
+    <nav>
+      <ul>
+        <li v-for="item in menuItems">
+          <router-link :to="item.path">{{ item.title }}</router-link>
+        </li>
+      </ul>
+    </nav>
+    <app-language-switcher></app-language-switcher>
+  </div>
 </template>
 
 <script type="text/javascript">
   import utils from '../utils'
   import routerConfig from '../config/routes'
+  import LanguageSwitcher from './LanguageSwitcher'
 
   export default {
     name: 'Menu',
@@ -36,6 +40,9 @@
         })
         this.menuItems = menuItems
       }
+    },
+    components: {
+      'app-language-switcher': LanguageSwitcher
     }
   }
 </script>

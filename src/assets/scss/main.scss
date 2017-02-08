@@ -1,0 +1,21 @@
+@import 'bootstrap/bootstrap-reboot';
+@import 'bootstrap/bootstrap-grid';
+
+body {
+  font-family: 'Avenir Next', Helvetica, Arial, sans-serif;
+  text-align: center;
+  color: #2c3e50;
+}
+
+nav {
+  ul {
+    list-style: none;
+  }
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 990;
+}

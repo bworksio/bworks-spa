@@ -47,9 +47,7 @@ function getNodes (lang) {
 function getData (lang) {
   // Data not loaded yet, query queues and nodes.
   let queries = [getQueues()]
-  config.activeLanguages.forEach(activeLang => {
-    queries.push(getNodes(activeLang))
-  })
+  config.activeLanguages.forEach(activeLang => queries.push(getNodes(activeLang)))
   return Axios.all(queries)
     .then((result) => {
       store.commit('setInitialized', true)
@@ -112,15 +110,7 @@ const store = new Vuex.Store({
         return nodes[id]
       }
       return lang !== config.defaultLanguage ? getters.getNode(id, config.defaultLanguage) : false
-    },
-
-    /**
-     * Returns the last error message, if any.
-     * @param state
-     * @param getters
-     * @returns {String|boolean}
-     */
-    getError: state => state.error !== null ? state.error.toString() : false
+    }
   }
 })
 
