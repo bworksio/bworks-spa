@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header class="site-header">
+    <header id="site-header">
       <div class="container">
         <a class="site-logo" href="/" v-html="assets.bWorksLogo"></a>
         <app-menu-toggle></app-menu-toggle>

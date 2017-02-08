@@ -1,10 +1,40 @@
 @import 'bootstrap/bootstrap-reboot';
 @import 'bootstrap/bootstrap-grid';
 
-body {
-  font-family: 'Avenir Next', Helvetica, Arial, sans-serif;
-  text-align: center;
-  color: #2c3e50;
+h1, h2, h3, h4,
+.h1, .h2, .h3, .h4 {
+  margin-bottom: $headings-margin-bottom;
+  text-transform: uppercase;
+}
+
+h1, .h1 {
+  font-size: $font-size-h1;
+  line-height: 1.366666667em;
+  letter-spacing: .066666667em;
+  font-weight: $font-weight-heavy;
+  color: $brand-primary;
+}
+
+h2, .h2 {
+  font-size: $font-size-h2;
+  line-height: 1.363636364em;
+  letter-spacing: .066818182em;
+  font-weight: $font-weight-heavy;
+}
+
+h3, .h3 {
+  font-size: $font-size-h3;
+  line-height: 1.388888889em;
+  letter-spacing: .066666667em;
+  font-weight: $font-weight-bold;
+  color: $brand-primary;
+}
+
+h4, .h4 {
+  font-size: $font-size-h4;
+  line-height: 1.166666667em;
+  letter-spacing: .044166667em;
+  font-weight: $font-weight-bold;
 }
 
 nav {
@@ -13,9 +43,20 @@ nav {
   }
 }
 
-header {
+#site-header {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 990;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &,
+    & a {
+      color: #fff;
+    }
+  }
 }
