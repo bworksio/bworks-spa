@@ -13,6 +13,7 @@ h1, .h1 {
   letter-spacing: .066666667em;
   font-weight: $font-weight-heavy;
   color: $brand-primary;
+  margin-bottom: 1em;
 }
 
 h2, .h2 {
@@ -49,6 +50,10 @@ nav {
   ul {
     list-style: none;
   }
+}
+
+.animation-wrapper {
+  overflow-x: hidden;
 }
 
 a.animated {
@@ -110,5 +115,37 @@ a.animated {
 #page {
   > .node:first-child {
     //padding-top: calc(1.946428571rem + 1vw + 75px + 1rem);
+  }
+}
+
+.node {
+  padding-top: 4rem;
+}
+
+// @extend requires bootstrap classes.
+.node-bworks_html_block {
+  .html-container {
+    @extend .row;
+  }
+
+  .html-wrapper {
+    @extend .col-sm-6;
+    @extend .col-md-5;
+    @extend .col-lg-4;
+    @extend .col-xl-3;
+  }
+
+  .promo-container {
+    @extend .hidden-xs-down;
+
+    @extend .col-sm-3;
+    @extend .offset-sm-3;
+
+    @extend .col-md-6;
+    @extend .offset-md-1;
+
+    @extend .offset-lg-2;
+
+    @extend .offset-xl-3;
   }
 }

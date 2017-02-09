@@ -83,16 +83,18 @@
     }
   }
 
-  h1, .h1 {
-    font-size: 1.428571429rem;
-    line-height: 1.35;
-    letter-spacing: .0665em;
-    text-shadow: 0 0 2rem rgba(0,0,0,.4);
+  .node-bworks_basic_page {
+    h1, .h1 {
+      font-size: 1.428571429rem;
+      line-height: 1.35;
+      letter-spacing: .0665em;
+      text-shadow: 0 0 2rem rgba(0, 0, 0, .4);
 
-    @include media-breakpoint-up(md) {
-      font-size: 2rem;
-      line-height: 1.357142857;
-      letter-spacing: .066785714em;
+      @include media-breakpoint-up(md) {
+        font-size: 2rem;
+        line-height: 1.357142857;
+        letter-spacing: .066785714em;
+      }
     }
   }
 
