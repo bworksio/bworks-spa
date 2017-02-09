@@ -1,10 +1,9 @@
 <template>
   <div :class="'node node-' + node.type[0].target_id">
     <div class="container">
-      <h2>{{ node.title[0].value }}</h2>
       <ul>
-        <li v-for="project in node.field_entity_reference">
-          <project :nid="project.target_id" :lang="lang" viewMode="teaser"></project>
+        <li v-for="(project, index) in node.field_entity_reference">
+          <project :nid="project.target_id" :lang="lang" :first="index == 0" viewMode="teaser"></project>
         </li>
       </ul>
     </div>
@@ -44,6 +43,8 @@
 <style scoped rel="stylesheet/scss" lang="scss">
   .node {
     ul {
+      margin: 0;
+      padding: 0;
       list-style: none;
     }
   }

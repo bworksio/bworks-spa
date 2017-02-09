@@ -161,19 +161,27 @@ blockquote {
 //
 
 a {
-  color: $link-color;
-  font-weight: $font-weight-bold;
-  letter-spacing: .083125em;
   text-decoration: $link-decoration;
-  text-transform: uppercase;
 
-  /*
-  @include hover-focus {
-    color: $link-hover-color;
-    text-decoration: $link-hover-decoration;
+  &:not(.unstyled) {
+    color: $link-color;
+    font-weight: $font-weight-bold;
+    letter-spacing: .083125em;
+    text-transform: uppercase;
+
+    /*
+    @include hover-focus {
+      color: $link-hover-color;
+      text-decoration: $link-hover-decoration;
+    }
+    */
   }
-  */
+
+  &.unstyled {
+    color: $body-color;
+  }
 }
+
 
 // And undo these styles for placeholder links/named anchors (without href)
 // which have not been made explicitly keyboard-focusable (without tabindex).
