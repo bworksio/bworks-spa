@@ -42,9 +42,4 @@
 </script>
 
 <style scoped rel="stylesheet/scss" lang="scss">
-  .node {
-    ul {
-      list-style: none;
-    }
-  }
 </style>

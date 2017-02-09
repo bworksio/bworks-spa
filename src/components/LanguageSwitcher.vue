@@ -1,11 +1,11 @@
 <template>
-  <div class="language-switcher">
+  <nav class="language-switcher">
     <ul>
       <li v-for="link in links">
         <router-link :to="link.path">{{ link.title }}</router-link>
       </li>
     </ul>
-  </div>
+  </nav>
 </template>
 
 <script type="text/javascript">
@@ -44,16 +44,28 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
+  @import '../assets/scss/main';
+
   .language-switcher {
     ul {
-      list-style: none;
-
       li {
         display: inline;
+      }
+    }
 
-        a {
-          margin: 0 .25rem;
-          padding: .5rem;
+    // Invert link colors
+    a {
+      margin: 0 .25rem;
+      padding: .5rem;
+      color: $white;
+
+      &.animated {
+        &:before {
+          background-color: $white;
+        }
+
+        @include hover-focus {
+          color: $body-color;
         }
       }
     }

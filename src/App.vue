@@ -71,6 +71,36 @@
 <style lang="scss" rel="stylesheet/scss">
   @import './assets/scss/main';
 
+  #site-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    min-height: 75px;
+    margin: calc(1.946428571rem + 1vw) 0 1rem;
+    z-index: 990;
+
+    .header-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    // Invert link colors
+    a {
+      color: $white;
+
+      &.animated {
+        &:before {
+          background-color: $white;
+        }
+
+        @include hover-focus {
+          color: $body-color;
+        }
+      }
+    }
+  }
+
   #preloading {
     position: fixed;
     top: 0;

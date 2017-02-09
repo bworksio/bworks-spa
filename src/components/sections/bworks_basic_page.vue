@@ -8,11 +8,16 @@
           <div class="intro-text" v-html="node.body[0].value"></div>
         </div>
       </div>
+      <div class="language-switcher-wrapper">
+        <app-language-switcher></app-language-switcher>
+      </div>
     </div>
   </div>
 </template>
 
 <script type="text/javascript">
+  import LanguageSwitcher from 'components/LanguageSwitcher'
+
   export default {
     name: 'bworks_basic_page',
     props: {
@@ -33,6 +38,9 @@
     },
     created () {
       this.node = this.$store.getters.getNode(this.nid, this.lang)
+    },
+    components: {
+      'app-language-switcher': LanguageSwitcher
     }
   }
 </script>
@@ -44,46 +52,44 @@
     background-position: center;
     background-size: cover;
     border-bottom: 8px solid $brand-primary;
-  }
 
-  .intro-text-container {
-    display: flex;
-    align-items: flex-end;
-    padding-bottom: 68px;
+    .intro-text-container {
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 68px;
 
-    @include media-breakpoint-only(xs) {
-      min-height: 667px;
+      @include media-breakpoint-only(xs) {
+        min-height: 667px;
+      }
+      @include media-breakpoint-only(sm) {
+        min-height: 375px;
+        padding-bottom: 40px;
+      }
+      @include media-breakpoint-only(md) {
+        min-height: 1024px;
+        align-items: center;
+      }
+      @include media-breakpoint-only(lg) {
+        min-height: 768px;
+      }
+      @include media-breakpoint-only(xl) {
+        min-height: 800px;
+      }
+      @include media-breakpoint-up(xxl) {
+        min-height: 903px;
+      }
     }
-    @include media-breakpoint-only(sm) {
-      min-height: 375px;
-      padding-bottom: 40px;
-    }
-    @include media-breakpoint-only(md) {
-      min-height: 1024px;
-      align-items: center;
-    }
-    @include media-breakpoint-only(lg) {
-      min-height: 768px;
-    }
-    @include media-breakpoint-only(xl) {
-      min-height: 800px;
-    }
-    @include media-breakpoint-up(xxl) {
-      min-height: 903px;
-    }
-  }
 
-  .intro-text-wrapper {
-    @include media-breakpoint-only(md) {
-      padding-left: 8.3333333%;
-      padding-right: 8.3333333%;
+    .intro-text-wrapper {
+      @include media-breakpoint-only(md) {
+        padding-left: 8.3333333%;
+        padding-right: 8.3333333%;
+      }
+      @include media-breakpoint-up(lg) {
+        max-width: 55%;
+      }
     }
-    @include media-breakpoint-up(lg) {
-      max-width: 55%;
-    }
-  }
 
-  .node-bworks_basic_page {
     h1, .h1 {
       font-size: 1.428571429rem;
       line-height: 1.35;
@@ -96,10 +102,8 @@
         letter-spacing: .066785714em;
       }
     }
-  }
 
-  .intro-text {
-    p {
+    .intro-text p {
       font-weight: 900;
       font-size: 1.285714286rem;
       line-height: 1.222222222;
@@ -112,11 +116,26 @@
         line-height: 1.4;
         letter-spacing: .18em;
       }
+
+      // Overrule bold style
+      b, strong {
+        font-weight: 900;
+      }
     }
 
-    // Overrule bold style
-    b, strong {
-      font-weight: 900;
+    .language-switcher-wrapper {
+      position: absolute;
+
+      @include media-breakpoint-down(sm) {
+        display: none;
+      }
+      @include media-breakpoint-up(md) {
+        right: 8.3333vw;
+        bottom: 7.285714286rem;
+      }
+      @include media-breakpoint-up(lg) {
+        bottom: 5.92857142rem;
+      }
     }
   }
 </style>
