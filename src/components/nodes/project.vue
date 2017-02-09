@@ -77,12 +77,12 @@
     }
 
     &.teaser {
+      .description-wrapper {
+      }
+
       h2 {
         margin: .3em 0 .15em;
         color: $body-color;
-      }
-
-      .description-wrapper {
       }
 
       .description {
@@ -92,7 +92,7 @@
       }
 
       @include media-breakpoint-up(sm) {
-        &.first {
+        &:first-child {
           .description-wrapper {
             position: absolute;
             bottom: 0;
@@ -100,12 +100,12 @@
             right: 0;
             min-height: 4rem;
             background-color: rgba(255,255,255,.75);
+          }
 
-            h2 {
-              align-self: center;
-              margin: 0;
-              padding-left: 8.3333vw;
-            }
+          h2 {
+            align-self: center;
+            margin: 0;
+            padding-left: 8.3333vw;
           }
         }
       }

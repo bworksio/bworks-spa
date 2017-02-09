@@ -1,11 +1,7 @@
 <template>
   <div :class="'node node-' + node.type[0].target_id">
     <div class="container">
-      <ul>
-        <li v-for="(project, index) in node.field_entity_reference">
-          <project :nid="project.target_id" :lang="lang" :first="index == 0" viewMode="teaser"></project>
-        </li>
-      </ul>
+      <project v-for="(project, index) in node.field_entity_reference" :nid="project.target_id" :lang="lang" :first="index == 0" viewMode="teaser"></project>
     </div>
   </div>
 </template>
