@@ -26,13 +26,21 @@
     },
     // Component lifecycle hooks
     beforeCreate () {
-      Axios.get(this.$options.propsData.url, { baseURL: config.api.baseUrl })
-        .then(result => {
-          this.svg = result.data
-        })
-        .catch(() => {
-          this.svg = require('!!raw!./missing.svg')
-        })
+      const url = this.$options.propsData.url
+      if (!url) {
+        throw new Error('"url" must not be empty')
+      }
+      if (url[0] === '.') {
+        this.svg = require('!!raw!' + url)
+      } else {
+        Axios.get(url, { baseURL: config.api.baseUrl })
+          .then(result => {
+            this.svg = result.data
+          })
+          .catch(() => {
+            this.svg = require('!!raw!./missing.svg')
+          })
+      }
     }
   }
 </script>
