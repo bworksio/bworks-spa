@@ -17,6 +17,8 @@ import bworks_basic_page from './sections/bworks_basic_page'
 import bworks_html_block from './sections/bworks_html_block'
 import bworks_project_block from './sections/bworks_project_block'
 import bworks_speciality_block from './sections/bworks_speciality_block'
+import bworks_article from './sections/bworks_article'
+import bworks_footer from './sections/bworks_footer'
 
 export default {
   name: 'Page',
@@ -67,7 +69,9 @@ export default {
     bworks_basic_page,
     bworks_html_block,
     bworks_project_block,
-    bworks_speciality_block
+    bworks_speciality_block,
+    bworks_article,
+    bworks_footer
   }
 }
 </script>
