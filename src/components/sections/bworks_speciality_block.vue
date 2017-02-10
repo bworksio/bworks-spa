@@ -1,9 +1,8 @@
 <template>
   <div :class="'node node-' + node.type[0].target_id">
     <div class="container">
-      <h2>{{ node.title[0].value }}</h2>
-      <ul>
-        <li v-for="specialty in node.field_entity_reference">
+      <ul class="row">
+        <li v-for="specialty in node.field_entity_reference" class="col-md-6 col-lg-3">
           <speciality :nid="specialty.target_id" :lang="lang" viewMode="teaser"></speciality>
         </li>
       </ul>
@@ -41,5 +40,18 @@
   }
 </script>
 
-<style scoped rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" lang="scss">
+  @import '../../assets/scss/mixins';
+
+  .node-bworks_speciality_block {
+    ul {
+      padding: 0;
+      list-style: none;
+
+      li {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
 </style>
