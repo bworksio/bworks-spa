@@ -6,6 +6,9 @@
   import config from '../../config/app.json'
   import Axios from 'axios'
 
+  /**
+   * Inlines a (remote) SVG file.
+   */
   export default {
     name: 'SVG',
     // Component properties/variables
