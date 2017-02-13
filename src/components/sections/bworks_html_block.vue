@@ -55,6 +55,7 @@
     }
 
     footer {
+      width: 100%;
       margin-top: 2.142857143rem;
 
       @include media-breakpoint-up(sm) {

@@ -1,6 +1,16 @@
 @import 'bootstrap/bootstrap-reboot';
 @import 'bootstrap/bootstrap-grid';
 
+@mixin make-container-fluid($gutters: $grid-gutter-widths) {
+  @each $breakpoint in map-keys($gutters) {
+    @include media-breakpoint-up($breakpoint) {
+      $gutter: map-get($gutters, $breakpoint);
+      padding-right: calc(4.1666667% + #{$gutter / 2});
+      padding-left:  calc(4.1666667% + #{$gutter / 2});
+    }
+  }
+}
+
 h1, h2, h3, h4,
 .h1, .h2, .h3, .h4 {
   margin-bottom: $headings-margin-bottom;
@@ -54,8 +64,44 @@ nav {
   }
 }
 
+.container-fluid {
+  @include media-breakpoint-down(xl) {
+    width: 91.666667%
+  }
+  @include media-breakpoint-only(xxl) {
+    width: 75%
+  }
+
+  $fluid-grid-gutter-widths: (
+    xs: 15px,
+    sm: 15px,
+    md: 25px,
+    lg: 30px,
+    xl: 35px,
+    xxl: 50px
+  );
+  @include make-container-fluid($fluid-grid-gutter-widths)
+}
+
 .animation-wrapper {
   overflow-x: hidden;
+
+  > .animated {
+//    transform: translateX(-100%);
+    transition: transform .4s ease-out;
+
+    &.mirrored {
+//      transform: translateX(100%);
+    }
+
+    @include hover-focus {
+      transform: translateX(0);
+    }
+
+    .hover & {
+      transform: translateX(0);
+    }
+  }
 }
 
 a.animated {
@@ -81,12 +127,6 @@ a.animated {
     &:before {
       transform: translateX(-10%) scaleY(1);
     }
-  }
-}
-
-#page {
-  > .node:first-child {
-    //padding-top: calc(1.946428571rem + 1vw + 75px + 1rem);
   }
 }
 
