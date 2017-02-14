@@ -11,8 +11,8 @@
       </div>
 
       <div class="footer-addresses">
-        <div class="footer-addresses-1" v-html="getField('field_body_social_links')"></div>
-        <div class="footer-addresses-2" v-html="getField('field_body_addresses')"></div>
+        <div class="footer-addresses-1" v-html="getField('field_body_addresses', 'value', 0)"></div>
+        <div class="footer-addresses-2" v-html="getField('field_body_addresses', 'value', 1)"></div>
       </div>
 
       <div class="footer-social-links">
