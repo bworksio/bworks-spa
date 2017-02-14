@@ -1,7 +1,11 @@
 export default {
   'home': {
-    'en': {
+    'de': {
       'path': '/',
+      'title': 'Home'
+    },
+    'en': {
+      'path': '/en',
       'title': 'Home'
     },
     'it': {
@@ -10,8 +14,12 @@ export default {
     }
   },
   'specialities': {
+    'de': {
+      'path': '/services',
+      'title': 'Unsere Services'
+    },
     'en': {
-      'path': '/specialities',
+      'path': '/en/specialities',
       'title': 'Our Specialities'
     },
     'it': {
@@ -19,9 +27,27 @@ export default {
       'title': 'Le nostre specialità'
     }
   },
-  'works': {
+  'approach': {
+    'de': {
+      'path': '/ansatz',
+      'title': 'Unser Ansatz'
+    },
     'en': {
-      'path': '/work',
+      'path': '/en/approach',
+      'title': 'Our Approach'
+    },
+    'it': {
+      'path': '/it/lavori',
+      'title': 'I nostri lavori'
+    }
+  },
+  'works': {
+    'de': {
+      'path': '/arbeiten',
+      'title': 'Unsere Arbeiten'
+    },
+    'en': {
+      'path': '/en/work',
       'title': 'Our Work'
     },
     'it': {
