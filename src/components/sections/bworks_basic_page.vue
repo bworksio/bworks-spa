@@ -1,11 +1,11 @@
 <template>
-  <div :class="'node node-' + node.type[0].target_id"
-    :style="{ 'background-image': 'url(' + node.field_header_image[0].url + ')' }">
+  <div :class="'node node-' + getType()"
+    :style="{ 'background-image': 'url(' + getField('field_header_image', 'url') + ')' }">
     <div class="container">
       <div class="intro-text-container">
         <div class="intro-text-wrapper">
-          <h1>{{ node.title[0].value }}</h1>
-          <div class="intro-text" v-html="node.body[0].value"></div>
+          <h1>{{ getField('title') }}</h1>
+          <div class="intro-text" v-html="getField('body')"></div>
         </div>
       </div>
       <div class="language-switcher-wrapper">
@@ -16,29 +16,12 @@
 </template>
 
 <script type="text/javascript">
+  import Node from '../helpers/Node'
   import AppLanguageSwitcher from 'components/AppLanguageSwitcher'
 
   export default {
     name: 'bworks_basic_page',
-    props: {
-      // Node id of the section
-      nid: {
-        type: String,
-        required: true
-      },
-      lang: {
-        type: String,
-        required: true
-      }
-    },
-    data () {
-      return {
-        node: {}
-      }
-    },
-    created () {
-      this.node = this.$store.getters.getNode(this.nid, this.lang)
-    },
+    extends: Node,
     components: {
       AppLanguageSwitcher
     }

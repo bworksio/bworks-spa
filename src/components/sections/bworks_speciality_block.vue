@@ -1,5 +1,5 @@
 <template>
-  <div :class="'node node-' + node.type[0].target_id">
+  <div :class="'node node-' + getType()">
     <div class="container">
       <ul class="row">
         <li v-for="specialty in node.field_entity_reference" class="col-md-6 col-lg-3">
@@ -11,29 +11,12 @@
 </template>
 
 <script type="text/javascript">
+  import Node from '../helpers/Node'
   import speciality from '../nodes/speciality'
 
   export default {
     name: 'bworks_speciality_block',
-    props: {
-      // Node id of the section
-      nid: {
-        type: String,
-        required: true
-      },
-      lang: {
-        type: String,
-        required: true
-      }
-    },
-    data () {
-      return {
-        node: {}
-      }
-    },
-    created () {
-      this.node = this.$store.getters.getNode(this.nid, this.lang)
-    },
+    extends: Node,
     components: {
       speciality
     }

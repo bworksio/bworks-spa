@@ -1,5 +1,5 @@
 <template>
-  <div :class="'node node-' + node.type[0].target_id">
+  <div :class="'node node-' + getType()">
     <div class="footer-contact container">
       <app-contact></app-contact>
     </div>
@@ -11,8 +11,8 @@
       </div>
 
       <div class="footer-addresses">
-        <div class="footer-addresses-1" v-html="node.field_body_social_links[0].value"></div>
-        <div class="footer-addresses-2" v-html="node.field_body_addresses[0].value"></div>
+        <div class="footer-addresses-1" v-html="getField('field_body_social_links')"></div>
+        <div class="footer-addresses-2" v-html="getField('field_body_addresses')"></div>
       </div>
 
       <div class="footer-social-links">
@@ -26,21 +26,12 @@
 </template>
 
 <script type="text/javascript">
+  import Node from '../helpers/Node'
   import AppContact from '../AppContact'
 
   export default {
     name: 'bworks_footer',
-    props: {
-      // Node id of the section
-      nid: {
-        type: String,
-        required: true
-      },
-      lang: {
-        type: String,
-        required: true
-      }
-    },
+    extends: Node,
     data () {
       return {
         node: {},
@@ -52,9 +43,6 @@
           linkedin: require('!!raw!../../assets/icon-linkedin.svg')
         }
       }
-    },
-    created () {
-      this.node = this.$store.getters.getNode(this.nid, this.lang)
     },
     components: {
       AppContact

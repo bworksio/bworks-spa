@@ -113,7 +113,18 @@ const store = new Vuex.Store({
       if (nodes.hasOwnProperty(id)) {
         return nodes[id]
       }
-      return lang !== config.defaultLanguage ? getters.getNode(id, config.defaultLanguage) : false
+
+      if (lang !== config.defaultLanguage) {
+        return getters.getNode(id, config.defaultLanguage)
+      }
+
+      // Error
+      return {
+        nid: id,
+        type: [
+          { target_id: 'missing_block' }
+        ]
+      }
     }
   }
 })
