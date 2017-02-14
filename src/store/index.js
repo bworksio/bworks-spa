@@ -64,6 +64,7 @@ const store = new Vuex.Store({
     error: null,
     queues: {},
     nodes: {},
+    showMenu: false,
     currentLanguage: 'en'
   },
   mutations: {
@@ -78,6 +79,9 @@ const store = new Vuex.Store({
     },
     setError (state, error) {
       state.error = error
+    },
+    toggleMenu (state) {
+      state.showMenu = !state.showMenu
     },
     setLanguage (state, lang) {
       state.currentLanguage = lang

@@ -5,9 +5,10 @@
         <div class="header-wrapper">
           <a class="logo" href="/" v-html="assets.bWorksLogo"></a>
           <app-menu-toggle></app-menu-toggle>
-          <a class="animated" href="#">Hire us</a>
+          <a class="hire-us animated" href="#">Hire us</a>
         </div>
       </div>
+      <app-menu v-if="$store.state.showMenu"></app-menu>
     </header>
 
     <router-view></router-view>
@@ -24,7 +25,8 @@
 </template>
 
 <script type="text/javascript">
-  import MenuToggle from 'components/MenuToggle'
+  import AppMenuToggle from 'components/AppMenuToggle'
+  import AppMenu from './components/AppMenu'
 
   export default {
     name: 'App',
@@ -63,7 +65,8 @@
       }
     },
     components: {
-      'app-menu-toggle': MenuToggle
+      AppMenuToggle,
+      AppMenu
     }
   }
 </script>
@@ -83,6 +86,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+
+    .logo,
+    .menu-toggle,
+    .hire-us {
+      z-index: 991;
     }
 
     // Invert link colors

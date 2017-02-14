@@ -16,7 +16,7 @@
 </template>
 
 <script type="text/javascript">
-  import LanguageSwitcher from 'components/LanguageSwitcher'
+  import AppLanguageSwitcher from 'components/AppLanguageSwitcher'
 
   export default {
     name: 'bworks_basic_page',
@@ -40,7 +40,7 @@
       this.node = this.$store.getters.getNode(this.nid, this.lang)
     },
     components: {
-      'app-language-switcher': LanguageSwitcher
+      AppLanguageSwitcher
     }
   }
 </script>

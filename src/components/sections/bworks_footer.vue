@@ -1,22 +1,7 @@
 <template>
   <div :class="'node node-' + node.type[0].target_id">
     <div class="footer-contact container">
-      <div class="row">
-        <div class="email col" :class="iconHovering">
-          <div class="animation-wrapper">
-            <div class="animated mirrored">
-              <a href="contact@b-works.io">contact@b-works.io</a></div>
-          </div>
-          <div v-html="assets.email"></div>
-        </div>
-        <h2 class="col" @mouseenter="iconHovering = 'hover'">Get in touch</h2>
-        <div class="phone col" :class="iconHovering">
-          <div v-html="assets.phone"></div>
-          <div class="animation-wrapper">
-            <div class="animated"><a href="tel:+41792240112">+41 79 224 0112</a></div>
-          </div>
-        </div>
-      </div>
+      <app-contact></app-contact>
     </div>
 
     <div class="footer-address container-fluid">
@@ -41,6 +26,8 @@
 </template>
 
 <script type="text/javascript">
+  import AppContact from '../AppContact'
+
   export default {
     name: 'bworks_footer',
     props: {
@@ -59,18 +46,18 @@
         node: {},
         assets: {
           switzerland: require('!!raw!../../assets/icon-switzerland.svg'),
-          email: require('!!raw!../../assets/icon-email.svg'),
-          phone: require('!!raw!../../assets/icon-phone.svg'),
           facebook: require('!!raw!../../assets/icon-facebook.svg'),
           twitter: require('!!raw!../../assets/icon-twitter.svg'),
           instagram: require('!!raw!../../assets/icon-instagram.svg'),
           linkedin: require('!!raw!../../assets/icon-linkedin.svg')
-        },
-        iconHovering: ''
+        }
       }
     },
     created () {
       this.node = this.$store.getters.getNode(this.nid, this.lang)
+    },
+    components: {
+      AppContact
     }
   }
 </script>
@@ -85,41 +72,6 @@
 
   .footer-contact {
     padding-bottom: 4rem;
-
-    .email,
-    .phone {
-      display: flex;
-      align-items: center;
-    }
-
-    .email {
-      justify-content: flex-end;
-
-      .animated {
-        padding-right: 1rem;
-      }
-    }
-
-    .phone {
-      justify-content: flex-start;
-
-      .animated {
-        padding-left: 1rem;
-      }
-    }
-
-    h2 {
-      color: $brand-primary;
-      text-align: center;
-      text-transform: none;
-      margin: 0;
-
-      @include media-breakpoint-only(xs) {
-        font-size: 1rem;
-        line-height: 1.357142857;
-        letter-spacing: .066428571em;
-      }
-    }
   }
 
   .footer-address {

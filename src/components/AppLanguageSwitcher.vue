@@ -44,7 +44,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../assets/scss/main';
+  @import '../assets/scss/mixins';
 
   .language-switcher {
     ul {
