@@ -1,8 +1,8 @@
 <template lang="html">
-  <div class="contact row">
-    <h2 class="col" @mouseenter="show = true">Get in touch</h2>
+  <div class="contact" :class="hoverClass">
+    <h2 @mouseenter="showAll()">Get in touch</h2>
 
-    <div class="email col" :class="hoverClass">
+    <div class="email">
       <div class="icon" v-html="assets.email"></div>
       <div class="animation-wrapper">
         <div class="animated mirrored">
@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <div class="phone col" :class="hoverClass">
+    <div class="phone">
       <div class="icon" v-html="assets.phone"></div>
       <div class="animation-wrapper">
         <div class="animated"><a href="tel:+41792240112">+41 79 224 0112</a>
@@ -37,6 +37,11 @@
       hoverClass () {
         return this.show ? 'hover' : ''
       }
+    },
+    methods: {
+      showAll (state = true) {
+        this.show = state
+      }
     }
   }
 </script>
@@ -45,21 +50,42 @@
   @import '../assets/scss/mixins';
 
   .contact {
-    align-items: center;
-
     h2 {
-      order: 2;
       color: $brand-primary;
-      text-align: center;
       text-transform: none;
+      text-align: center;
       margin: 0;
     }
 
-    @include media-breakpoint-down(sm) {
+    .email,
+    .phone {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .animated {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+
+    @include media-breakpoint-down(md) {
       h2 {
         font-size: 1rem;
         line-height: 1.357142857;
         letter-spacing: .066428571em;
+        margin-bottom: .75rem;
+      }
+
+      .email {
+        margin-bottom: .5rem;
+      }
+
+      .icon,
+      .animation-wrapper,
+      .animated {
+        display: inline;
+        transform: translateX(0) !important;
       }
 
       svg {
@@ -68,35 +94,40 @@
       }
     }
 
-    .email,
-    .phone {
+    @include media-breakpoint-up(lg) {
       display: flex;
       align-items: center;
-    }
+      text-align: center;
 
-    .email {
-      order: 1;
-      justify-content: flex-end;
+      h2,
+      .email,
+      .phone {
+        width: 33.33333%;
+      }
 
-      .icon {
+      h2 {
         order: 2;
+        text-align: center;
+        text-transform: none;
+        margin: 0;
       }
 
-      .animation-wrapper {
+      .email {
         order: 1;
+        justify-content: flex-end;
+
+        .icon {
+          order: 2;
+        }
+
+        .animation-wrapper {
+          order: 1;
+        }
       }
 
-      .animated {
-        padding-right: 1rem;
-      }
-    }
-
-    .phone {
-      order: 3;
-      justify-content: flex-start;
-
-      .animated {
-        padding-left: 1rem;
+      .phone {
+        order: 3;
+        justify-content: flex-start;
       }
     }
   }

@@ -16,16 +16,17 @@
       </div>
 
       <div class="footer-social-links">
-        <a class="facebook" href="#"><span class="icon" v-html="assets.facebook"></span><span class="text">Facebook</span></a>
-        <a class="twitter" href="#"><span class="icon" v-html="assets.twitter"></span><span class="text">Twitter</span></a>
-        <a class="instagram" href="#"><span class="icon" v-html="assets.instagram"></span><span class="text">Instagram</span></a>
-        <a class="linkedin" href="#"><span class="icon" v-html="assets.linkedin"></span><span class="text">Linkedin</span></a>
+        <a class="facebook" :href="social.facebook"><span class="icon" v-html="assets.facebook"></span><span class="text">Facebook</span></a>
+        <a class="twitter" :href="social.twitter"><span class="icon" v-html="assets.twitter"></span><span class="text">Twitter</span></a>
+        <a class="instagram" :href="social.instagram"><span class="icon" v-html="assets.instagram"></span><span class="text">Instagram</span></a>
+        <a class="linkedin" :href="social.linkedin"><span class="icon" v-html="assets.linkedin"></span><span class="text">Linkedin</span></a>
       </div>
     </div>
   </div>
 </template>
 
 <script type="text/javascript">
+  import config from '../../config/app.json'
   import Node from '../helpers/Node'
   import AppContact from '../AppContact'
 
@@ -41,7 +42,8 @@
           twitter: require('!!raw!../../assets/icon-twitter.svg'),
           instagram: require('!!raw!../../assets/icon-instagram.svg'),
           linkedin: require('!!raw!../../assets/icon-linkedin.svg')
-        }
+        },
+        social: config.social
       }
     },
     components: {

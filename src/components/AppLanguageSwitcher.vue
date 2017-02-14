@@ -48,9 +48,8 @@
 
   .language-switcher {
     ul {
-      li {
-        display: inline;
-      }
+      display: flex;
+      justify-content: space-around;
     }
 
     // Invert link colors

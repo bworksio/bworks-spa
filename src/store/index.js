@@ -16,7 +16,7 @@ const axios = Axios.create({
  */
 function getQueues () {
   if (!Object.keys(store.state.queues).length) {
-    return axios.get('spa_api/entityqueues')
+    return axios.get('spa_api/contents_map')
       .then(result => {
         store.commit('setQueues', result.data)
       })

@@ -3,5 +3,11 @@
   "activeLanguages": ["de", "en", "it"],
   "api": {
     "baseUrl": "http://www.italomairo.com/bworks-d8/web/"
+  },
+  "social": {
+    "facebook": "https://facebook.com",
+    "twitter": "https://twitter.com",
+    "instagram": "https://instagram.com",
+    "linkedin": "https://linkedin.com"
   }
 }

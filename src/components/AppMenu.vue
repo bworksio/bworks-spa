@@ -1,18 +1,24 @@
 <template>
   <div id="main-menu">
     <div class="container">
-      <div class="row">
-        <nav class="menu-menu col-sm-12">
+      <div class="menu-wrapper">
+        <nav class="menu-main">
           <ul>
             <li v-for="item in menuItems">
               <router-link :to="item.path">{{ item.title }}</router-link>
             </li>
           </ul>
         </nav>
-        <div class="menu-contact col-sm-12">
+        <div class="menu-contact">
           <app-contact></app-contact>
         </div>
-        <div class="menu-language-switcher col-sm-12">
+        <div class="menu-social-links">
+          <a class="facebook" :href="social.facebook">Facebook</a>
+          <a class="twitter" :href="social.twitter">Twitter</a>
+          <a class="instagram" :href="social.instagram">Instagram</a>
+          <a class="linkedin" :href="social.linkedin">Linkedin</a>
+        </div>
+        <div class="menu-language-switcher">
           <app-language-switcher></app-language-switcher>
         </div>
       </div>
@@ -22,6 +28,7 @@
 
 <script type="text/javascript">
   import utils from '../utils'
+  import config from '../config/app.json'
   import routerConfig from '../config/routes'
   import AppContact from './AppContact'
   import AppLanguageSwitcher from './AppLanguageSwitcher'
@@ -30,7 +37,8 @@
     name: 'Menu',
     data () {
       return {
-        menuItems: []
+        menuItems: [],
+        social: config.social
       }
     },
     created () {
@@ -70,19 +78,112 @@
     width: 100%;
     height: 100%;
     background-color: transparentize($brand-primary, .1);
-    padding-top: calc(119px + 11.5vh);
+    padding-top: 10rem;
+    padding-bottom: 10vh;
     z-index: 989;
+  }
 
-    // Override AppContact component colors
-    .contact {
-      h2 {
-        color: $white;
+  .menu-wrapper {
+    display: flex;
+
+    @include media-breakpoint-down(md) {
+      flex-direction: column;
+      align-items: center;
+      align-content: space-between;
+      height: calc(100vh - 10vh - 10rem);
+
+      .menu-main,
+      .menu-contact,
+      .menu-language-switcher {
+        width: 83.33333%;
       }
-      svg {
-        #Shape {
-          fill: $white;
-        }
+
+      .menu-main {
+        flex-basis: 50%;
       }
+      .menu-contact {
+        flex-basis: 30%;
+      }
+      .menu-social-links {
+        display: none;
+      }
+      .menu-language-switcher {
+        flex-basis: 20%;
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      flex-wrap: wrap;
+
+      .menu-main,
+      .menu-contact {
+        width: 50%;
+        align-self: center;
+      }
+      .menu-social-links {
+        width: 75%;
+        margin-top: 4rem;
+      }
+      .menu-language-switcher {
+        width: 25%;
+        margin-top: 4rem;
+      }
+    }
+  }
+
+  .menu-main {
+    font-size: 1rem;
+    line-height: 2.142857143;
+    letter-spacing: .066428571em;
+
+    li + li {
+      margin-top: .5rem;
+      padding-top: .714285714rem;
+      border-top: 1px solid $white;
+    }
+
+    @include media-breakpoint-up(md) {
+      font-size: 2.142857143rem;
+      line-height: 1.5;
+      letter-spacing: .066666667em;
+    }
+  }
+
+  // Override AppContact component colors
+  .menu-contact {
+    .contact h2 {
+      color: $white;
+    }
+    svg {
+      #Shape {
+        fill: $white;
+      }
+    }
+  }
+
+  .menu-social-links {
+    a {
+      font-weight: normal;
+      text-decoration: underline;
+
+      & + a {
+        margin-left: 8.33333%;
+      }
+    }
+  }
+
+  .menu-language-switcher {
+    ul {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    .menu-main,
+    .menu-contact,
+    .menu-language-switcher {
+      width: 100%;
     }
   }
 </style>

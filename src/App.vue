@@ -8,7 +8,9 @@
           <a class="hire-us animated" href="#">Hire us</a>
         </div>
       </div>
-      <app-menu v-if="$store.state.showMenu"></app-menu>
+      <transition name="fade">
+        <app-menu v-if="$store.state.showMenu"></app-menu>
+      </transition>
     </header>
 
     <router-view></router-view>
@@ -79,7 +81,8 @@
     top: 0;
     width: 100%;
     min-height: 75px;
-    margin: calc(1.946428571rem + 1vw) 0 1rem;
+    padding: calc(1.946428571rem + 1vw) 0 1rem;
+    background-image: linear-gradient(to bottom, rgba(74,74,74,.1), rgba(74,74,74,0));
     z-index: 990;
 
     .header-wrapper {
@@ -99,12 +102,18 @@
       color: $white;
 
       &.animated {
-        &:before {
+        &:after {
           background-color: $white;
         }
 
         @include hover-focus {
           color: $body-color;
+        }
+
+        @include media-breakpoint-down(sm) {
+          &:after {
+            display: none;
+          }
         }
       }
     }
