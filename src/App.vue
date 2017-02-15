@@ -13,7 +13,7 @@
       </transition>
     </header>
 
-    <router-view></router-view>
+      <router-view></router-view>
 
     <transition name="fade">
       <div v-if="isLoading" id="preloading">
@@ -126,6 +126,7 @@
     width: 100%;
     height: 100%;
     background: #fff;
+    z-index: 999;
 
     .logo {
       height: 100%;
