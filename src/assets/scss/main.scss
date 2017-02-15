@@ -146,31 +146,3 @@ a.animated {
 .node {
   padding-top: 4rem;
 }
-
-// @extend requires bootstrap classes.
-.node-bworks_html_block {
-  .html-container {
-    @extend .row;
-  }
-
-  .html-wrapper {
-    @extend .col-sm-6;
-    @extend .col-md-5;
-    @extend .col-lg-4;
-    @extend .col-xl-3;
-  }
-
-  .promo-container {
-    @extend .hidden-xs-down;
-
-    @extend .col-sm-3;
-    @extend .offset-sm-3;
-
-    @extend .col-md-6;
-    @extend .offset-md-1;
-
-    @extend .offset-lg-2;
-
-    @extend .offset-xl-3;
-  }
-}

@@ -1,8 +1,6 @@
 <template>
   <div :class="'node node-' + getType()">
-    <div class="container">
-      <div v-html="getField('body')"></div>
-    </div>
+    <div class="container" v-html="getField('body')"></div>
   </div>
 </template>
 
@@ -20,39 +18,106 @@
 
   .node-bworks_html_block {
     padding-top: 4rem;
+  }
 
-    .promo-wrapper {
-      @include media-breakpoint-up(sm) {
-        &:nth-child(2) {
-          margin-top: 4rem;
+  // Ckeditor templates
+  .html-container {
+    &.intro {
+      display: flex;
+      flex-wrap: wrap;
+
+      .html-wrapper {
+        @include media-breakpoint-up(md) {
+          flex: 1 50%;
+        }
+        @include media-breakpoint-up(lg) {
+          flex: 1 60%;
+        }
+        @include media-breakpoint-up(xl) {
+          flex: 1 40%;
         }
       }
-      @include media-breakpoint-up(lg) {
-        float: left;
-        width: 40%;
 
-        &:nth-child(2) {
-          margin-top: 0;
-          padding-left: 20%;
+      .promo-container {
+        @include media-breakpoint-down(sm) {
+          display: none;
+        }
+        @include media-breakpoint-up(md) {
+          flex: 1 20%;
+          margin-left: 30%;
+        }
+        @include media-breakpoint-up(lg) {
+          margin-left: 20%;
+        }
+        @include media-breakpoint-up(xl) {
+          flex: 1 50%;
+          margin-left: 10%;
+
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+
+      .promo-wrapper {
+        @include media-breakpoint-down(lg) {
+          &:nth-child(2) {
+            margin-top: 4rem;
+          }
+        }
+
+        @include media-breakpoint-up(xl) {
+          &:nth-child(2) {
+            padding-left: 20%;
+          }
+        }
+      }
+
+      footer {
+        width: 100%;
+        margin-top: 2.142857143rem;
+        @include media-breakpoint-up(sm) {
+          margin-top: 4rem;
+        }
+
+        .body {
+          text-align: center;
         }
       }
     }
 
-    footer {
-      width: 100%;
-      margin-top: 2.142857143rem;
+    &.simple {
+      .html-wrapper {
+        display: flex;
+        flex-wrap: wrap;
 
-      @include media-breakpoint-up(sm) {
-        margin-top: 4rem;
+        @include media-breakpoint-up(md) {
+          padding-left: 8.33333%;
+          padding-right: 8.33333%;
+        }
+      }
+
+      .headline-wrapper {
+        flex: 1 75%;
+      }
+
+      .promo-container {
+        @include media-breakpoint-down(sm) {
+          display: none;
+        }
+        flex: 1 25%;
+        text-align: right;
+
+        .line {
+          float: right;
+        }
       }
 
       .body {
-        text-align: center;
+        width: 100%;
       }
     }
 
     .line {
-      display: block;
       width: 8.333333333vw;
       height: 1px;
       background-color: $body-color;
