@@ -13,7 +13,9 @@
       </transition>
     </header>
 
+    <transition name="fade">
       <router-view></router-view>
+    </transition>
 
     <transition name="fade">
       <div v-if="isLoading" id="preloading">
@@ -41,9 +43,11 @@
       }
     },
     computed: {
+      /** @var {Boolean} True while preloading data. */
       isLoading () {
         return !this.$store.state.initialized
       },
+      /** @var {String} Returns the last error. */
       error () {
         return this.$store.state.error ? this.$store.state.error.toString() : ''
       }
