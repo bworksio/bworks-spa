@@ -3,7 +3,7 @@
     <div class="container">
       <ul class="row">
         <li v-for="specialty in node.field_entity_reference" class="col-md-6 col-lg-3">
-          <speciality :nid="specialty.target_id" :lang="lang" viewMode="teaser"></speciality>
+          <speciality :nid="specialty.target_id" :lang="lang" :viewMode="viewMode"></speciality>
         </li>
       </ul>
     </div>
@@ -17,6 +17,9 @@
   export default {
     name: 'bworks_speciality_block',
     extends: Node,
+    props: {
+      viewMode: String
+    },
     components: {
       speciality
     }

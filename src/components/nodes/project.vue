@@ -1,44 +1,38 @@
 <template>
-  <div :class="'node-' + node.type[0].target_id + ' ' + viewMode + (first ? ' first' : '')">
+  <div :class="'node-' + getType() + ' ' + viewMode + (first ? ' first' : '')">
     <template v-if="viewMode === 'teaser'">
       <a class="unstyled" href="#">
-        <img :src="node.field_image[0].url">
+        <img :src="getField('field_image', 'url')">
 
         <template v-if="!!first">
           <div class="description-wrapper row">
-            <h2 class="col-sm-6">{{ node.title[0].value }}</h2>
-            <div v-if="first" class="description col-sm-6">{{ node.body[0].summary }}</div>
+            <h2 class="col-sm-6">{{ getField('title') }}</h2>
+            <div v-if="first" class="description col-sm-6">{{ getField('body', 'summary') }}</div>
           </div>
         </template>
 
         <template v-if="!first">
-          <h2>{{ node.title[0].value }}</h2>
+          <h2>{{ getField('title') }}</h2>
         </template>
 
       </a>
     </template>
 
     <template v-if="viewMode === 'full'">
-      <img :src="node.field_image[0].url">
-      <h2>{{ node.title[0].value }}</h2>
-      <div v-html="node.body[0].value"></div>
+      <img :src="getField('field_image', 'url')">
+      <h2>{{ getField('title') }}</h2>
+      <div v-html="getField('body', 'value')"></div>
     </template>
   </div>
 </template>
 
 <script type="text/javascript">
+  import Node from '../helpers/Node'
   export default {
     name: 'project',
+    extends: Node,
     props: {
-      // Node id of the project
-      nid: {
-        type: String,
-        required: true
-      },
-      lang: {
-        type: String,
-        required: true
-      },
+      // Whether this is the first project in a list.
       first: {
         type: Boolean,
         default: false
@@ -48,14 +42,6 @@
         type: String,
         default: 'full'
       }
-    },
-    data () {
-      return {
-        node: {}
-      }
-    },
-    created () {
-      this.node = this.$store.getters.getNode(this.nid, this.lang)
     }
   }
 </script>

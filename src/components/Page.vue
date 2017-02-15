@@ -5,7 +5,8 @@
         v-for="node in nodes"
         :is="node.type"
         :nid="node.nid"
-        :lang="lang"></component>
+        :lang="lang"
+        :viewMode="viewMode"></component>
     </div>
   </transition>
 </template>
@@ -39,6 +40,12 @@ export default {
     return {
       // The list of section nodes to be displayed.
       nodes: []
+    }
+  },
+  computed: {
+    /** @var {String} The view mode for contents to display, 'teaser' on home page, 'full' otherwise */
+    viewMode () {
+      return this.$route.meta.name === 'home' ? 'teaser' : 'full'
     }
   },
   created () {

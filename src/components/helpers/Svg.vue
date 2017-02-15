@@ -1,5 +1,5 @@
 <template lang="html">
-  <div v-html="svg"></div>
+  <div class="icon" v-html="svg"></div>
 </template>
 
 <script type="text/javascript">
