@@ -2,7 +2,7 @@
   "defaultLanguage": "de",
   "activeLanguages": ["de", "en", "it"],
   "api": {
-    "baseUrl": "http://www.italomairo.com/bworks-d8/web/"
+    "baseUrl": "http://bworks.cosmobut.myhostpoint.ch/"
   },
   "social": {
     "facebook": "https://facebook.com",
