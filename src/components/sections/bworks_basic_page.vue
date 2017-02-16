@@ -1,6 +1,6 @@
 <template>
   <div :class="'node node-' + getType()"
-    :style="{ 'background-image': 'url(' + getField('field_header_image', 'url') + ')' }">
+    :style="nodeStyles">
     <div class="container">
       <div class="intro-text-container">
         <div class="intro-text-wrapper">
@@ -22,6 +22,13 @@
   export default {
     name: 'bworks_basic_page',
     extends: Node,
+    computed: {
+      nodeStyles () {
+        return {
+          'background-image': 'linear-gradient(to bottom, rgba(0,0,0,.5), rgba(0,0,0,.5)), url(' + this.getField('field_header_image', 'url') + ')'
+        }
+      }
+    },
     components: {
       AppLanguageSwitcher
     }
@@ -77,7 +84,12 @@
       font-size: 1.428571429rem;
       line-height: 1.35;
       letter-spacing: .0665em;
-      text-shadow: 0 0 2rem rgba(0, 0, 0, .4);
+
+      #page:not(.page-home) & {
+        color: $white;
+        border-bottom: 4px solid $white;
+        max-width: 80%;
+      }
 
       @include media-breakpoint-up(md) {
         font-size: 2rem;
@@ -87,12 +99,16 @@
     }
 
     .intro-text p {
-      font-weight: 900;
       font-size: 1.285714286rem;
-      line-height: 1.222222222;
-      letter-spacing: .18em;
+      line-height: 1.611111111;
+      letter-spacing: .102777778em;
       color: $white;
-      text-shadow: 0 0 2rem rgba(0,0,0,.4);
+
+      #page.page-home & {
+        font-weight: 900;
+        line-height: 1.222222222;
+        letter-spacing: .18em;
+      }
 
       @include media-breakpoint-up(md) {
         font-size: 1.428571429rem;
