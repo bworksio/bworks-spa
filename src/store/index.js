@@ -7,7 +7,10 @@ Vue.use(Vuex)
 
 // Create and configure instance.
 const axios = Axios.create({
-  baseURL: config.api.baseUrl
+  baseURL: config.api.baseUrl,
+  params: {
+    t: (new Date()).getTime()
+  }
 })
 
 /**
