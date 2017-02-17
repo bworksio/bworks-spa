@@ -4,7 +4,7 @@
     <div class="container">
       <div class="intro-text-container">
         <div class="intro-text-wrapper">
-          <h1>{{ getField('title') }}</h1>
+          <h1><span>{{ getField('title') }}</span></h1>
           <div class="intro-text" v-html="getField('body')"></div>
         </div>
       </div>
@@ -39,13 +39,22 @@
   @import '../../assets/scss/mixins';
 
   .node-bworks_basic_page {
+    padding-top: 125px;
     background-position: center;
     background-size: cover;
     border-bottom: 8px solid $brand-primary;
 
     .intro-text-container {
       display: flex;
-      align-items: flex-end;
+      #page.page-home & {
+        align-items: flex-end;
+        @include media-breakpoint-only(md) {
+          align-items: center;
+        }
+      }
+      #page:not(.page-home) & {
+        align-items: center;
+      }
       padding-bottom: 68px;
 
       @include media-breakpoint-only(xs) {
@@ -75,8 +84,16 @@
         padding-left: 8.3333333%;
         padding-right: 8.3333333%;
       }
+
       @include media-breakpoint-up(lg) {
-        max-width: 55%;
+        #page.page-home & {
+          max-width: 55%;
+        }
+
+        #page:not(.page-home) & {
+          display: flex;
+          align-items: center;
+        }
       }
     }
 
@@ -85,10 +102,22 @@
       line-height: 1.35;
       letter-spacing: .0665em;
 
+      #page.page-home & {
+        text-shadow: 0 0 1px rgba(0,0,0,.3);
+      }
+
       #page:not(.page-home) & {
         color: $white;
-        border-bottom: 4px solid $white;
-        max-width: 80%;
+
+        span {
+          display: block;
+          max-width: 80%;
+          border-bottom: 4px solid $white;
+
+          @include media-breakpoint-down(sm) {
+            border-bottom-width: 2px;
+          }
+        }
       }
 
       @include media-breakpoint-up(md) {
@@ -96,29 +125,62 @@
         line-height: 1.357142857;
         letter-spacing: .066785714em;
       }
+
+      @include media-breakpoint-up(lg) {
+        #page:not(.page-home) & {
+          flex: 1 50%;
+        }
+      }
     }
 
-    .intro-text p {
-      font-size: 1.285714286rem;
-      line-height: 1.611111111;
-      letter-spacing: .102777778em;
-      color: $white;
+    .intro-text {
+      p {
+        margin-top: 2rem;
+        font-size: 1rem;
+        line-height: 1.285714286;
+        letter-spacing: .115714286em;
+        color: $white;
 
-      #page.page-home & {
-        font-weight: 900;
-        line-height: 1.222222222;
-        letter-spacing: .18em;
+        @include media-breakpoint-only(md) {
+          margin-top: 4rem;
+        }
+
+        #page.page-home & {
+          font-weight: 900;
+          line-height: 1.333333333;
+          letter-spacing: .18em;
+          margin-top: 0;
+
+          @include media-breakpoint-up(md) {
+            font-size: 1.428571429rem;
+            line-height: 1.4;
+            letter-spacing: .18em;
+          }
+          @include media-breakpoint-up(lg) {
+            font-size: 1.928571429rem;
+            line-height: 1.407407407;
+            letter-spacing: .133333333em;
+          }
+        }
+
+        #page:not(.page-home) & {
+          @include media-breakpoint-up(md) {
+            font-size: 1.285714286rem;
+            line-height: 1.611111111;
+            letter-spacing: .102777778em;
+          }
+        }
+
+          // Overrule bold style
+        b, strong {
+          font-weight: 900;
+        }
       }
 
-      @include media-breakpoint-up(md) {
-        font-size: 1.428571429rem;
-        line-height: 1.4;
-        letter-spacing: .18em;
-      }
-
-      // Overrule bold style
-      b, strong {
-        font-weight: 900;
+      @include media-breakpoint-up(lg) {
+        #page:not(.page-home) & {
+          flex: 1 50%;
+        }
       }
     }
 
