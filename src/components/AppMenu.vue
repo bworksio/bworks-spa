@@ -29,7 +29,7 @@
 <script type="text/javascript">
   import utils from '../utils'
   import config from '../config/app.json'
-  import routerConfig from '../config/routes'
+  import routesConfig from '../config/routes'
   import AppContact from './AppContact'
   import AppLanguageSwitcher from './AppLanguageSwitcher'
 
@@ -53,7 +53,7 @@
       fetchMenuItems () {
         let menuItems = []
         const lang = this.$store.state.currentLanguage
-        utils.forEach(routerConfig, (languages, name) => {
+        utils.forEach(routesConfig, (languages, name) => {
           menuItems.push(languages[lang])
         })
         this.menuItems = menuItems

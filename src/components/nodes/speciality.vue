@@ -1,16 +1,18 @@
 <template>
-  <div :class="'node-' + getType() + ' ' + viewMode">
+  <div :id="cleanId" :class="'node-' + getType() + ' ' + viewMode">
     <template v-if="viewMode === 'teaser'">
-      <a class="unstyled" href="#">
+      <router-link class="unstyled" :to="teaserUrl">
         <inline-svg :url="getField('field_logo', 'url')"></inline-svg>
         <h3>{{ getField('title') }}</h3>
-      </a>
+      </router-link>
     </template>
 
     <template v-if="viewMode === 'full'">
       <inline-svg :url="getField('field_logo', 'url')"></inline-svg>
-      <h2>{{ getField('title') }}</h2>
-      <div v-html="getField('body', 'value', 0, '')"></div>
+      <div class="text">
+        <h3>{{ getField('title') }}</h3>
+        <div v-html="getField('body', 'value', 0, '')"></div>
+      </div>
     </template>
   </div>
 </template>
@@ -18,6 +20,7 @@
 <script type="text/javascript">
   import Node from '../helpers/Node'
   import svg from 'components/helpers/Svg'
+  import { cleanId } from '../../utils'
 
   export default {
     name: 'speciality',
@@ -29,6 +32,24 @@
         default: 'full'
       }
     },
+    data () {
+      return {
+        cleanId: ''
+      }
+    },
+    computed: {
+      /**
+       * Build url to specialties page.
+       * @returns {string}
+       */
+      teaserUrl () {
+        const route = this.$router.options.getRouteByProps('specialities', this.lang)
+        return route.path + '#' + this.cleanId
+      }
+    },
+    created () {
+      this.cleanId = cleanId(this.getField('title'))
+    },
     components: {
       'inline-svg': svg
     }
@@ -39,22 +60,22 @@
   @import '../../assets/scss/mixins';
 
   .node-bworks_speciality {
+    svg {
+      [id^="Oval"] {
+        stroke: #eaeaea;
+        stroke-width: 1px;
+        fill: transparent;
+        transition: fill .4s ease;
+      }
+
+      #Shape {
+        fill: $brand-primary;
+        transition: fill .4s ease;
+      }
+    }
+
     a {
       display: block;
-
-      svg {
-        [id^="Oval"] {
-          stroke: #eaeaea;
-          stroke-width: 1px;
-          fill: transparent;
-          transition: fill .4s ease;
-        }
-
-        #Shape {
-          fill: $brand-primary;
-          transition: fill .4s ease;
-        }
-      }
 
       @include hover-focus {
         svg {
@@ -79,27 +100,55 @@
     }
 
     @include media-breakpoint-down(md) {
-      a {
-        display: flex;
-        align-items: center;
-      }
+      &.teaser {
+        a {
+          display: flex;
+          align-items: center;
+        }
 
-      svg {
-        width: 15vw;
-        height: auto;
-      }
+        svg {
+          width: 15vw;
+          height: auto;
+        }
 
-      h3 {
-        margin-left: calc(33.68px - 1vw);
+        h3 {
+          margin-left: calc(33.68px - 1vw);
+        }
       }
     }
 
     @include media-breakpoint-up(lg) {
-      text-align: center;
+      &.teaser {
+        text-align: center;
+
+        svg {
+          width: 15vw;
+          height: auto;
+        }
+      }
+    }
+
+    &.full {
+      display: flex;
+
+      .icon {
+        flex: 1 30%;
+        width: 8.33333%;
+        padding-right: 8.33333%;
+      }
 
       svg {
-        width: 15vw;
+        width: 100%;
         height: auto;
+      }
+
+      .text {
+        flex: 1 70%;
+        padding-right: 4.166665%;
+      }
+
+      h3 {
+        margin-bottom: 1.5rem;
       }
     }
   }

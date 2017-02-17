@@ -277,6 +277,18 @@ function extend(a, b, thisArg) {
   return a;
 }
 
+/**
+ * Cleans an identifier for use in the DOM.
+ *
+ * @param {String} id
+ * @returns {String} The cleaned id
+ */
+function cleanId(id) {
+  return id.toLocaleLowerCase()
+    .replace(/[^a-z0-9\-_:. /]|^[^a-z]+/g, '')
+    .replace(/[ /]/g, '-')
+}
+
 module.exports = {
   isArray: isArray,
   isArrayBuffer: isArrayBuffer,
@@ -296,5 +308,6 @@ module.exports = {
   forEach: forEach,
   merge: merge,
   extend: extend,
-  trim: trim
+  trim: trim,
+  cleanId: cleanId
 };

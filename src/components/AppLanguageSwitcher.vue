@@ -10,7 +10,7 @@
 
 <script type="text/javascript">
   import utils from '../utils'
-  import routerConfig from '../config/routes'
+  import routesConfig from '../config/routes'
 
   export default {
     name: 'LanguageSwitcher',
@@ -32,7 +32,7 @@
         let links = []
         const currentRoute = this.$route.meta.name
         if (currentRoute) {
-          utils.forEach(routerConfig[currentRoute], (item, lang) => {
+          utils.forEach(routesConfig[currentRoute], (item, lang) => {
             // Modify *a copy* of the router item.
             links.push(utils.merge(item, { title: lang.toUpperCase() }))
           })

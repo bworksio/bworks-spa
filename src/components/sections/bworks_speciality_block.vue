@@ -2,7 +2,7 @@
   <div :class="'node node-' + getType()">
     <div class="container">
       <ul class="row">
-        <li v-for="specialty in node.field_entity_reference" class="col-md-6 col-lg-3">
+        <li v-for="specialty in node.field_entity_reference" :class="liClasses">
           <speciality :nid="specialty.target_id" :lang="lang" :viewMode="viewMode"></speciality>
         </li>
       </ul>
@@ -19,6 +19,11 @@
     extends: Node,
     props: {
       viewMode: String
+    },
+    computed: {
+      liClasses () {
+        return this.viewMode === 'full' ? 'col-md-6' : 'col-md-6 col-lg-3'
+      }
     },
     components: {
       speciality
