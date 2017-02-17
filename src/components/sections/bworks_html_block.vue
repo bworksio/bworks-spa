@@ -85,7 +85,7 @@
       }
     }
 
-    &.simple {
+    &:not(.intro) {
       .html-wrapper {
         display: flex;
         flex-wrap: wrap;
@@ -94,6 +94,10 @@
           padding-left: 8.33333%;
           padding-right: 8.33333%;
         }
+      }
+
+      .image-wrapper {
+        width: 100%;
       }
 
       .headline-wrapper {
