@@ -5,7 +5,7 @@
         <div class="header-wrapper">
           <a class="logo" href="/" v-html="assets.bWorksLogo"></a>
           <app-menu-toggle></app-menu-toggle>
-          <a class="hire-us animated" href="#">Hire us</a>
+          <a class="hire-us animated" href="https://cosmobutler.typeform.com/to/oY7ARZ">Hire us</a>
         </div>
       </div>
       <transition name="fade">
