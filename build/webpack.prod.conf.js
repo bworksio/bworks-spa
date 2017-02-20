@@ -6,9 +6,20 @@ var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var PrerenderSpaPlugin = require('prerender-spa-plugin')
 var env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
   : config.build.env
+
+// Build routes from configuration.
+var apputils = require('../src/utils.js')
+var routesConfig = require('../src/config/routes.js')
+var prerenderRoutes = []
+apputils.forEach(routesConfig, (languages, name) => {
+  apputils.forEach(languages, (item, lang) => {
+    prerenderRoutes.push(item.path)
+  })
+})
 
 var webpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -77,7 +88,17 @@ var webpackConfig = merge(baseWebpackConfig, {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
       chunks: ['vendor']
-    })
+    }),
+    // prerender pages
+    new PrerenderSpaPlugin(
+      // Absolute path to compiled SPA
+      path.join(__dirname, '../dist'),
+      prerenderRoutes,
+      {
+        //captureAfterDocumentEvent: 'prerender-ready'
+        captureAfterElementExists: '.node'
+      }
+    )
   ]
 })
 
