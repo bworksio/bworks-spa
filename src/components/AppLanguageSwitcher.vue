@@ -10,6 +10,7 @@
 
 <script type="text/javascript">
   import utils from '../utils'
+  import config from '../config/app.json'
   import routesConfig from '../config/routes'
 
   export default {
@@ -33,8 +34,10 @@
         const currentRoute = this.$route.meta.name
         if (currentRoute) {
           utils.forEach(routesConfig[currentRoute], (item, lang) => {
-            // Modify *a copy* of the router item.
-            links.push(utils.merge(item, { title: lang.toUpperCase() }))
+            if (config.activeLanguages.indexOf(lang) !== -1) {
+              // Modify *a copy* of the router item.
+              links.push(utils.merge(item, { title: lang.toUpperCase() }))
+            }
           })
         }
         this.links = links
