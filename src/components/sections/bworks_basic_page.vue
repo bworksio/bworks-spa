@@ -11,6 +11,7 @@
       <div class="language-switcher-wrapper">
         <app-language-switcher></app-language-switcher>
       </div>
+      <div class="continue"></div>
     </div>
   </div>
 </template>
@@ -200,6 +201,10 @@
     .language-switcher-wrapper {
       position: absolute;
 
+      #page:not(.page-home) & {
+        display: none;
+      }
+
       @include media-breakpoint-down(sm) {
         display: none;
       }
@@ -209,6 +214,43 @@
       }
       @include media-breakpoint-up(lg) {
         bottom: 5.92857142rem;
+      }
+    }
+
+    // Continuation marker
+    .continue {
+      position: relative;
+      width: 2px;
+      height: 4rem;
+      margin: 0 auto;
+      background-color: transparentize($white, .7);
+
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        background-color: transparentize($white, .1);
+        animation: snake 2s infinite forwards;
+      }
+
+      @keyframes snake {
+        5% {
+          top: 0;
+          height: 0;
+        }
+        45% {
+          height: 100%;
+        }
+        55% {
+          top: 0;
+          height: 100%;
+        }
+        95% {
+          top: 100%;
+          height: 0;
+        }
       }
     }
   }
