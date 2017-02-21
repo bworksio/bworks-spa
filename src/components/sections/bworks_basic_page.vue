@@ -222,6 +222,7 @@
       position: relative;
       width: 2px;
       height: 4rem;
+      overflow: hidden;
       margin: 0 auto;
       background-color: transparentize($white, .7);
 
@@ -231,25 +232,29 @@
         position: absolute;
         top: 0;
         width: 100%;
+        height: 100%;
         background-color: transparentize($white, .1);
-        animation: snake 2s infinite forwards;
+        animation: snake 3s infinite forwards;
       }
 
       @keyframes snake {
-        5% {
-          top: 0;
-          height: 0;
+        0% {
+          transform: translateY(-100%);
         }
-        45% {
-          height: 100%;
+        10% {
+          transform: translateY(-100%);
         }
-        55% {
-          top: 0;
-          height: 100%;
+        40% {
+          transform: translateY(0);
         }
-        95% {
-          top: 100%;
-          height: 0;
+        60% {
+          transform: translateY(0);
+        }
+        90% {
+          transform: translateY(100%);
+        }
+        100% {
+          transform: translateY(100%);
         }
       }
     }
