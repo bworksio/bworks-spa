@@ -12,14 +12,13 @@
     name: 'bworks_html_block',
     extends: Node,
     mounted () {
-      const controller = new ScrollMagic.Controller()
       new ScrollMagic.Scene({
         triggerElement: this.$el,
         triggerHook: 'onEnter',
         reverse: false
       })
         .setClassToggle(this.$el, 'run')
-        .addTo(controller)
+        .addTo(this.$store.state.scrollMagicMainController)
     }
   }
 </script>

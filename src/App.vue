@@ -86,7 +86,7 @@
     width: 100%;
     min-height: 75px;
     padding: calc(1.946428571rem + 1vw) 0 1rem;
-    background-image: linear-gradient(to bottom, rgba(74,74,74,.1), rgba(74,74,74,0));
+    background-image: linear-gradient(to bottom, rgba(74,74,74,.09), rgba(74,74,74,0));
     z-index: 990;
 
     .header-wrapper {
@@ -101,22 +101,48 @@
       z-index: 991;
     }
 
-    // Invert link colors
+    .logo {
+      width: 90px;
+
+      .st0 {
+        transition: .2s;
+      }
+    }
+
     a {
-      color: $white;
+      color: $body-color;
+      transition: .2s;
 
-      &.animated {
-        &:after {
-          background-color: $white;
+      &.animated:after {
+        background-color: $body-color;
+        transition: .2s;
+      }
+    }
+
+    // Invert link colors
+    &.invert {
+      .logo {
+        .st0 {
+          fill: $white;
         }
+      }
 
-        @include hover-focus {
-          color: $body-color;
-        }
+      a {
+        color: $white;
 
-        @include media-breakpoint-down(sm) {
+        &.animated {
           &:after {
-            display: none;
+            background-color: $white;
+          }
+
+          @include hover-focus {
+            color: $body-color;
+          }
+
+          @include media-breakpoint-down(sm) {
+            &:after {
+              display: none;
+            }
           }
         }
       }

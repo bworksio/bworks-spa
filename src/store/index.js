@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import config from '../config/app.json'
 import Axios from 'axios'
+import ScrollMagic from 'scrollmagic'
 
 Vue.use(Vuex)
 
@@ -68,7 +69,8 @@ const store = new Vuex.Store({
     queues: {},
     nodes: {},
     showMenu: false,
-    currentLanguage: 'en'
+    currentLanguage: 'en',
+    scrollMagicMainController: new ScrollMagic.Controller()
   },
   mutations: {
     setInitialized (state, initialized = true) {
