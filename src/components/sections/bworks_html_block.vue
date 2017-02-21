@@ -6,10 +6,21 @@
 
 <script type="text/javascript">
   import Node from '../helpers/Node'
+  import ScrollMagic from 'scrollmagic'
 
   export default {
     name: 'bworks_html_block',
-    extends: Node
+    extends: Node,
+    mounted () {
+      const controller = new ScrollMagic.Controller()
+      new ScrollMagic.Scene({
+        triggerElement: this.$el,
+        triggerHook: 'onEnter',
+        reverse: false
+      })
+        .setClassToggle(this.$el, 'run')
+        .addTo(controller)
+    }
   }
 </script>
 
@@ -126,6 +137,37 @@
       height: 1px;
       background-color: $body-color;
       margin-bottom: .428571429rem;
+    }
+  }
+
+  // Animations
+  // Headline #1
+  .headline-wrapper {
+    .headline:nth-child(2) {
+      .animated {
+        transition-delay: 0s;
+      }
+    }
+  }
+
+  // Promo lines
+  .promo-wrapper {
+    .line.animated {
+      transition-delay: .3s;
+    }
+  }
+
+  // Headline #2 & promos
+  .headline-wrapper {
+    .headline:nth-child(2) {
+      .animated {
+        transition-delay: .6s;
+      }
+    }
+  }
+  .promo-wrapper {
+    .promo.animated {
+      transition-delay: .6s;
     }
   }
 </style>

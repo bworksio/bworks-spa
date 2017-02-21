@@ -5,7 +5,7 @@
     <div class="email">
       <div class="icon" v-html="assets.email"></div>
       <div class="animation-wrapper">
-        <div class="animated mirrored">
+        <div class="animated onhover mirrored">
           <a href="mailto:contact@b-works.io">contact@b-works.io</a></div>
       </div>
     </div>
@@ -13,7 +13,7 @@
     <div class="phone">
       <div class="icon" v-html="assets.phone"></div>
       <div class="animation-wrapper">
-        <div class="animated"><a href="tel:+41792240112">+41 79 224 0112</a>
+        <div class="animated onhover"><a href="tel:+41792240112">+41 79 224 0112</a>
         </div>
       </div>
     </div>
@@ -35,7 +35,7 @@
     },
     computed: {
       hoverClass () {
-        return this.show ? 'hover' : ''
+        return this.show ? 'run' : ''
       }
     },
     methods: {
