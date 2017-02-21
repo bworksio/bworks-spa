@@ -85,7 +85,7 @@
     top: 0;
     width: 100%;
     min-height: 75px;
-    padding: calc(1.946428571rem + 1vw) 0 1rem;
+    padding: calc(2rem + 1vw) 0 1rem;
     background-image: linear-gradient(to bottom, rgba(74,74,74,.09), rgba(74,74,74,0));
     z-index: 990;
 
