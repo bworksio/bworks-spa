@@ -26,6 +26,9 @@
   @import '../assets/scss/mixins';
 
   .menu-toggle {
+    // Vertically center the element.
+    transform: translateX(-50%);
+
     &:before {
       content: "";
       display: block;
@@ -33,7 +36,7 @@
       height: calc(3.78571rem + 1vw);
       // Incredible, I've never heard of currentColor before (and it's OLD) :-)
       background-color: currentColor;
-      margin: calc(-3.78571rem - 1vw) auto .5rem;
+      margin: calc(-3.78571rem - .5rem - 1vw) auto .5rem;
       transform: scaleY(.68);
       transform-origin: top center;
       transition: transform .4s;

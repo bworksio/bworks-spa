@@ -102,11 +102,15 @@
     }
 
     .logo {
-      width: 90px;
+      width: 7rem;
 
       .st0 {
         transition: .2s;
       }
+    }
+
+    .hire-us {
+      transform: translateX(0);
     }
 
     a {
