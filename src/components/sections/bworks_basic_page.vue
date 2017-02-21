@@ -18,6 +18,7 @@
 <script type="text/javascript">
   import Node from '../helpers/Node'
   import AppLanguageSwitcher from 'components/AppLanguageSwitcher'
+  import ScrollMagic from 'scrollmagic'
 
   export default {
     name: 'bworks_basic_page',
@@ -28,6 +29,18 @@
           'background-image': 'linear-gradient(to bottom, rgba(0,0,0,.5), rgba(0,0,0,.5)), url(' + this.getField('field_header_image', 'url') + ')'
         }
       }
+    },
+    mounted () {
+      new ScrollMagic.Scene({
+        triggerElement: this.$el,
+        triggerHook: 'onLeave',
+        offset: -90
+      })
+        .duration(() => {
+          return this.$el.clientHeight
+        })
+        .setClassToggle('#site-header', 'invert')
+        .addTo(this.$store.state.scrollMagicMainController)
     },
     components: {
       AppLanguageSwitcher
