@@ -87,21 +87,45 @@ nav {
   overflow-x: hidden;
 
   > .animated {
-    //transform: translateX(-120%);
+    transform: translateX(-120%);
     transition: transform .4s ease-out;
 
-    &.mirrored {
-      @include media-breakpoint-up(md) {
-        text-align: right;
-        //transform: translateX(120%);
-      }
-    }
-
-    @include hover-focus {
+    // .run triggers animation
+    .run & {
       transform: translateX(0);
     }
 
-    .hover & {
+    // Right aligned text (contact)
+    &.mirrored {
+      @include media-breakpoint-up(md) {
+        text-align: right;
+        transform: translateX(120%);
+      }
+    }
+
+    // Hovering support (contact)
+    &.onhover {
+      @include hover-focus {
+        transform: translateX(0);
+      }
+    }
+  }
+}
+
+// Body animation
+.body.animation-wrapper {
+  overflow-x: hidden;
+
+  > * {
+    opacity: 0;
+    transform: translateX(-120%);
+    transition: .4s ease-out;
+    transition-property: opacity, transform;
+    transition-delay: .6s;
+
+    // .run triggers animation
+    .run & {
+      opacity: 1;
       transform: translateX(0);
     }
   }
