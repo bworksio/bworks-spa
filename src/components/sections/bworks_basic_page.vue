@@ -32,6 +32,7 @@
       }
     },
     mounted () {
+      // Invert the site header as long as this basic page is visible.
       new ScrollMagic.Scene({
         triggerElement: this.$el,
         triggerHook: 'onLeave',

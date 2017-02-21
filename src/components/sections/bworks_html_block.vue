@@ -12,6 +12,7 @@
     name: 'bworks_html_block',
     extends: Node,
     mounted () {
+      // Run html animations on enter.
       new ScrollMagic.Scene({
         triggerElement: this.$el,
         triggerHook: 'onEnter',
