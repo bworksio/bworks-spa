@@ -1,6 +1,11 @@
 <template>
-  <div :class="'node node-' + getType()"
-    :style="nodeStyles">
+  <div :class="'node node-' + getType()" :style="nodeStyles">
+    <div :if="hasVideo" class="bg-video">
+      <video playsinline autoplay muted loop :poster="getField('field_header_image', 'url')">
+        <!--source :src="getField('field_file', 'url')" type="video/webm"-->
+        <source :src="getField('field_file', 'url')" type="video/mp4">
+      </video>
+    </div>
     <div class="container">
       <div class="intro-text-container">
         <div class="intro-text-wrapper">
@@ -25,9 +30,16 @@
     name: 'bworks_basic_page',
     extends: Node,
     computed: {
+      hasVideo () {
+        return !!this.getField('field_file', 'url', 0, false)
+      },
       nodeStyles () {
+        let style = 'linear-gradient(to bottom, rgba(0,0,0,.5), rgba(0,0,0,.5))'
+        if (!this.hasVideo) {
+          style += ', url(' + this.getField('field_header_image', 'url') + ')'
+        }
         return {
-          'background-image': 'linear-gradient(to bottom, rgba(0,0,0,.5), rgba(0,0,0,.5)), url(' + this.getField('field_header_image', 'url') + ')'
+          'background-image': style
         }
       }
     },
@@ -58,6 +70,7 @@
     background-position: center;
     background-size: cover;
     border-bottom: 8px solid $brand-primary;
+    overflow: hidden;
 
     .intro-text-container {
       display: flex;
@@ -80,17 +93,17 @@
         padding-bottom: 40px;
       }
       @include media-breakpoint-only(md) {
-        min-height: 1024px;
+        min-height: 874px;
         align-items: center;
       }
       @include media-breakpoint-only(lg) {
-        min-height: 768px;
+        min-height: 618px;
       }
       @include media-breakpoint-only(xl) {
-        min-height: 800px;
+        min-height: 650px;
       }
       @include media-breakpoint-up(xxl) {
-        min-height: 903px;
+        min-height: 750px;
       }
     }
 
