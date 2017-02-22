@@ -221,17 +221,19 @@
 
   // Leave
   .menu-leave-active {
-    transition: transform 3s ease-out 3s;
+    transition: transform .3s ease-out /*.3s*/;
 
     .menu-wrapper {
-      transition: opacity 2s ease-out 3s;
+      transition: opacity .2s ease-out /*.3s*/;
     }
 
+/*
     .menu-main {
       a {
-        transition: opacity 3s ease-out !important;
+        transition: opacity .3s ease-out !important;
       }
     }
+*/
   }
 
   .menu-leave-to {
@@ -241,6 +243,8 @@
       opacity: 0;
     }
 
+    // FIXME :active is not working
+/*
     .menu-main {
       a {
         &:not(:active) {
@@ -252,5 +256,6 @@
         }
       }
     }
+*/
   }
 </style>
