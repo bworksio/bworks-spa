@@ -1,14 +1,12 @@
 <template>
-  <transition name="slide">
-    <div v-if="nodes" id="page" :class="'page-' + name + ' lang-' + lang" :key="lang +'/'+ name">
-      <component
-        v-for="node in nodes"
-        :is="node.type"
-        :nid="node.nid"
-        :lang="lang"
-        :viewMode="viewMode"></component>
-    </div>
-  </transition>
+  <div v-if="nodes" id="page" :class="'page-' + name + ' lang-' + lang" :key="lang +'/'+ name">
+    <component
+      v-for="node in nodes"
+      :is="node.type"
+      :nid="node.nid"
+      :lang="lang"
+      :viewMode="viewMode"></component>
+  </div>
 </template>
 
 <script type="text/javascript">
@@ -85,17 +83,6 @@
   }
 </script>
 
-<style>
-.page {
-  transition: all .35s ease;
-  position: absolute;
-}
-.slide-enter {
-  opacity: 0;
-  transform: translate(30px, 0);
-}
-.slide-leave-active {
-  opacity: 0;
-  transform: translate(-30px, 0);
-}
+<style rel="stylesheet/scss" lang="scss">
+  @import '../assets/scss/mixins';
 </style>
