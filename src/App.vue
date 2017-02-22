@@ -182,30 +182,4 @@
       color: red;
     }
   }
-
-  .menu-enter-active, .menu-leave-active {
-    transition: transform .3s ease-out;
-  }
-  .menu-enter-active {
-    .menu-wrapper {
-      transition: opacity .2s ease-out .1s;
-    }
-  }
-  .menu-leave-active {
-    .menu-wrapper {
-      transition: opacity .2s ease-out;
-    }
-  }
-  .menu-enter {
-    transform: translateY(-100%);
-    .menu-wrapper {
-      opacity: 0;
-    }
-  }
-  .menu-leave-to {
-    transform: translateX(100%);
-    .menu-wrapper {
-      opacity: 0;
-    }
-  }
 </style>
