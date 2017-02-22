@@ -6,6 +6,7 @@
           <ul>
             <li v-for="item in menuItems">
               <router-link :to="item.path">{{ item.title }}</router-link>
+              <div class="line">&nbsp;</div>
             </li>
           </ul>
         </nav>
@@ -136,10 +137,23 @@
     line-height: 2.142857143;
     letter-spacing: .066428571em;
 
-    li + li {
+    .line {
+      height: 1px;
       margin-top: .5rem;
-      padding-top: .714285714rem;
-      border-top: 1px solid $white;
+      background-color: $white;
+      transform: translateX(-100%);
+      transition: transform .2s cubic-bezier(unquote($menu));
+    }
+
+    li {
+      margin-bottom: .714285714rem;
+      overflow: hidden;
+
+      &:hover {
+        .line {
+          transform: translateX(0);
+        }
+      }
     }
 
     @include media-breakpoint-up(md) {
