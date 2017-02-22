@@ -8,7 +8,7 @@
           <a class="hire-us animated" href="https://cosmobutler.typeform.com/to/oY7ARZ">Hire us</a>
         </div>
       </div>
-      <transition name="fade">
+      <transition name="menu">
         <app-menu v-if="$store.state.showMenu"></app-menu>
       </transition>
     </header>
@@ -86,7 +86,8 @@
     width: 100%;
     min-height: 75px;
     padding: calc(2rem + 1vw) 0 1rem;
-    background-image: linear-gradient(to bottom, rgba(74,74,74,.09), rgba(74,74,74,0));
+    // Disabled due to ugly color banding.
+    //background-image: linear-gradient(to bottom, rgba(74,74,74,.09), rgba(74,74,74,0));
     z-index: 990;
 
     .header-wrapper {
@@ -182,10 +183,29 @@
     }
   }
 
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity .5s
+  .menu-enter-active, .menu-leave-active {
+    transition: transform .3s ease-out;
   }
-  .fade-enter, .fade-leave-to {
-    opacity: 0
+  .menu-enter-active {
+    .menu-wrapper {
+      transition: opacity .2s ease-out .1s;
+    }
+  }
+  .menu-leave-active {
+    .menu-wrapper {
+      transition: opacity .2s ease-out;
+    }
+  }
+  .menu-enter {
+    transform: translateY(-100%);
+    .menu-wrapper {
+      opacity: 0;
+    }
+  }
+  .menu-leave-to {
+    transform: translateX(100%);
+    .menu-wrapper {
+      opacity: 0;
+    }
   }
 </style>
