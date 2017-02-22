@@ -1,7 +1,7 @@
 <template>
   <div :class="'node node-' + getType()" :style="nodeStyles">
     <div :if="hasVideo" class="bg-video">
-      <video playsinline autoplay muted loop :poster="getField('field_header_image', 'url')">
+      <video playsinline autoplay muted loop :poster="getField('field_header_image', 'url', 0, '')">
         <!--source :src="getField('field_file', 'url')" type="video/webm"-->
         <source :src="getField('field_file', 'url')" type="video/mp4">
       </video>
