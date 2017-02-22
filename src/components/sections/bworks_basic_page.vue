@@ -66,6 +66,7 @@
   @import '../../assets/scss/mixins';
 
   .node-bworks_basic_page {
+    position: relative;
     padding-top: 125px;
     background-position: center;
     background-size: cover;
