@@ -2,7 +2,7 @@
   "defaultLanguage": "de",
   "activeLanguages": ["de", "en", "it"],
   "api": {
-    "baseUrl": "http://bworks.cosmobut.myhostpoint.ch/"
+    "baseUrl": "http://backend.b-works.io/"
   },
   "social": {
     "facebook": "https://facebook.com",
