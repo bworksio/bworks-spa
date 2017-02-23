@@ -2,21 +2,19 @@
   <div class="contact" :class="hoverClass">
     <h2 @mouseenter="showAll()">Get in touch</h2>
 
-    <div class="email">
+    <a href="mailto:contact@b-works.io" class="email">
       <div class="icon" v-html="assets.email"></div>
       <div class="animation-wrapper">
-        <div class="animated onhover mirrored">
-          <a href="mailto:contact@b-works.io">contact@b-works.io</a></div>
+        <div class="animated onhover mirrored">contact@b-works.io</div>
       </div>
-    </div>
+    </a>
 
-    <div class="phone">
+    <a href="tel:+41792240112" class="phone">
       <div class="icon" v-html="assets.phone"></div>
       <div class="animation-wrapper">
-        <div class="animated onhover"><a href="tel:+41792240112">+41 79 224 0112</a>
-        </div>
+        <div class="animated onhover">+41 79 224 0112</div>
       </div>
-    </div>
+    </a>
   </div>
 </template>
 
@@ -57,11 +55,21 @@
       margin: 0;
     }
 
+    .icon {
+      line-height: 0;
+    }
+
     .email,
     .phone {
       display: flex;
       align-items: center;
       justify-content: center;
+
+      &:hover {
+        .animation-wrapper > .animated {
+          transform: translateX(0) !important;
+        }
+      }
 
       .animated {
         padding-left: 1rem;
