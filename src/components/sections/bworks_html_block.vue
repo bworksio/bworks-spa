@@ -100,11 +100,6 @@
       .html-wrapper {
         display: flex;
         flex-wrap: wrap;
-
-        @include media-breakpoint-up(md) {
-          padding-left: 8.33333%;
-          padding-right: 8.33333%;
-        }
       }
 
       .image-wrapper {
@@ -132,11 +127,70 @@
       }
     }
 
+    @include media-breakpoint-up(md) {
+      // Narrow templates
+      &.intro-sub,
+      &.simple {
+        .html-wrapper {
+          padding-left: 8.33333%;
+          padding-right: 8.33333%;
+        }
+      }
+    }
+
+    .image {
+      margin-bottom: 2rem;
+
+      @include media-breakpoint-up(md) {
+        margin-bottom: 4rem;
+      }
+    }
+
     .line {
       width: 8.333333333vw;
       height: 1px;
       background-color: $body-color;
       margin-bottom: .428571429rem;
+    }
+
+    // "Our Approach" explanation template
+    .approach-explanation {
+      display: flex;
+      align-items: center;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+
+      @include media-breakpoint-down(sm) {
+        display: none;
+      }
+
+      .title {
+        font-weight: $font-weight-bold;
+        font-size: 1.285714286rem;
+        line-height: 1.388888889;
+        letter-spacing: .066666667em;
+        color: $brand-primary;
+        margin-right: 3rem;
+      }
+
+      .line {
+        width: 25%;
+        height: 4px;
+        background-color: $gray-bg;
+        margin-right: 2rem;
+        margin-top: .25rem;
+      }
+
+      .explanation {
+        font-size: 1.142857143rem;
+        line-height: 1.375;
+        letter-spacing: .083125em;
+        text-transform: uppercase;
+
+        p {
+          margin: .25rem 0;
+        }
+      }
     }
   }
 
