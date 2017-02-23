@@ -32,6 +32,7 @@ h2, .h2 {
   line-height: 1.363636364;
   letter-spacing: .066818182em;
   font-weight: $font-weight-heavy;
+  color: $body-color;
 }
 
 h3, .h3 {
@@ -47,6 +48,7 @@ h4, .h4 {
   line-height: 1.166666667;
   letter-spacing: .044166667em;
   font-weight: $font-weight-bold;
+  color: $body-color;
 }
 
 @media (max-width: 737px) {
