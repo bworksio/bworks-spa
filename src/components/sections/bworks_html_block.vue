@@ -6,20 +6,23 @@
 
 <script type="text/javascript">
   import Node from '../helpers/Node'
+  import utils from '../../utils'
   import ScrollMagic from 'scrollmagic'
 
   export default {
     name: 'bworks_html_block',
     extends: Node,
     mounted () {
-      // Run html animations on enter.
-      new ScrollMagic.Scene({
-        triggerElement: this.$el,
-        triggerHook: 'onEnter',
-        reverse: false
+      utils.forEach(this.$el.querySelectorAll('.html-wrapper, .image'), (el) => {
+        // Run html animations on enter.
+        new ScrollMagic.Scene({
+          triggerElement: el,
+          triggerHook: 'onEnter',
+          reverse: false
+        })
+          .setClassToggle(el, 'run')
+          .addTo(this.$store.state.scrollMagicMainController)
       })
-        .setClassToggle(this.$el, 'run')
-        .addTo(this.$store.state.scrollMagicMainController)
     }
   }
 </script>
@@ -140,7 +143,6 @@
 
     .image {
       margin-bottom: 2rem;
-
       @include media-breakpoint-up(md) {
         margin-bottom: 4rem;
       }
