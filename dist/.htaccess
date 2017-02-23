@@ -1,7 +1,13 @@
 <IfModule mod_rewrite.c>
-  RewriteEngine on  
+  RewriteEngine On
+  RewriteBase /
 
   RewriteCond %{HTTP_USER_AGENT} Googlebot
-  RewriteRule ^(.*)$ http://backend.%{HTTP_HOST}/$1
+  RewriteRule ^(.*)$ http://backend.%{HTTP_HOST}/$1 [L]
+
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
 </IfModule>
 
