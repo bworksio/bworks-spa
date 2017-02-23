@@ -94,6 +94,51 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+
+      .logo {
+        .st0 {
+          fill: $body-color;
+        }
+      }
+
+      a {
+        color: $body-color;
+
+        &.animated {
+          &:after {
+            background-color: $body-color;
+          }
+        }
+      }
+
+      // Invert link colors
+      &.invert {
+        .logo {
+          .st0 {
+            fill: $white;
+          }
+        }
+
+        a {
+          color: $white;
+
+          &.animated {
+            &:after {
+              background-color: $white;
+            }
+
+            @include hover-focus {
+              color: $body-color;
+            }
+
+            @include media-breakpoint-down(sm) {
+              &:after {
+                display: none;
+              }
+            }
+          }
+        }
+      }
     }
 
     .logo,
@@ -115,41 +160,12 @@
     }
 
     a {
-      color: $body-color;
+      color: $white;
       transition: .2s;
 
       &.animated:after {
-        background-color: $body-color;
+        background-color: $white;
         transition: .2s;
-      }
-    }
-
-    // Invert link colors
-    &.invert {
-      .logo {
-        .st0 {
-          fill: $white;
-        }
-      }
-
-      a {
-        color: $white;
-
-        &.animated {
-          &:after {
-            background-color: $white;
-          }
-
-          @include hover-focus {
-            color: $body-color;
-          }
-
-          @include media-breakpoint-down(sm) {
-            &:after {
-              display: none;
-            }
-          }
-        }
       }
     }
   }

@@ -53,7 +53,7 @@
         .duration(() => {
           return this.$el.clientHeight
         })
-        .setClassToggle('#site-header', 'invert')
+        .setClassToggle('#site-header .header-wrapper', 'invert')
         .addTo(this.$store.state.scrollMagicMainController)
     },
     components: {
