@@ -95,7 +95,7 @@ nav {
 
     // .run triggers animation
     .run & {
-      transform: translateX(0);
+      transform: translateX(0) !important;
     }
 
     // Right aligned text (contact)
