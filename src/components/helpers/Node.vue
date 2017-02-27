@@ -19,6 +19,11 @@
       nid: {
         type: String,
         required: true
+      },
+      // View mode, teaser or full
+      viewMode: {
+        type: String,
+        default: 'full'
       }
     },
     // Variables
