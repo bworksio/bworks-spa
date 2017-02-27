@@ -1,20 +1,25 @@
 <template>
-  <div :class="'node-' + getType() + ' ' + viewMode + (first ? ' first' : '')">
+  <div :class="'node-' + getType() + ' ' + viewMode">
     <template v-if="viewMode === 'teaser'">
       <a class="unstyled" href="#">
         <img :src="getField('field_image', 'url')">
 
-        <template v-if="!!first">
-          <div class="description-wrapper row">
-            <h2 class="col-sm-6">{{ getField('title') }}</h2>
-            <div v-if="first" class="description col-sm-6">{{ getField('body', 'summary') }}</div>
+        <template v-if="index === 0">
+          <div class="description-wrapper">
+            <h2>{{ getField('title') }}</h2>
+            <div class="description">{{ getField('body', 'summary') }}</div>
           </div>
         </template>
 
-        <template v-if="!first">
+        <template v-else>
           <h2>{{ getField('title') }}</h2>
         </template>
 
+        <div class="tags-wrapper">
+          <ul>
+            <li v-for="tag in getTags()">{{ tag }}</li>
+          </ul>
+        </div>
       </a>
     </template>
 
@@ -32,15 +37,23 @@
     name: 'project',
     extends: Node,
     props: {
-      // Whether this is the first project in a list.
-      first: {
-        type: Boolean,
-        default: false
+      // Index of item.
+      index: {
+        type: Number
       },
       // View mode, teaser or full
       viewMode: {
         type: String,
         default: 'full'
+      }
+    },
+    methods: {
+      getTags () {
+        const tags = []
+        this.getAllFields('field_project_tags').forEach((value) => {
+          tags.push(this.$store.getters.getTag(value.target_id, this.lang))
+        })
+        return tags
       }
     }
   }
@@ -54,7 +67,11 @@
     margin-bottom: 30px;
 
     a {
+      // FIXME Remove when project page has been implemented
+      pointer-events: none;
+
       display: block;
+      position: relative;
     }
 
     img {
@@ -63,7 +80,47 @@
     }
 
     &.teaser {
-      .description-wrapper {
+      @include make-gutters();
+      width: 50%;
+
+      &:first-child {
+        width: 100%;
+
+        @include media-breakpoint-up(sm) {
+          .description-wrapper {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            min-height: 6rem;
+            background-color: rgba(255,255,255,.75);
+          }
+
+          h2 {
+            flex: 1 50%;
+            padding-left: 8.3333%;
+          }
+
+          .description {
+            flex: 1 50%;
+          }
+
+          .tags-wrapper {
+            position: absolute;
+            top: -3rem;
+            right: 0;
+            padding: 2rem 4rem 2rem 3rem;
+            color: $white;
+            background-color: transparentize($brand-primary, .1);
+          }
+        }
+      }
+
+      img {
+        max-height: 640px;
+        object-fit: cover;
       }
 
       h2 {
@@ -72,27 +129,21 @@
       }
 
       .description {
-        max-height: 6rem;
+        max-height: 4rem;
         overflow: hidden;
         text-overflow: ellipsis;
       }
 
-      @include media-breakpoint-up(sm) {
-        &:first-child {
-          .description-wrapper {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            min-height: 4rem;
-            background-color: rgba(255,255,255,.75);
-          }
+      .tags-wrapper {
+        margin: 1rem 0 2rem;
+        font-weight: 700;
+        letter-spacing: .080714286em;
+        text-transform: uppercase;
 
-          h2 {
-            align-self: center;
-            margin: 0;
-            padding-left: 8.3333vw;
-          }
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
         }
       }
     }
