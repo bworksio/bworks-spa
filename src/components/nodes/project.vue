@@ -40,11 +40,6 @@
       // Index of item.
       index: {
         type: Number
-      },
-      // View mode, teaser or full
-      viewMode: {
-        type: String,
-        default: 'full'
       }
     },
     methods: {
