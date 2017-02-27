@@ -44,14 +44,29 @@ function getNodes (lang) {
 }
 
 /**
+ * Query a list of all tags for a specific language.
+ * @returns {AxiosPromise|Promise}
+ */
+function getTags () {
+  if (!Object.keys(store.state.tags).length) {
+    return axios.get('spa_api/taxonomy_terms?_format=hal_json')
+      .then(result => {
+        store.commit('setTags', result.data)
+      })
+  }
+  return new Promise(resolve => { resolve() })
+}
+
+/**
  * Query all data (queues and nodes) for the specified language.
  * @param lang
  * @returns {AxiosPromise|Promise}
  */
 function getData (lang) {
   // Data not loaded yet, query queues and nodes.
-  let queries = [getQueues()]
+  const queries = [getQueues()]
   config.activeLanguages.forEach(activeLang => queries.push(getNodes(activeLang)))
+  queries.push(getTags())
   return Axios.all(queries)
     .then((result) => {
       store.commit('setInitialized', true)
@@ -68,6 +83,7 @@ const store = new Vuex.Store({
     error: null,
     queues: {},
     nodes: {},
+    tags: {},
     showMenu: false,
     currentLanguage: 'en',
     scrollMagicMainController: new ScrollMagic.Controller()
@@ -81,6 +97,9 @@ const store = new Vuex.Store({
     },
     setNodes (state, { lang, nodes }) {
       state.nodes[lang] = nodes
+    },
+    setTags (state, tags) {
+      state.tags = tags
     },
     setError (state, error) {
       state.error = error
@@ -130,6 +149,30 @@ const store = new Vuex.Store({
           { target_id: 'missing_block' }
         ]
       }
+    },
+
+    /**
+     * Returns a single tag from store for a given language, falling back to the default language.
+     * @param id
+     * @param lang
+     * @returns {Object|boolean}
+     */
+    getTag: (state, getters) => (id, lang) => {
+      if (store.state.tags.hasOwnProperty(id)) {
+        const tags = {}
+        store.state.tags[id].name.forEach(tag => {
+          tags[tag.lang] = tag.value
+        })
+        if (tags.hasOwnProperty(lang)) {
+          return tags[lang]
+        }
+        if (tags.hasOwnProperty(config.defaultLanguage)) {
+          return tags[config.defaultLanguage]
+        }
+      }
+
+      // Error
+      return false
     }
   }
 })
