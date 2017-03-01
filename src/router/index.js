@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import routesConfig from '../config/routes'
 import utils from '../utils'
 import Page from '../components/Page'
+import PageBlog from '../components/PageBlog'
 import NotFound from '../components/NotFound'
 
 Vue.use(VueRouter)
@@ -22,6 +23,16 @@ utils.forEach(routesConfig, (languages, name) => {
 
 // Add language independent routes.
 routes.push({
+  path: '/blog',
+  component: PageBlog,
+  props: { name: 'blog-overview', lang: 'en' },
+  meta: { name: 'blog-overview' }
+}, {
+  path: '/blog/:name',
+  component: PageBlog,
+  props: { name: 'blog', lang: 'en' },
+  meta: { name: 'blog' }
+}, {
   path: '*',
   component: NotFound
 })
