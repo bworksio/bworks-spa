@@ -1,25 +1,25 @@
 <template>
   <div :class="'node node-' + getType() + ' ' + viewMode">
-    <div class="article container-fluid">
-      <div class="row">
-        <a class="unstyled" href="#">
-          <div class="image col-md-7">
+    <template v-if="viewMode === 'teaser'">
+      <div class="article container-fluid">
+        <div class="row">
+          <div class="image col-md-7 col-lg-6">
             <drupal-image :image="node.field_image[0]"></drupal-image>
           </div>
-          <div class="body col-md-5">
+          <div class="body col-md-5 col-lg-6">
             <h2 class="h1">{{ getField('title') }}</h2>
-            <div v-html="getField('body')"></div>
+            <div v-html="getField('body', 'summary')"></div>
             <div class="read-more">
-              <a href="#">Read full story</a>
+              <router-link :to="getPath()">Read full story</router-link>
             </div>
           </div>
-        </a>
-      </div>
+        </div>
 
-      <div class="view-all">
-        <a class="animated" href="#">View all articles</a>
+        <div class="view-all">
+          <router-link class="animated" to="blog">View all articles</router-link>
+        </div>
       </div>
-    </div>
+    </template>
   </div>
 </template>
 
@@ -30,6 +30,11 @@
   export default {
     name: 'bworks_article',
     extends: Node,
+    methods: {
+      getPath () {
+        return this.node.path.length ? this.node.path[0].alias : ''
+      }
+    },
     components: {
       'drupal-image': DrupalImage
     }
@@ -60,15 +65,20 @@
         }
 
         .image {
-          width: calc(110.4754% + 7.5px);
-          margin-left: calc(-5.2377% - 7.5px);
-          margin-right: calc(-5.2377% - 7.5px);
+          width: calc(100% + 16.6677vw);
+          margin-left: calc(55% - 50vw);
+          margin-right: calc(55% - 50vw);
           margin-top: -4rem;
+          padding: 0;
         }
 
         .h1 {
           margin-top: 3rem;
         }
+      }
+
+      .row {
+        align-items: center;
       }
 
       .h1 {

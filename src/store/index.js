@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import config from '../config/app.json'
 import Axios from 'axios'
 import ScrollMagic from 'scrollmagic'
+import utils from '../utils'
 
 Vue.use(Vuex)
 
@@ -58,11 +59,10 @@ function getTags () {
 }
 
 /**
- * Query all data (queues and nodes) for the specified language.
- * @param lang
+ * Query all data (queues, nodes, tags) for all languages.
  * @returns {AxiosPromise|Promise}
  */
-function getData (lang) {
+function getData () {
   // Data not loaded yet, query queues and nodes.
   const queries = [getQueues()]
   config.activeLanguages.forEach(activeLang => queries.push(getNodes(activeLang)))
@@ -148,6 +148,31 @@ const store = new Vuex.Store({
         type: [
           { target_id: 'missing_block' }
         ]
+      }
+    },
+
+    /**
+     * Returns a node given its path.
+     * @param path
+     * @param lang
+     * @returns {Object|boolean}
+     */
+    getNodeByPath: (state, getters) => (path, lang) => {
+      let found
+      utils.forEach(getters.getNodes(lang), node => {
+        if (node.path.length && (path === node.path[0].alias)) {
+          found = node
+        }
+      })
+
+      if (found) {
+        return found
+      }
+
+      // Error
+      return {
+        nid: [{ value: '0' }],
+        type: [{ target_id: 'missing_node' }]
       }
     },
 

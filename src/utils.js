@@ -289,6 +289,20 @@ function cleanId(id) {
     .replace(/[ /]/g, '-')
 }
 
+/**
+ * Generates a path alias for use in routing.
+ *
+ * @param string
+ * @returns {string}
+ */
+function getPathAlias(string) {
+  const alias = string
+    .replace(/[#?&/()]/g, ' ')
+    .replace(/\s+/g, '-')
+    .toLowerCase()
+  return encodeURI(alias)
+}
+
 module.exports = {
   isArray: isArray,
   isArrayBuffer: isArrayBuffer,
@@ -309,5 +323,6 @@ module.exports = {
   merge: merge,
   extend: extend,
   trim: trim,
-  cleanId: cleanId
+  cleanId: cleanId,
+  getPathAlias: getPathAlias
 };
