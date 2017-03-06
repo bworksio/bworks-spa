@@ -35,6 +35,10 @@
         return this.node.path.length ? this.node.path[0].alias : ''
       }
     },
+    // Component lifecycle hooks
+    created () {
+      this.node = this.$store.getters.getNode(this.nid, 'en')
+    },
     components: {
       'drupal-image': DrupalImage
     }
