@@ -1,13 +1,13 @@
 <template>
   <div id="page" :class="'page-' + name + ' lang-' + lang" :key="lang +'/'+ name">
-    <div :class="'node node-' + getType() + ' ' + viewMode">
+    <div :class="'node node-' + getType() + ' full'">
       <div class="container">
         <h1 class="col-md-10 offset-md-1">{{ getField('title') }}</h1>
         <div class="col-md-10 offset-md-1" v-html="getField('body')"></div>
       </div>
     </div>
 
-    <bworks_footer v-if="Object.keys(footerNode).length" :nid="footerNode.nid[0].value" :lang="lang" viewMode="full"></bworks_footer>
+    <bworks_footer v-if="Object.keys(footerNode).length" :nid="footerNode.nid[0].value" :lang="lang"></bworks_footer>
   </div>
 </template>
 
@@ -36,12 +36,6 @@
       return {
         node: {},
         footerNode: {}
-      }
-    },
-    computed: {
-      /** @var {String} The view mode for contents to display, 'teaser' on home page, 'full' otherwise */
-      viewMode () {
-        return this.$route.meta.name === 'blog-overview' ? 'teaser' : 'full'
       }
     },
     created () {
