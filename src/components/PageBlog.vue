@@ -1,15 +1,21 @@
 <template>
   <div id="page" :class="'page-' + name + ' lang-' + lang" :key="lang +'/'+ name">
-    <div class="container">
-      <h1 class="col-md-10 offset-md-1">{{ getField('title') }}</h1>
-      <div class="col-md-10 offset-md-1" v-html="getField('body')"></div>
+    <div :class="'node node-' + getType() + ' ' + viewMode">
+      <div class="container">
+        <h1 class="col-md-10 offset-md-1">{{ getField('title') }}</h1>
+        <div class="col-md-10 offset-md-1" v-html="getField('body')"></div>
+      </div>
     </div>
+
+    <bworks_footer v-if="Object.keys(footerNode).length" :nid="footerNode.nid[0].value" :lang="lang" viewMode="full"></bworks_footer>
   </div>
 </template>
 
 <script type="text/javascript">
   import { getData } from '../store'
   import config from '../config/app.json'
+  /* eslint-disable camelcase */
+  import bworks_footer from './sections/bworks_footer'
 
   export default {
     name: 'PageBlog',
@@ -28,7 +34,8 @@
     },
     data () {
       return {
-        node: {}
+        node: {},
+        footerNode: {}
       }
     },
     computed: {
@@ -56,6 +63,7 @@
         getData(this.lang).then(() => {
           // Find matching node by path
           this.node = this.$store.getters.getNodeByPath(this.$route.path, this.lang)
+          this.footerNode = this.$store.getters.getNodesByType('bworks_footer', this.lang).shift()
         }).catch(() => {
           /* Error handled upstream */
         })
@@ -112,7 +120,9 @@
         })
       }
     },
-    components: {}
+    components: {
+      bworks_footer
+    }
   }
 </script>
 
