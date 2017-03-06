@@ -26,6 +26,9 @@
   import AppLanguageSwitcher from 'components/AppLanguageSwitcher'
   import ScrollMagic from 'scrollmagic'
 
+  /** @var {ScrollMagic.Scene} smHeaderInvertScene */
+  let smHeaderInvertScene
+
   export default {
     name: 'bworks_basic_page',
     extends: Node,
@@ -45,7 +48,7 @@
     },
     mounted () {
       // Invert the site header as long as this basic page is visible.
-      new ScrollMagic.Scene({
+      smHeaderInvertScene = new ScrollMagic.Scene({
         triggerElement: this.$el,
         triggerHook: 'onLeave',
         offset: -90
@@ -55,6 +58,10 @@
         })
         .setClassToggle('#site-header .header-wrapper', 'invert')
         .addTo(this.$store.state.scrollMagicMainController)
+    },
+    beforeDestroy () {
+      // Also destroy ScrollMagic scene.
+      smHeaderInvertScene.destroy()
     },
     components: {
       AppLanguageSwitcher
