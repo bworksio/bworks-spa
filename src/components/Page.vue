@@ -17,6 +17,7 @@
   import bworks_project_block from './sections/bworks_project_block'
   import bworks_speciality_block from './sections/bworks_speciality_block'
   import bworks_article from './sections/bworks_article'
+  import bworks_blog_block from './sections/bworks_blog_block'
   import bworks_footer from './sections/bworks_footer'
 
   export default {
@@ -76,6 +77,7 @@
       bworks_project_block,
       bworks_speciality_block,
       bworks_article,
+      bworks_blog_block,
       bworks_footer
     }
   }
