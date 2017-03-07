@@ -54,5 +54,19 @@ module.exports = {
       'path': '/it/lavori',
       'title': 'I nostri lavori'
     }
+  },
+  'blog': {
+    'de': {
+      'path': '/blog',
+      'title': 'Blog'
+    },
+    'en': {
+      'path': '/en/blog',
+      'title': 'Blog'
+    },
+    'it': {
+      'path': '/it/blog',
+      'title': 'Blog'
+    }
   }
 }

@@ -123,10 +123,12 @@
 <style rel="stylesheet/scss" lang="scss">
   @import '../assets/scss/mixins';
 
-  .page-blog {
-    padding-top: 14rem;
+  .node-bworks_article {
+    &.full {
+      padding-top: 14rem;
+    }
 
-    h1 {
+    h1, h3 {
       color: $body-color;
     }
   }
