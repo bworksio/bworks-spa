@@ -4,7 +4,7 @@
       <div class="menu-wrapper">
         <nav class="menu-main">
           <ul>
-            <li v-for="item in menuItems">
+            <li v-for="item in menuItems" v-if="item.title">
               <router-link :to="item.path">{{ item.title }}</router-link>
               <div class="line">&nbsp;</div>
             </li>

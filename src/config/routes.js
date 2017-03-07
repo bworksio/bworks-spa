@@ -68,5 +68,16 @@ export default {
       'path': '/it/blog',
       'title': 'Blog'
     }
+  },
+  'speciality_topic_x': {
+    'de': {
+      'path': '/services/topic-x'
+    },
+    'en': {
+      'path': '/en/services/topic-x'
+    },
+    'it': {
+      'path': '/it/specialita/topic-x'
+    }
   }
 }
