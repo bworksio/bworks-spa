@@ -149,7 +149,7 @@ nav {
 a.animated {
   position: relative;
   display: inline-block;
-  transform: translateX(50%);
+  transform: translateX(calc(100% + 1rem));
   transition: color .15s ease-out 0s;
 
   &:after {
@@ -163,12 +163,12 @@ a.animated {
     transform-origin: right center;
 
     // Scale bar according to viewport width
-    transform: translateX(-200%) scaleX(1.25) scaleY(.227272727);
+    transform: translateX(-200%) scaleY(.227272727);
     @include media-breakpoint-down(sm) {
       transform: translateX(-200%) scaleX(.75) scaleY(.227272727);
     }
     @include media-breakpoint-up(lg) {
-      transform: translateX(-200%) scaleX(2) scaleY(.227272727);
+      transform: translateX(-200%) scaleY(.227272727);
     }
   }
 
