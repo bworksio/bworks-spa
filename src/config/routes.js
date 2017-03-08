@@ -55,6 +55,20 @@ module.exports = {
       'title': 'I nostri lavori'
     }
   },
+  'careers': {
+    'de': {
+      'path': '/karriere',
+      'title': 'Karriere'
+    },
+    'en': {
+      'path': '/en/careers',
+      'title': 'Careers'
+    },
+    'it': {
+      'path': '/it/carriere',
+      'title': 'Carriere'
+    }
+  },
   'blog': {
     'de': {
       'path': '/blog',
