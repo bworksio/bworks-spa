@@ -105,8 +105,18 @@
         color: $body-color;
 
         &.animated {
+          @include hover-focus {
+            color: $white;
+          }
+
           &:after {
             background-color: $body-color;
+          }
+
+          @include media-breakpoint-down(sm) {
+            &:after {
+              display: none;
+            }
           }
         }
       }
