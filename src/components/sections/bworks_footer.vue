@@ -1,5 +1,27 @@
 <template>
   <div :class="'node node-' + getType()">
+    <div class="footer-newsletter container-fluid">
+      <!-- Begin MailChimp Signup Form -->
+      <div id="mc_embed_signup">
+        <form action="//b-works.us15.list-manage.com/subscribe/post?u=1746499f03d9d9a590bb7248e&amp;id=5df773ae8f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+          <div id="mc_embed_signup_scroll">
+            <h2>Subscribe to stay up-to-date with B-Works</h2>
+            <div class="mc-field-group">
+              <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
+              <label for="mce-EMAIL">Email Address </label>
+            </div>
+            <div id="mce-responses" class="clear">
+              <div class="response" id="mce-error-response" style="display:none"></div>
+              <div class="response" id="mce-success-response" style="display:none"></div>
+            </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_1746499f03d9d9a590bb7248e_5df773ae8f" tabindex="-1" value=""></div>
+            <div class="submit"><button type="submit" name="subscribe" id="mc-embedded-subscribe" class="button animated">Subscribe</button></div>
+          </div>
+        </form>
+      </div>
+      <!--End mc_embed_signup-->
+    </div>
+
     <div class="footer-contact container">
       <app-contact></app-contact>
     </div>
@@ -60,7 +82,120 @@
     margin-bottom: 2rem;
   }
 
+  .footer-newsletter {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    background-color: $brand-primary;
+
+    h2 {
+      width: 100%;
+    }
+
+    @include media-breakpoint-down(md) {
+      .mc-field-group {
+        width: 83.3333%;
+
+        input {
+          width: 100%;
+        }
+      }
+
+      .submit {
+        width: 83.3333%;
+        margin-top: 8rem;
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      #mc_embed_signup_scroll {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 16.6667%;
+        padding-right: 16.6667%;
+      }
+
+      .mc-field-group {
+        width: 50%;
+      }
+
+      .submit {
+        margin-top: 2.7rem;
+        margin-left: 10rem;
+      }
+    }
+
+    h2,
+    label,
+    input {
+      color: $white;
+    }
+
+    .mc-field-group {
+      position: relative;
+      margin-top: 2.2rem;
+
+      label {
+        position: absolute;
+        top: 0;
+        transition: transform .2s ease-out;
+        transform: translateY(.2rem);
+        transform-origin: left top;
+      }
+
+      input {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        font-size: 18px;
+        letter-spacing: .066666667em;
+        border: 0;
+        border-bottom: 1px solid $white;
+        background-color: transparent;
+        outline: 0;
+        transition: background-color .2s ease-out;
+      }
+
+      input {
+        &:focus {
+          background-color: lighten($brand-primary, 3%);
+        }
+
+        &:focus,
+        &:not(:focus):valid {
+          + label {
+            transform: translateY(-1.2rem) scale(.75);
+          }
+        }
+      }
+    }
+
+    button.animated {
+      padding: 0;
+      border: none;
+      color: $white;
+      background-color: transparent;
+      font-family: $font-family-sans-serif;
+      font-weight: $font-weight-bold;
+      letter-spacing: .083125em;
+      text-transform: uppercase;
+      cursor: pointer;
+
+      &:after {
+        background-color: $white;
+      }
+
+      @include hover-focus {
+        color: $brand-primary;
+      }
+    }
+
+    .submit {
+      text-align: center;
+    }
+  }
+
   .footer-contact {
+    padding-top: 4rem;
     padding-bottom: 4rem;
   }
 
