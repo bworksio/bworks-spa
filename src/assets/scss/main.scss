@@ -146,7 +146,8 @@ nav {
   }
 }
 
-a.animated {
+a.animated,
+button.animated {
   position: relative;
   display: inline-block;
   transform: translateX(calc(100% + 1rem));
