@@ -80,7 +80,7 @@
        */
       fixUrls (markup) {
         // Look for img src urls that start with a slash.
-        return markup.replace(/\ssrc="(\/[^"]+)"/, (match, url) => {
+        return markup.replace(/\ssrc="(\/[^/"][^"]+)"/g, (match, url) => {
           return match.replace(url, config.api.baseUrl + url.substr(1))
         })
       }
