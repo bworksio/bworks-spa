@@ -209,3 +209,24 @@ button.animated {
     background-size: cover;
   }
 }
+
+.text {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 2em;
+    text-indent: -1.4em;
+  }
+
+  li:before {
+    content: "•";
+    padding-right: 1em;
+    color: $brand-primary;
+  }
+}

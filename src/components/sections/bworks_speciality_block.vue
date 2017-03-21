@@ -35,11 +35,11 @@
   @import '../../assets/scss/mixins';
 
   .node-bworks_speciality_block {
-    ul {
+    ul.row {
       padding: 0;
       list-style: none;
 
-      li {
+      > li {
         margin-top: 1rem;
         margin-bottom: 1rem;
       }
