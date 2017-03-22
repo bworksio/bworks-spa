@@ -61,7 +61,7 @@
     },
     beforeDestroy () {
       // Also destroy ScrollMagic scene.
-      smHeaderInvertScene.destroy()
+      smHeaderInvertScene.destroy(true)
     },
     components: {
       AppLanguageSwitcher
