@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import config from '../config/app.json'
 import Axios from 'axios'
+import { transformResponse, preloadImages } from './transformResponse'
+import ImagePreloader from 'image-preloader'
 import ScrollMagic from 'scrollmagic'
 import utils from '../utils'
 
@@ -12,7 +14,8 @@ const axios = Axios.create({
   baseURL: config.api.baseUrl,
   params: {
     t: (new Date()).getTime()
-  }
+  },
+  transformResponse
 })
 
 /**
@@ -68,8 +71,12 @@ function getData () {
   config.activeLanguages.forEach(activeLang => queries.push(getNodes(activeLang)))
   queries.push(getTags())
   return Axios.all(queries)
-    .then((result) => {
-      store.commit('setInitialized', true)
+    .then(() => {
+      const preloader = new ImagePreloader()
+      preloader.preload(...preloadImages)
+        .then(function (status) {
+          store.commit('setInitialized', true)
+        })
     })
     .catch(() => {
       store.commit('setError', new Error('Failed loading contents, check your internet connection.'))
