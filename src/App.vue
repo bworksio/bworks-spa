@@ -3,9 +3,15 @@
     <header id="site-header">
       <div class="container">
         <div class="header-wrapper">
-          <a class="logo" href="/" v-html="assets.bWorksLogo"></a>
-          <app-menu-toggle></app-menu-toggle>
-          <a class="hire-us animated" href="https://cosmobutler.typeform.com/to/oY7ARZ">Hire us</a>
+          <div class="logo">
+            <a class="logo" href="/" v-html="assets.bWorksLogo"></a>
+          </div>
+          <div class="menu-toggle">
+            <app-menu-toggle></app-menu-toggle>
+          </div>
+          <div class="hire-us">
+            <a class="hire-us animated" href="https://cosmobutler.typeform.com/to/oY7ARZ">Hire us</a>
+          </div>
         </div>
       </div>
       <transition name="menu">
@@ -85,20 +91,50 @@
     top: 0;
     width: 100%;
     min-height: 75px;
-    padding: calc(2rem + 1vw) 0 1rem;
-    // Disabled due to ugly color banding.
-    //background-image: linear-gradient(to bottom, rgba(74,74,74,.09), rgba(74,74,74,0));
+    padding: calc(1rem + 1vw) 0 .75rem;
+    background-color: $white;
     z-index: 990;
+    transition: .2s;
+    transition-property: padding, background-color;
+
+    a {
+      color: $white;
+
+      &.animated:after {
+        background-color: $white;
+      }
+    }
 
     .header-wrapper {
       display: flex;
       justify-content: space-between;
       align-items: center;
 
-      .logo {
+      > div {
+        flex: 0 0 33.3333%;
+        z-index: 991;
+      }
+
+      div.logo {
+        a {
+          display: block;
+          width: 5rem;
+          transition: .2s;
+          transition-property: color, width;
+        }
+
         .st0 {
           fill: $body-color;
+          transition: fill .2s;
         }
+      }
+
+      div.menu-toggle {
+        text-align: center;
+      }
+
+      div.hire-us {
+        text-align: right;
       }
 
       a {
@@ -121,9 +157,23 @@
         }
       }
 
-      // Invert link colors
-      &.invert {
-        .logo {
+      a.hire-us {
+        transform: translateX(0);
+      }
+    }
+
+    // Invert link colors
+    &.invert {
+      padding: calc(2rem + 1vw) 0 1rem;
+      background-color: transparent;
+      background-image: linear-gradient(to bottom, transparentize($body-color, .4), transparentize($body-color, 1));
+
+      .header-wrapper {
+        div.logo {
+          a {
+            width: 7rem;
+          }
+
           .st0 {
             fill: $white;
           }
@@ -148,34 +198,6 @@
             }
           }
         }
-      }
-    }
-
-    .logo,
-    .menu-toggle,
-    .hire-us {
-      z-index: 991;
-    }
-
-    .logo {
-      width: 7rem;
-
-      .st0 {
-        transition: .2s;
-      }
-    }
-
-    .hire-us {
-      transform: translateX(0);
-    }
-
-    a {
-      color: $white;
-      transition: .2s;
-
-      &.animated:after {
-        background-color: $white;
-        transition: .2s;
       }
     }
   }
