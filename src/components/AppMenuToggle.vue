@@ -25,7 +25,7 @@
 <style rel="stylesheet/scss" lang="scss">
   @import '../assets/scss/mixins';
 
-  .menu-toggle {
+  a.menu-toggle {
     // Vertically center the element.
     transform: translateX(-33.333%);
 

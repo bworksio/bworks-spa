@@ -56,7 +56,7 @@
         .duration(() => {
           return this.$el.clientHeight
         })
-        .setClassToggle('#site-header .header-wrapper', 'invert')
+        .setClassToggle('#site-header', 'invert')
         .addTo(this.$store.state.scrollMagicMainController)
     },
     beforeDestroy () {
