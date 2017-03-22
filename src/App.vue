@@ -4,7 +4,7 @@
       <div class="container">
         <div class="header-wrapper">
           <div class="logo">
-            <a class="logo" href="/" v-html="assets.bWorksLogo"></a>
+            <router-link class="logo" to="/" v-html="assets.bWorksLogo"></router-link>
           </div>
           <div class="menu-toggle">
             <app-menu-toggle></app-menu-toggle>
@@ -19,9 +19,7 @@
       </transition>
     </header>
 
-    <transition name="fade">
-      <router-view></router-view>
-    </transition>
+    <router-view></router-view>
 
     <transition name="fade">
       <div v-if="isLoading" id="preloading">
@@ -166,7 +164,7 @@
     &.invert {
       padding: calc(2rem + 1vw) 0 1rem;
       background-color: transparent;
-      background-image: linear-gradient(to bottom, transparentize($body-color, .4), transparentize($body-color, 1));
+      background-image: linear-gradient(to bottom, transparentize(#222, .66), transparentize(#222, 1));
 
       .header-wrapper {
         div.logo {
