@@ -1,7 +1,7 @@
 <template>
-  <div :class="'node node-' + getType()" :style="nodeStyles">
+  <div :class="'node node-' + getType()" :style="getNodeStyle">
     <div :if="hasVideo" class="bg-video">
-      <video playsinline autoplay muted loop :poster="getField('field_header_image', 'url', 0, '')">
+      <video playsinline autoplay muted loop poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" :style="getVideoStyle">
         <!--source :src="getField('field_file', 'url')" type="video/webm"-->
         <source :src="getField('field_file', 'url')" type="video/mp4">
       </video>
@@ -36,13 +36,19 @@
       hasVideo () {
         return !!this.getField('field_file', 'url', 0, false)
       },
-      nodeStyles () {
+      getNodeStyle () {
         let style = 'linear-gradient(to bottom, rgba(0,0,0,.5), rgba(0,0,0,.5))'
         if (!this.hasVideo) {
           style += ', url(' + this.getField('field_header_image', 'url') + ')'
         }
         return {
           'background-image': style
+        }
+      },
+      getVideoStyle () {
+        return {
+          'background-image': this.getField('field_header_image', 'url', 0, ''),
+          'background-size': 'cover'
         }
       }
     },
