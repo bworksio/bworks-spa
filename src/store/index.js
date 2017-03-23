@@ -13,7 +13,7 @@ Vue.use(Vuex)
 const axios = Axios.create({
   baseURL: config.api.baseUrl,
   params: {
-    t: (new Date()).getTime()
+    t: Math.floor((new Date()).getTime() / 10000).toString()
   },
   transformResponse
 })
@@ -29,7 +29,7 @@ function getQueues () {
         store.commit('setQueues', result.data)
       })
   }
-  return new Promise(resolve => { resolve() })
+  return Promise.resolve()
 }
 
 /**
@@ -44,7 +44,7 @@ function getNodes (lang) {
         store.commit('setNodes', { nodes: result.data, lang })
       })
   }
-  return new Promise(resolve => { resolve() })
+  return Promise.resolve()
 }
 
 /**
@@ -58,7 +58,7 @@ function getTags () {
         store.commit('setTags', result.data)
       })
   }
-  return new Promise(resolve => { resolve() })
+  return Promise.resolve()
 }
 
 /**
@@ -66,7 +66,6 @@ function getTags () {
  * @returns {AxiosPromise|Promise}
  */
 function getData () {
-  // Data not loaded yet, query queues and nodes.
   const queries = [getQueues()]
   config.activeLanguages.forEach(activeLang => queries.push(getNodes(activeLang)))
   queries.push(getTags())
