@@ -71,6 +71,8 @@
   @import '../assets/scss/mixins';
 
   #main-menu {
+    display: flex;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -79,8 +81,7 @@
     width: 100%;
     height: 100%;
     background-color: transparentize($brand-primary, .1);
-    padding-top: 10rem;
-    padding-bottom: 10vh;
+    padding-top: 2rem;
     z-index: 989;
   }
 
