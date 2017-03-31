@@ -89,11 +89,12 @@
     top: 0;
     width: 100%;
     min-height: 75px;
-    padding: calc(1rem + 1vw) 0 .75rem;
+    padding: calc(2rem + 1vw) 0 0;
+    transform: translateY(-1.25rem);
     background-color: $white;
     z-index: 990;
     transition: .2s;
-    transition-property: padding, background-color;
+    transition-property: background-color, transform;
 
     a {
       color: $white;
@@ -116,9 +117,14 @@
       div.logo {
         a {
           display: block;
-          width: 5rem;
+          width: 7rem;
+          transform: scale(.715);
           transition: .2s;
-          transition-property: color, width;
+          transition-property: color, transform;
+        }
+
+        svg {
+          max-width: 100%;
         }
 
         .st0 {
@@ -162,14 +168,14 @@
 
     // Invert link colors
     &.invert {
-      padding: calc(2rem + 1vw) 0 1rem;
+      transform: translateY(0);
       background-color: transparent;
       background-image: linear-gradient(to bottom, transparentize(#222, .66), transparentize(#222, 1));
 
       .header-wrapper {
         div.logo {
           a {
-            width: 7rem;
+            transform: scale(1);
           }
 
           .st0 {
