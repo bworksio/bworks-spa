@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header id="site-header">
+    <header id="site-header" :class="{ 'menu-shown': $store.state.showMenu }">
       <div class="container">
         <div class="header-wrapper">
           <div class="logo">
@@ -90,11 +90,10 @@
     width: 100%;
     min-height: 75px;
     padding: calc(2rem + 1vw) 0 0;
-    transform: translateY(-1.25rem);
     background-color: $white;
     z-index: 990;
     transition: .2s;
-    transition-property: background-color, transform;
+    transition-property: background-color;
 
     a {
       color: $white;
@@ -104,10 +103,18 @@
       }
     }
 
+    // Header wrapper container
+    > .container {
+      z-index: 991;
+    }
+
     .header-wrapper {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      transform: translateY(-1.25rem);
+      transition: .2s;
+      transition-property: transform;
 
       > div {
         flex: 0 0 33.3333%;
@@ -167,12 +174,14 @@
     }
 
     // Invert link colors
-    &.invert {
-      transform: translateY(0);
+    &.invert,
+    &.menu-shown {
       background-color: transparent;
       background-image: linear-gradient(to bottom, transparentize(#222, .66), transparentize(#222, 1));
 
       .header-wrapper {
+        transform: translateY(0);
+
         div.logo {
           a {
             transform: scale(1);
