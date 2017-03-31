@@ -10,7 +10,7 @@
       <div class="intro-text-container">
         <div class="intro-text-wrapper">
           <h1><span>{{ getField('title') }}</span></h1>
-          <div class="intro-text" v-html="getField('body')"></div>
+          <div class="intro-text" v-html="getField('body', 'value', 0, '')"></div>
         </div>
       </div>
       <div class="language-switcher-wrapper">
@@ -135,6 +135,7 @@
         #page:not(.page-home) & {
           display: flex;
           align-items: center;
+          width: 100%;
         }
       }
     }
