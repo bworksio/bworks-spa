@@ -1,22 +1,24 @@
 <template>
   <div class="node node-bworks_careers_block">
     <div class="container">
-      <ul class="row">
-        <li v-for="(node, index) in nodes" class="col-sm-6">
-          <a href="#" :class="{active: index === active}" @click.prevent="show(index)">{{ node.title[0].value }}</a>
-        </li>
-      </ul>
+      <div class="job-wrapper">
+        <ul class="row">
+          <li v-for="(node, index) in nodes" class="col-sm-6">
+            <a href="#" :class="{active: index === active}" @click.prevent="show(index)">{{ node.title[0].value }}</a>
+          </li>
+        </ul>
 
-      <transition name="fade" mode="out-in">
-        <div v-if="nodes[active]" :key="active" class="job-offer">
-          <h3 class="h2">Looking for</h3>
-          <h2 class="h1">{{ nodes[active].title[0].value }}</h2>
-          <div v-html="nodes[active].body[0].value"></div>
-          <div class="apply">
-            <a class="animated" :href="nodes[active].field_link[0].uri">Apply</a>
+        <transition name="fade" mode="out-in">
+          <div v-if="nodes[active]" :key="active" class="job-offer">
+            <h3 class="h2">Looking for</h3>
+            <h2 class="h1">{{ nodes[active].title[0].value }}</h2>
+            <div v-html="nodes[active].body[0].value"></div>
+            <div class="apply">
+              <a class="animated" :href="nodes[active].field_link[0].uri">Apply</a>
+            </div>
           </div>
-        </div>
-      </transition>
+        </transition>
+      </div>
     </div>
   </div>
 </template>
@@ -50,6 +52,11 @@
   @import '../../assets/scss/mixins';
 
   .node-bworks_careers_block {
+    .job-wrapper {
+      padding-left: 8.3333%;
+      padding-right: 8.3333%;
+    }
+
     ul {
       padding: 0;
       list-style: none;
