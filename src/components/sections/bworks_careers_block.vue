@@ -14,7 +14,7 @@
             <h2 class="h1">{{ nodes[active].title[0].value }}</h2>
             <div v-html="nodes[active].body[0].value"></div>
             <div class="apply">
-              <a class="animated" :href="nodes[active].field_link[0].uri">Apply</a>
+              <a class="animated" :href="nodes[active].field_link[0].uri">{{ $t('button.apply_now') }}</a>
             </div>
           </div>
         </transition>
