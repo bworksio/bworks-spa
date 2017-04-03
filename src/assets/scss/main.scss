@@ -150,7 +150,7 @@ a.animated,
 button.animated {
   position: relative;
   display: inline-block;
-  transform: translateX(calc(100% + 1rem));
+  transform: translateX(50%);
   transition: color .15s ease-out 0s;
 
   &:after {
