@@ -10,7 +10,7 @@
             <app-menu-toggle></app-menu-toggle>
           </div>
           <div class="hire-us">
-            <a class="hire-us animated" href="https://cosmobutler.typeform.com/to/oY7ARZ">Hire us</a>
+            <a class="hire-us animated" href="https://cosmobutler.typeform.com/to/oY7ARZ">{{ $t('button.hire_us') }}</a>
           </div>
         </div>
       </div>
@@ -77,7 +77,9 @@
        */
       updateLanguage () {
         if (this.$route.matched.length && this.$route.matched[0].components.default.name !== 'NotFound') {
-          this.$store.commit('setLanguage', this.$route.matched[0].props.default.lang)
+          const lang = this.$route.matched[0].props.default.lang
+          this.$store.commit('setLanguage', lang)
+          this.$i18n.locale = lang
         }
       }
     },
