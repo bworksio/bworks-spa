@@ -39,7 +39,7 @@
       getNodeStyle () {
         let style = 'linear-gradient(to bottom, rgba(0,0,0,.5), rgba(0,0,0,.5))'
         if (!this.hasVideo) {
-          style += ', url(' + this.getField('field_header_image', 'url') + ')'
+          style += ', url(' + this.getField('field_header_image', 'url', 0, '') + ')'
         }
         return {
           'background-image': style
@@ -47,7 +47,7 @@
       },
       getVideoStyle () {
         return {
-          'background-image': this.getField('field_header_image', 'url', 0, ''),
+          'background-image': 'url(' + this.getField('field_header_image', 'url', 0, '') + ')',
           'background-size': 'cover'
         }
       }
