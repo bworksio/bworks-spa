@@ -1,5 +1,5 @@
 <template lang="html">
-  <a class="menu-toggle" @click.prevent="toggleMenu()" href="#">{{ $store.state.showMenu ? 'Close' : 'Menu' }}</a>
+  <a class="menu-toggle" @click.prevent="toggleMenu()" href="#">{{ $t($store.state.showMenu ? 'button.close' : 'button.menu') }}</a>
 </template>
 
 <script type="text/javascript">
