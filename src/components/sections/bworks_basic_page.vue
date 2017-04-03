@@ -97,27 +97,14 @@
       #page:not(.page-home) & {
         align-items: center;
       }
+      min-height: calc(100vh - 189px);
       padding-bottom: 68px;
 
-      @include media-breakpoint-only(xs) {
-        min-height: 667px;
-      }
       @include media-breakpoint-only(sm) {
-        min-height: 375px;
         padding-bottom: 40px;
       }
       @include media-breakpoint-only(md) {
-        min-height: 874px;
         align-items: center;
-      }
-      @include media-breakpoint-only(lg) {
-        min-height: 618px;
-      }
-      @include media-breakpoint-only(xl) {
-        min-height: 650px;
-      }
-      @include media-breakpoint-up(xxl) {
-        min-height: 750px;
       }
     }
 
