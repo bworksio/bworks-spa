@@ -8,7 +8,7 @@
               <drupal-image :image="node.field_image[0]"></drupal-image>
             </div>
             <div class="body col-md-5 col-lg-6">
-              <h2 class="h1">{{ getField('title') }}</h2>
+              <h2>{{ getField('title') }}</h2>
               <div v-html="getField('body', 'summary')"></div>
               <div class="read-more">
                 <router-link :to="getPath()">Read full story</router-link>
@@ -97,13 +97,13 @@
           padding: 0;
         }
 
-        .h1 {
+        h2 {
           margin-top: 3rem;
         }
       }
 
       .row {
-        align-items: center;
+        //align-items: center;
       }
 
       .h1 {
