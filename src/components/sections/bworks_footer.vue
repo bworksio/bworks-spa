@@ -5,17 +5,17 @@
       <div id="mc_embed_signup">
         <form action="//b-works.us15.list-manage.com/subscribe/post?u=1746499f03d9d9a590bb7248e&amp;id=5df773ae8f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
           <div id="mc_embed_signup_scroll">
-            <h2>Subscribe to stay up-to-date with B-Works</h2>
+            <h2>{{ $t('message.newsletter_subscribe') }}</h2>
             <div class="mc-field-group">
               <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
-              <label for="mce-EMAIL">Email Address </label>
+              <label for="mce-EMAIL">{{ $t('message.email_address') }} </label>
             </div>
             <div id="mce-responses" class="clear">
               <div class="response" id="mce-error-response" style="display:none"></div>
               <div class="response" id="mce-success-response" style="display:none"></div>
             </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
             <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_1746499f03d9d9a590bb7248e_5df773ae8f" tabindex="-1" value=""></div>
-            <div class="submit"><button type="submit" name="subscribe" id="mc-embedded-subscribe" class="button animated">Subscribe</button></div>
+            <div class="submit"><button type="submit" name="subscribe" id="mc-embedded-subscribe" class="button animated">{{ $t('button.subscribe') }}</button></div>
           </div>
         </form>
       </div>
@@ -29,7 +29,7 @@
     <div class="footer-address container-fluid">
       <div class="footer-hosted">
         <span class="icon" v-html="assets.switzerland"></span>
-        <span class="h4 text">All data 100% stored and hosted in Switzerland</span>
+        <span class="h4 text">{{ $t('message.data_switzerland') }}</span>
       </div>
 
       <div class="footer-addresses">

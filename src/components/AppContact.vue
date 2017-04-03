@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="contact" :class="hoverClass">
-    <h2 @mouseenter="showAll()">Get in touch</h2>
+    <h2 @mouseenter="showAll()">{{ $t('message.contact') }}</h2>
 
     <a href="mailto:contact@b-works.io" class="email">
       <div class="icon" v-html="assets.email"></div>
