@@ -2,7 +2,7 @@
   <div class="node node-bworks_careers_block">
     <div class="container">
       <div class="job-wrapper">
-        <ul class="row">
+        <ul class="job-links row">
           <li v-for="(node, index) in nodes" class="col-sm-6">
             <a href="#" :class="{active: index === active}" @click.prevent="show(index)">{{ node.title[0].value }}</a>
           </li>
@@ -57,7 +57,7 @@
       padding-right: 8.3333%;
     }
 
-    ul {
+    ul.job-links {
       padding: 0;
       list-style: none;
 
