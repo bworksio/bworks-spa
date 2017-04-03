@@ -75,13 +75,24 @@
     }
 
     &.teaser {
-      @include make-gutters();
-      width: 50%;
+      .description {
+        display: none;
+      }
+
+      @include media-breakpoint-up(md) {
+        @include make-gutters();
+        width: 50%;
+
+        .description {
+          display: block;
+        }
+      }
 
       &:first-child {
         width: 100%;
+        padding-top: 2rem;
 
-        @include media-breakpoint-up(sm) {
+        @include media-breakpoint-up(md) {
           .description-wrapper {
             display: flex;
             align-items: center;
