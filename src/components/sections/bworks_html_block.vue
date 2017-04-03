@@ -13,7 +13,7 @@
     name: 'bworks_html_block',
     extends: Node,
     mounted () {
-      utils.forEach(this.$el.querySelectorAll('.html-wrapper, .image'), (el) => {
+      utils.forEach(this.$el.querySelectorAll('.html-container, .image'), (el) => {
         // Run html animations on enter.
         new ScrollMagic.Scene({
           triggerElement: el,
