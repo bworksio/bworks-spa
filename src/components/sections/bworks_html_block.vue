@@ -18,7 +18,8 @@
         new ScrollMagic.Scene({
           triggerElement: el,
           triggerHook: 'onEnter',
-          reverse: false
+          offset: 100,
+          reverse: true
         })
           .setClassToggle(el, 'run')
           .addTo(this.$store.state.scrollMagicMainController)
@@ -145,6 +146,11 @@
       margin-bottom: 2rem;
       @include media-breakpoint-up(md) {
         margin-bottom: 4rem;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
       }
     }
 
