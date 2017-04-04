@@ -4,13 +4,13 @@
       <div class="job-wrapper">
         <ul class="job-links row">
           <li v-for="(node, index) in nodes" class="col-sm-6">
-            <a href="#" :class="{active: index === active}" @click.prevent="show(index)">{{ node.title[0].value }}</a>
+            <a href="#" :class="{active: index === active}" @click.prevent="show(index)"><span>{{ node.title[0].value }}</span></a>
           </li>
         </ul>
 
         <transition name="fade" mode="out-in">
           <div v-if="nodes[active]" :key="active" class="job-offer">
-            <h3 class="h2">Looking for</h3>
+            <h3 class="h2">{{ $t('message.looking_for') }}</h3>
             <h2 class="h1">{{ nodes[active].title[0].value }}</h2>
             <div v-html="nodes[active].body[0].value"></div>
             <div class="apply">
@@ -96,6 +96,30 @@
 
     .job-offer {
       margin-top: 6rem;
+
+      h3 {
+        margin: 4rem 0 2rem;
+        font-size: .857142857rem;
+        line-height: 1.166666667;
+        letter-spacing: .044166667em;
+        color: $body-color;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+          padding-left: 1.5em;
+
+          &:before {
+            content: "–";
+            margin-left: -1.5em;
+            padding-right: 1em;
+          }
+        }
+      }
 
       .apply {
         margin-top: 4rem;
