@@ -44,7 +44,7 @@ module.exports = {
   'works': {
     'de': {
       'path': '/arbeiten',
-      'title': 'Unsere Arbeiten'
+      'title': 'Unsere Projekte'
     },
     'en': {
       'path': '/en/work',
