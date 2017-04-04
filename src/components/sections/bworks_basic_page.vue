@@ -212,6 +212,7 @@
       @include media-breakpoint-up(lg) {
         #page:not(.page-home) & {
           flex: 1 50%;
+          padding-left: 8.3333%;
         }
       }
     }
