@@ -210,6 +210,12 @@ button.animated {
   }
 }
 
+// Iframes
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
 .text {
   ul {
     list-style: none;
