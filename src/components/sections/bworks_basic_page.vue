@@ -109,6 +109,8 @@
     }
 
     .intro-text-wrapper {
+      width: 100%;
+
       @include media-breakpoint-only(md) {
         padding-left: 8.3333333%;
         padding-right: 8.3333333%;
