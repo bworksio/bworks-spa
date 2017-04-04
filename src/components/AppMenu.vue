@@ -81,7 +81,7 @@
     width: 100%;
     height: 100%;
     background-color: transparentize($brand-primary, .1);
-    padding-top: 2rem;
+    padding-top: 75px;
     z-index: 989;
   }
 
@@ -142,7 +142,7 @@
       height: 1px;
       margin-top: .5rem;
       background-color: $white;
-      transform: translateX(-100%);
+      transform: translateX(-101%);
       transition: transform .2s cubic-bezier(unquote($menu));
     }
 
