@@ -77,6 +77,10 @@
     img {
       max-width: 100%;
       height: auto;
+      object-fit: cover;
+      object-position: center;
+      max-height: 12rem;
+      min-height: 12rem;
     }
 
     .date {
