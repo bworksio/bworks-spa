@@ -16,7 +16,7 @@ utils.forEach(routesConfig, (languages, name) => {
       path: item.path,
       component: Page,
       props: { name, lang },
-      meta: { name }
+      meta: { name, title: item.title }
     })
   })
 })

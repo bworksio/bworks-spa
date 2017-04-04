@@ -16,6 +16,12 @@ const i18n = new VueI18n({
   messages
 })
 
+// Set page title to route title
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title
+  next()
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
