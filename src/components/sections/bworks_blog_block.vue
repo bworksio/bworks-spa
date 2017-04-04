@@ -23,7 +23,7 @@
     },
     created () {
       // Get all articles
-      this.nodes = this.$store.getters.getNodesByType('bworks_article', this.lang)
+      this.nodes = this.$store.getters.getNodesByType('bworks_article', /*this.lang*/ 'en')
     },
     components: {
       bworks_article
