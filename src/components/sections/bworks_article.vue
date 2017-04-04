@@ -1,40 +1,36 @@
 <template>
-  <div>
+  <div :class="getNodeClass">
     <template v-if="viewMode === 'teaser'">
-      <div :class="'node node-' + getType() + ' ' + viewMode">
-        <div class="article container-fluid">
-          <div class="row">
-            <div class="image col-md-7 col-lg-6">
-              <drupal-image :image="node.field_image[0]"></drupal-image>
-            </div>
-            <div class="body col-md-5 col-lg-6">
-              <h2>{{ getField('title') }}</h2>
-              <div v-html="getField('body', 'summary')"></div>
-              <div class="read-more">
-                <router-link :to="getPath()">Read full story</router-link>
-              </div>
+      <div class="article container-fluid">
+        <div class="row">
+          <div class="image col-md-7 col-lg-6">
+            <drupal-image :image="node.field_image[0]"></drupal-image>
+          </div>
+          <div class="body col-md-5 col-lg-6">
+            <h2>{{ getField('title') }}</h2>
+            <div v-html="getField('body', 'summary')"></div>
+            <div class="read-more">
+              <router-link :to="getPath()">Read full story</router-link>
             </div>
           </div>
+        </div>
 
-          <div class="view-all">
-            <router-link class="animated" to="blog">View all articles</router-link>
-          </div>
+        <div class="view-all">
+          <router-link class="animated" to="blog">View all articles</router-link>
         </div>
       </div>
     </template>
 
     <template v-if="viewMode === 'list'">
-      <div :class="'node node-' + getType() + ' ' + viewMode + ' col-sm-6 col-md-4'">
-        <router-link :to="getPath()">
-          <div class="image">
-            <drupal-image :image="node.field_image[0]"></drupal-image>
-          </div>
-          <div class="body">
-            <h2 class="h3">{{ getField('title') }}</h2>
-            <div class="date">{{ getField('field_date') }}</div>
-          </div>
-        </router-link>
-      </div>
+      <router-link :to="getPath()">
+        <div class="image">
+          <drupal-image :image="node.field_image[0]"></drupal-image>
+        </div>
+        <div class="body">
+          <h2 class="h3">{{ getField('title') }}</h2>
+          <div class="date">{{ getField('field_date') }}</div>
+        </div>
+      </router-link>
     </template>
   </div>
 </template>
@@ -46,6 +42,19 @@
   export default {
     name: 'bworks_article',
     extends: Node,
+    computed: {
+      getNodeClass () {
+        const classes = [
+          'node',
+          'node-' + this.getType(),
+          this.viewMode
+        ]
+        if (this.viewMode === 'list') {
+          classes.push('col-sm-6 col-md-4')
+        }
+        return classes
+      }
+    },
     methods: {
       getPath () {
         return this.node.path.length ? this.node.path[0].alias : ''
