@@ -4,6 +4,9 @@
       <div class="container">
         <h1 class="col-md-10 offset-md-1">{{ getField('title') }}</h1>
         <div class="col-md-10 offset-md-1" v-html="getField('body')"></div>
+        <div class="col-md-10 offset-md-1">
+          <ShareLinks type="text-only"></ShareLinks>
+        </div>
       </div>
     </div>
 
@@ -14,6 +17,7 @@
 <script type="text/javascript">
   import { getData } from '../store'
   import config from '../config/app.json'
+  import ShareLinks from './helpers/ShareLinks'
   /* eslint-disable camelcase */
   import bworks_footer from './sections/bworks_footer'
 
@@ -118,6 +122,7 @@
       }
     },
     components: {
+      ShareLinks,
       bworks_footer
     }
   }

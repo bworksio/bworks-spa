@@ -16,6 +16,7 @@
             <div class="apply">
               <a class="animated" :href="nodes[active].field_link[0].uri">{{ $t('button.apply_now') }}</a>
             </div>
+            <ShareLinks type="logo-only"></ShareLinks>
           </div>
         </transition>
       </div>
@@ -25,6 +26,7 @@
 
 <script type="text/javascript">
   import Node from '../helpers/Node'
+  import ShareLinks from '../helpers/ShareLinks'
 
   export default {
     name: 'bworks_careers_block',
@@ -44,87 +46,87 @@
         this.active = index
       }
     },
-    components: {}
+    components: {
+      ShareLinks
+    }
   }
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
   @import '../../assets/scss/mixins';
 
-  .node-bworks_careers_block {
-    .job-wrapper {
-      padding-left: 8.3333%;
-      padding-right: 8.3333%;
-    }
+  .job-wrapper {
+    padding-left: 8.3333%;
+    padding-right: 8.3333%;
+  }
 
-    ul.job-links {
-      padding: 0;
-      list-style: none;
+  ul.job-links {
+    padding: 0;
+    list-style: none;
 
-      a {
-        display: inline-block;
-        width: 85%;
-        margin-bottom: 1rem;
-        padding-top: .5em;
-        border-top: 1px solid $body-color;
-        font-weight: 400;
-        color: $body-color;
+    a {
+      display: inline-block;
+      width: 85%;
+      margin-bottom: 1rem;
+      padding-top: .5em;
+      border-top: 1px solid $body-color;
+      font-weight: 400;
+      color: $body-color;
+
+      &:after {
+        content: "•";
+        position: absolute;
+        right: calc(15% + 1rem);
+        color: transparent;
+        transition: transform .4s;
+      }
+
+      &.active:after {
+        color: $brand-primary;
+        transform: scale(2);
+      }
+
+      @include hover-focus {
+        color: $brand-primary;
 
         &:after {
-          content: "•";
-          position: absolute;
-          right: calc(15% + 1rem);
-          color: transparent;
-          transition: transform .4s;
-        }
-
-        &.active:after {
           color: $brand-primary;
           transform: scale(2);
         }
+      }
+    }
+  }
 
-        @include hover-focus {
-          color: $brand-primary;
+  .job-offer {
+    margin-top: 6rem;
 
-          &:after {
-            color: $brand-primary;
-            transform: scale(2);
-          }
+    h3 {
+      margin: 4rem 0 2rem;
+      font-size: .857142857rem;
+      line-height: 1.166666667;
+      letter-spacing: .044166667em;
+      color: $body-color;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        padding-left: 1.5em;
+
+        &:before {
+          content: "–";
+          margin-left: -1.5em;
+          padding-right: 1em;
         }
       }
     }
 
-    .job-offer {
-      margin-top: 6rem;
-
-      h3 {
-        margin: 4rem 0 2rem;
-        font-size: .857142857rem;
-        line-height: 1.166666667;
-        letter-spacing: .044166667em;
-        color: $body-color;
-      }
-
-      ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-
-        li {
-          padding-left: 1.5em;
-
-          &:before {
-            content: "–";
-            margin-left: -1.5em;
-            padding-right: 1em;
-          }
-        }
-      }
-
-      .apply {
-        margin-top: 4rem;
-        text-align: center;
-      }
+    .apply {
+      margin-top: 4rem;
+      text-align: center;
     }
   }
 </style>
