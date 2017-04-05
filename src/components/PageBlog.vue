@@ -58,6 +58,9 @@
           // Find matching node by path
           this.node = this.$store.getters.getNodeByPath(this.$route.path, this.lang)
           this.footerNode = this.$store.getters.getNodesByType('bworks_footer', this.lang).shift()
+
+          // Set page title
+          document.title = this.getField('title')
         }).catch(() => {
           /* Error handled upstream */
         })
