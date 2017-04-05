@@ -12,7 +12,8 @@
           <div v-if="nodes[active]" :key="active" class="job-offer">
             <h3 class="h2">{{ $t('message.looking_for') }}</h3>
             <h2 class="h1">{{ nodes[active].title[0].value }}</h2>
-            <div v-html="nodes[active].body[0].value"></div>
+            <h3 class="subtitle" :if="nodes[active].field_subtitle">{{ nodes[active].field_subtitle[0].value }}</h3>
+            <div class="job-description" v-html="nodes[active].body[0].value"></div>
             <div class="apply">
               <a class="animated" :href="nodes[active].field_link[0].uri">{{ $t('button.apply_now') }}</a>
             </div>
@@ -100,11 +101,23 @@
   .job-offer {
     margin-top: 6rem;
 
+    .apply {
+      margin-top: 4rem;
+      text-align: center;
+    }
+  }
+
+  .subtitle {
+    margin: -1rem 0 2rem;
+    color: $body-color;
+  }
+
+  .job-description {
     h3 {
-      margin: 4rem 0 2rem;
+      margin: 3.5em 0 1.16667em;
       font-size: .857142857rem;
-      line-height: 1.166666667;
-      letter-spacing: .044166667em;
+      line-height: 1.166667;
+      letter-spacing: .044167em;
       color: $body-color;
     }
 
@@ -122,11 +135,6 @@
           padding-right: 1em;
         }
       }
-    }
-
-    .apply {
-      margin-top: 4rem;
-      text-align: center;
     }
   }
 </style>
