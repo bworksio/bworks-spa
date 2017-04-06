@@ -7,7 +7,7 @@ const transformResponse = Axios.defaults.transformResponse
 transformResponse.unshift(function (data, headers) {
   if (headers['content-type'].substr(-4) === 'json') {
     let match
-    const re = /(?:https?:)?\\\/\\\/backend\.[^"]+\.(?:jpg|png|mp4)/g
+    const re = /(?:https?:)?\\\/\\\/[^"]+\.(?:jpe?g|png)/g
     while ((match = re.exec(data)) !== null) {
       preloadImages.push(match[0])
     }
