@@ -20,6 +20,7 @@
 <script type="text/javascript">
   import Node from '../helpers/Node'
   import svg from 'components/helpers/Svg'
+  import jump from 'jump.js'
   import { cleanId } from '../../utils'
 
   export default {
@@ -49,6 +50,13 @@
     },
     created () {
       this.cleanId = cleanId(this.getField('title'))
+    },
+    mounted () {
+      // Check if there is a hash in the url, and if it matches the component,
+      // then scroll to it when mounted
+      if (window.location.hash && window.location.hash === '#' + this.cleanId) {
+        jump(window.location.hash, { offset: -125 })
+      }
     },
     components: {
       'inline-svg': svg
@@ -91,12 +99,20 @@
       }
     }
 
-    h3 {
-      font-size: .857142857rem;
-      line-height: 1.333333333;
-      letter-spacing: .083333333em;
-      margin-top: .5em;
-      margin-bottom: .5em;
+    &.teaser {
+      h3 {
+        font-size: 1.28571rem;
+        line-height: 1.38889;
+        letter-spacing: .06667em;
+        margin-top: .5em;
+        margin-bottom: .5em;
+
+        .page-home & {
+          font-size: 1.14285rem;
+          line-height: 1.375;
+          letter-spacing: .083125em;
+        }
+      }
     }
 
     @include media-breakpoint-down(md) {
