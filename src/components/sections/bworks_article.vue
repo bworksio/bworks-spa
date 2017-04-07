@@ -173,8 +173,15 @@
         min-height: 12rem;
       }
 
+      .category {
+        color: $gray-color;
+        margin-top: 1em;
+        padding-top: .5em;
+        border-top: 1px solid $gray-color;
+      }
+
       h2 {
-        margin: .5em 0;
+        margin: .25em 0 .5em;
         text-transform: none;
         transition: color .4s;
       }
