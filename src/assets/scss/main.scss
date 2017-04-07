@@ -51,14 +51,6 @@ h4, .h4 {
   color: $body-color;
 }
 
-@media (max-width: 737px) {
-  p {
-    font-size: .857142857rem;
-    line-height: 1.5;
-    letter-spacing: .080833333em;
-  }
-}
-
 nav {
   ul {
     margin: 0;
