@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header id="site-header" :class="{ 'menu-shown': $store.state.showMenu }">
+    <header id="site-header" :data-show-menu="$store.state.showMenu ? 'yes' : ''">
       <div class="container">
         <div class="header-wrapper">
           <div class="logo">
@@ -184,7 +184,7 @@
 
     // Invert link colors
     &.invert,
-    &.menu-shown {
+    &[data-show-menu=yes] {
       background-color: transparent;
       background-image: linear-gradient(to bottom, transparentize(#222, .66), transparentize(#222, 1));
 
