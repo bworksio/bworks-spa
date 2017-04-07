@@ -6,8 +6,8 @@
   @each $breakpoint in map-keys($gutters) {
     @include media-breakpoint-up($breakpoint) {
       $gutter: map-get($gutters, $breakpoint);
-      padding-right: calc(4.1666667% + #{$gutter / 2});
-      padding-left:  calc(4.1666667% + #{$gutter / 2});
+      padding-right: calc(4.16667% + #{$gutter / 2});
+      padding-left:  calc(4.16667% + #{$gutter / 2});
     }
   }
 }
@@ -20,8 +20,8 @@ h1, h2, h3, h4,
 
 h1, .h1 {
   font-size: $font-size-h1;
-  line-height: 1.366666667;
-  letter-spacing: .066666667em;
+  line-height: 1.36667;
+  letter-spacing: .06667em;
   font-weight: $font-weight-heavy;
   color: $brand-primary;
   margin-bottom: 1em;
@@ -29,24 +29,24 @@ h1, .h1 {
 
 h2, .h2 {
   font-size: $font-size-h2;
-  line-height: 1.363636364;
-  letter-spacing: .066818182em;
+  line-height: 1.36364;
+  letter-spacing: .06682em;
   font-weight: $font-weight-heavy;
   color: $body-color;
 }
 
 h3, .h3 {
   font-size: $font-size-h3;
-  line-height: 1.388888889;
-  letter-spacing: .066666667em;
+  line-height: 1.388889;
+  letter-spacing: .06667em;
   font-weight: $font-weight-bold;
   color: $brand-primary;
 }
 
 h4, .h4 {
   font-size: $font-size-h4;
-  line-height: 1.166666667;
-  letter-spacing: .044166667em;
+  line-height: 1.16667;
+  letter-spacing: .04467em;
   font-weight: $font-weight-bold;
   color: $body-color;
 }
@@ -61,7 +61,7 @@ nav {
 
 .container-fluid {
   @include media-breakpoint-down(xl) {
-    width: 91.666667%
+    width: 91.66667%
   }
   @include media-breakpoint-only(xxl) {
     width: 75%
@@ -156,12 +156,12 @@ button.animated {
     transform-origin: right center;
 
     // Scale bar according to viewport width
-    transform: translateX(-200%) scaleY(.227272727);
+    transform: translateX(-200%) scaleY(.22727);
     @include media-breakpoint-down(sm) {
-      transform: translateX(-200%) scaleX(.75) scaleY(.227272727);
+      transform: translateX(-200%) scaleX(.75) scaleY(.22727);
     }
     @include media-breakpoint-up(lg) {
-      transform: translateX(-200%) scaleY(.227272727);
+      transform: translateX(-200%) scaleY(.22727);
     }
   }
 

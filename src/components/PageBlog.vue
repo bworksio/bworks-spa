@@ -2,8 +2,14 @@
   <div id="page" :class="'page-' + name + ' lang-' + lang" :key="lang +'/'+ name">
     <div :class="'node node-' + getType() + ' full'">
       <div class="container">
-        <h1 class="col-md-10 offset-md-1">{{ getField('title') }}</h1>
-        <div class="col-md-10 offset-md-1" v-html="getField('body')"></div>
+        <div class="title col-md-10 offset-md-1">
+          <h1>{{ getField('title') }}</h1>
+          <div class="meta">
+            <div class="category">{{ getTag() }}</div>
+            <div class="date">{{ getField('field_date') }}</div>
+          </div>
+        </div>
+        <div class="body col-md-10 offset-md-1" v-html="getField('body')"></div>
         <div class="col-md-10 offset-md-1">
           <ShareLinks type="logo-only"></ShareLinks>
         </div>
@@ -119,6 +125,15 @@
         return markup.replace(/\ssrc="(\/[^/"][^"]+)"/, (match, url) => {
           return match.replace(url, config.api.baseUrl + url.substr(1))
         })
+      },
+
+      /**
+       * Returns the (first) tag for the current node.
+       * @returns {string}
+       */
+      getTag () {
+        const id = this.getField('field_tags', 'target_id', 0, false)
+        return id ? this.$store.getters.getTag(id, this.lang) : this.$t('message.blog')
       }
     },
     components: {
@@ -133,11 +148,76 @@
 
   .node-bworks_article {
     &.full {
-      padding-top: 14rem;
+      padding-top: 10rem;
+
+      @include media-breakpoint-down(sm) {
+        .meta {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+
+      @include media-breakpoint-only(sm) {
+        .category {
+          flex-basis: 66%;
+        }
+        .date {
+          flex-basis: 33%;
+        }
+      }
+
+      @include media-breakpoint-up(md) {
+        .category {
+          margin-bottom: 2.14285rem;
+        }
+      }
+
+      @include media-breakpoint-up(lg) {
+        .title {
+          display: flex;
+
+          h1 {
+            flex-basis: 75%;
+            padding-right: 25px;
+          }
+
+          .meta {
+            flex-basis: 25%;
+            text-align: right;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-bottom: 2.14285rem;
+          }
+
+          .category {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .category {
+        font-weight: $font-weight-bold;
+        color: $gray-color;
+        text-transform: uppercase;
+      }
+
+      .body {
+        margin-top: 4rem;
+      }
     }
 
     h1, h3 {
       color: $body-color;
+    }
+
+    @include media-breakpoint-down(sm) {
+      h1 {
+        font-size: 1.28571rem;
+        line-height: 1.38889;
+        letter-spacing: .06667em;
+      }
     }
   }
 </style>
