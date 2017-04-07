@@ -2,7 +2,7 @@
   <div :class="getNodeClass">
     <template v-if="viewMode === 'teaser'">
       <div class="article container-fluid">
-        <div class="row">
+        <router-link class="unstyled row" :to="getPath()">
           <div class="image col-md-7 col-lg-6">
             <drupal-image :image="node.field_image[0]"></drupal-image>
           </div>
@@ -10,13 +10,13 @@
             <h2>{{ getField('title') }}</h2>
             <div v-html="getField('body', 'summary')"></div>
             <div class="read-more">
-              <router-link :to="getPath()">Read full story</router-link>
+              <router-link :to="getPath()">{{ $t('button.read_full_story') }}</router-link>
             </div>
           </div>
-        </div>
+        </router-link>
 
         <div class="view-all">
-          <router-link class="animated" to="blog">View all articles</router-link>
+          <router-link class="animated" to="blog">{{ $t('button.view_all_articles') }}</router-link>
         </div>
       </div>
     </template>
@@ -77,10 +77,6 @@
     img {
       max-width: 100%;
       height: auto;
-      object-fit: cover;
-      object-position: center;
-      max-height: 12rem;
-      min-height: 12rem;
     }
 
     .date {
@@ -126,15 +122,25 @@
       .read-more {
         margin-top: 2rem;
         text-align: right;
+
+        a {
+          color: $gray-color;
+          @include hover-focus {
+            color: $body-color;
+          }
+        }
       }
 
-      a {
-        color: $gray-color;
-        @include hover-focus {
-          color: $body-color;
-        }
+      .view-all {
+        margin-top: 4rem;
+        text-align: center;
 
-        &.animated {
+        a {
+          color: $gray-color;
+          @include hover-focus {
+            color: $body-color;
+          }
+
           @include hover-focus {
             color: $white;
           }
@@ -143,14 +149,16 @@
           }
         }
       }
-
-      .view-all {
-        margin-top: 4rem;
-        text-align: center;
-      }
     }
 
     &.list {
+      img {
+        object-fit: cover;
+        object-position: center;
+        max-height: 12rem;
+        min-height: 12rem;
+      }
+
       h2 {
         margin: 1em 0 .5em;
         text-transform: none;
