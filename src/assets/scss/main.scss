@@ -205,7 +205,9 @@ button.animated {
 // Iframes
 iframe {
   max-width: 100%;
-  height: auto;
+  @include media-breakpoint-down(sm) {
+    height: auto;
+  }
 }
 
 .text {
