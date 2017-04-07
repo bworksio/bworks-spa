@@ -5,7 +5,7 @@
         <project v-for="(project, index) in node.field_entity_reference" :nid="project.target_id" :lang="lang" :index="index" :viewMode="viewMode"></project>
       </div>
       <div class="view-all">
-        <a class="animated" href="#">View all projects</a>
+        <router-link class="animated" :to="$router.options.getRouteByProps('works', lang)">{{ $t('button.view_all_projects') }}</router-link>
       </div>
     </div>
   </div>
@@ -30,9 +30,6 @@
 <style rel="stylesheet/scss" lang="scss">
   .node-bworks_project_block {
     .view-all {
-      // FIXME Remove when projects overview page has been implemented
-      display: none;
-
       text-align: center;
     }
   }

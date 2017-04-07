@@ -5,7 +5,8 @@ export default {
       close: 'Close',
       hire_us: 'Hire us',
       apply_now: 'Apply now',
-      subscribe: 'Subscribe'
+      subscribe: 'Subscribe',
+      view_all_projects: 'View all projects'
     },
     message: {
       newsletter_subscribe: 'Subscribe to stay up-to-date with B-Works',
@@ -21,7 +22,8 @@ export default {
       close: 'Schliessen',
       hire_us: 'Anfrage senden',
       apply_now: 'Jetzt bewerben',
-      subscribe: 'Anmelden'
+      subscribe: 'Anmelden',
+      view_all_projects: 'Alle Projekte anzeigen'
     },
     message: {
       newsletter_subscribe: 'Bleiben Sie auf dem Laufenden mit B-Works',
