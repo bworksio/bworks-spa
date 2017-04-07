@@ -5,7 +5,7 @@
         <h1 class="col-md-10 offset-md-1">{{ getField('title') }}</h1>
         <div class="col-md-10 offset-md-1" v-html="getField('body')"></div>
         <div class="col-md-10 offset-md-1">
-          <ShareLinks type="text-only"></ShareLinks>
+          <ShareLinks type="logo-only"></ShareLinks>
         </div>
       </div>
     </div>
