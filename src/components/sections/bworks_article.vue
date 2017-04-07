@@ -27,6 +27,7 @@
           <drupal-image :image="node.field_image[0]"></drupal-image>
         </div>
         <div class="body">
+          <div class="category">{{ getTag() }}</div>
           <h2 class="h3">{{ getField('title') }}</h2>
           <div class="date">{{ getField('field_date') }}</div>
         </div>
@@ -56,8 +57,21 @@
       }
     },
     methods: {
+      /**
+       * Returns the current node's url alias.
+       * @returns {string}
+       */
       getPath () {
         return this.node.path.length ? this.node.path[0].alias : ''
+      },
+
+      /**
+       * Returns the (first) tag for the current node.
+       * @returns {string}
+       */
+      getTag () {
+        const id = this.getField('field_tags', 'target_id', 0, false)
+        return id ? this.$store.getters.getTag(id, this.lang) : this.$t('message.blog')
       }
     },
     // Component lifecycle hooks
@@ -160,7 +174,7 @@
       }
 
       h2 {
-        margin: 1em 0 .5em;
+        margin: .5em 0;
         text-transform: none;
         transition: color .4s;
       }
