@@ -1,26 +1,33 @@
 <template>
   <div :class="'node-' + getType() + ' ' + viewMode">
     <template v-if="viewMode === 'teaser'">
-      <a class="unstyled" href="#">
+      <router-link class="unstyled" :to="projectUrl">
         <img :src="getField('field_image', 'url')">
 
         <template v-if="index === 0">
           <div class="description-wrapper">
             <h2>{{ getField('title') }}</h2>
-            <div class="description">{{ getField('body', 'summary') }}</div>
+              <div class="description">{{ getField('body', 'summary') }}</div>
+              <div class="subtitle">{{ getField('field_subtitle') }}</div>
+          </div>
+          <div class="tags-wrapper">
+            <ul>
+              <li v-for="tag in getTags()">{{ tag }}</li>
+            </ul>
           </div>
         </template>
 
         <template v-else>
-          <h2>{{ getField('title') }}</h2>
+          <div class="description-wrapper">
+            <h2>{{ getField('title') }}</h2>
+            <div class="tags-wrapper">
+              <ul>
+                <li v-for="tag in getTags()">{{ tag }}</li>
+              </ul>
+            </div>
+          </div>
         </template>
-
-        <div class="tags-wrapper">
-          <ul>
-            <li v-for="tag in getTags()">{{ tag }}</li>
-          </ul>
-        </div>
-      </a>
+      </router-link>
     </template>
 
     <template v-if="viewMode === 'full'">
@@ -33,6 +40,8 @@
 
 <script type="text/javascript">
   import Node from '../helpers/Node'
+  import { cleanId } from '../../utils'
+
   export default {
     name: 'project',
     extends: Node,
@@ -41,6 +50,19 @@
       index: {
         type: Number
       }
+    },
+    computed: {
+      /**
+       * Build url to specialties page.
+       * @returns {string}
+       */
+      projectUrl () {
+        const route = this.$router.options.getRouteByProps('works', this.lang)
+        return route.path + '#' + this.cleanId
+      }
+    },
+    created () {
+      this.cleanId = cleanId(this.getField('title'))
     },
     methods: {
       getTags () {
@@ -62,9 +84,6 @@
     margin-bottom: 30px;
 
     a {
-      // FIXME Remove when project page has been implemented
-      pointer-events: none;
-
       display: block;
       position: relative;
     }
@@ -92,6 +111,12 @@
         width: 100%;
         padding-top: 2rem;
 
+        @include media-breakpoint-down(md) {
+          .subtitle {
+            display: none;
+          }
+        }
+
         @include media-breakpoint-up(md) {
           .description-wrapper {
             display: flex;
@@ -107,10 +132,24 @@
           h2 {
             flex: 1 50%;
             padding-left: 8.3333%;
+            padding-right: 4.1617%;
           }
 
           .description {
             flex: 1 50%;
+            padding-right: 4.1617%;
+          }
+
+          .subtitle {
+            margin-right: 8.3333%;
+            padding-top: 4px;
+            padding-right: 4.1617%;
+            font-size: .857142rem;
+            font-weight: $font-weight-bold;
+            line-height: 1.16667;
+            letter-spacing: .07167em;
+            text-transform: uppercase;
+            border-top: 1px solid $body-color;
           }
 
           .tags-wrapper {
@@ -120,6 +159,40 @@
             padding: 2rem 4rem 2rem 3rem;
             color: $white;
             background-color: transparentize($brand-primary, .1);
+          }
+        }
+
+        @include media-breakpoint-up(lg) {
+          h2 {
+            flex: 1 40%;
+          }
+
+          .description {
+            flex: 1 40%;
+          }
+
+          .subtitle {
+            display: block;
+            flex: 1 12%;
+          }
+        }
+      }
+
+      &:not(:first-child) {
+        @include media-breakpoint-up(lg) {
+          .description-wrapper {
+            display: flex;
+          }
+
+          h2 {
+            flex-basis: 70%;
+            padding-left: 25px;
+            padding-right: 25px;
+          }
+
+          .tags-wrapper {
+            flex-basis: 30%;
+            text-align: right;
           }
         }
       }
@@ -142,8 +215,10 @@
 
       .tags-wrapper {
         margin: 1rem 0 2rem;
-        font-weight: 700;
-        letter-spacing: .080714286em;
+        font-size: .857142rem;
+        font-weight: $font-weight-bold;
+        line-height: 1.16667;
+        letter-spacing: .044167em;
         text-transform: uppercase;
 
         ul {
