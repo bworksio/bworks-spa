@@ -104,6 +104,11 @@
       .html-wrapper {
         display: flex;
         flex-wrap: wrap;
+
+        @include media-breakpoint-up(lg) {
+          padding-left: 8.3333%;
+          padding-right: 8.3333%;
+        }
       }
 
       .image-wrapper {
