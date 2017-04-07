@@ -120,6 +120,12 @@
         }
         flex: 1 25%;
         text-align: right;
+        margin-top: -10px;
+
+        .animation-wrapper:first-of-type {
+          display: inline-block;
+          vertical-align: -2px;
+        }
 
         .line {
           float: right;
