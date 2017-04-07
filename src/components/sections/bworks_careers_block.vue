@@ -17,7 +17,7 @@
             <div class="apply">
               <a class="animated" :href="nodes[active].field_link[0].uri">{{ $t('button.apply_now') }}</a>
             </div>
-            <ShareLinks type="logo-only"></ShareLinks>
+            <ShareLinks type="text-only"></ShareLinks>
           </div>
         </transition>
       </div>

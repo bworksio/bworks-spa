@@ -79,9 +79,18 @@
         display: none;
       }
 
-      .at-share-btn:first-child {
-        .at-label {
-          margin-left: 0;
+      .at-share-btn {
+        &:first-child {
+          .at-label {
+            margin-left: 0;
+          }
+        }
+
+        &:focus,
+        &:hover {
+          .at-label {
+            text-decoration: underline;
+          }
         }
       }
     }
