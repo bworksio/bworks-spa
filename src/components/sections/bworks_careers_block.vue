@@ -101,15 +101,15 @@
   .job-offer {
     margin-top: 6rem;
 
+    .subtitle {
+      margin: -1rem 0 2rem;
+      color: $body-color;
+    }
+
     .apply {
       margin-top: 4rem;
       text-align: center;
     }
-  }
-
-  .subtitle {
-    margin: -1rem 0 2rem;
-    color: $body-color;
   }
 
   .job-description {
