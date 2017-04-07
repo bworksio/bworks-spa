@@ -10,7 +10,7 @@
             <app-menu-toggle></app-menu-toggle>
           </div>
           <div class="hire-us">
-            <a class="hire-us animated" href="https://cosmobutler.typeform.com/to/oY7ARZ">{{ $t('button.hire_us') }}</a>
+            <a class="hire-us animated" href="https://cosmobutler.typeform.com/to/t0B8ZJ">{{ $t('button.hire_us') }}</a>
           </div>
         </div>
       </div>
