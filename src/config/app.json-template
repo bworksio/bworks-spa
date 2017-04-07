@@ -1,8 +1,8 @@
 {
-  "defaultLanguage": "de",
-  "activeLanguages": ["de", "en", "it"],
+  "defaultLanguage": "en",
+  "activeLanguages": ["de", "en"],
   "api": {
-    "baseUrl": "http://backend.b-works.io/"
+    "baseUrl": "//backend.b-works.io/"
   },
   "social": {
     "facebook": "https://www.facebook.com/Bworks.io",
