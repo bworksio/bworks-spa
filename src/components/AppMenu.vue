@@ -5,7 +5,7 @@
         <nav class="menu-main">
           <ul>
             <li v-for="item in menuItems" v-if="item.title">
-              <router-link :to="item.path">{{ item.title }}</router-link>
+              <router-link :to="item.path" exact>{{ item.title }}</router-link>
               <div class="line">&nbsp;</div>
             </li>
           </ul>
@@ -159,8 +159,7 @@
     }
 
     a.router-link-active + .line {
-      // FIXME vue-router sets both active item and active path to same class
-      //transform: translateX(0);
+      transform: translateX(0);
     }
 
     @media (max-width: 345px) {
