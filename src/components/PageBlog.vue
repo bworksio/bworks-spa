@@ -1,15 +1,15 @@
 <template>
   <div id="page" :class="'page-' + name + ' lang-' + lang" :key="lang +'/'+ name">
-    <div :class="'node node-' + getType() + ' full'">
-      <div class="container">
-        <div class="title col-md-10 offset-md-1">
+    <div :class="'node node-' + getType() + ' full container'">
+      <div class="row">
+        <div class="title col-md-10 col-lg-8 offset-md-1 offset-lg-2">
           <h1>{{ getField('title') }}</h1>
           <div class="meta">
             <div class="category">{{ getTag() }}</div>
             <div class="date">{{ getField('field_date') }}</div>
           </div>
         </div>
-        <div class="body col-md-10 offset-md-1" v-html="getField('body')"></div>
+        <div class="body col-lg-10 offset-lg-1" v-html="getField('body')"></div>
         <div class="col-md-10 offset-md-1">
           <ShareLinks type="logo-only"></ShareLinks>
         </div>
@@ -170,6 +170,11 @@
         .category {
           margin-bottom: 2.14285rem;
         }
+
+        .html-wrapper {
+          padding-left: 8.3333%;
+          padding-right: 8.3333%;
+        }
       }
 
       @include media-breakpoint-up(lg) {
@@ -197,14 +202,14 @@
         }
       }
 
+      .title {
+        margin-bottom: 4rem;
+      }
+
       .category {
         font-weight: $font-weight-bold;
         color: $gray-color;
         text-transform: uppercase;
-      }
-
-      .body {
-        margin-top: 4rem;
       }
     }
 
