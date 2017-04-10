@@ -77,6 +77,20 @@
       }
     }
 
+    @media (max-width: 345px) {
+      .icon {
+        display: none !important;
+      }
+
+      .email {
+        margin-bottom: 2px !important;
+      }
+
+      .animated {
+        padding: 0 !important;
+      }
+    }
+
     @include media-breakpoint-down(md) {
       h2 {
         font-size: 1rem;

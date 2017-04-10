@@ -135,8 +135,8 @@
 
   .menu-main {
     font-size: 1rem;
-    line-height: 2.142857143;
-    letter-spacing: .066428571em;
+    line-height: 2.14285;
+    letter-spacing: .06642em;
 
     .line {
       height: 1px;
@@ -147,9 +147,10 @@
     }
 
     li {
-      margin-bottom: .714285714rem;
+      margin-bottom: .71428rem;
       overflow: hidden;
 
+      &:focus,
       &:hover {
         .line {
           transform: translateX(0);
@@ -157,10 +158,25 @@
       }
     }
 
+    a.router-link-active + .line {
+      // FIXME vue-router sets both active item and active path to same class
+      //transform: translateX(0);
+    }
+
+    @media (max-width: 345px) {
+      .line {
+        margin-top: 2px;
+      }
+
+      li {
+        margin-bottom: 3px;
+      }
+    }
+
     @include media-breakpoint-up(md) {
-      font-size: 2.142857143rem;
+      font-size: 2.14285rem;
       line-height: 1.5;
-      letter-spacing: .066666667em;
+      letter-spacing: .06667em;
     }
   }
 
