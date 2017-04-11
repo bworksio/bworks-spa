@@ -13,6 +13,7 @@ let routes = []
 utils.forEach(routesConfig, (languages, name) => {
   utils.forEach(languages, (item, lang) => {
     routes.push({
+      name: name + '_' + lang,
       path: item.path,
       component: Page,
       props: { name, lang },
@@ -23,6 +24,7 @@ utils.forEach(routesConfig, (languages, name) => {
 
 // Add language independent routes.
 routes.push({
+  name: 'blog_article',
   path: '/blog/:name',
   component: PageBlog,
   props: { name: 'blog', lang: 'en' },
