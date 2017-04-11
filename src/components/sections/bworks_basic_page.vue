@@ -1,6 +1,6 @@
 <template>
   <div :class="'node node-' + getType()" :style="getNodeStyle">
-    <div :if="hasVideo" class="bg-video">
+    <div v-if="hasVideo" class="bg-video">
       <video playsinline autoplay muted loop poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" :style="getVideoStyle">
         <!--source :src="getField('field_file', 'url')" type="video/webm"-->
         <source :src="getField('field_file', 'url')" type="video/mp4">
