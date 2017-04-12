@@ -2075,6 +2075,10 @@ expand-range@^1.8.1:
   dependencies:
     fill-range "^2.1.0"
 
+expose-loader@^0.7.3:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/expose-loader/-/expose-loader-0.7.3.tgz#35fbd3659789e4faa81f59de8b7e9fc39e466d51"
+
 express@^4.15.2:
   version "4.15.2"
   resolved "https://registry.yarnpkg.com/express/-/express-4.15.2.tgz#af107fc148504457f2dca9a6f2571d7129b97b35"
@@ -2323,6 +2327,12 @@ ftp@~0.3.5:
   dependencies:
     readable-stream "1.1.x"
     xregexp "2.0.0"
+
+fullpage.js@^2.9.4:
+  version "2.9.4"
+  resolved "https://registry.yarnpkg.com/fullpage.js/-/fullpage.js-2.9.4.tgz#b07de9c146c95c042d28a31e934b8faf334fa0e9"
+  dependencies:
+    jquery ">=1.6.0"
 
 function-bind@^1.0.2:
   version "1.1.0"
@@ -2995,6 +3005,10 @@ jodid25519@^1.0.0:
   resolved "https://registry.yarnpkg.com/jodid25519/-/jodid25519-1.0.2.tgz#06d4912255093419477d425633606e0e90782967"
   dependencies:
     jsbn "~0.1.0"
+
+jquery@>=1.6.0:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
 
 js-base64@^2.1.9:
   version "2.1.9"
