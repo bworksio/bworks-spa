@@ -184,7 +184,8 @@
 
     // Invert link colors
     &.invert,
-    &[data-show-menu=yes] {
+    &[data-show-menu=yes],
+    html.fp-enabled & {
       background-color: transparent;
       background-image: linear-gradient(to bottom, transparentize(#222, .66), transparentize(#222, 1));
 

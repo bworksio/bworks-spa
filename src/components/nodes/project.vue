@@ -1,5 +1,5 @@
 <template>
-  <div :class="'node-' + getType() + ' ' + viewMode">
+  <div :class="'section node-' + getType() + ' ' + viewMode">
     <template v-if="viewMode === 'teaser'">
       <router-link class="unstyled" :to="projectUrl">
         <img :src="getField('field_image', 'url')">
@@ -31,9 +31,16 @@
     </template>
 
     <template v-if="viewMode === 'full'">
-      <img :src="getField('field_image', 'url')">
-      <h2>{{ getField('title') }}</h2>
-      <div v-html="getField('body', 'value')"></div>
+      <div class="fp-background" :style="getNodeStyle">
+        <div class="container">
+          <h2>{{ getField('title') }}</h2>
+          <div v-if="getField('field_subtitle', 'value', 0, false)" class="subtitle">{{ getField('field_subtitle') }}</div>
+          <div class="body" v-html="getField('body', 'value')"></div>
+          <div v-if="getField('field_link', 'uri', 0, false)" class="link">
+            <a :href="getField('field_link', 'uri')">{{ getField('field_link', 'title', 0, '') }}</a>
+          </div>
+        </div>
+      </div>
     </template>
   </div>
 </template>
@@ -59,6 +66,25 @@
       projectUrl () {
         const route = this.$router.options.getRouteByProps('works', this.lang)
         return route.path + '#' + this.cleanId
+      },
+
+      hasVideo () {
+        return !!this.getField('field_file', 'url', 0, false)
+      },
+      getNodeStyle () {
+        let style = 'linear-gradient(to bottom left, rgba(0,0,0,.05), rgba(0,0,0,.5))'
+        if (!this.hasVideo) {
+          style += ', url(' + this.getField('field_image', 'url', 0, '') + ')'
+        }
+        return {
+          'background-image': style
+        }
+      },
+      getVideoStyle () {
+        return {
+          'background-image': 'url(' + this.getField('field_image', 'url', 0, '') + ')',
+          'background-size': 'cover'
+        }
       }
     },
     created () {
@@ -81,7 +107,6 @@
 
   .node-bworks_project {
     position: relative;
-    margin-bottom: 30px;
 
     a {
       display: block;
@@ -94,6 +119,8 @@
     }
 
     &.teaser {
+      margin-bottom: 30px;
+
       .description {
         display: none;
       }
@@ -225,6 +252,51 @@
           list-style: none;
           margin: 0;
           padding: 0;
+        }
+      }
+    }
+
+    &.full {
+      background-color: $body-color;
+      color: $white;
+
+      h1, h2, h3, h4,
+      .h1, .h2, .h3, .h4,
+      a {
+        color: $white;
+      }
+
+      .fp-background {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 100vh;
+        padding-top: 125px;
+        padding-bottom: 65px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+
+      .container {
+        align-self: flex-end;
+      }
+
+      .subtitle {
+        font-size: 1.57142rem;
+        line-height: 1.36363;
+        font-weight: $font-weight-bold;
+        letter-spacing: .06681em;
+      }
+
+      .body {
+        margin-top: 2rem;
+        max-width: 50%;
+
+        &,
+        & p {
+          line-height: 1.78571;
+          letter-spacing: .08071em;
         }
       }
     }

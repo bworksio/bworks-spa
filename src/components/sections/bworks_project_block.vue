@@ -1,25 +1,55 @@
 <template>
   <div :class="'node node-' + getType() + ' ' + viewMode">
-    <div class="container">
-      <div class="row">
-        <project v-for="(project, index) in node.field_entity_reference" :nid="project.target_id" :lang="lang" :index="index" :viewMode="viewMode"></project>
+    <template v-if="viewMode === 'teaser'">
+      <div class="container">
+        <div class="row">
+          <project v-for="(project, index) in node.field_entity_reference" :nid="project.target_id" :lang="lang" :index="index" :viewMode="viewMode"></project>
+        </div>
+        <div class="view-all">
+          <router-link class="animated" :to="$router.options.getRouteByProps('works', lang)">{{ $t('button.view_all_projects') }}</router-link>
+        </div>
       </div>
-      <div class="view-all">
-        <router-link class="animated" :to="$router.options.getRouteByProps('works', lang)">{{ $t('button.view_all_projects') }}</router-link>
-      </div>
-    </div>
+    </template>
+
+    <template v-if="viewMode === 'full'">
+      <project v-for="(project, index) in node.field_entity_reference" :nid="project.target_id" :lang="lang" :index="index" :viewMode="viewMode"></project>
+    </template>
   </div>
 </template>
 
 <script type="text/javascript">
   import Node from '../helpers/Node'
   import project from '../nodes/project'
+  import 'fullpage.js'
+  import 'fullpage.js/dist/jquery.fullpage.css'
 
   export default {
     name: 'bworks_project_block',
     extends: Node,
     props: {
       viewMode: String
+    },
+    mounted () {
+      /* global $ */
+      if (this.viewMode === 'full') {
+        // Unwrap .node-bworks_project elements (i.e., remove this components
+        // wrapper div)
+        const $projects = $('.node-bworks_project')
+        if ($projects.parent().is('.node-bworks_project_block')) {
+          $projects.unwrap()
+        }
+
+        // Attach fullpage.js
+        $('#page').fullpage({
+          navigation: true,
+          navigationPosition: 'right'
+        })
+      }
+    },
+    beforeDestroy () {
+      if (this.viewMode === 'full') {
+        $.fn.fullpage.destroy('all')
+      }
     },
     components: {
       project
@@ -28,9 +58,62 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
+  @import '../../assets/scss/mixins.scss';
+
   .node-bworks_project_block {
     .view-all {
       text-align: center;
+    }
+  }
+
+  body {
+    .fp-tableCell {
+      vertical-align: bottom;
+    }
+
+    #fp-nav {
+      position: fixed;
+      right: 4.1617%;
+      top: 50%;
+
+      ul li {
+        width: 17px;
+        height: 9px;
+        margin: 0 0 4rem;
+
+        a {
+          height: auto;
+          width: auto;
+
+          span {
+            left: auto;
+            top: auto;
+            width: 9px;
+            height: 9px;
+            margin: 0; //-4px 0 0 -3px;
+            transform: translateX(-50%);
+            background-color: $white;
+            border-radius: 0;
+          }
+
+          &.active span {
+            width: 17px;
+            height: 17px;
+            margin: 0; //-11px 0 0 -8px;
+            border-radius: 0;
+          }
+        }
+
+        &:not(:last-of-type):after {
+          display: block;
+          content: "";
+          position: absolute;
+          width: 1px;
+          height: 4rem;
+          transform: translateY(9px);
+          background-color: $white;
+        }
+      }
     }
   }
 </style>
