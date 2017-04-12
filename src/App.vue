@@ -193,7 +193,9 @@
 
         div.logo {
           a {
-            transform: scale(1);
+            @media (min-width: 346px) {
+              transform: scale(1);
+            }
           }
 
           .st0 {
