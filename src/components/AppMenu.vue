@@ -137,6 +137,7 @@
     font-size: 1rem;
     line-height: 2.14285;
     letter-spacing: .06642em;
+    margin-bottom: .78571rem;
 
     .line {
       height: 1px;
@@ -163,6 +164,8 @@
     }
 
     @media (max-width: 345px) {
+      line-height: 1.64285;
+
       .line {
         margin-top: 2px;
       }
@@ -181,6 +184,8 @@
 
   // Override AppContact component colors
   .menu-contact {
+    margin-bottom: 1rem;
+
     .contact h2 {
       color: $white;
     }
