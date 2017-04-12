@@ -137,6 +137,7 @@
     font-size: 1rem;
     line-height: 2.14285;
     letter-spacing: .06642em;
+    margin-top: 1rem;
     margin-bottom: .78571rem;
 
     .line {
