@@ -15,8 +15,10 @@
   "dependencies": {
     "axios": "^0.15.3",
     "expose-loader": "^0.7.3",
+    "flexslider": "^2.6.3",
     "fullpage.js": "^2.9.4",
     "image-preloader": "^1.1.1",
+    "jquery": "^3.2.1",
     "jump.js": "^1.0.2",
     "scrollmagic": "^2.0.5",
     "vue": "^2.2.4",

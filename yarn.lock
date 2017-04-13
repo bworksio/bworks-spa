@@ -2235,6 +2235,12 @@ flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
 
+flexslider@^2.6.3:
+  version "2.6.3"
+  resolved "https://registry.yarnpkg.com/flexslider/-/flexslider-2.6.3.tgz#0545bef03af8198460c45c4947d9474e15be174e"
+  dependencies:
+    jquery ">=1.11.3"
+
 follow-redirects@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.0.0.tgz#8e34298cbd2e176f254effec75a1c78cc849fd37"
@@ -3006,7 +3012,7 @@ jodid25519@^1.0.0:
   dependencies:
     jsbn "~0.1.0"
 
-jquery@>=1.6.0:
+jquery@>=1.11.3, jquery@>=1.6.0, jquery@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
 
