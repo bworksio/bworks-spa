@@ -32,6 +32,9 @@
 
     <template v-if="viewMode === 'full'">
       <div class="fp-background" :style="getNodeStyle">
+        <template v-if="hasSlideshow">
+          <flex-slider :images="getAllFields('field_image')"></flex-slider>
+        </template>
         <div class="container">
           <h2>{{ getField('title') }}</h2>
           <div v-if="getField('field_subtitle', 'value', 0, false)" class="subtitle">{{ getField('field_subtitle') }}</div>
@@ -47,6 +50,7 @@
 
 <script type="text/javascript">
   import Node from '../helpers/Node'
+  import FlexSlider from '../helpers/FlexSlider'
   import { cleanId } from '../../utils'
 
   export default {
@@ -71,13 +75,18 @@
       hasVideo () {
         return !!this.getField('field_file', 'url', 0, false)
       },
+      hasSlideshow () {
+        return this.getAllFields('field_image').length > 1
+      },
       getNodeStyle () {
-        let style = 'linear-gradient(to bottom left, rgba(0,0,0,.05), rgba(0,0,0,.5))'
-        if (!this.hasVideo) {
-          style += ', url(' + this.getField('field_image', 'url', 0, '') + ')'
-        }
-        return {
-          'background-image': style
+        if (!this.hasSlideshow) {
+          let style = 'linear-gradient(to bottom left, rgba(0,0,0,.05), rgba(0,0,0,.5))'
+          if (!this.hasVideo) {
+            style += ', url(' + this.getField('field_image', 'url', 0, '') + ')'
+          }
+          return {
+            'background-image': style
+          }
         }
       },
       getVideoStyle () {
@@ -85,6 +94,9 @@
           'background-image': 'url(' + this.getField('field_image', 'url', 0, '') + ')',
           'background-size': 'cover'
         }
+      },
+      getImageFields () {
+        return this.getAllFields('field_image')
       }
     },
     created () {
@@ -98,6 +110,9 @@
         })
         return tags
       }
+    },
+    components: {
+      FlexSlider
     }
   }
 </script>
@@ -280,6 +295,7 @@
 
       .container {
         align-self: flex-end;
+        z-index: 10;
       }
 
       .subtitle {

@@ -86,7 +86,7 @@ module.exports = {
       },
       {
         test: require.resolve("jquery"),
-        loader: "expose-loader?$"
+        loader: "expose-loader?$!expose-loader?jQuery"
       }
     ]
   },

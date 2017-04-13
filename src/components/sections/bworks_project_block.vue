@@ -20,6 +20,7 @@
 <script type="text/javascript">
   import Node from '../helpers/Node'
   import project from '../nodes/project'
+  import jQuery from 'jquery'
   import 'fullpage.js'
   import 'fullpage.js/dist/jquery.fullpage.css'
 
@@ -30,17 +31,16 @@
       viewMode: String
     },
     mounted () {
-      /* global $ */
       if (this.viewMode === 'full') {
         // Unwrap .node-bworks_project elements (i.e., remove this components
         // wrapper div)
-        const $projects = $('.node-bworks_project')
+        const $projects = jQuery('.node-bworks_project')
         if ($projects.parent().is('.node-bworks_project_block')) {
           $projects.unwrap()
         }
 
         // Attach fullpage.js
-        $('#page').fullpage({
+        jQuery('#page').fullpage({
           navigation: true,
           navigationPosition: 'right'
         })
@@ -48,7 +48,7 @@
     },
     beforeDestroy () {
       if (this.viewMode === 'full') {
-        $.fn.fullpage.destroy('all')
+        jQuery.fn.fullpage.destroy('all')
       }
     },
     components: {
