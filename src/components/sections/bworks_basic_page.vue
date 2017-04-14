@@ -1,5 +1,5 @@
 <template>
-  <div :class="'section node node-' + getType()" :style="getNodeStyle">
+  <div :class="'section node node-' + getType()" :style="getBackgroundStyle">
     <div v-if="hasVideo" class="bg-video">
       <video playsinline autoplay muted loop poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" :style="getVideoStyle">
         <!--source :src="getField('field_file', 'url')" type="video/webm"-->
@@ -32,11 +32,13 @@
   export default {
     name: 'bworks_basic_page',
     extends: Node,
+
     computed: {
       hasVideo () {
         return !!this.getField('field_file', 'url', 0, false)
       },
-      getNodeStyle () {
+
+      getBackgroundStyle () {
         let style = 'linear-gradient(to bottom, rgba(0,0,0,.5), rgba(0,0,0,.5))'
         if (!this.hasVideo) {
           style += ', url(' + this.getField('field_header_image', 'url', 0, '') + ')'
@@ -45,6 +47,7 @@
           'background-image': style
         }
       },
+
       getVideoStyle () {
         return {
           'background-image': 'url(' + this.getField('field_header_image', 'url', 0, '') + ')',
@@ -52,6 +55,7 @@
         }
       }
     },
+
     mounted () {
       // Invert the site header as long as this basic page is visible.
       smHeaderInvertScene = new ScrollMagic.Scene({
@@ -65,10 +69,12 @@
         .setClassToggle('#site-header', 'invert')
         .addTo(this.$store.state.scrollMagicMainController)
     },
+
     beforeDestroy () {
       // Also destroy ScrollMagic scene.
       smHeaderInvertScene.destroy(true)
     },
+
     components: {
       AppLanguageSwitcher
     }
@@ -203,7 +209,7 @@
           }
         }
 
-          // Overrule bold style
+        // Overrule bold style
         b, strong {
           font-weight: 900;
         }

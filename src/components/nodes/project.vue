@@ -35,6 +35,12 @@
         <template v-if="hasSlideshow">
           <flex-slider :images="getAllFields('field_image')"></flex-slider>
         </template>
+        <div v-if="hasVideo" class="bg-video">
+          <video playsinline autoplay muted loop poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" :style="getVideoStyle">
+            <!--source :src="getField('field_file', 'url')" type="video/webm"-->
+            <source :src="getField('field_file', 'url')" type="video/mp4">
+          </video>
+        </div>
         <div class="container">
           <h2>{{ getField('title') }}</h2>
           <div v-if="getField('field_subtitle', 'value', 0, false)" class="subtitle">{{ getField('field_subtitle') }}</div>
@@ -56,15 +62,17 @@
   export default {
     name: 'project',
     extends: Node,
+
     props: {
       // Index of item.
       index: {
         type: Number
       }
     },
+
     computed: {
       /**
-       * Build url to specialties page.
+       * Build url to projects page.
        * @returns {string}
        */
       projectUrl () {
@@ -75,10 +83,12 @@
       hasVideo () {
         return !!this.getField('field_file', 'url', 0, false)
       },
+
       hasSlideshow () {
         return this.getAllFields('field_image').length > 1
       },
-      getNodeStyle () {
+
+      getBackgroundStyle () {
         if (!this.hasSlideshow) {
           let style = 'linear-gradient(to bottom left, rgba(0,0,0,.05), rgba(0,0,0,.5))'
           if (!this.hasVideo) {
@@ -89,19 +99,23 @@
           }
         }
       },
+
       getVideoStyle () {
         return {
           'background-image': 'url(' + this.getField('field_image', 'url', 0, '') + ')',
           'background-size': 'cover'
         }
       },
+
       getImageFields () {
         return this.getAllFields('field_image')
       }
     },
+
     created () {
       this.cleanId = cleanId(this.getField('title'))
     },
+
     methods: {
       getTags () {
         const tags = []
@@ -111,6 +125,7 @@
         return tags
       }
     },
+
     components: {
       FlexSlider
     }
