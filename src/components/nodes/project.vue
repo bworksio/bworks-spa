@@ -42,6 +42,7 @@
           </video>
         </div>
         <div class="container">
+          <img v-if="getField('field_project_logo', 'url', 0, false)" :src="getField('field_project_logo', 'url')" class="logo">
           <h2>{{ getField('title') }}</h2>
           <div v-if="getField('field_subtitle', 'value', 0, false)" class="subtitle">{{ getField('field_subtitle') }}</div>
           <div class="body" v-html="getField('body', 'value')"></div>
@@ -320,11 +321,17 @@
         z-index: 10;
       }
 
+      .logo {
+        width: auto;
+        margin-bottom: 2rem;
+      }
+
       .subtitle {
         font-size: 1.57142rem;
         line-height: 1.36363;
         font-weight: $font-weight-bold;
         letter-spacing: .06681em;
+        margin-bottom: 2rem;
       }
 
       .body {
