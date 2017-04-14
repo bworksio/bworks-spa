@@ -285,22 +285,8 @@ function extend(a, b, thisArg) {
  */
 function cleanId(id) {
   return id.toLocaleLowerCase()
-    .replace(/[^a-z0-9\-_:. /]|^[^a-z]+/g, '')
-    .replace(/[ /]/g, '-')
-}
-
-/**
- * Generates a path alias for use in routing.
- *
- * @param string
- * @returns {string}
- */
-function getPathAlias(string) {
-  const alias = string
-    .replace(/[#?&/()]/g, ' ')
-    .replace(/\s+/g, '-')
-    .toLowerCase()
-  return encodeURI(alias)
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
 }
 
 module.exports = {
@@ -323,6 +309,5 @@ module.exports = {
   merge: merge,
   extend: extend,
   trim: trim,
-  cleanId: cleanId,
-  getPathAlias: getPathAlias
+  cleanId: cleanId
 };
