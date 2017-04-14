@@ -67,7 +67,8 @@
         getData(this.lang).then(() => {
           // Get section nodes from active queue in store
           this.nodes = this.$store.getters.getNodesForQueue(this.name)
-         // Emit trigger event for webpack prerender_spa_plugin
+
+          // Emit trigger event for webpack prerender_spa_plugin
           document.dispatchEvent(new Event('prerender-ready'))
         }).catch(() => {
           /* Error handled upstream */

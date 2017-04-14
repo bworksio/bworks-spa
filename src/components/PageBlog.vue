@@ -71,6 +71,9 @@
 
           // Set page title
           document.title = this.getField('title')
+
+          // Emit trigger event for webpack prerender_spa_plugin
+          document.dispatchEvent(new Event('prerender-ready'))
         }).catch(() => {
           /* Error handled upstream */
         })
