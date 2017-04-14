@@ -48,6 +48,13 @@
           <div v-if="getField('field_link', 'uri', 0, false)" class="link">
             <a :href="getField('field_link', 'uri')">{{ getField('field_link', 'title', 0, '') }}</a>
           </div>
+          <div v-if="getTags().length" class="approach-explanation">
+            <div class="title">{{ $t('message.characteristics') }}</div>
+            <div class="line">&nbsp;</div>
+            <div class="explanation">
+              <p v-for="tag in getTags()">{{ tag }}</p>
+            </div>
+          </div>
         </div>
       </div>
     </template>
@@ -328,6 +335,16 @@
         & p {
           line-height: 1.78571;
           letter-spacing: .08071em;
+        }
+      }
+
+      .approach-explanation {
+        .title {
+          color: $white;
+        }
+
+        .line {
+          width: 8.3333%;
         }
       }
     }

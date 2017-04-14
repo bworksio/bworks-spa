@@ -16,7 +16,8 @@ export default {
       contact: 'Get in touch',
       data_switzerland: 'All data 100% stored and hosted in Switzerland',
       looking_for: 'Looking for',
-      blog: 'Blog'
+      blog: 'Blog',
+      characteristics: 'Characteristics'
     }
   },
   de: {
@@ -36,7 +37,8 @@ export default {
       contact: 'Kontakt',
       data_switzerland: 'Alle Daten werden zu 100% in der Schweiz gehostet und gespeichert',
       looking_for: 'Wir suchen',
-      blog: 'Blog'
+      blog: 'Blog',
+      characteristics: 'Characteristik'
     }
   }
 }
