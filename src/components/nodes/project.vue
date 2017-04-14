@@ -2,7 +2,9 @@
   <div :class="'section node-' + getType() + ' ' + viewMode">
     <template v-if="viewMode === 'teaser'">
       <router-link class="unstyled" :to="projectUrl">
-        <img :src="getField('field_image', 'url')">
+        <div class="image animation-wrapper">
+          <img :src="getField('field_image', 'url')">
+        </div>
 
         <template v-if="index === 0">
           <div class="description-wrapper">
@@ -64,8 +66,9 @@
 
 <script type="text/javascript">
   import Node from '../helpers/Node'
+  import ScrollMagic from 'scrollmagic'
   import FlexSlider from '../helpers/FlexSlider'
-  import { cleanId } from '../../utils'
+  import utils from '../../utils'
 
   export default {
     name: 'project',
@@ -121,7 +124,21 @@
     },
 
     created () {
-      this.cleanId = cleanId(this.getField('title'))
+      this.cleanId = utils.cleanId(this.getField('title'))
+    },
+
+    mounted () {
+      utils.forEach(this.$el.querySelectorAll('.html-container, .image'), (el) => {
+        // Run html animations on enter.
+        new ScrollMagic.Scene({
+          triggerElement: el,
+          triggerHook: 'onEnter',
+          offset: 100,
+          reverse: true
+        })
+          .setClassToggle(el, 'run')
+          .addTo(this.$store.state.scrollMagicMainController)
+      })
     },
 
     methods: {
