@@ -2,7 +2,7 @@
   <div class="flexslider">
     <ul class="slides">
       <li v-for="image in images">
-        <div class="image" :style="'background-image: url(' + image.url + ');'"></div>
+        <div class="image" :style="getImageStyle(image)"></div>
       </li>
     </ul>
   </div>
@@ -20,6 +20,15 @@
       images: {
         type: Array,
         required: true
+      }
+    },
+
+    methods: {
+      getImageStyle (image) {
+        const style = 'linear-gradient(to bottom left, rgba(0,0,0,.05), rgba(0,0,0,.5)), url(' + image.url + ')'
+        return {
+          'background-image': style
+        }
       }
     },
 
