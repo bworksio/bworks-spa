@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import routesConfig from '../config/routes'
+import config from '../config/app.json'
 import utils from '../utils'
 import Page from '../components/Page'
 import PageBlog from '../components/PageBlog'
-import NotFound from '../components/NotFound'
+import PageNotFound from '../components/PageNotFound'
 
 Vue.use(VueRouter)
 
@@ -12,13 +13,15 @@ Vue.use(VueRouter)
 let routes = []
 utils.forEach(routesConfig, (languages, name) => {
   utils.forEach(languages, (item, lang) => {
-    routes.push({
-      name: name + '_' + lang,
-      path: item.path,
-      component: Page,
-      props: { name, lang },
-      meta: { name, title: item.title }
-    })
+    if (config.activeLanguages.indexOf(lang) !== -1) {
+      routes.push({
+        name: name + '_' + lang,
+        path: item.path,
+        component: Page,
+        props: { name, lang },
+        meta: { name, title: item.title }
+      })
+    }
   })
 })
 
@@ -31,7 +34,7 @@ routes.push({
   meta: { name: 'blog' }
 }, {
   path: '*',
-  component: NotFound
+  component: PageNotFound
 })
 
 export default new VueRouter({

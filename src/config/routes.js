@@ -82,7 +82,7 @@ module.exports = {
       'path': '/it/blog',
       'title': 'Blog'
     }
-  },
+  }/*,
   'speciality_topic_x': {
     'de': {
       'path': '/services/topic-x'
@@ -93,5 +93,5 @@ module.exports = {
     'it': {
       'path': '/it/specialita/topic-x'
     }
-  }
+  }*/
 }
