@@ -31,7 +31,7 @@
     </template>
 
     <template v-if="viewMode === 'full'">
-      <div class="fp-background" :style="getNodeStyle">
+      <div :id="cleanId" class="fp-background" :style="getBackgroundStyle">
         <template v-if="hasSlideshow">
           <flex-slider :images="getAllFields('field_image')"></flex-slider>
         </template>
