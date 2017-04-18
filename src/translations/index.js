@@ -8,7 +8,7 @@ export default {
       subscribe: 'Subscribe',
       view_all_projects: 'View all projects',
       read_full_story: 'Read full story',
-      view_all_articles: 'View all articles'
+      view_all_articles: 'All articles'
     },
     message: {
       newsletter_subscribe: 'Subscribe to stay up-to-date with B-Works',
@@ -29,7 +29,7 @@ export default {
       subscribe: 'Anmelden',
       view_all_projects: 'Alle Projekte anzeigen',
       read_full_story: 'Artikel lesen',
-      view_all_articles: 'Alle Artikel anzeigen'
+      view_all_articles: 'Alle Artikel'
     },
     message: {
       newsletter_subscribe: 'Bleiben Sie auf dem Laufenden mit B-Works',
