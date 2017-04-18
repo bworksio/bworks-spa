@@ -45,6 +45,7 @@
 
   export default {
     name: 'App',
+
     data () {
       return {
         assets: {
@@ -53,24 +54,38 @@
         }
       }
     },
+
     computed: {
       /** @var {Boolean} True while preloading data. */
       isLoading () {
         return !this.$store.state.initialized
       },
+
       /** @var {String} Returns the last error. */
       error () {
         return this.$store.state.error ? this.$store.state.error.toString() : ''
       }
     },
+
     created () {
       this.updateLanguage()
     },
+
+    mounted () {
+      // Emit trigger event for webpack prerender_spa_plugin
+      /* global Event */
+      window.setTimeout(() => {
+        /* global Event */
+        document.dispatchEvent(new Event('prerender'))
+      }, 100)
+    },
+
     watch: {
       '$route' (to, from) {
         this.updateLanguage()
       }
     },
+
     methods: {
       /**
        * Update global language in store from current route.
@@ -83,6 +98,7 @@
         }
       }
     },
+
     components: {
       AppMenuToggle,
       AppMenu

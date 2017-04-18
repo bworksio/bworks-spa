@@ -11,19 +11,23 @@
 
   export default {
     name: 'bworks_html_block',
+
     extends: Node,
+
     mounted () {
-      utils.forEach(this.$el.querySelectorAll('.html-container, .image'), (el) => {
-        // Run html animations on enter.
-        new ScrollMagic.Scene({
-          triggerElement: el,
-          triggerHook: 'onEnter',
-          offset: 100,
-          reverse: true
+      if (!this.$store.state.isPhantom) {
+        utils.forEach(this.$el.querySelectorAll('.html-container, .image'), (el) => {
+          // Run html animations on enter.
+          new ScrollMagic.Scene({
+            triggerElement: el,
+            triggerHook: 'onEnter',
+            offset: 100,
+            reverse: true
+          })
+            .setClassToggle(el, 'run')
+            .addTo(this.$store.state.scrollMagicMainController)
         })
-          .setClassToggle(el, 'run')
-          .addTo(this.$store.state.scrollMagicMainController)
-      })
+      }
     }
   }
 </script>

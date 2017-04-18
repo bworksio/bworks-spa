@@ -73,7 +73,10 @@
           document.title = this.getField('title')
 
           // Emit trigger event for webpack prerender_spa_plugin
-          document.dispatchEvent(new Event('prerender-ready'))
+          window.setTimeout(() => {
+            /* global Event */
+            document.dispatchEvent(new Event('prerender'))
+          }, 100)
         }).catch(() => {
           /* Error handled upstream */
         })

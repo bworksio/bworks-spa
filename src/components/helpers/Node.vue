@@ -8,7 +8,7 @@
    */
   export default {
     name: 'Node',
-    // Component properties/variables
+
     props: {
       // Language
       lang: {
@@ -26,13 +26,22 @@
         default: 'full'
       }
     },
-    // Variables
+
     data () {
       return {
         node: {}
       }
     },
-    // Methods
+
+    computed: {
+      /**
+       * Check whether the node has been loaded.
+       */
+      isLoaded () {
+        return Object.keys(this.node).length !== 0 && !this.node.hasOwnProperty('error')
+      }
+    },
+
     methods: {
       /**
        * Returns all field items from the node object.
@@ -85,7 +94,7 @@
         })
       }
     },
-    // Component lifecycle hooks
+
     created () {
       this.node = this.$store.getters.getNode(this.nid, this.lang)
     }

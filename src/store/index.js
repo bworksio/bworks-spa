@@ -71,11 +71,16 @@ function getData () {
   queries.push(getTags())
   return Axios.all(queries)
     .then(() => {
-      const preloader = new ImagePreloader()
-      preloader.preload(...preloadImages)
-        .then(function (status) {
-          store.commit('setInitialized', true)
-        })
+      if (!store.state.isPhantom) {
+        const preloader = new ImagePreloader()
+        preloader
+          .preload(...preloadImages)
+          .then(function (status) {
+            store.commit('setInitialized', true)
+          })
+      } else {
+        store.commit('setInitialized', true)
+      }
     })
     .catch(() => {
       store.commit('setError', new Error('Failed loading contents, check your internet connection.'))
@@ -92,7 +97,8 @@ const store = new Vuex.Store({
     tags: {},
     showMenu: false,
     currentLanguage: 'en',
-    scrollMagicMainController: new ScrollMagic.Controller()
+    scrollMagicMainController: new ScrollMagic.Controller(),
+    isPhantom: /PhantomJS/.test(window.navigator.userAgent)
   },
   mutations: {
     setInitialized (state, initialized = true) {
@@ -169,7 +175,8 @@ const store = new Vuex.Store({
         nid: id,
         type: [
           { target_id: 'missing_block' }
-        ]
+        ],
+        error: true
       }
     },
 

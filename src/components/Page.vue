@@ -23,6 +23,7 @@
 
   export default {
     name: 'Page',
+
     props: {
       // Page name from route
       // @see ../router/index.js
@@ -36,27 +37,32 @@
         required: true
       }
     },
+
     data () {
       return {
         // The list of section nodes to be displayed.
         nodes: []
       }
     },
+
     computed: {
       /** @var {String} The view mode for contents to display, 'teaser' on home page, 'full' otherwise */
       viewMode () {
         return this.$route.meta.name === 'home' ? 'teaser' : 'full'
       }
     },
+
     created () {
       // Update nodes to display for the current queue name.
       this.fetchData()
     },
+
     watch: {
       '$route' (to, from) {
         this.fetchData()
       }
     },
+
     methods: {
       /**
        * Fetches the list of nodes in the current queue to display.
@@ -69,12 +75,16 @@
           this.nodes = this.$store.getters.getNodesForQueue(this.name)
 
           // Emit trigger event for webpack prerender_spa_plugin
-          document.dispatchEvent(new Event('prerender-ready'))
+          window.setTimeout(() => {
+            /* global Event */
+            document.dispatchEvent(new Event('prerender'))
+          }, 100)
         }).catch(() => {
           /* Error handled upstream */
         })
       }
     },
+
     components: {
       bworks_basic_page,
       bworks_html_block,

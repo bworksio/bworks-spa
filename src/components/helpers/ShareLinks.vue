@@ -12,7 +12,7 @@
       type: { type: String, default: 'text-only' }
     },
     mounted () {
-      if (window.addthis && window.addthis.layers && window.addthis.layers.refresh) {
+      if (window.hasOwnProperty('addthis') && window.addthis.layers && window.addthis.layers.refresh) {
         window.addthis.layers.refresh()
       }
     }

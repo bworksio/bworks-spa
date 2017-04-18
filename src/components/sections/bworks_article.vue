@@ -1,5 +1,5 @@
 <template>
-  <div :class="getNodeClass">
+  <div v-if="isLoaded" :class="getNodeClass">
     <template v-if="viewMode === 'teaser'">
       <div class="article container-fluid">
         <router-link class="unstyled row" :to="getPath()">
@@ -42,7 +42,9 @@
 
   export default {
     name: 'bworks_article',
+
     extends: Node,
+
     computed: {
       getNodeClass () {
         const classes = [
@@ -56,13 +58,14 @@
         return classes
       }
     },
+
     methods: {
       /**
        * Returns the current node's url alias.
        * @returns {string}
        */
       getPath () {
-        return this.node.path.length ? this.node.path[0].alias : ''
+        return this.node.hasOwnProperty('path') && this.node.path.length ? this.node.path[0].alias : ''
       },
 
       /**
@@ -74,10 +77,11 @@
         return id ? this.$store.getters.getTag(id, this.lang) : this.$t('message.blog')
       }
     },
-    // Component lifecycle hooks
+
     created () {
       this.node = this.$store.getters.getNode(this.nid, 'en')
     },
+
     components: {
       'drupal-image': DrupalImage
     }

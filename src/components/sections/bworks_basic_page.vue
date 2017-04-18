@@ -58,21 +58,25 @@
 
     mounted () {
       // Invert the site header as long as this basic page is visible.
-      smHeaderInvertScene = new ScrollMagic.Scene({
-        triggerElement: this.$el,
-        triggerHook: 'onLeave',
-        offset: -90
-      })
-        .duration(() => {
-          return this.$el.clientHeight
+      if (!this.$store.state.isPhantom) {
+        smHeaderInvertScene = new ScrollMagic.Scene({
+          triggerElement: this.$el,
+          triggerHook: 'onLeave',
+          offset: -90
         })
-        .setClassToggle('#site-header', 'invert')
-        .addTo(this.$store.state.scrollMagicMainController)
+          .duration(() => {
+            return this.$el.clientHeight
+          })
+          .setClassToggle('#site-header', 'invert')
+          .addTo(this.$store.state.scrollMagicMainController)
+      }
     },
 
     beforeDestroy () {
       // Also destroy ScrollMagic scene.
-      smHeaderInvertScene.destroy(true)
+      if (smHeaderInvertScene) {
+        smHeaderInvertScene.destroy(true)
+      }
     },
 
     components: {
