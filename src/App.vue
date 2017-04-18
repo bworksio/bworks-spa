@@ -71,15 +71,6 @@
       this.updateLanguage()
     },
 
-    mounted () {
-      // Emit trigger event for webpack prerender_spa_plugin
-      /* global Event */
-      window.setTimeout(() => {
-        /* global Event */
-        document.dispatchEvent(new Event('prerender'))
-      }, 100)
-    },
-
     watch: {
       '$route' (to, from) {
         this.updateLanguage()
