@@ -12,7 +12,7 @@
     <a href="tel:+41792240112" class="phone">
       <div class="icon" v-html="assets.phone"></div>
       <div class="animation-wrapper">
-        <div class="animated onhover">+41 79 224 0112</div>
+        <div class="phone-number animated onhover">+41 79 224 0112</div>
       </div>
     </a>
   </div>
@@ -21,7 +21,7 @@
 <script type="text/javascript">
   export default {
     name: 'Contact',
-    // Variables
+
     data () {
       return {
         assets: {
@@ -31,14 +31,23 @@
         show: false
       }
     },
+
     computed: {
       hoverClass () {
         return this.show ? 'run' : ''
       }
     },
+
     methods: {
       showAll (state = true) {
         this.show = state
+      }
+    },
+
+    mounted () {
+      /* global _googWcmGet */
+      if (window.hasOwnProperty('_googWcmGet')) {
+        _googWcmGet('phone-number', '+41 79 224 0112')
       }
     }
   }
