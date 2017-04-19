@@ -18,6 +18,9 @@ export default {
       looking_for: 'Looking for',
       blog: 'Blog',
       characteristics: 'Characteristics'
+    },
+    link: {
+      hire_us: 'https://cosmobutler.typeform.com/to/oY7ARZ'
     }
   },
   de: {
@@ -39,6 +42,9 @@ export default {
       looking_for: 'Wir suchen',
       blog: 'Blog',
       characteristics: 'Characteristik'
+    },
+    link: {
+      hire_us: 'https://cosmobutler.typeform.com/to/t0B8ZJ'
     }
   }
 }
