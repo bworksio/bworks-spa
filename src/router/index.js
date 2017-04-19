@@ -5,6 +5,7 @@ import config from '../config/app.json'
 import utils from '../utils'
 import Page from '../components/Page'
 import PageBlog from '../components/PageBlog'
+import PageSubscriptionConfirmation from '../components/PageSubscriptionConfirmation'
 import PageNotFound from '../components/PageNotFound'
 
 Vue.use(VueRouter)
@@ -32,6 +33,10 @@ routes.push({
   component: PageBlog,
   props: { name: 'blog', lang: 'en' },
   meta: { name: 'blog' }
+}, {
+  path: '/subscription-confirmation',
+  component: PageSubscriptionConfirmation,
+  props: { lang: 'en' }
 }, {
   path: '*',
   component: PageNotFound
