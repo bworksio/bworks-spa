@@ -1,7 +1,7 @@
 <template>
   <div id="page" class="page-subscription-confirmation">
-    <h1>{{ $t('message.subscription_confirmed') }}</h1>
-    <p v-html="$i18n.t('message.subscription_confirmed_message')"></p>
+    <h1>{{ $t('subscription_confirmed') }}</h1>
+    <p v-html="$i18n.t('subscription_confirmed_message')"></p>
   </div>
 </template>
 
@@ -16,10 +16,8 @@
     i18n: {
       messages: {
         en: {
-          message: {
-            subscription_confirmed: 'Subscription confirmed',
-            subscription_confirmed_message: 'Your subscription to our list has been confirmed.<br><br>Thank you for subscribing!'
-          }
+          subscription_confirmed: 'Subscription confirmed',
+          subscription_confirmed_message: 'Your subscription to our list has been confirmed.<br><br>Thank you for subscribing!'
         }
       }
     }
