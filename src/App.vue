@@ -232,6 +232,30 @@
         }
       }
     }
+
+    & {
+      .header-wrapper {
+        a.hire-us {
+          color: $link-color;
+
+          &.animated {
+            &:after {
+              background-color: $link-color;
+            }
+
+            @include hover-focus {
+              color: $white;
+            }
+
+            @include media-breakpoint-down(sm) {
+              &:after {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   #preloading {
