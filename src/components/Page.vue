@@ -19,6 +19,7 @@
   import bworks_article from './sections/bworks_article'
   import bworks_blog_block from './sections/bworks_blog_block'
   import bworks_careers_block from './sections/bworks_careers_block'
+  import bworks_team_members_block from './sections/bworks_team_members_block'
   import bworks_footer from './sections/bworks_footer'
 
   export default {
@@ -93,6 +94,7 @@
       bworks_article,
       bworks_blog_block,
       bworks_careers_block,
+      bworks_team_members_block,
       bworks_footer
     }
   }

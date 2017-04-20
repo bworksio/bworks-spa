@@ -50,7 +50,7 @@
        * @param {*} [defaultValue=[]] The default value
        */
       getAllFields (name, defaultValue = []) {
-        return this.node.hasOwnProperty(name) ? this.node[name] : defaultValue
+        return name in this.node ? this.node[name] : defaultValue
       },
 
       /**
@@ -63,7 +63,7 @@
        * @returns {*} The field value
        */
       getField (name, property = 'value', index = 0, defaultValue = 'Missing') {
-        if (this.node.hasOwnProperty(name) && this.node[name][index]) {
+        if (name in this.node && this.node[name][index]) {
           const fieldItem = this.node[name][index]
           // If the field has a format property, assume it is of type "Text (formatted)"
           // and pipe it though fixUrls() to look for relative urls.
