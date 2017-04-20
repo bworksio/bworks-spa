@@ -1,10 +1,12 @@
 <template>
   <div :class="'node node-' + getType()">
-    <div class="h2 certificate">{{ getField('title') }}</div>
-    <div class="logo-wrapper">
-      <drupal-image :image="node.field_logo[0]"></drupal-image>
+    <h4>{{ getField('title') }}</h4>
+    <div class="description">
+      <div class="logo">
+        <drupal-image :image="node.field_logo[0]"></drupal-image>
+      </div>
+      <div class="body" v-html="getField('body')"></div>
     </div>
-    <div v-html="getField('body')" class="body"></div>
   </div>
 </template>
 
@@ -26,5 +28,34 @@
 <style rel="stylesheet/scss" lang="scss">
   @import '../../assets/scss/mixins';
 
-  .node-bworks_certificate {}
+  .node-bworks_certificate {
+    margin-right: 25px;
+
+    h4 {
+      padding-bottom: .5rem;
+      margin-bottom: 1.57142rem;
+      border-bottom: 1px solid $gray-bg;
+    }
+
+    .logo {
+      padding-right: 25px;
+      margin-bottom: 1.57142rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+      .description {
+        display: flex;
+        overflow: hidden;
+      }
+
+      .logo {
+        width: 25%;
+      }
+
+      .body {
+        width: 75%;
+        padding-left: 25px;
+      }
+    }
+  }
 </style>

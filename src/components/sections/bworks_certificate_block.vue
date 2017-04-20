@@ -1,8 +1,10 @@
 <template>
-  <div class="node node-bworks_certificate_block">
+  <div class="node-bworks_certificate_block">
     <div class="container">
       <div class="row">
-        <bworks_certificate v-for="certificateNode in nodes" :nid="certificateNode.nid[0].value" :lang="lang"></bworks_certificate>
+        <div v-for="certificateNode in nodes" class="col-md-6">
+          <bworks_certificate :nid="certificateNode.nid[0].value" :lang="lang"></bworks_certificate>
+        </div>
       </div>
     </div>
   </div>
