@@ -1,3 +1,4 @@
+'use strict'
 // https://github.com/shelljs/shelljs
 require('./check-versions')()
 require('shelljs/global')
@@ -7,12 +8,14 @@ var fs = require('fs')
 var path = require('path')
 var config = require('../config')
 var ora = require('ora')
+var logSymbols = require('log-symbols');
 var webpack = require('webpack')
 var utils = require('../src/utils')
 var lang = 'en'
 var PrerenderSpaPlugin = require('prerender-spa-plugin')
+var sm = require('sitemap')
 
-var spinner = ora('prerendering...')
+var spinner = ora('fetching remote data...')
 spinner.start()
 
 // Remove any existing subdirectories first
@@ -34,10 +37,32 @@ var webpackConfig = {
 var routesConfig = require('../src/config/routes.js')
 var appConfig = require('../src/config/app.json')
 var prerenderRoutes = []
+var sitemapUrls = []
+
 utils.forEach(routesConfig, (languages, name) => {
+  var sitemapLinks = []
+
   utils.forEach(languages, (item, lang) => {
     if (appConfig.activeLanguages.indexOf(lang) !== -1) {
       prerenderRoutes.push(item.path)
+
+      // Add language variation to sitemap.
+      sitemapLinks.push({
+        lang: lang,
+        url: appConfig.baseUrl + item.path.substr(1)
+      })
+    }
+  })
+
+  // Second pass: add each language url together with language variations to sitemap.
+  utils.forEach(languages, (item, lang) => {
+    if (appConfig.activeLanguages.indexOf(lang) !== -1) {
+      sitemapUrls.push({
+        url: appConfig.baseUrl + item.path.substr(1),
+        //changefreq: 'weekly',
+        //priority: 0.5,
+        links: sitemapLinks
+      })
     }
   })
 })
@@ -58,13 +83,28 @@ request({ uri: uri }, function (error, response, body) {
     if (node.type[0].target_id === 'bworks_article') {
       if (node.hasOwnProperty('path') && node.path.length) {
         prerenderRoutes.push(node.path[0].alias)
+
+        // Add to sitemap (no language variations).
+        sitemapUrls.push({
+          url: appConfig.baseUrl + node.path[0].alias.substr(1)
+        })
       }
     }
   })
 
+  // Generate sitemap.
+  var sitemap = sm.createSitemap({
+    hostname: appConfig.baseUrl.substr(0, -1),
+    cacheTime: 600000,  //600 sec (10 min) cache purge period
+    urls: sitemapUrls
+  });
+  fs.writeFileSync(path.join(__dirname, '../dist/sitemap.xml'), sitemap.toString());
+
+  spinner.stopAndPersist(logSymbols.success)
+  console.log('routes to prerender:\n', prerenderRoutes)
+
   webpackConfig.plugins.push(
     new PrerenderSpaPlugin(
-      // Absolute path to compiled SPA
       path.join(__dirname, '../dist'),
       prerenderRoutes,
       {
@@ -80,7 +120,8 @@ request({ uri: uri }, function (error, response, body) {
     )
   )
 
-  console.log("\n", prerenderRoutes)
+  spinner = ora('prerendering...')
+  spinner.start()
 
   webpack(webpackConfig, function (err, stats) {
     spinner.stop()
