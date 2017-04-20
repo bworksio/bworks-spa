@@ -26,7 +26,6 @@
 
     data () {
       return {
-        nodes: [],
         groups: {}
       }
     },
@@ -43,9 +42,6 @@
     },
 
     created () {
-      // Get referenced team members
-      this.nodes = this.$store.getters.getNodesByType('bworks_team_member', this.lang)
-
       // Get referenced team member node and group by function (tag)
       forEach(this.node.field_entity_reference, ref => {
         const node = this.$store.getters.getNode(ref.target_id)
