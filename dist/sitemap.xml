@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://www.b-works.io/</loc> <xhtml:link rel="alternate" hreflang="de" href="https://www.b-works.io/" /> <xhtml:link rel="alternate" hreflang="en" href="https://www.b-works.io/en" /> </url>
+<url> <loc>https://www.b-works.io/en</loc> <xhtml:link rel="alternate" hreflang="de" href="https://www.b-works.io/" /> <xhtml:link rel="alternate" hreflang="en" href="https://www.b-works.io/en" /> </url>
+<url> <loc>https://www.b-works.io/services</loc> <xhtml:link rel="alternate" hreflang="de" href="https://www.b-works.io/services" /> <xhtml:link rel="alternate" hreflang="en" href="https://www.b-works.io/en/specialities" /> </url>
+<url> <loc>https://www.b-works.io/en/specialities</loc> <xhtml:link rel="alternate" hreflang="de" href="https://www.b-works.io/services" /> <xhtml:link rel="alternate" hreflang="en" href="https://www.b-works.io/en/specialities" /> </url>
+<url> <loc>https://www.b-works.io/ansatz</loc> <xhtml:link rel="alternate" hreflang="de" href="https://www.b-works.io/ansatz" /> <xhtml:link rel="alternate" hreflang="en" href="https://www.b-works.io/en/approach" /> </url>
+<url> <loc>https://www.b-works.io/en/approach</loc> <xhtml:link rel="alternate" hreflang="de" href="https://www.b-works.io/ansatz" /> <xhtml:link rel="alternate" hreflang="en" href="https://www.b-works.io/en/approach" /> </url>
+<url> <loc>https://www.b-works.io/arbeiten</loc> <xhtml:link rel="alternate" hreflang="de" href="https://www.b-works.io/arbeiten" /> <xhtml:link rel="alternate" hreflang="en" href="https://www.b-works.io/en/work" /> </url>
+<url> <loc>https://www.b-works.io/en/work</loc> <xhtml:link rel="alternate" hreflang="de" href="https://www.b-works.io/arbeiten" /> <xhtml:link rel="alternate" hreflang="en" href="https://www.b-works.io/en/work" /> </url>
+<url> <loc>https://www.b-works.io/karriere</loc> <xhtml:link rel="alternate" hreflang="de" href="https://www.b-works.io/karriere" /> <xhtml:link rel="alternate" hreflang="en" href="https://www.b-works.io/en/careers" /> </url>
+<url> <loc>https://www.b-works.io/en/careers</loc> <xhtml:link rel="alternate" hreflang="de" href="https://www.b-works.io/karriere" /> <xhtml:link rel="alternate" hreflang="en" href="https://www.b-works.io/en/careers" /> </url>
+<url> <loc>https://www.b-works.io/blog</loc> <xhtml:link rel="alternate" hreflang="de" href="https://www.b-works.io/blog" /> <xhtml:link rel="alternate" hreflang="en" href="https://www.b-works.io/en/blog" /> </url>
+<url> <loc>https://www.b-works.io/en/blog</loc> <xhtml:link rel="alternate" hreflang="de" href="https://www.b-works.io/blog" /> <xhtml:link rel="alternate" hreflang="en" href="https://www.b-works.io/en/blog" /> </url>
+<url> <loc>https://www.b-works.io/blog/the-essential-overview-excellence-ux-vital-the</loc> </url>
+<url> <loc>https://www.b-works.io/blog/what-drupal-b-works-we-use-to-build-dazzling-apps</loc> </url>
+</urlset>
