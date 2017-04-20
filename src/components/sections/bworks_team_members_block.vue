@@ -33,7 +33,7 @@
 
     methods: {
       /**
-       * Returns the group (tag) for a team member node.
+       * Returns the function (tag) for a team member node.
        * @returns {string}
        */
       getGroup (node) {
@@ -43,10 +43,12 @@
     },
 
     created () {
-      // Get all team members
+      // Get referenced team members
       this.nodes = this.$store.getters.getNodesByType('bworks_team_member', this.lang)
 
-      forEach(this.nodes, node => {
+      // Get referenced team member node and group by function (tag)
+      forEach(this.node.field_entity_reference, ref => {
+        const node = this.$store.getters.getNode(ref.target_id)
         const group = this.getGroup(node)
         this.groups[group] = this.groups[group] || []
         this.groups[group].push(node)
