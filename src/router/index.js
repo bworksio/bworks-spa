@@ -34,6 +34,7 @@ routes.push({
   props: { name: 'blog', lang: 'en' },
   meta: { name: 'blog' }
 }, {
+  name: 'subscription_confirmation',
   path: '/subscription-confirmation',
   component: PageSubscriptionConfirmation,
   props: { lang: 'en' }
