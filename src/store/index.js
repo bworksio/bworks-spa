@@ -129,7 +129,7 @@ const store = new Vuex.Store({
      * @param {string} queue
      * @returns {Array}
      */
-    getNodesForQueue: state => queue => state.queues[queue].nodes,
+    getQueue: state => queue => state.queues[queue],
 
     /**
      * Returns all nodes from store for a given language.

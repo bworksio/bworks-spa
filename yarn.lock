@@ -3508,6 +3508,10 @@ loader-utils@^1.0.2:
     emojis-list "^2.0.0"
     json5 "^0.5.0"
 
+locutus@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/locutus/-/locutus-2.0.8.tgz#557d669e39999dea03d1b0ac1d9e9bab8e81e4f7"
+
 lodash._arraycopy@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/lodash._arraycopy/-/lodash._arraycopy-3.0.0.tgz#76e7b7c1f1fb92547374878a562ed06a3e50f6e1"

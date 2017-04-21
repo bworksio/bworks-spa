@@ -24,11 +24,13 @@
   import { getData } from '../store'
   import config from '../config/app.json'
   import ShareLinks from './helpers/ShareLinks'
+  import unserialize from 'locutus/php/var/unserialize'
   /* eslint-disable camelcase */
   import bworks_footer from './sections/bworks_footer'
 
   export default {
     name: 'PageBlog',
+
     props: {
       // Page name from route
       // @see ../router/index.js
@@ -42,21 +44,25 @@
         required: true
       }
     },
+
     data () {
       return {
         node: {},
         footerNode: {}
       }
     },
+
     created () {
       // Update nodes to display for the current queue name.
       this.fetchData()
     },
+
     watch: {
       '$route' (to, from) {
         this.fetchData()
       }
     },
+
     methods: {
       /**
        * Fetches the list of nodes in the current queue to display.
@@ -70,7 +76,22 @@
           this.footerNode = this.$store.getters.getNodesByType('bworks_footer', this.lang).shift()
 
           // Set page title
-          document.title = this.getField('title')
+          let meta = this.getField('field_meta_tags', 'value', 0, false)
+          console.log(meta)
+          if (meta) {
+            meta = unserialize(meta)
+            if (meta.title) {
+              document.title = meta.title
+            }
+            if (meta.description) {
+              const el = document.createElement('meta')
+              el.name = 'description'
+              el.content = meta.description
+              document.getElementsByTagName('head')[0].appendChild(el)
+            }
+          } else {
+            document.title = this.getField('title')
+          }
 
           // Emit trigger event for webpack prerender_spa_plugin
           window.setTimeout(() => {
@@ -142,6 +163,7 @@
         return id ? this.$store.getters.getTag(id, this.lang) : this.$t('message.blog')
       }
     },
+
     components: {
       ShareLinks,
       bworks_footer

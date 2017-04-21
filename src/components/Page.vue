@@ -74,7 +74,19 @@
         this.nodes = []
         getData(this.lang).then(() => {
           // Get section nodes from active queue in store
-          this.nodes = this.$store.getters.getNodesForQueue(this.name)
+          const queue = this.$store.getters.getQueue(this.name)
+          this.nodes = queue.nodes
+
+          // Set meta data
+          if (queue.meta.title) {
+            document.title = queue.meta.title
+          }
+          if (queue.meta.description) {
+            const el = document.createElement('meta')
+            el.name = 'description'
+            el.content = queue.meta.description
+            document.getElementsByTagName('head')[0].appendChild(el)
+          }
 
           // Emit trigger event for webpack prerender_spa_plugin
           window.setTimeout(() => {

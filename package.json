@@ -21,6 +21,7 @@
     "image-preloader": "^1.1.1",
     "jquery": "^3.2.1",
     "jump.js": "^1.0.2",
+    "locutus": "^2.0.8",
     "scrollmagic": "^2.0.5",
     "vue": "^2.2.4",
     "vue-analytics": "^3.2.1",
