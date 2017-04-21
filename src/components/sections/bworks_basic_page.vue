@@ -122,8 +122,8 @@
       width: 100%;
 
       @include media-breakpoint-only(md) {
-        padding-left: 8.3333333%;
-        padding-right: 8.3333333%;
+        padding-left: 8.3333%;
+        padding-right: 8.3333%;
       }
 
       @include media-breakpoint-up(lg) {
@@ -140,7 +140,7 @@
     }
 
     h1, .h1 {
-      font-size: 1.428571429rem;
+      font-size: 1.42857rem;
       line-height: 1.35;
       letter-spacing: .0665em;
 
@@ -164,8 +164,8 @@
 
       @include media-breakpoint-up(md) {
         font-size: 2rem;
-        line-height: 1.357142857;
-        letter-spacing: .066785714em;
+        line-height: 1.35714;
+        letter-spacing: .06678em;
       }
 
       @include media-breakpoint-up(lg) {
@@ -179,8 +179,8 @@
       p {
         margin-top: 2rem;
         font-size: 1rem;
-        line-height: 1.285714286;
-        letter-spacing: .115714286em;
+        line-height: 1.28571;
+        letter-spacing: .11571em;
         color: $white;
 
         @include media-breakpoint-only(md) {
@@ -189,27 +189,27 @@
 
         #page.page-home & {
           font-weight: 900;
-          line-height: 1.333333333;
+          line-height: 1.33333;
           letter-spacing: .18em;
           margin-top: 0;
 
           @include media-breakpoint-up(md) {
-            font-size: 1.428571429rem;
+            font-size: 1.42857rem;
             line-height: 1.4;
             letter-spacing: .18em;
           }
           @include media-breakpoint-up(lg) {
-            font-size: 1.928571429rem;
-            line-height: 1.407407407;
-            letter-spacing: .133333333em;
+            font-size: 1.92857rem;
+            line-height: 1.40740;
+            letter-spacing: .13333em;
           }
         }
 
         #page:not(.page-home) & {
           @include media-breakpoint-up(md) {
-            font-size: 1.285714286rem;
-            line-height: 1.611111111;
-            letter-spacing: .102777778em;
+            font-size: 1.28571rem;
+            line-height: 1.61111;
+            letter-spacing: .10278em;
           }
         }
 
@@ -239,10 +239,10 @@
       }
       @include media-breakpoint-up(md) {
         right: 8.3333vw;
-        bottom: 7.285714286rem;
+        bottom: 7.28571rem;
       }
       @include media-breakpoint-up(lg) {
-        bottom: 5.92857142rem;
+        bottom: 5.9285rem;
       }
     }
 

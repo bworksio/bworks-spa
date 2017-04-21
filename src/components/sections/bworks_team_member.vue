@@ -89,7 +89,7 @@
       }
 
       .position {
-        font-size: .85714rem;
+        font-size: .9375rem;
         line-height: 1.36363;
         letter-spacing: .07272em;
       }

@@ -115,7 +115,7 @@
   .job-description {
     h3 {
       margin: 3.5em 0 1.16667em;
-      font-size: .857142857rem;
+      font-size: .9375rem;
       line-height: 1.166667;
       letter-spacing: .044167em;
       color: $body-color;

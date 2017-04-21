@@ -50,7 +50,7 @@
 
       .at-label {
         font-family: $font-family-base;
-        font-size: .857142rem !important;
+        font-size: .9375rem !important;
         letter-spacing: .066667em;
         font-weight: 400 !important;
         text-transform: uppercase;

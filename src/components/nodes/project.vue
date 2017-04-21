@@ -228,7 +228,7 @@
             margin-right: 8.3333%;
             padding-top: 4px;
             padding-right: 4.1617%;
-            font-size: .857142rem;
+            font-size: .9375rem;
             font-weight: $font-weight-bold;
             line-height: 1.16667;
             letter-spacing: .07167em;
@@ -299,7 +299,7 @@
 
       .tags-wrapper {
         margin: 1rem 0 2rem;
-        font-size: .857142rem;
+        font-size: .9375rem;
         font-weight: $font-weight-bold;
         line-height: 1.16667;
         letter-spacing: .044167em;

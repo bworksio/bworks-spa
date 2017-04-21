@@ -103,8 +103,8 @@
     @include media-breakpoint-down(md) {
       h2 {
         font-size: 1rem;
-        line-height: 1.357142857;
-        letter-spacing: .066428571em;
+        line-height: 1.35714;
+        letter-spacing: .06642em;
         margin-bottom: .75rem;
       }
 

@@ -93,7 +93,7 @@
 
       footer {
         width: 100%;
-        margin-top: 2.142857143rem;
+        margin-top: 2.14285rem;
         @include media-breakpoint-up(sm) {
           margin-top: 4rem;
         }
@@ -170,10 +170,10 @@
     }
 
     .line {
-      width: 8.333333333vw;
+      width: 8.33333vw;
       height: 1px;
       background-color: $body-color;
-      margin-bottom: .428571429rem;
+      margin-bottom: .42857rem;
     }
   }
 
