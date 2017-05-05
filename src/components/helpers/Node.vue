@@ -17,7 +17,7 @@
       },
       // Node id
       nid: {
-        type: String,
+        type: Number,
         required: true
       },
       // View mode, teaser or full

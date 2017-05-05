@@ -3,7 +3,7 @@
     <component
       v-for="node in nodes"
       :is="node.type"
-      :nid="node.nid"
+      :nid="parseInt(node.nid)"
       :lang="lang"
       :viewMode="viewMode"></component>
   </div>

@@ -77,7 +77,6 @@
 
           // Set page title
           let meta = this.getField('field_meta_tags', 'value', 0, false)
-          console.log(meta)
           if (meta) {
             meta = unserialize(meta)
             if (meta.title) {
