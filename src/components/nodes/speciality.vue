@@ -1,5 +1,12 @@
 <template>
   <div :id="cleanId" :class="'node-' + getType() + ' ' + viewMode">
+    <template v-if="viewMode === 'list'">
+      <router-link class="unstyled" :to="pageUrl">
+        <inline-svg :url="getField('field_logo', 'url')"></inline-svg>
+        <h3>{{ getField('title') }}</h3>
+      </router-link>
+    </template>
+
     <template v-if="viewMode === 'teaser'">
       <router-link class="unstyled" :to="teaserUrl">
         <inline-svg :url="getField('field_logo', 'url')"></inline-svg>
@@ -73,6 +80,7 @@
           const route = this.$router.options.getRouteByProps(link, this.lang)
           return route ? route.path : ''
         }
+        return ''
       }
     },
 
@@ -113,8 +121,6 @@
     }
 
     a {
-      display: flex;
-
       @include hover-focus {
         svg {
           [id^="Oval"] {
@@ -130,6 +136,10 @@
     }
 
     &.teaser {
+      a {
+        display: flex;
+      }
+
       h3 {
         font-size: 1.28571rem;
         line-height: 1.38889;
@@ -195,6 +205,17 @@
 
       h3 {
         margin-bottom: 1.5rem;
+      }
+    }
+
+    &.list {
+      a {
+        text-align: center;
+      }
+
+      h3 {
+        margin-top: 2rem;
+        color: $gray-color;
       }
     }
   }

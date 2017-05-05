@@ -96,16 +96,16 @@ module.exports = {
       'path': '/it/blog',
       'title': 'Blog'
     }
-  }/*,
-  'speciality_topic_x': {
+  },
+  'speciality_startup': {
     'de': {
-      'path': '/services/topic-x'
+      'path': '/services/startup-cto'
     },
     'en': {
-      'path': '/en/services/topic-x'
+      'path': '/en/services/startup-cto'
     },
     'it': {
-      'path': '/it/specialita/topic-x'
+      'path': '/it/specialita/startup-cto'
     }
-  }*/
+  }
 }
