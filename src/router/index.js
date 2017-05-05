@@ -46,6 +46,7 @@ routes.push({
 export default new VueRouter({
   mode: 'history',
   routes,
+  routesConfig,
   scrollBehavior (to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition
@@ -53,8 +54,14 @@ export default new VueRouter({
       return { x: 0, y: 0 }
     }
   },
-  routesConfig,
+
+  /**
+   * Helper to look up a route by its internal / machine name.
+   *
+   * @param {string} name Internal route name
+   * @param {string} lang Language to look up
+   */
   getRouteByProps (name, lang) {
-    return this.routesConfig[name][lang]
+    return name in this.routesConfig ? this.routesConfig[name][lang] : false
   }
 })

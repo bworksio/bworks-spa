@@ -8,11 +8,22 @@
     </template>
 
     <template v-if="viewMode === 'full'">
-      <inline-svg :url="getField('field_logo', 'url')"></inline-svg>
-      <div class="text">
-        <h3>{{ getField('title') }}</h3>
-        <div v-html="getField('body', 'value', 0, '')"></div>
-      </div>
+      <template v-if="pageUrl">
+        <router-link class="unstyled" :to="pageUrl">
+          <inline-svg :url="getField('field_logo', 'url')"></inline-svg>
+          <div class="text">
+            <h3>{{ getField('title') }}</h3>
+            <div v-html="getField('body', 'value', 0, '')"></div>
+          </div>
+        </router-link>
+      </template>
+      <template v-else>
+        <inline-svg :url="getField('field_logo', 'url')"></inline-svg>
+        <div class="text">
+          <h3>{{ getField('title') }}</h3>
+          <div v-html="getField('body', 'value', 0, '')"></div>
+        </div>
+      </template>
     </template>
   </div>
 </template>
@@ -25,7 +36,9 @@
 
   export default {
     name: 'speciality',
+
     extends: Node,
+
     props: {
       // View mode, teaser or full
       viewMode: {
@@ -33,24 +46,40 @@
         default: 'full'
       }
     },
+
     data () {
       return {
         cleanId: ''
       }
     },
+
     computed: {
       /**
-       * Build url to specialties page.
+       * Get url to specialties page including generated fragment.
        * @returns {string}
        */
       teaserUrl () {
         const route = this.$router.options.getRouteByProps('specialities', this.lang)
-        return route.path + '#' + this.cleanId
+        return route ? route.path + '#' + this.cleanId : ''
+      },
+
+      /**
+       * Get url to individual speciality page (set in field_content_map_link).
+       * @returns {string}
+       */
+      pageUrl () {
+        const link = this.getField('field_content_map_link', 'value', 0, false)
+        if (link) {
+          const route = this.$router.options.getRouteByProps(link, this.lang)
+          return route ? route.path : ''
+        }
       }
     },
+
     created () {
       this.cleanId = cleanId(this.getField('title'))
     },
+
     mounted () {
       // Check if there is a hash in the url, and if it matches the component,
       // then scroll to it when mounted
@@ -58,6 +87,7 @@
         jump(window.location.hash, { offset: -125 })
       }
     },
+
     components: {
       'inline-svg': svg
     }
@@ -83,7 +113,7 @@
     }
 
     a {
-      display: block;
+      display: flex;
 
       @include hover-focus {
         svg {
