@@ -98,14 +98,18 @@ module.exports = {
     }
   },
   'speciality_startup': {
+    'show': false,
     'de': {
-      'path': '/services/startup-cto'
+      'path': '/services/startup-cto',
+      'title': 'Unsere Dienstleistungen: Startup-CTO'
     },
     'en': {
-      'path': '/en/services/startup-cto'
+      'path': '/en/services/startup-cto',
+      'title': 'Our Specialities: Startup CTO'
     },
     'it': {
-      'path': '/it/specialita/startup-cto'
+      'path': '/it/specialita/startup-cto',
+      'title': 'Nostre specialità: Startup CTO'
     }
   }
 }
