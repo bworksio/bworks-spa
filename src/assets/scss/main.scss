@@ -78,6 +78,16 @@ nav {
   @include make-container-fluid($fluid-grid-gutter-widths)
 }
 
+ul.row {
+  padding: 0;
+  list-style: none;
+
+  > li {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
 .animation-wrapper {
   overflow-x: hidden;
 

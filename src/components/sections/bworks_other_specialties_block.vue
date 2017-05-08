@@ -65,15 +65,5 @@
         fill: $white;
       }
     }
-
-    ul.row {
-      padding: 0;
-      list-style: none;
-
-      > li {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-      }
-    }
   }
 </style>

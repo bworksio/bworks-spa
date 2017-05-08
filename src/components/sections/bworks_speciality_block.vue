@@ -33,16 +33,4 @@
 
 <style rel="stylesheet/scss" lang="scss">
   @import '../../assets/scss/mixins';
-
-  .node-bworks_speciality_block {
-    ul.row {
-      padding: 0;
-      list-style: none;
-
-      > li {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-      }
-    }
-  }
 </style>

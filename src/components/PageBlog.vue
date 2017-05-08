@@ -16,6 +16,7 @@
       </div>
     </div>
 
+    <bworks_other_articles_block :nodes="otherArticles" :lang="lang"></bworks_other_articles_block>
     <bworks_footer v-if="Object.keys(footerNode).length" :nid="footerNode.nid[0].value" :lang="lang"></bworks_footer>
   </div>
 </template>
@@ -26,6 +27,7 @@
   import ShareLinks from './helpers/ShareLinks'
   import unserialize from 'locutus/php/var/unserialize'
   /* eslint-disable camelcase */
+  import bworks_other_articles_block from './sections/bworks_other_articles_block'
   import bworks_footer from './sections/bworks_footer'
 
   export default {
@@ -48,6 +50,7 @@
     data () {
       return {
         node: {},
+        otherArticles: [],
         footerNode: {}
       }
     },
@@ -73,7 +76,20 @@
         getData(this.lang).then(() => {
           // Find matching node by path
           this.node = this.$store.getters.getNodeByPath(this.$route.path, this.lang)
+          // Find first footer node
           this.footerNode = this.$store.getters.getNodesByType('bworks_footer', this.lang).shift()
+          // Find two newest articles, excluding this node
+          this.otherArticles = this.$store.getters.getNodesByType('bworks_article', this.lang).sort((a, b) => {
+            if (a.field_date[0].value < b.field_date[0].value) {
+              return -1
+            }
+            if (a.field_date[0].value > b.field_date[0].value) {
+              return 1
+            }
+            return 0
+          })
+          .filter(node => node.nid[0].value !== this.node.nid[0].value)
+          .slice(0, 2)
 
           // Set page title
           let meta = this.getField('field_meta_tags', 'value', 0, false)
@@ -165,6 +181,7 @@
 
     components: {
       ShareLinks,
+      bworks_other_articles_block,
       bworks_footer
     }
   }

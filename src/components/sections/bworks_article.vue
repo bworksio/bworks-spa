@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isLoaded" :class="getNodeClass">
+  <div v-if="isLoaded" :class="'node-' + getType() + ' ' + viewMode">
     <template v-if="viewMode === 'teaser'">
       <div class="article container-fluid">
         <router-link class="unstyled row" :to="getPath()">
@@ -44,20 +44,6 @@
     name: 'bworks_article',
 
     extends: Node,
-
-    computed: {
-      getNodeClass () {
-        const classes = [
-          'node',
-          'node-' + this.getType(),
-          this.viewMode
-        ]
-        if (this.viewMode === 'list') {
-          classes.push('col-sm-6 col-md-4')
-        }
-        return classes
-      }
-    },
 
     methods: {
       /**
@@ -129,10 +115,6 @@
         }
       }
 
-      .row {
-        //align-items: center;
-      }
-
       .h1 {
         color: $body-color;
       }
@@ -173,8 +155,8 @@
       img {
         object-fit: cover;
         object-position: center;
-        max-height: 12rem;
-        min-height: 12rem;
+        max-height: 15rem;
+        min-height: 15rem;
       }
 
       .category {
