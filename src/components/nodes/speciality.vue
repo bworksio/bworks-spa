@@ -136,10 +136,6 @@
     }
 
     &.teaser {
-      a {
-        display: flex;
-      }
-
       h3 {
         font-size: 1.28571rem;
         line-height: 1.38889;
@@ -187,6 +183,10 @@
     &.full {
       display: flex;
 
+      > a {
+        display: flex;
+      }
+
       .icon {
         flex: 1 30%;
         width: 8.33333%;
@@ -209,8 +209,14 @@
     }
 
     &.list {
-      a {
+      > a {
         text-align: center;
+
+        @include hover-focus {
+          h3 {
+            color: $body-color;
+          }
+        }
       }
 
       h3 {
