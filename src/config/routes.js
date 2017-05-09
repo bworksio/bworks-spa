@@ -97,6 +97,20 @@ module.exports = {
       'title': 'Blog'
     }
   },
+  'contact': {
+    'de': {
+      'path': '/kontakt',
+      'title': 'Kontakt'
+    },
+    'en': {
+      'path': '/en/contact',
+      'title': 'Contact'
+    },
+    'it': {
+      'path': '/it/contatto',
+      'title': 'Contatto'
+    }
+  },
   'speciality_startup': {
     'show': false,
     'de': {

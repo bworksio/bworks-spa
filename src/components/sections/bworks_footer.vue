@@ -1,5 +1,5 @@
 <template>
-  <div :class="'node node-' + getType()">
+  <footer :class="'node node-' + getType()">
     <div class="footer-newsletter container-fluid">
       <!-- Begin MailChimp Signup Form -->
       <div id="mc_embed_signup">
@@ -37,20 +37,15 @@
         <div class="footer-addresses-2" v-html="getField('field_body_addresses', 'value', 1)"></div>
       </div>
 
-      <div class="footer-social-links">
-        <a class="facebook" :href="social.facebook"><span class="icon" v-html="assets.facebook"></span><span class="text">Facebook</span></a>
-        <a class="twitter" :href="social.twitter"><span class="icon" v-html="assets.twitter"></span><span class="text">Twitter</span></a>
-        <a class="instagram" :href="social.instagram"><span class="icon" v-html="assets.instagram"></span><span class="text">Instagram</span></a>
-        <a class="linkedin" :href="social.linkedin"><span class="icon" v-html="assets.linkedin"></span><span class="text">Linkedin</span></a>
-      </div>
+      <social-links :headline="false"></social-links>
     </div>
-  </div>
+  </footer>
 </template>
 
 <script type="text/javascript">
-  import config from '../../config/app.json'
   import Node from '../helpers/Node'
   import AppContact from '../AppContact'
+  import SocialLinks from '../helpers/SocialLinks'
 
   export default {
     name: 'bworks_footer',
@@ -59,17 +54,13 @@
       return {
         node: {},
         assets: {
-          switzerland: require('!!raw!../../assets/icon-switzerland.svg'),
-          facebook: require('!!raw!../../assets/icon-facebook.svg'),
-          twitter: require('!!raw!../../assets/icon-twitter.svg'),
-          instagram: require('!!raw!../../assets/icon-instagram.svg'),
-          linkedin: require('!!raw!../../assets/icon-linkedin.svg')
-        },
-        social: config.social
+          switzerland: require('!!raw!../../assets/icon-switzerland.svg')
+        }
       }
     },
     components: {
-      AppContact
+      AppContact,
+      SocialLinks
     }
   }
 </script>
@@ -225,23 +216,8 @@
     color: $gray-color;
   }
 
-  .footer-social-links {
-    color: $gray-color;
-
-    > a {
-      display: flex;
-      align-items: center;
-    }
-
-    .icon {
-      margin-right: 1rem;
-    }
-
-    @include media-breakpoint-down(xl) {
-      .text {
-        display: none;
-      }
-    }
+  footer .social-links a {
+    float: none;
   }
 
   @include media-breakpoint-down(sm) {
@@ -252,7 +228,7 @@
     .footer-addresses {
       flex: 2 83.3333%;
     }
-    .footer-social-links {
+    footer .social-links {
       flex: 1 auto;
 
       .icon {
@@ -281,7 +257,7 @@
         flex: 1 50%;
       }
     }
-    .footer-social-links {
+    footer .social-links {
       flex: 1 100%;
       margin-top: 2rem;
       display: flex;
@@ -313,23 +289,24 @@
         margin: 0;
       }
     }
-    .footer-social-links {
+    footer .social-links {
       order: 2;
       flex: 1 50%;
       margin-top: 2rem;
       display: flex;
       justify-content: flex-start;
 
-      > a {
+      a {
+        margin-right: 2rem;
         min-width: 16.66667%;
       }
     }
   }
 
-  @include media-breakpoint-up(lg) {
-    .footer-social-links {
-      > a {
-        margin-right: 2rem;
+  @include media-breakpoint-down(xl) {
+    footer .social-links {
+      .text {
+        display: none;
       }
     }
   }
