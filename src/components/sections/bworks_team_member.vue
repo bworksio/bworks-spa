@@ -5,7 +5,7 @@
       <drupal-image :image="node.field_photo[0]"></drupal-image>
     </div>
     <div class="info-wrapper">
-      <div class="h2 lastname">{{ getField('field_lastname') }}</div>
+      <div class="h2 forename">{{ getField('field_forename') }}</div>
       <div class="h2 surname">{{ getField('field_surname') }}</div>
       <div class="h3 position">{{ getField('field_position') }}</div>
     </div>
@@ -67,7 +67,7 @@
       transition: transform .4s;
     }
 
-    .lastname,
+    .forename,
     .surname {
       margin: 0;
       text-transform: none;
@@ -81,7 +81,7 @@
     }
 
     @include media-breakpoint-down(sm) {
-      .lastname,
+      .forename,
       .surname {
         font-size: 1rem;
         line-height: 1.16667;
