@@ -184,6 +184,11 @@
     .addresses {
       display: flex;
       justify-content: space-around;
+
+      .address {
+        margin-left: 2rem;
+        margin-right: 2rem;
+      }
     }
 
     .social-links {
