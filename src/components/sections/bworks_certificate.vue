@@ -1,11 +1,11 @@
 <template>
-  <div :class="'node node-' + getType()">
+  <div :class="'node-' + getType()">
     <h4>{{ getField('title') }}</h4>
     <div class="description">
       <div class="logo">
-        <drupal-image :image="node.field_logo[0]"></drupal-image>
+        <drupal-image :image="node.field_logo[0]" />
       </div>
-      <div class="body" v-html="getField('body')"></div>
+      <div class="body" v-html="getField('body')" />
     </div>
   </div>
 </template>
@@ -29,8 +29,6 @@
   @import '../../assets/scss/mixins';
 
   .node-bworks_certificate {
-    margin-right: 25px;
-
     h4 {
       padding-bottom: .5rem;
       margin-bottom: 1.57142rem;

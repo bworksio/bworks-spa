@@ -1,11 +1,11 @@
 <template>
   <div class="node-bworks_certificate_block">
     <div class="container">
-      <div class="row">
-        <div v-for="certificateNode in nodes" class="col-md-6">
-          <bworks_certificate :nid="certificateNode.nid[0].value" :lang="lang"></bworks_certificate>
-        </div>
-      </div>
+      <ul class="row">
+        <li v-for="node in nodes" class="col-md-6">
+          <bworks_certificate :nid="node.nid[0].value" :lang="lang"></bworks_certificate>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -43,5 +43,12 @@
 <style rel="stylesheet/scss" lang="scss">
   @import '../../assets/scss/mixins';
 
-  .node-bworks_team_members_block {}
+  .node-bworks_certificate_block {
+    li:nth-child(odd) {
+      padding-right: 2rem;
+    }
+    li:nth-child(even) {
+      padding-left: 2rem;
+    }
+  }
 </style>
