@@ -62,9 +62,6 @@
   }
 
   ul.job-links {
-    padding: 0;
-    list-style: none;
-
     a {
       display: inline-block;
       width: 85%;
