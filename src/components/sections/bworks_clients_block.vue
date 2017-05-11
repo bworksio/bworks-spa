@@ -11,7 +11,7 @@
       </ul>
 
       <transition name="fade" mode="out-in">
-        <div v-if="nodes[active]" :key="active" class="quote col-sm-6 offset-sm-3">
+        <div v-if="nodes[active]" :key="active" class="quote col-md-6 offset-md-3">
           <h3 class="h2">{{ $t('what_they_say') }}</h3>
           <div class="description" v-html="nodes[active].field_they_say_about_us[0].value"></div>
         </div>
