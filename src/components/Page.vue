@@ -23,6 +23,7 @@
   import bworks_certificate_block from './sections/bworks_certificate_block'
   import bworks_other_specialties_block from './sections/bworks_other_specialties_block'
   import bworks_clients_block from './sections/bworks_clients_block'
+  import bworks_awards_block from './sections/bworks_awards_block'
   import bworks_contact_block from './sections/bworks_contact_block'
   import bworks_footer from './sections/bworks_footer'
 
@@ -114,6 +115,7 @@
       bworks_certificate_block,
       bworks_other_specialties_block,
       bworks_clients_block,
+      bworks_awards_block,
       bworks_contact_block,
       bworks_footer
     }
