@@ -1,30 +1,32 @@
 <template>
-  <div id="main-menu">
-    <div class="container">
-      <div class="menu-wrapper">
-        <nav class="menu-main">
-          <ul>
-            <li v-for="item in menuItems" v-if="item.title">
-              <router-link :to="item.path" exact>{{ item.title }}</router-link>
-              <div class="line">&nbsp;</div>
-            </li>
-          </ul>
-        </nav>
-        <div class="menu-contact">
-          <get-in-touch />
-        </div>
-        <div class="menu-social-links">
-          <a class="facebook" :href="social.facebook">Facebook</a>
-          <a class="twitter" :href="social.twitter">Twitter</a>
-          <a class="instagram" :href="social.instagram">Instagram</a>
-          <a class="linkedin" :href="social.linkedin">Linkedin</a>
-        </div>
-        <div class="menu-language-switcher">
-          <language-switcher />
+  <transition name="menu">
+    <div id="main-menu" v-if="$store.state.showMenu">
+      <div class="container">
+        <div class="menu-wrapper">
+          <nav class="menu-main">
+            <ul>
+              <li v-for="item in menuItems" v-if="item.title">
+                <router-link :to="item.path" exact>{{ item.title }}</router-link>
+                <div class="line">&nbsp;</div>
+              </li>
+            </ul>
+          </nav>
+          <div class="menu-contact">
+            <get-in-touch />
+          </div>
+          <div class="menu-social-links">
+            <a class="facebook" :href="social.facebook">Facebook</a>
+            <a class="twitter" :href="social.twitter">Twitter</a>
+            <a class="instagram" :href="social.instagram">Instagram</a>
+            <a class="linkedin" :href="social.linkedin">Linkedin</a>
+          </div>
+          <div class="menu-language-switcher">
+            <language-switcher />
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script type="text/javascript">

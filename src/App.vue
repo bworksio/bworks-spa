@@ -14,9 +14,7 @@
           </div>
         </div>
       </div>
-      <transition name="menu">
-        <menu-overlay v-if="$store.state.showMenu"></menu-overlay>
-      </transition>
+      <menu-overlay />
     </header>
 
     <router-view></router-view>
