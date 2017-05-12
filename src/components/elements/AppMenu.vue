@@ -31,7 +31,7 @@
   import utils from '../../utils'
   import config from '../../config/app.json'
   import routesConfig from '../../config/routes'
-  import AppContact from './AppContact'
+  import GetInTouch from './GetInTouch'
   import AppLanguageSwitcher from './AppLanguageSwitcher'
 
   export default {
@@ -63,7 +63,7 @@
       }
     },
     components: {
-      AppContact,
+      GetInTouch,
       AppLanguageSwitcher
     }
   }

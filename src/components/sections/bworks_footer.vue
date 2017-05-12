@@ -44,7 +44,7 @@
 
 <script type="text/javascript">
   import Node from '../nodes/Node'
-  import AppContact from '../elements/AppContact'
+  import GetInTouch from '../elements/GetInTouch'
   import SocialLinks from '../elements/SocialLinks'
 
   export default {
@@ -59,7 +59,7 @@
       }
     },
     components: {
-      AppContact,
+      GetInTouch,
       SocialLinks
     }
   }
