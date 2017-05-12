@@ -13,16 +13,8 @@
 
       <div class="col-sm-8 offset-sm-2">
         <div class="addresses">
-          <div class="address">
-            Birmensdorferstrasse 541<br>
-            8055 Zürich<br>
-            Schweiz
-          </div>
-          <div class="address">
-            Museumstrasse 41/A<br>
-            39100 Bozen<br>
-            Italien
-          </div>
+          <div class="address" v-html="$t('address_zurich')" />
+          <div class="address" v-html="$t('address_bolzano')" />
         </div>
 
         <social-links :icon="false"></social-links>
@@ -49,10 +41,14 @@
     i18n: {
       messages: {
         en: {
-          send_request: 'Send request'
+          send_request: 'Send request',
+          address_zurich: 'Birmensdorferstrasse 541<br>8055 Zurich<br>Switzerland',
+          address_bolzano: 'Museumstrasse 41/A<br>39100 Bozen<br>Italy'
         },
         de: {
-          send_request: 'Anfrage senden'
+          send_request: 'Anfrage senden',
+          address_zurich: 'Birmensdorferstrasse 541<br>8055 Zürich<br>Schweiz',
+          address_bolzano: 'Museumstrasse 41/A<br>39100 Bozen<br>Italien'
         }
       }
     }
