@@ -67,7 +67,7 @@
 <script type="text/javascript">
   import Node from './Node'
   import ScrollMagic from 'scrollmagic'
-  import FlexSlider from '../helpers/FlexSlider'
+  import FlexSlider from '../elements/FlexSlider'
   import utils from '../../utils'
 
   export default {

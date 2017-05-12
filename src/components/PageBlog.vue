@@ -24,7 +24,7 @@
 <script type="text/javascript">
   import { getData } from '../store'
   import config from '../config/app.json'
-  import ShareLinks from './helpers/ShareLinks'
+  import ShareLinks from './elements/ShareLinks'
   import unserialize from 'locutus/php/var/unserialize'
   /* eslint-disable camelcase */
   import bworks_other_articles_block from './sections/bworks_other_articles_block'

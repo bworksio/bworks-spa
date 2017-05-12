@@ -22,7 +22,7 @@
 
 <script type="text/javascript">
   import Node from '../nodes/Node'
-  import DrupalImage from '../helpers/DrupalImage'
+  import DrupalImage from '../elements/DrupalImage'
   import { forEach } from '../../utils'
 
   export default {

@@ -27,7 +27,7 @@
 
 <script type="text/javascript">
   import Node from '../nodes/Node'
-  import ShareLinks from '../helpers/ShareLinks'
+  import ShareLinks from '../elements/ShareLinks'
 
   export default {
     name: 'bworks_careers_block',

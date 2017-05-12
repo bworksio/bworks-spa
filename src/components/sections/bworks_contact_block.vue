@@ -25,8 +25,8 @@
 
 <script type="text/javascript">
   import Node from '../nodes/Node'
-  import ContactMap from '../helpers/ContactMap'
-  import SocialLinks from '../helpers/SocialLinks'
+  import ContactMap from '../elements/ContactMap'
+  import SocialLinks from '../elements/SocialLinks'
 
   export default {
     name: 'bworks_contact_block',

@@ -12,7 +12,7 @@
 
 <script type="text/javascript">
   import Node from './Node'
-  import DrupalImage from '../helpers/DrupalImage'
+  import DrupalImage from '../elements/DrupalImage'
 
   export default {
     name: 'bworks_certificate',

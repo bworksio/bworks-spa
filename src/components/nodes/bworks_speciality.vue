@@ -37,7 +37,7 @@
 
 <script type="text/javascript">
   import Node from './Node'
-  import svg from 'components/helpers/Svg'
+  import svg from 'components/elements/Svg'
   import jump from 'jump.js'
   import { cleanId } from '../../utils'
 

@@ -45,7 +45,7 @@
 <script type="text/javascript">
   import Node from '../nodes/Node'
   import AppContact from '../AppContact'
-  import SocialLinks from '../helpers/SocialLinks'
+  import SocialLinks from '../elements/SocialLinks'
 
   export default {
     name: 'bworks_footer',
