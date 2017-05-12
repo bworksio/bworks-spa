@@ -54,7 +54,7 @@
       return {
         node: {},
         assets: {
-          switzerland: require('!!raw!../../assets/icon-switzerland.svg')
+          switzerland: require('!!raw!../../assets/images/icon-switzerland.svg')
         }
       }
     },

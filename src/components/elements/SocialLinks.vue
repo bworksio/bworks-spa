@@ -23,10 +23,10 @@
     data () {
       return {
         assets: {
-          facebook: require('!!raw!../../assets/icon-facebook.svg'),
-          twitter: require('!!raw!../../assets/icon-twitter.svg'),
-          instagram: require('!!raw!../../assets/icon-instagram.svg'),
-          linkedin: require('!!raw!../../assets/icon-linkedin.svg')
+          facebook: require('!!raw!../../assets/images/icon-facebook.svg'),
+          twitter: require('!!raw!../../assets/images/icon-twitter.svg'),
+          instagram: require('!!raw!../../assets/images/icon-instagram.svg'),
+          linkedin: require('!!raw!../../assets/images/icon-linkedin.svg')
         },
         social: config.social
       }

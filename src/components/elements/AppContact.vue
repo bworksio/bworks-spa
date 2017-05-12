@@ -25,8 +25,8 @@
     data () {
       return {
         assets: {
-          email: require('!!raw!../../assets/icon-email.svg'),
-          phone: require('!!raw!../../assets/icon-phone.svg')
+          email: require('!!raw!../../assets/images/icon-email.svg'),
+          phone: require('!!raw!../../assets/images/icon-phone.svg')
         },
         show: false
       }

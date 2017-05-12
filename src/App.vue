@@ -49,8 +49,8 @@
     data () {
       return {
         assets: {
-          bWorksPreloading: require('!!raw!./assets/bworks-preloading.svg'),
-          bWorksLogo: require('!!raw!./assets/bworks-logo.svg')
+          bWorksPreloading: require('!!raw!./assets/images/bworks-preloading.svg'),
+          bWorksLogo: require('!!raw!./assets/images/bworks-logo.svg')
         }
       }
     },
