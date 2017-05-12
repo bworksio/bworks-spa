@@ -9,9 +9,9 @@
 </template>
 
 <script type="text/javascript">
-  import utils from '../utils'
-  import config from '../config/app.json'
-  import routesConfig from '../config/routes'
+  import utils from '../../utils'
+  import config from '../../config/app.json'
+  import routesConfig from '../../config/routes'
 
   export default {
     name: 'LanguageSwitcher',
@@ -47,7 +47,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../assets/scss/mixins';
+  @import '../../assets/scss/mixins';
 
   .language-switcher {
     ul {

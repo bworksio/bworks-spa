@@ -32,7 +32,7 @@
   import config from '../config/app.json'
   import routesConfig from '../config/routes'
   import AppContact from './elements/AppContact'
-  import AppLanguageSwitcher from './AppLanguageSwitcher'
+  import AppLanguageSwitcher from './elements/AppLanguageSwitcher'
 
   export default {
     name: 'Menu',

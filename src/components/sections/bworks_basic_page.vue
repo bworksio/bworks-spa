@@ -23,7 +23,7 @@
 
 <script type="text/javascript">
   import Node from '../nodes/Node'
-  import AppLanguageSwitcher from 'components/AppLanguageSwitcher'
+  import AppLanguageSwitcher from '../elements/AppLanguageSwitcher'
   import ScrollMagic from 'scrollmagic'
 
   /** @var {ScrollMagic.Scene} smHeaderInvertScene */
