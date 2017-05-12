@@ -14,7 +14,7 @@
   import { forEach } from '../../utils'
   import Node from '../helpers/Node'
   /* eslint-disable camelcase */
-  import bworks_award from './bworks_award'
+  import bworks_award from '../nodes/bworks_award'
 
   export default {
     name: 'bworks_awards_block',
