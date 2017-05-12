@@ -42,7 +42,7 @@
   import { cleanId } from '../../utils'
 
   export default {
-    name: 'speciality',
+    name: 'bworks_speciality',
 
     extends: Node,
 

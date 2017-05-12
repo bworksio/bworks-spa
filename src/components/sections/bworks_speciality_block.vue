@@ -3,7 +3,7 @@
     <div class="container">
       <ul class="row">
         <li v-for="specialty in node.field_entity_reference" :class="liClasses">
-          <speciality :nid="specialty.target_id" :lang="lang" :viewMode="viewMode"></speciality>
+          <bworks_speciality :nid="specialty.target_id" :lang="lang" :viewMode="viewMode"></bworks_speciality>
         </li>
       </ul>
     </div>
@@ -11,8 +11,9 @@
 </template>
 
 <script type="text/javascript">
+  /* eslint-disable camelcase */
   import Node from '../helpers/Node'
-  import speciality from '../nodes/speciality'
+  import bworks_speciality from '../nodes/bworks_speciality'
 
   export default {
     name: 'bworks_speciality_block',
@@ -26,7 +27,7 @@
       }
     },
     components: {
-      speciality
+      bworks_speciality
     }
   }
 </script>

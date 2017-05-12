@@ -4,7 +4,7 @@
       <h2>{{ $t('other_specialties') }}</h2>
       <ul class="row">
         <li v-for="specialty in node.field_specialities" class="col-sm-6">
-          <speciality :nid="specialty.target_id" :lang="lang" viewMode="list"></speciality>
+          <bworks_speciality :nid="specialty.target_id" :lang="lang" viewMode="list"></bworks_speciality>
         </li>
       </ul>
     </div>
@@ -12,8 +12,9 @@
 </template>
 
 <script type="text/javascript">
+  /* eslint-disable camelcase */
   import Node from '../helpers/Node'
-  import speciality from '../nodes/speciality'
+  import bworks_speciality from '../nodes/bworks_speciality'
 
   export default {
     name: 'bworks_other_specialties_block',
@@ -25,7 +26,7 @@
     },
 
     components: {
-      speciality
+      bworks_speciality
     },
 
     i18n: {
