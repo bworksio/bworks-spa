@@ -34,7 +34,7 @@
           this.svg = result.data
         })
         .catch(() => {
-          this.svg = require('!!raw!./missing.svg')
+          this.svg = require('!!raw!../../assets/missing.svg')
         })
     }
   }
