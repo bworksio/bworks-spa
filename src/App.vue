@@ -7,7 +7,7 @@
             <router-link class="logo" to="/" v-html="assets.bWorksLogo"></router-link>
           </div>
           <div class="menu-toggle">
-            <app-menu-toggle></app-menu-toggle>
+            <menu-toggle />
           </div>
           <div class="hire-us">
             <a class="hire-us animated" :href="$i18n.t('link.hire_us')">{{ $t('button.hire_us') }}</a>
@@ -15,7 +15,7 @@
         </div>
       </div>
       <transition name="menu">
-        <app-menu v-if="$store.state.showMenu"></app-menu>
+        <menu-overlay v-if="$store.state.showMenu"></menu-overlay>
       </transition>
     </header>
 
@@ -40,8 +40,8 @@
 </template>
 
 <script type="text/javascript">
-  import AppMenuToggle from './components/elements/AppMenuToggle'
-  import AppMenu from './components/elements/AppMenu'
+  import MenuToggle from './components/elements/MenuToggle'
+  import MenuOverlay from './components/elements/MenuOverlay'
 
   export default {
     name: 'App',
@@ -91,8 +91,8 @@
     },
 
     components: {
-      AppMenuToggle,
-      AppMenu
+      MenuToggle,
+      MenuOverlay
     }
   }
 </script>

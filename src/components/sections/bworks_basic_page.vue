@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="language-switcher-wrapper">
-        <app-language-switcher></app-language-switcher>
+        <language-switcher />
       </div>
       <div class="continue"></div>
     </div>
@@ -23,7 +23,7 @@
 
 <script type="text/javascript">
   import Node from '../nodes/Node'
-  import AppLanguageSwitcher from '../elements/AppLanguageSwitcher'
+  import LanguageSwitcher from '../elements/LanguageSwitcher'
   import ScrollMagic from 'scrollmagic'
 
   /** @var {ScrollMagic.Scene} smHeaderInvertScene */
@@ -80,7 +80,7 @@
     },
 
     components: {
-      AppLanguageSwitcher
+      LanguageSwitcher
     }
   }
 </script>

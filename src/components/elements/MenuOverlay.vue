@@ -11,7 +11,7 @@
           </ul>
         </nav>
         <div class="menu-contact">
-          <app-contact></app-contact>
+          <get-in-touch />
         </div>
         <div class="menu-social-links">
           <a class="facebook" :href="social.facebook">Facebook</a>
@@ -20,7 +20,7 @@
           <a class="linkedin" :href="social.linkedin">Linkedin</a>
         </div>
         <div class="menu-language-switcher">
-          <app-language-switcher></app-language-switcher>
+          <language-switcher />
         </div>
       </div>
     </div>
@@ -32,7 +32,7 @@
   import config from '../../config/app.json'
   import routesConfig from '../../config/routes'
   import GetInTouch from './GetInTouch'
-  import AppLanguageSwitcher from './AppLanguageSwitcher'
+  import LanguageSwitcher from './LanguageSwitcher'
 
   export default {
     name: 'Menu',
@@ -64,7 +64,7 @@
     },
     components: {
       GetInTouch,
-      AppLanguageSwitcher
+      LanguageSwitcher
     }
   }
 </script>
