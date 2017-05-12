@@ -16,7 +16,7 @@
   import bworks_html_block from './sections/bworks_html_block'
   import bworks_project_block from './sections/bworks_project_block'
   import bworks_speciality_block from './sections/bworks_speciality_block'
-  import bworks_article from './sections/bworks_article'
+  import bworks_article from './nodes/bworks_article'
   import bworks_blog_block from './sections/bworks_blog_block'
   import bworks_careers_block from './sections/bworks_careers_block'
   import bworks_team_members_block from './sections/bworks_team_members_block'

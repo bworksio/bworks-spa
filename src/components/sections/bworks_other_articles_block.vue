@@ -13,7 +13,7 @@
 
 <script type="text/javascript">
   /* eslint-disable camelcase */
-  import bworks_article from './bworks_article'
+  import bworks_article from '../nodes/bworks_article'
 
   export default {
     name: 'bworks_other_articles_block',

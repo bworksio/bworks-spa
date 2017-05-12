@@ -13,7 +13,7 @@
 <script type="text/javascript">
   import Node from '../helpers/Node'
   /* eslint-disable camelcase */
-  import bworks_article from './bworks_article'
+  import bworks_article from '../nodes/bworks_article'
 
   export default {
     name: 'bworks_blog_block',
