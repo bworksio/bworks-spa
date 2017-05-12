@@ -14,7 +14,7 @@
   import { forEach } from '../../utils'
   import Node from '../helpers/Node'
   /* eslint-disable camelcase */
-  import bworks_certificate from './bworks_certificate'
+  import bworks_certificate from '../nodes/bworks_certificate'
 
   export default {
     name: 'bworks_certificate_block',
