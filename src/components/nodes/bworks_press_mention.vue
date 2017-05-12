@@ -11,7 +11,7 @@
 </template>
 
 <script type="text/javascript">
-  import Node from '../helpers/Node'
+  import Node from './Node'
 
   export default {
     name: 'bworks_press_mention',

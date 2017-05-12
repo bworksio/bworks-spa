@@ -13,7 +13,7 @@
 
 <script type="text/javascript">
   /* eslint-disable camelcase */
-  import Node from '../helpers/Node'
+  import Node from '../nodes/Node'
   import bworks_speciality from '../nodes/bworks_speciality'
 
   export default {

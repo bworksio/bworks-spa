@@ -26,7 +26,7 @@
 </template>
 
 <script type="text/javascript">
-  import Node from '../helpers/Node'
+  import Node from '../nodes/Node'
   import ShareLinks from '../helpers/ShareLinks'
 
   export default {

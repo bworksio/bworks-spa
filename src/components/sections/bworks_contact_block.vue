@@ -24,7 +24,7 @@
 </template>
 
 <script type="text/javascript">
-  import Node from '../helpers/Node'
+  import Node from '../nodes/Node'
   import ContactMap from '../helpers/ContactMap'
   import SocialLinks from '../helpers/SocialLinks'
 

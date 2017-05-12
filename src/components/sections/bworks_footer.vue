@@ -43,7 +43,7 @@
 </template>
 
 <script type="text/javascript">
-  import Node from '../helpers/Node'
+  import Node from '../nodes/Node'
   import AppContact from '../AppContact'
   import SocialLinks from '../helpers/SocialLinks'
 

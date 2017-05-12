@@ -11,7 +11,7 @@
 </template>
 
 <script type="text/javascript">
-  import Node from '../helpers/Node'
+  import Node from '../nodes/Node'
   /* eslint-disable camelcase */
   import bworks_article from '../nodes/bworks_article'
 

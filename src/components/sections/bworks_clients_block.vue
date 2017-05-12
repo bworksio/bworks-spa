@@ -21,7 +21,7 @@
 </template>
 
 <script type="text/javascript">
-  import Node from '../helpers/Node'
+  import Node from '../nodes/Node'
   import DrupalImage from '../helpers/DrupalImage'
   import { forEach } from '../../utils'
 

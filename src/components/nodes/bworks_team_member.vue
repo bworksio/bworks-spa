@@ -13,7 +13,7 @@
 </template>
 
 <script type="text/javascript">
-  import Node from '../helpers/Node'
+  import Node from './Node'
   import DrupalImage from '../helpers/DrupalImage'
 
   export default {

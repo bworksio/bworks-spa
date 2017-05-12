@@ -36,7 +36,7 @@
 </template>
 
 <script type="text/javascript">
-  import Node from '../helpers/Node'
+  import Node from './Node'
   import svg from 'components/helpers/Svg'
   import jump from 'jump.js'
   import { cleanId } from '../../utils'

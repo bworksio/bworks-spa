@@ -16,7 +16,7 @@
 
 <script type="text/javascript">
   import { forEach } from '../../utils'
-  import Node from '../helpers/Node'
+  import Node from '../nodes/Node'
   /* eslint-disable camelcase */
   import bworks_press_mention from '../nodes/bworks_press_mention'
 

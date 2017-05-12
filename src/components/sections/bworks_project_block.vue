@@ -19,7 +19,7 @@
 
 <script type="text/javascript">
   /* eslint-disable camelcase */
-  import Node from '../helpers/Node'
+  import Node from '../nodes/Node'
   import bworks_project from '../nodes/bworks_project'
   import jQuery from 'jquery'
   import 'fullpage.js'

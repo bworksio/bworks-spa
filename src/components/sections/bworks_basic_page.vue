@@ -22,7 +22,7 @@
 </template>
 
 <script type="text/javascript">
-  import Node from '../helpers/Node'
+  import Node from '../nodes/Node'
   import AppLanguageSwitcher from 'components/AppLanguageSwitcher'
   import ScrollMagic from 'scrollmagic'
 

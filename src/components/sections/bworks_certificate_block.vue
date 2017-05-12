@@ -12,7 +12,7 @@
 
 <script type="text/javascript">
   import { forEach } from '../../utils'
-  import Node from '../helpers/Node'
+  import Node from '../nodes/Node'
   /* eslint-disable camelcase */
   import bworks_certificate from '../nodes/bworks_certificate'
 
