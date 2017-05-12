@@ -18,7 +18,7 @@
   import { forEach } from '../../utils'
   import Node from '../helpers/Node'
   /* eslint-disable camelcase */
-  import bworks_press_mention from './bworks_press_mention'
+  import bworks_press_mention from '../nodes/bworks_press_mention'
 
   export default {
     name: 'bworks_press_mentions_block',
