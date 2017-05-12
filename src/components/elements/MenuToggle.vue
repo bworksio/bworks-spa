@@ -1,22 +1,37 @@
 <template lang="html">
-  <a class="menu-toggle" @click.prevent="toggleMenu()" href="#">{{ $t($store.state.showMenu ? 'button.close' : 'button.menu') }}</a>
+  <a class="menu-toggle" @click.prevent="toggleMenu()" href="#">{{ $t($store.state.showMenu ? 'close' : 'menu') }}</a>
 </template>
 
 <script type="text/javascript">
   export default {
     name: 'MenuToggle',
+
     watch: {
       '$route' (to, from) {
         // Close menu (if open) on navigating to a new page.
         this.$store.state.showMenu && this.toggleMenu()
       }
     },
+
     methods: {
       /**
        * Toggle menu visibity.
        */
       toggleMenu () {
         this.$store.commit('toggleMenu')
+      }
+    },
+
+    i18n: {
+      messages: {
+        en: {
+          menu: 'Menu',
+          close: 'Close'
+        },
+        de: {
+          menu: 'Menü',
+          close: 'Schliessen'
+        }
       }
     }
   }
