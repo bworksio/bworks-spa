@@ -17,7 +17,7 @@
   import { forEach } from '../../utils'
   import Node from '../helpers/Node'
   /* eslint-disable camelcase */
-  import bworks_team_member from './bworks_team_member'
+  import bworks_team_member from '../nodes/bworks_team_member'
 
   export default {
     name: 'bworks_team_members_block',
