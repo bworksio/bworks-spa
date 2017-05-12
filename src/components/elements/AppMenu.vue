@@ -28,11 +28,11 @@
 </template>
 
 <script type="text/javascript">
-  import utils from '../utils'
-  import config from '../config/app.json'
-  import routesConfig from '../config/routes'
-  import AppContact from './elements/AppContact'
-  import AppLanguageSwitcher from './elements/AppLanguageSwitcher'
+  import utils from '../../utils'
+  import config from '../../config/app.json'
+  import routesConfig from '../../config/routes'
+  import AppContact from './AppContact'
+  import AppLanguageSwitcher from './AppLanguageSwitcher'
 
   export default {
     name: 'Menu',
@@ -70,7 +70,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../assets/scss/mixins';
+  @import '../../assets/scss/mixins';
 
   #main-menu {
     display: flex;

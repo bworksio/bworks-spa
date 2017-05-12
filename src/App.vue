@@ -40,8 +40,8 @@
 </template>
 
 <script type="text/javascript">
-  import AppMenuToggle from 'components/AppMenuToggle'
-  import AppMenu from './components/AppMenu'
+  import AppMenuToggle from './components/elements/AppMenuToggle'
+  import AppMenu from './components/elements/AppMenu'
 
   export default {
     name: 'App',
