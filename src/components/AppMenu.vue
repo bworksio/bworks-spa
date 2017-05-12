@@ -31,7 +31,7 @@
   import utils from '../utils'
   import config from '../config/app.json'
   import routesConfig from '../config/routes'
-  import AppContact from './AppContact'
+  import AppContact from './elements/AppContact'
   import AppLanguageSwitcher from './AppLanguageSwitcher'
 
   export default {

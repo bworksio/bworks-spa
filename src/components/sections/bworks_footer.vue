@@ -44,7 +44,7 @@
 
 <script type="text/javascript">
   import Node from '../nodes/Node'
-  import AppContact from '../AppContact'
+  import AppContact from '../elements/AppContact'
   import SocialLinks from '../elements/SocialLinks'
 
   export default {
