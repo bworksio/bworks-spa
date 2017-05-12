@@ -71,7 +71,7 @@
   import utils from '../../utils'
 
   export default {
-    name: 'project',
+    name: 'bworks_project',
     extends: Node,
 
     props: {

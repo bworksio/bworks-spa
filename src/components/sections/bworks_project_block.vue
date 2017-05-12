@@ -3,7 +3,7 @@
     <template v-if="viewMode === 'teaser'">
       <div class="container">
         <div class="row">
-          <project v-for="(project, index) in node.field_entity_reference" :nid="project.target_id" :lang="lang" :index="index" :viewMode="viewMode"></project>
+          <bworks_project v-for="(project, index) in node.field_entity_reference" :nid="project.target_id" :lang="lang" :index="index" :viewMode="viewMode"></bworks_project>
         </div>
         <div class="view-all">
           <router-link class="animated" :to="$router.options.getRouteByProps('works', lang)">{{ $t('button.view_all_projects') }}</router-link>
@@ -12,14 +12,15 @@
     </template>
 
     <template v-if="viewMode === 'full'">
-      <project v-for="(project, index) in node.field_entity_reference" :nid="project.target_id" :lang="lang" :index="index" :viewMode="viewMode"></project>
+      <bworks_project v-for="(project, index) in node.field_entity_reference" :nid="project.target_id" :lang="lang" :index="index" :viewMode="viewMode"></bworks_project>
     </template>
   </div>
 </template>
 
 <script type="text/javascript">
+  /* eslint-disable camelcase */
   import Node from '../helpers/Node'
-  import project from '../nodes/project'
+  import bworks_project from '../nodes/bworks_project'
   import jQuery from 'jquery'
   import 'fullpage.js'
   import 'fullpage.js/dist/jquery.fullpage.css'
@@ -52,7 +53,7 @@
       }
     },
     components: {
-      project
+      bworks_project
     }
   }
 </script>
