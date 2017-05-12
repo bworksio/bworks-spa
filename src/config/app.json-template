@@ -5,6 +5,7 @@
   "api": {
     "baseUrl": "//backend.b-works.io/"
   },
+  "siteEmail": "alex.beninca@b-works.io",
   "googleApiKey": "AIzaSyCg0cUaKJQL-kkKIW3vW4nBug-kNsq1cm0",
   "social": {
     "facebook": "https://www.facebook.com/Bworks.io",

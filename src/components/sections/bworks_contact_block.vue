@@ -5,7 +5,7 @@
         <h1>{{ getField('title') }}</h1>
         <div class="body" v-html="getField('body')"></div>
         <div class="request">
-          <a class="animated" href="#">{{ $t('send_request') }}</a>
+          <a class="animated" :href="siteEmail">{{ $t('send_request') }}</a>
         </div>
       </div>
 
@@ -27,11 +27,18 @@
   import Node from '../nodes/Node'
   import ContactMap from '../elements/ContactMap'
   import SocialLinks from '../elements/SocialLinks'
+  import config from '../../config/app.json'
 
   export default {
     name: 'bworks_contact_block',
 
     extends: Node,
+
+    computed: {
+      siteEmail () {
+        return 'mailto:' + config.siteEmail
+      }
+    },
 
     components: {
       ContactMap,
