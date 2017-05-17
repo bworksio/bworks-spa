@@ -1,3 +1,9 @@
+# Enable gzip comppression
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-javascript
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
