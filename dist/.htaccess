@@ -4,6 +4,12 @@ AddOutputFilterByType DEFLATE text/css
 AddOutputFilterByType DEFLATE application/javascript
 AddOutputFilterByType DEFLATE application/x-javascript
 
+<IfModule mod_expires.c>
+  ExpiresActive On
+  # Cache all files for 2 days after access (A).
+  ExpiresDefault A172800
+</IfModule>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
