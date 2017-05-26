@@ -40,31 +40,33 @@ var prerenderRoutes = []
 var sitemapUrls = []
 
 utils.forEach(routesConfig, (languages, name) => {
-  var sitemapLinks = []
+  if (!('show' in languages) || !!languages.show) {
+    var sitemapLinks = []
 
-  utils.forEach(languages, (item, lang) => {
-    if (appConfig.activeLanguages.indexOf(lang) !== -1) {
-      prerenderRoutes.push(item.path)
+    utils.forEach(languages, (item, lang) => {
+      if (appConfig.activeLanguages.indexOf(lang) !== -1) {
+        prerenderRoutes.push(item.path)
 
-      // Add language variation to sitemap.
-      sitemapLinks.push({
-        lang: lang,
-        url: appConfig.baseUrl + item.path.substr(1)
-      })
-    }
-  })
+        // Add language variation to sitemap.
+        sitemapLinks.push({
+          lang: lang,
+          url: appConfig.baseUrl + item.path.substr(1)
+        })
+      }
+    })
 
-  // Second pass: add each language url together with language variations to sitemap.
-  utils.forEach(languages, (item, lang) => {
-    if (appConfig.activeLanguages.indexOf(lang) !== -1) {
-      sitemapUrls.push({
-        url: appConfig.baseUrl + item.path.substr(1),
-        //changefreq: 'weekly',
-        //priority: 0.5,
-        links: sitemapLinks
-      })
-    }
-  })
+    // Second pass: add each language url together with language variations to sitemap.
+    utils.forEach(languages, (item, lang) => {
+      if (appConfig.activeLanguages.indexOf(lang) !== -1) {
+        sitemapUrls.push({
+          url: appConfig.baseUrl + item.path.substr(1),
+          //changefreq: 'weekly',
+          //priority: 0.5,
+          links: sitemapLinks
+        })
+      }
+    })
+  }
 })
 
 // Synchonous getNodes() to add dynamic routes

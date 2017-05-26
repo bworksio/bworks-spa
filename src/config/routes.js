@@ -41,6 +41,21 @@ module.exports = {
       'title': 'I nostri lavori'
     }
   },
+  'experience': {
+    'show': false,
+    'de': {
+      'path': '/erfahrung',
+      'title': 'Unsere Erfahrung'
+    },
+    'en': {
+      'path': '/en/experience',
+      'title': 'Our Experience'
+    },
+    'it': {
+      'path': '/it/esperienza',
+      'title': 'La nostra esperienza'
+    }
+  },
   'works': {
     'de': {
       'path': '/arbeiten',
@@ -56,6 +71,7 @@ module.exports = {
     }
   },
   'team': {
+    'show': false,
     'de': {
       'path': '/team',
       'title': 'Unser Team'
@@ -98,6 +114,7 @@ module.exports = {
     }
   },
   'contact': {
+    'show': false,
     'de': {
       'path': '/kontakt',
       'title': 'Kontakt'
@@ -111,6 +128,7 @@ module.exports = {
       'title': 'Contatto'
     }
   },
+  /*
   'speciality_startup': {
     'show': false,
     'de': {
@@ -126,4 +144,5 @@ module.exports = {
       'title': 'Nostre specialità: Startup CTO'
     }
   }
+*/
 }
