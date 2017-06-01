@@ -127,7 +127,7 @@ module.exports = {
       'path': '/it/contatto',
       'title': 'Contatto'
     }
-  },
+  }
   /*
   'speciality_startup': {
     'show': false,
