@@ -23,7 +23,7 @@
     </div>
 
     <div class="footer-contact container">
-      <app-contact></app-contact>
+      <get-in-touch></get-in-touch>
     </div>
 
     <div class="footer-address container-fluid">
