@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import config from '../config/app.json'
 import Axios from 'axios'
-import { transformResponse, preloadImages } from './transformResponse'
 import ImagePreloader from 'image-preloader'
 import ScrollMagic from 'scrollmagic'
 import utils from '../utils'
@@ -14,9 +13,10 @@ const axios = Axios.create({
   baseURL: config.api.baseUrl,
   params: {
     t: Math.floor((new Date()).getTime() / 10000).toString()
-  },
-  transformResponse
+  }
 })
+
+let preloadImages = []
 
 /**
  * Query a list of queues.
@@ -41,6 +41,12 @@ function getNodes (lang) {
   if (!Object.keys(store.getters.getNodes(lang)).length) {
     return axios.get(lang + '/spa_api/contents')
       .then(result => {
+        // Collect header images for preloading
+        utils.forEach(result.data, node => {
+          if ('field_header_image' in node && node.field_header_image[0].url) {
+            preloadImages.push(node.field_header_image[0].url)
+          }
+        })
         store.commit('setNodes', { nodes: result.data, lang })
       })
   }
@@ -72,6 +78,7 @@ function getData () {
   return Axios.all(queries)
     .then(() => {
       if (!store.state.isPhantom) {
+        // Preload header images
         const preloader = new ImagePreloader()
         preloader
           .preload(...preloadImages)
