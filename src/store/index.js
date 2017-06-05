@@ -188,6 +188,7 @@ const store = new Vuex.Store({
      */
     getNodeByPath: (state, getters) => (path, lang) => {
       let found
+      // Remove trailing slash
       path = path.replace(/\/+$/, '')
       utils.forEach(getters.getNodes(lang), node => {
         if (node.path.length && (path === node.path[0].alias)) {
