@@ -9,7 +9,7 @@
 </template>
 
 <script type="text/javascript">
-  import utils from '../../utils'
+  import { forEach, merge } from '../../utils'
   import config from '../../config/app.json'
   import routesConfig from '../../config/routes'
 
@@ -33,10 +33,10 @@
         let links = []
         const currentRoute = this.$route.meta.name
         if (currentRoute) {
-          utils.forEach(routesConfig[currentRoute], (item, lang) => {
+          forEach(routesConfig[currentRoute], (item, lang) => {
             if (config.activeLanguages.indexOf(lang) !== -1) {
               // Modify *a copy* of the router item.
-              links.push(utils.merge(item, { title: lang.toUpperCase() }))
+              links.push(merge(item, { title: lang.toUpperCase() }))
             }
           })
         }

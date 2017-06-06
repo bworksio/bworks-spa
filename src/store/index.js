@@ -4,7 +4,7 @@ import config from '../config/app.json'
 import Axios from 'axios'
 import ImagePreloader from 'image-preloader'
 import ScrollMagic from 'scrollmagic'
-import utils from '../utils'
+import { forEach } from '../utils'
 
 Vue.use(Vuex)
 
@@ -42,7 +42,7 @@ function getNodes (lang) {
     return axios.get(lang + '/spa_api/contents')
       .then(result => {
         // Collect header images for preloading
-        utils.forEach(result.data, node => {
+        forEach(result.data, node => {
           if ('field_header_image' in node && node.field_header_image[0].url) {
             preloadImages.push(node.field_header_image[0].url)
           }
@@ -154,7 +154,7 @@ const store = new Vuex.Store({
      */
     getNodesByType: (state, getters) => (type, lang) => {
       const nodes = []
-      utils.forEach(getters.getNodes(lang), node => {
+      forEach(getters.getNodes(lang), node => {
         if (node.type[0].target_id === type) {
           nodes.push(node)
         }
@@ -198,7 +198,7 @@ const store = new Vuex.Store({
       let found
       // Remove trailing slash
       path = path.replace(/\/+$/, '')
-      utils.forEach(getters.getNodes(lang), node => {
+      forEach(getters.getNodes(lang), node => {
         if (node.path.length && (path === node.path[0].alias)) {
           found = node
         }

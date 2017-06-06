@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import routesConfig from '../config/routes'
 import config from '../config/app.json'
-import utils from '../utils'
+import { forEach } from '../utils'
 import Page from '../components/Page'
 import PageBlog from '../components/PageBlog'
 import PageSubscriptionConfirmation from '../components/PageSubscriptionConfirmation'
@@ -12,8 +12,8 @@ Vue.use(VueRouter)
 
 // Build routes from configuration.
 let routes = []
-utils.forEach(routesConfig, (languages, name) => {
-  utils.forEach(languages, (item, lang) => {
+forEach(routesConfig, (languages, name) => {
+  forEach(languages, (item, lang) => {
     if (config.activeLanguages.indexOf(lang) !== -1) {
       routes.push({
         name: name + '_' + lang,

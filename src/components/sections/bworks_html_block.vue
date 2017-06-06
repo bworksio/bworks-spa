@@ -6,7 +6,7 @@
 
 <script type="text/javascript">
   import Node from '../nodes/Node'
-  import utils from '../../utils'
+  import { forEach } from '../../utils'
   import ScrollMagic from 'scrollmagic'
 
   export default {
@@ -16,7 +16,7 @@
 
     mounted () {
       if (!this.$store.state.isPhantom) {
-        utils.forEach(this.$el.querySelectorAll('.html-container, .image'), (el) => {
+        forEach(this.$el.querySelectorAll('.html-container, .image'), (el) => {
           // Run html animations on enter.
           new ScrollMagic.Scene({
             triggerElement: el,

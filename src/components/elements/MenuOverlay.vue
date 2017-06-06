@@ -30,7 +30,7 @@
 </template>
 
 <script type="text/javascript">
-  import utils from '../../utils'
+  import { forEach } from '../../utils'
   import config from '../../config/app.json'
   import routesConfig from '../../config/routes'
   import GetInTouch from './GetInTouch'
@@ -56,7 +56,7 @@
       fetchMenuItems () {
         let menuItems = []
         const lang = this.$store.state.currentLanguage
-        utils.forEach(routesConfig, (languages, name) => {
+        forEach(routesConfig, (languages, name) => {
           if (!('show' in languages) || !!languages.show) {
             menuItems.push(languages[lang])
           }

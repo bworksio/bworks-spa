@@ -68,7 +68,7 @@
   import Node from './Node'
   import ScrollMagic from 'scrollmagic'
   import FlexSlider from '../elements/FlexSlider'
-  import utils from '../../utils'
+  import { forEach, cleanId } from '../../utils'
 
   export default {
     name: 'bworks_project',
@@ -124,12 +124,12 @@
     },
 
     created () {
-      this.cleanId = utils.cleanId(this.getField('title'))
+      this.cleanId = cleanId(this.getField('title'))
     },
 
     mounted () {
       if (!this.$store.state.isPhantom) {
-        utils.forEach(this.$el.querySelectorAll('.html-container, .image'), (el) => {
+        forEach(this.$el.querySelectorAll('.html-container, .image'), (el) => {
           // Run html animations on enter.
           new ScrollMagic.Scene({
             triggerElement: el,
