@@ -120,9 +120,11 @@
     },
 
     mounted () {
-      /* global google */
-      // Keep map centered on window resize
-      google.maps.event.addDomListener(window, 'resize', () => this.$children[0].resizePreserveCenter())
+      if (!this.$store.state.isPhantom) {
+        /* global google */
+        // Keep map centered on window resize
+        google.maps.event.addDomListener(window, 'resize', () => this.$children[0].resizePreserveCenter())
+      }
     }
   }
 </script>
