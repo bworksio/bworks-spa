@@ -1,12 +1,12 @@
 <template>
   <div class="node-bworks_press_mentions_block">
-    <div class="container">
+    <div class="container-fluid">
       <div class="col-md-8 offset-md-2">
         <h2>{{ getField('title') }}</h2>
         <div class="body" v-if="getField('body')" v-html="getField('body')" />
       </div>
       <ul class="row">
-        <li v-for="node in nodes" class="col-sm-4">
+        <li v-for="node in nodes" class="col-md-6 col-lg-4">
           <bworks_press_mention :nid="node.nid[0].value" :lang="lang" />
         </li>
       </ul>
@@ -48,18 +48,22 @@
   @import '../../assets/scss/mixins';
 
   .node-bworks_press_mentions_block {
-    .container {
-      padding-top: 6rem;
+    .container-fluid {
+      padding-top: 4rem;
       padding-bottom: 2rem;
       background-color: $gray-bg;
     }
 
     h2 {
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
     }
 
     .body {
-      margin-bottom: 4rem;
+      margin-bottom: 3rem;
+    }
+
+    ul > li {
+      margin-top: 2rem;
     }
   }
 </style>

@@ -43,12 +43,14 @@
 <style rel="stylesheet/scss" lang="scss">
   @import '../../assets/scss/mixins';
 
-  .node-bworks_certificate_block {
-    li:nth-child(odd) {
-      padding-right: 2rem;
-    }
-    li:nth-child(even) {
-      padding-left: 2rem;
+  @include media-breakpoint-up(md) {
+    .node-bworks_certificate_block {
+      li:nth-child(odd) {
+        padding-right: 2rem;
+      }
+      li:nth-child(even) {
+        padding-left: 2rem;
+      }
     }
   }
 </style>

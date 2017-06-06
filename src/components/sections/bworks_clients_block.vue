@@ -40,7 +40,7 @@
     created () {
       // Get referenced client nodes.
       forEach(this.node.field_entity_reference, ref => {
-        this.nodes.push(this.$store.getters.getNode(ref.target_id))
+        this.nodes.push(this.$store.getters.getNode(ref.target_id, this.lang))
       })
     },
 
@@ -80,6 +80,8 @@
       a {
         position: relative;
         display: flex;
+        height: 20vw;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         padding: 1rem;
@@ -90,14 +92,9 @@
         transition: .4s;
         transition-property: opacity, background-color;
 
-        &:after {
-          content: "";
-          display: block;
-          padding-bottom: 100%;
-        }
-
         .logo {
-          max-width: 30%;
+          display: block;
+          max-width: 90%;
           height: auto;
           filter: grayscale(100%);
           transition: filter .2s;
@@ -106,6 +103,7 @@
         .name {
           position: absolute;
           bottom: 0;
+          width: 100%;
           padding: 2rem 1rem 1rem;
         }
 
@@ -124,6 +122,7 @@
 
     .quote {
       margin-top: 4rem;
+      margin-bottom: 4rem;
       min-height: 12rem;
 
       h3 {

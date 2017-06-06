@@ -1,7 +1,7 @@
 <template>
   <div :class="'node-' + getType()">
     <h3 class="h2">{{ getField('title') }}</h3>
-    <div class="body" v-html="quote(getField('body'))" />
+    <div class="body" v-html="getField('body')" />
     <div class="date" v-html="getField('field_date')" />
     <div class="link">
       <a v-if="file" :href="file">{{ $t('download') }}</a>
@@ -35,7 +35,6 @@
        * @returns {string}
        */
       quote (text) {
-        console.log(this)
         switch (this.lang) {
           case 'de':
             return '„' + text + '“'
@@ -54,6 +53,7 @@
           visit: 'Visit site'
         },
         de: {
+          download: 'Download PDF',
           visit: 'Seite anzeigen'
         }
       }
@@ -69,8 +69,12 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    margin-left: 2rem;
-    margin-right: 4rem;
+    width: 75%;
+    @include media-breakpoint-up(md) {
+      width: auto;
+      margin-left: 2rem;
+      margin-right: 4rem;
+    }
 
     h3 {
       color: $gray-color;

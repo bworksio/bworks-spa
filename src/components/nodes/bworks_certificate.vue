@@ -38,6 +38,11 @@
     .logo {
       padding-right: 25px;
       margin-bottom: 1.57142rem;
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
     }
 
     @include media-breakpoint-up(lg) {
