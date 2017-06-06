@@ -31,7 +31,7 @@
     computed: {
       /** @var {Boolean} True while preloading data. */
       isLoading () {
-        return !this.$store.state.initialized
+        return !this.$store.state.initialized && !this.$store.state.isPhantom
       },
 
       /** @var {String} Returns the last error. */
