@@ -77,7 +77,8 @@ function getData () {
   queries.push(getTags())
   return Axios.all(queries)
     .then(() => {
-      if (!store.state.isPhantom) {
+      // FIXME Loading only current header image (bworks_basic_page) requires refactoring of getData() into the main getQueue() function
+      if (0 && !store.state.isPhantom) {
         // Preload header images
         const preloader = new ImagePreloader()
         preloader
