@@ -42,7 +42,6 @@ module.exports = {
     }
   },
   'experience': {
-    'show': false,
     'de': {
       'path': '/erfahrung',
       'title': 'Unsere Erfahrung'
@@ -71,7 +70,6 @@ module.exports = {
     }
   },
   'team': {
-    'show': false,
     'de': {
       'path': '/team',
       'title': 'Unser Team'
@@ -114,7 +112,6 @@ module.exports = {
     }
   },
   'contact': {
-    'show': false,
     'de': {
       'path': '/kontakt',
       'title': 'Kontakt'
