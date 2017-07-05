@@ -33,16 +33,17 @@
     </template>
 
     <template v-if="viewMode === 'full'">
-      <div :id="cleanId" class="fp-background" :style="getBackgroundStyle">
+      <div :id="cleanId" class="fp-background">
         <template v-if="hasSlideshow">
           <flex-slider :images="getAllFields('field_image')"></flex-slider>
         </template>
         <div v-if="hasVideo" class="bg-video">
-          <video playsinline autoplay muted loop poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" :style="getVideoStyle">
+          <video loop muted controls="false" data-autoplay :style="getVideoStyle">
             <!--source :src="getField('field_file', 'url')" type="video/webm"-->
             <source :src="getField('field_file', 'url')" type="video/mp4">
           </video>
         </div>
+        <div class="bg-overlay" :style="getBackgroundStyle"></div>
         <div class="container">
           <img v-if="getField('field_project_logo', 'url', 0, false)" :src="getField('field_project_logo', 'url')" class="logo">
           <h2>{{ getField('title') }}</h2>
@@ -67,12 +68,14 @@
 <script type="text/javascript">
   import Node from './Node'
   import ScrollMagic from 'scrollmagic'
+  import ScrollMagicMixin from '../elements/ScrollMagicMixin'
   import FlexSlider from '../elements/FlexSlider'
   import { forEach, cleanId } from '../../utils'
 
   export default {
     name: 'bworks_project',
     extends: Node,
+    mixins: [ScrollMagicMixin],
 
     props: {
       // Index of item.
@@ -101,7 +104,7 @@
 
       getBackgroundStyle () {
         if (!this.hasSlideshow) {
-          let style = 'linear-gradient(to bottom left, rgba(0,0,0,.05), rgba(0,0,0,.5))'
+          let style = 'linear-gradient(200deg, rgba(0, 0, 0, 0.01), 33.3%, rgba(0, 0, 0, 0.6) 87.5%)'
           if (!this.hasVideo) {
             style += ', url(' + this.getField('field_image', 'url', 0, '') + ')'
           }
@@ -113,8 +116,7 @@
 
       getVideoStyle () {
         return {
-          'background-image': 'url(' + this.getField('field_image', 'url', 0, '') + ')',
-          'background-size': 'cover'
+          'background-image': 'url(' + this.getField('field_image', 'url', 0, '') + ')'
         }
       },
 
@@ -131,14 +133,15 @@
       if (!this.$store.state.isPhantom) {
         forEach(this.$el.querySelectorAll('.html-container, .image'), (el) => {
           // Run html animations on enter.
-          new ScrollMagic.Scene({
+          const options = {
             triggerElement: el,
             triggerHook: 'onEnter',
-            offset: 100,
-            reverse: true
-          })
-            .setClassToggle(el, 'run')
-            .addTo(this.$store.state.scrollMagicMainController)
+            offset: 50,
+            reverse: false
+          }
+          this.addScrollMagicScene(new ScrollMagic.Scene(options)
+          .setClassToggle(el, 'run')
+          .addTo(this.$store.state.scrollMagicMainController))
         })
       }
     },
@@ -202,9 +205,12 @@
         }
 
         @include media-breakpoint-up(md) {
+          img {
+            height: 37.5vw;
+          }
+
           .description-wrapper {
             display: flex;
-            align-items: center;
             position: absolute;
             bottom: 0;
             left: 0;
@@ -215,17 +221,19 @@
 
           h2 {
             flex: 1 50%;
+            margin: 1.5rem 0;
             padding-left: 8.3333%;
             padding-right: 4.1617%;
           }
 
           .description {
             flex: 1 50%;
+            margin: 2rem 0;
             padding-right: 4.1617%;
           }
 
           .subtitle {
-            margin-right: 8.3333%;
+            margin: 1.5rem 8.3333% 1.5rem 0;
             padding-top: 4px;
             padding-right: 4.1617%;
             font-size: .9375rem;
@@ -239,10 +247,10 @@
           .tags-wrapper {
             position: absolute;
             top: -3rem;
-            right: 0;
+            right: -1.5rem;
             padding: 2rem 4rem 2rem 3rem;
             color: $white;
-            background-color: transparentize($brand-primary, .1);
+            background-color: transparentize($brand-primary, .025);
           }
         }
 
@@ -270,6 +278,7 @@
 
           h2 {
             flex-basis: 70%;
+            margin: 1.5rem 0 1rem;
             padding-left: 25px;
             padding-right: 25px;
           }
@@ -282,7 +291,10 @@
       }
 
       img {
-        max-height: 640px;
+        height: 47vw;
+        @include media-breakpoint-up(md) {
+          height: 22.9vw;
+        }
         object-fit: cover;
       }
 
@@ -298,7 +310,7 @@
       }
 
       .tags-wrapper {
-        margin: 1rem 0 2rem;
+        margin: 1.5rem 0 2rem;
         font-size: .9375rem;
         font-weight: $font-weight-bold;
         line-height: 1.16667;

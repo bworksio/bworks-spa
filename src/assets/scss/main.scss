@@ -189,13 +189,18 @@ button.animated {
   padding-top: 4rem;
 }
 
+// Hide video controls
+// See https://css-tricks.com/custom-controls-in-html5-video-full-screen
+video::-webkit-media-controls {
+  display:none !important;
+}
+
 .bg-video {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: -100;
   overflow: hidden;
 
   video {
@@ -209,7 +214,23 @@ button.animated {
     transform: translateX(-50%) translateY(-50%);
     background-repeat: no-repeat;
     background-size: cover;
+    object-fit: cover;
   }
+
+  ~ .container {
+    // Prevent flickering in some browsers
+    // See http://stackoverflow.com/a/36671466/1081396
+    transform: translate3d(0,0,0);
+  }
+}
+
+.bg-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
 }
 
 // Iframes

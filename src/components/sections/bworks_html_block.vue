@@ -8,24 +8,27 @@
   import Node from '../nodes/Node'
   import { forEach } from '../../utils'
   import ScrollMagic from 'scrollmagic'
+  import ScrollMagicMixin from '../elements/ScrollMagicMixin'
 
   export default {
     name: 'bworks_html_block',
 
     extends: Node,
+    mixins: [ScrollMagicMixin],
 
     mounted () {
       if (!this.$store.state.isPhantom) {
         forEach(this.$el.querySelectorAll('.html-container, .image'), (el) => {
           // Run html animations on enter.
-          new ScrollMagic.Scene({
+          const options = {
             triggerElement: el,
             triggerHook: 'onEnter',
-            offset: 100,
-            reverse: true
-          })
+            offset: 50,
+            reverse: false
+          }
+          this.addScrollMagicScene(new ScrollMagic.Scene(options)
             .setClassToggle(el, 'run')
-            .addTo(this.$store.state.scrollMagicMainController)
+            .addTo(this.$store.state.scrollMagicMainController))
         })
       }
     }

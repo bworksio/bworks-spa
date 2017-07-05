@@ -1,7 +1,7 @@
 <template>
   <div :class="'section node node-' + getType()" :style="getBackgroundStyle">
     <div v-if="hasVideo" class="bg-video">
-      <video playsinline autoplay muted loop poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" :style="getVideoStyle">
+      <video loop muted control="false" autoplay poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" :style="getVideoStyle">
         <!--source :src="getField('field_file', 'url')" type="video/webm"-->
         <source :src="getField('field_file', 'url')" type="video/mp4">
       </video>
@@ -25,13 +25,12 @@
   import Node from '../nodes/Node'
   import LanguageSwitcher from '../elements/LanguageSwitcher'
   import ScrollMagic from 'scrollmagic'
-
-  /** @var {ScrollMagic.Scene} smHeaderInvertScene */
-  let smHeaderInvertScene
+  import ScrollMagicMixin from '../elements/ScrollMagicMixin'
 
   export default {
     name: 'bworks_basic_page',
     extends: Node,
+    mixins: [ScrollMagicMixin],
 
     computed: {
       hasVideo () {
@@ -59,23 +58,17 @@
     mounted () {
       // Invert the site header as long as this basic page is visible.
       if (!this.$store.state.isPhantom) {
-        smHeaderInvertScene = new ScrollMagic.Scene({
+        const options = {
           triggerElement: this.$el,
           triggerHook: 'onLeave',
           offset: -90
-        })
+        }
+        this.addScrollMagicScene(new ScrollMagic.Scene(options)
           .duration(() => {
             return this.$el.clientHeight
           })
           .setClassToggle('#site-header', 'invert')
-          .addTo(this.$store.state.scrollMagicMainController)
-      }
-    },
-
-    beforeDestroy () {
-      // Also destroy ScrollMagic scene.
-      if (smHeaderInvertScene) {
-        smHeaderInvertScene.destroy(true)
+          .addTo(this.$store.state.scrollMagicMainController))
       }
     },
 
@@ -95,6 +88,10 @@
     background-size: cover;
     border-bottom: 8px solid $brand-primary;
     overflow: hidden;
+
+    .bg-video {
+      z-index: -1;
+    }
 
     .intro-text-container {
       display: flex;
