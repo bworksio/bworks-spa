@@ -1,7 +1,7 @@
 <template>
   <div :class="'section node node-' + getType()" :style="getBackgroundStyle">
     <div v-if="hasVideo" class="bg-video">
-      <video loop muted control="false" autoplay poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" :style="getVideoStyle">
+      <video playsinline loop muted control="false" autoplay poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" :style="getVideoStyle">
         <!--source :src="getField('field_file', 'url')" type="video/webm"-->
         <source :src="getField('field_file', 'url')" type="video/mp4">
       </video>

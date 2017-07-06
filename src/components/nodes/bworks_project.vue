@@ -38,7 +38,7 @@
           <flex-slider :images="getAllFields('field_image')"></flex-slider>
         </template>
         <div v-if="hasVideo" class="bg-video">
-          <video loop muted controls="false" data-autoplay :style="getVideoStyle">
+          <video playsinline loop muted controls="false" data-autoplay poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" :style="getVideoStyle">
             <!--source :src="getField('field_file', 'url')" type="video/webm"-->
             <source :src="getField('field_file', 'url')" type="video/mp4">
           </video>
@@ -103,14 +103,12 @@
       },
 
       getBackgroundStyle () {
-        if (!this.hasSlideshow) {
-          let style = 'linear-gradient(200deg, rgba(0, 0, 0, 0.01), 33.3%, rgba(0, 0, 0, 0.6) 87.5%)'
-          if (!this.hasVideo) {
-            style += ', url(' + this.getField('field_image', 'url', 0, '') + ')'
-          }
-          return {
-            'background-image': style
-          }
+        let style = 'linear-gradient(200deg, rgba(0, 0, 0, 0.01), 33.3%, rgba(0, 0, 0, 0.6) 87.5%)'
+        if (!this.hasVideo) {
+          style += ', url(' + this.getField('field_image', 'url', 0, '') + ')'
+        }
+        return {
+          'background-image': style
         }
       },
 
@@ -296,6 +294,7 @@
           height: 22.9vw;
         }
         object-fit: cover;
+        filter: saturate(50%) contrast(105%);
       }
 
       h2 {
