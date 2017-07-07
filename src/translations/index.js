@@ -26,7 +26,7 @@ export default {
       hire_us: 'Anfrage senden',
       apply_now: 'Jetzt bewerben',
       subscribe: 'Anmelden',
-      view_all_projects: 'Alle Projekte anzeigen',
+      view_all_projects: 'Alle Projekte',
       read_full_story: 'Artikel lesen',
       view_all_articles: 'Alle Artikel'
     },
