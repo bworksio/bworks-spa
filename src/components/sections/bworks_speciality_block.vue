@@ -34,4 +34,8 @@
 
 <style rel="stylesheet/scss" lang="scss">
   @import '../../assets/scss/mixins';
+
+  .node-bworks_speciality_block {
+    padding-top: 2rem;
+  }
 </style>
