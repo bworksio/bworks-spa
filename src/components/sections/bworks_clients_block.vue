@@ -11,7 +11,7 @@
       </ul>
 
       <transition name="fade" mode="out-in">
-        <div v-if="nodes[active]" :key="active" class="quote col-md-6 offset-md-3">
+        <div v-if="nodes[active]" :key="active" class="quote">
           <h3 class="h2">{{ $t('what_they_say') }}</h3>
           <div class="description" v-html="nodes[active].field_they_say_about_us[0].value"></div>
         </div>
@@ -71,6 +71,7 @@
   @import '../../assets/scss/mixins';
 
   .node-bworks_clients_block {
+    padding-top: 2rem;
     @include media-breakpoint-up(lg) {
       padding-left: 8.3333%;
       padding-right: 8.3333%;
@@ -81,6 +82,9 @@
         position: relative;
         display: flex;
         height: 20vw;
+        @include media-breakpoint-down(sm) {
+          height: 150px;
+        }
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -114,14 +118,18 @@
           background-color: $brand-primary;
 
           .logo {
-            filter: grayscale(0%);
+            filter: grayscale(100%) contrast(1000%) invert(100%);
           }
         }
       }
     }
 
     .quote {
-      margin-top: 4rem;
+      @include media-breakpoint-up(md) {
+        max-width: 60%;
+        margin-left: 20%;
+      }
+      margin-top: 3rem;
       margin-bottom: 4rem;
       min-height: 12rem;
 
