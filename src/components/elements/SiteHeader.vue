@@ -84,6 +84,7 @@
           display: block;
           width: 7rem;
           transform: scale(.715);
+          transform-origin: left;
           transition: .2s;
           transition-property: color, transform;
         }
@@ -144,7 +145,7 @@
         div.logo {
           a {
             @media (min-width: 346px) {
-              transform: scale(1);
+              transform: scale(.815);
             }
           }
 
