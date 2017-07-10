@@ -1,5 +1,5 @@
 <template>
-  <div :class="'section node-' + getType() + ' ' + viewMode">
+  <div :data-id="cleanId" :class="'section node-' + getType() + ' ' + viewMode">
     <template v-if="viewMode === 'teaser'">
       <router-link class="unstyled" :to="projectUrl">
         <div class="image animation-wrapper">
@@ -33,7 +33,8 @@
     </template>
 
     <template v-if="viewMode === 'full'">
-      <div :id="cleanId" class="fp-background">
+      <div class="fp-background">
+        <div v-if="!hasSlideshow && !hasVideo" class="bg-single" :style="'background-image: url(' + getField('field_image', 'url', 0, '') + ')'"></div>
         <template v-if="hasSlideshow">
           <flex-slider :images="getAllFields('field_image')"></flex-slider>
         </template>
@@ -43,7 +44,7 @@
             <source :src="getField('field_file', 'url')" type="video/mp4">
           </video>
         </div>
-        <div class="bg-overlay" :style="getBackgroundStyle"></div>
+        <div class="bg-overlay"></div>
         <div class="container">
           <img v-if="getField('field_project_logo', 'url', 0, false)" :src="getField('field_project_logo', 'url')" class="logo">
           <h2>{{ getField('title') }}</h2>
@@ -100,16 +101,6 @@
 
       hasSlideshow () {
         return this.getAllFields('field_image').length > 1
-      },
-
-      getBackgroundStyle () {
-        let style = 'linear-gradient(200deg, rgba(0, 0, 0, 0.01), 33.3%, rgba(0, 0, 0, 0.6) 87.5%)'
-        if (!this.hasVideo) {
-          style += ', url(' + this.getField('field_image', 'url', 0, '') + ')'
-        }
-        return {
-          'background-image': style
-        }
       },
 
       getVideoStyle () {
@@ -334,6 +325,17 @@
         color: $white;
       }
 
+      .bg-single {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+
       .fp-background {
         display: flex;
         flex-direction: column;
@@ -341,9 +343,6 @@
         height: 100vh;
         padding-top: 125px;
         padding-bottom: 65px;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
       }
 
       .container {
