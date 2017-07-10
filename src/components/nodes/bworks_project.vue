@@ -154,6 +154,20 @@
 <style rel="stylesheet/scss" lang="scss">
   @import '../../assets/scss/mixins';
 
+  @keyframes kenburns-project {
+    0% {
+      opacity: .75;
+    }
+    5% {
+      opacity: 1;
+    }
+    100% {
+      transform: scale3d(1.09, 1.09, 1.09) translate3d(-4%, -4%, 0px);
+      animation-timing-function: ease-in;
+      opacity: 1;
+    }
+  }
+
   .node-bworks_project {
     position: relative;
 
@@ -279,6 +293,11 @@
         }
       }
 
+      .image {
+        position: relative;
+        overflow: hidden;
+      }
+
       img {
         height: 47vw;
         @include media-breakpoint-up(md) {
@@ -286,6 +305,12 @@
         }
         object-fit: cover;
         filter: saturate(50%) contrast(105%);
+        transition: filter .4s;
+
+        @include hover-focus() {
+          animation: kenburns-project 15s infinite;
+          filter: saturate(75%) contrast(105%);
+        }
       }
 
       h2 {
