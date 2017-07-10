@@ -41,7 +41,11 @@
         }
 
         // Attach fullpage.js
+        let anchors = document.querySelectorAll('#page .section')
+        anchors = Array.from(anchors)
+          .map((el, idx) => el.getAttribute('data-id') ? el.getAttribute('data-id') : '' + idx)
         jQuery('#page').fullpage({
+          anchors,
           navigation: true,
           navigationPosition: 'right'
         })
