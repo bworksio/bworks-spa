@@ -11,9 +11,9 @@
 </template>
 
 <script type="text/javascript">
-  import Node from '../nodes/Node'
+  import Node from '@/components/nodes/Node'
   /* eslint-disable camelcase */
-  import bworks_article from '../nodes/bworks_article'
+  import bworks_article from '@/components/nodes/bworks_article'
 
   export default {
     name: 'bworks_blog_block',
@@ -34,5 +34,5 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../../assets/scss/mixins';
+  @import 'assets/scss/mixins';
 </style>

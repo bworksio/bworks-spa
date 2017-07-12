@@ -7,17 +7,21 @@
         </div>
       </div>
       <div class="members">
-        <bworks_team_member v-for="teamMemberNode in teamMembers" :nid="teamMemberNode.nid[0].value" :lang="lang"></bworks_team_member>
+        <bworks_team_member
+          v-for="teamMemberNode in teamMembers"
+          :nid="teamMemberNode.nid[0].value"
+          :lang="lang"
+          :key="teamMemberNode.nid[0].value + '-' + lang"/>
       </div>
     </div>
   </div>
 </template>
 
 <script type="text/javascript">
-  import { forEach } from '../../utils'
-  import Node from '../nodes/Node'
+  import Node from '@/components/nodes/Node'
   /* eslint-disable camelcase */
-  import bworks_team_member from '../nodes/bworks_team_member'
+  import bworks_team_member from '@/components/nodes/bworks_team_member'
+  const forEach = require('axios/lib/utils.js').forEach
 
   export default {
     name: 'bworks_team_members_block',
@@ -58,7 +62,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../../assets/scss/mixins';
+  @import 'assets/scss/mixins';
 
   .node-bworks_team_members_block {
     .row {

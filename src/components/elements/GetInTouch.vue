@@ -25,8 +25,8 @@
     data () {
       return {
         assets: {
-          email: require('!!raw!../../assets/images/icon-email.svg'),
-          phone: require('!!raw!../../assets/images/icon-phone.svg')
+          email: require('!!raw-loader!assets/images/icon-email.svg'),
+          phone: require('!!raw-loader!assets/images/icon-phone.svg')
         },
         show: false
       }
@@ -54,7 +54,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../../assets/scss/mixins';
+  @import 'assets/scss/mixins';
 
   .contact {
     h2 {

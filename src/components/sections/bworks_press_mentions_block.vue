@@ -15,10 +15,10 @@
 </template>
 
 <script type="text/javascript">
-  import { forEach } from '../../utils'
-  import Node from '../nodes/Node'
+  import Node from '@/components/nodes/Node'
   /* eslint-disable camelcase */
-  import bworks_press_mention from '../nodes/bworks_press_mention'
+  import bworks_press_mention from '@/components/nodes/bworks_press_mention'
+  const forEach = require('axios/lib/utils.js').forEach
 
   export default {
     name: 'bworks_press_mentions_block',
@@ -45,7 +45,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../../assets/scss/mixins';
+  @import 'assets/scss/mixins';
 
   .node-bworks_press_mentions_block {
     .container-fluid {

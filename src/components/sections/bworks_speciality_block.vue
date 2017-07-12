@@ -12,8 +12,8 @@
 
 <script type="text/javascript">
   /* eslint-disable camelcase */
-  import Node from '../nodes/Node'
-  import bworks_speciality from '../nodes/bworks_speciality'
+  import Node from '@/components/nodes/Node'
+  import bworks_speciality from '@/components/nodes/bworks_speciality'
 
   export default {
     name: 'bworks_speciality_block',
@@ -33,7 +33,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../../assets/scss/mixins';
+  @import 'assets/scss/mixins';
 
   .node-bworks_speciality_block {
     padding-top: 2rem;

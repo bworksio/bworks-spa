@@ -5,28 +5,29 @@
       :is="node.type"
       :nid="parseInt(node.nid)"
       :lang="lang"
-      :viewMode="viewMode"></component>
+      :viewMode="viewMode"
+      :key="node.type + '-' + node.nid + '-' + lang" />
   </div>
 </template>
 
 <script type="text/javascript">
-  import { getData } from '../store'
+  import { getData } from '@/store'
   /* eslint-disable camelcase */
-  import bworks_basic_page from './sections/bworks_basic_page'
-  import bworks_html_block from './sections/bworks_html_block'
-  import bworks_project_block from './sections/bworks_project_block'
-  import bworks_speciality_block from './sections/bworks_speciality_block'
-  import bworks_article from './nodes/bworks_article'
-  import bworks_blog_block from './sections/bworks_blog_block'
-  import bworks_careers_block from './sections/bworks_careers_block'
-  import bworks_team_members_block from './sections/bworks_team_members_block'
-  import bworks_certificate_block from './sections/bworks_certificate_block'
-  import bworks_other_specialties_block from './sections/bworks_other_specialties_block'
-  import bworks_clients_block from './sections/bworks_clients_block'
-  import bworks_awards_block from './sections/bworks_awards_block'
-  import bworks_press_mentions_block from './sections/bworks_press_mentions_block'
-  import bworks_contact_block from './sections/bworks_contact_block'
-  import bworks_footer from './sections/bworks_footer'
+  import bworks_basic_page from '@/components/sections/bworks_basic_page'
+  import bworks_html_block from '@/components/sections/bworks_html_block'
+  import bworks_project_block from '@/components/sections/bworks_project_block'
+  import bworks_speciality_block from '@/components/sections/bworks_speciality_block'
+  import bworks_article from '@/components/nodes/bworks_article'
+  import bworks_blog_block from '@/components/sections/bworks_blog_block'
+  import bworks_careers_block from '@/components/sections/bworks_careers_block'
+  import bworks_team_members_block from '@/components/sections/bworks_team_members_block'
+  import bworks_certificate_block from '@/components/sections/bworks_certificate_block'
+  import bworks_other_specialties_block from '@/components/sections/bworks_other_specialties_block'
+  import bworks_clients_block from '@/components/sections/bworks_clients_block'
+  import bworks_awards_block from '@/components/sections/bworks_awards_block'
+  import bworks_press_mentions_block from '@/components/sections/bworks_press_mentions_block'
+  import bworks_contact_block from '@/components/sections/bworks_contact_block'
+  import bworks_footer from '@/components/sections/bworks_footer'
 
   export default {
     name: 'Page',
@@ -125,5 +126,5 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../assets/scss/mixins';
+  @import 'assets/scss/mixins';
 </style>

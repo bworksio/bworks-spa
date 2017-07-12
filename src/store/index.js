@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import config from '../config/app.json'
 import Axios from 'axios'
 import ImagePreloader from 'image-preloader'
 import ScrollMagic from 'scrollmagic'
-import { forEach } from '../utils'
+import config from '@/config/app.json'
+const forEach = require('axios/lib/utils.js').forEach
 
 Vue.use(Vuex)
 

@@ -1,13 +1,13 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import 'es6-promise/auto'
 import Vue from 'vue'
-import App from './App'
-import { store } from './store'
-import router from './router'
 import VueI18n from 'vue-i18n'
 import VueAnalytics from 'vue-analytics'
-import messages from './translations'
+import { store } from '@/store'
+import router from '@/router'
+import App from '@/App'
+import messages from '@/translations'
+
+Vue.config.productionTip = false
 
 Vue.use(VueI18n)
 

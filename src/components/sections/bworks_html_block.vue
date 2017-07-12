@@ -5,10 +5,10 @@
 </template>
 
 <script type="text/javascript">
-  import Node from '../nodes/Node'
-  import { forEach } from '../../utils'
+  import Node from '@/components/nodes/Node'
   import ScrollMagic from 'scrollmagic'
-  import ScrollMagicMixin from '../elements/ScrollMagicMixin'
+  import ScrollMagicMixin from '@/components/elements/ScrollMagicMixin'
+  const forEach = require('axios/lib/utils.js').forEach
 
   export default {
     name: 'bworks_html_block',
@@ -36,7 +36,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../../assets/scss/mixins';
+  @import 'assets/scss/mixins';
 
   .node-bworks_html_block {
     padding-top: 4rem;

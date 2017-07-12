@@ -24,10 +24,10 @@
 </template>
 
 <script type="text/javascript">
-  import Node from '../nodes/Node'
-  import ContactMap from '../elements/ContactMap'
-  import SocialLinks from '../elements/SocialLinks'
-  import config from '../../config/app.json'
+  import Node from '@/components/nodes/Node'
+  import ContactMap from '@/components/elements/ContactMap'
+  import SocialLinks from '@/components/elements/SocialLinks'
+  import config from '@/config/app.json'
 
   export default {
     name: 'bworks_contact_block',
@@ -63,7 +63,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../../assets/scss/mixins';
+  @import 'assets/scss/mixins';
 
   .node-bworks_contact_block {
     padding-top: 15rem;

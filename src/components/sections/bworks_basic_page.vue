@@ -22,10 +22,10 @@
 </template>
 
 <script type="text/javascript">
-  import Node from '../nodes/Node'
-  import LanguageSwitcher from '../elements/LanguageSwitcher'
+  import Node from '@/components/nodes/Node'
+  import LanguageSwitcher from '@/components/elements/LanguageSwitcher'
   import ScrollMagic from 'scrollmagic'
-  import ScrollMagicMixin from '../elements/ScrollMagicMixin'
+  import ScrollMagicMixin from '@/components/elements/ScrollMagicMixin'
 
   export default {
     name: 'bworks_basic_page',
@@ -79,7 +79,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../../assets/scss/mixins';
+  @import 'assets/scss/mixins';
 
   .node-bworks_basic_page {
     position: relative;

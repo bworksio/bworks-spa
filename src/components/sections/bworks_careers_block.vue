@@ -26,8 +26,8 @@
 </template>
 
 <script type="text/javascript">
-  import Node from '../nodes/Node'
-  import ShareLinks from '../elements/ShareLinks'
+  import Node from '@/components/nodes/Node'
+  import ShareLinks from '@/components/elements/ShareLinks'
 
   export default {
     name: 'bworks_careers_block',
@@ -54,7 +54,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../../assets/scss/mixins';
+  @import 'assets/scss/mixins';
 
   .job-wrapper {
     padding-left: 8.3333%;

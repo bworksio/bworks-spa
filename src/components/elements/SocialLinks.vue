@@ -9,7 +9,7 @@
 </template>
 
 <script type="text/javascript">
-  import config from '../../config/app.json'
+  import config from '@/config/app.json'
 
   export default {
     name: 'SocialLinks',
@@ -23,10 +23,10 @@
     data () {
       return {
         assets: {
-          facebook: require('!!raw!../../assets/images/icon-facebook.svg'),
-          twitter: require('!!raw!../../assets/images/icon-twitter.svg'),
-          instagram: require('!!raw!../../assets/images/icon-instagram.svg'),
-          linkedin: require('!!raw!../../assets/images/icon-linkedin.svg')
+          facebook: require('!!raw-loader!assets/images/icon-facebook.svg'),
+          twitter: require('!!raw-loader!assets/images/icon-twitter.svg'),
+          instagram: require('!!raw-loader!assets/images/icon-instagram.svg'),
+          linkedin: require('!!raw-loader!assets/images/icon-linkedin.svg')
         },
         social: config.social
       }

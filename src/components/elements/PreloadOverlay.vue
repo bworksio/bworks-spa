@@ -23,7 +23,7 @@
     data () {
       return {
         assets: {
-          bWorksPreloading: require('!!raw!../../assets/images/bworks-preloading.svg')
+          bWorksPreloading: require('!!raw-loader!assets/images/bworks-preloading.svg')
         }
       }
     },

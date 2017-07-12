@@ -1,14 +1,14 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
-import routesConfig from '../config/routes'
-import config from '../config/app.json'
-import { forEach } from '../utils'
-import Page from '../components/Page'
-import PageBlog from '../components/PageBlog'
-import PageSubscriptionConfirmation from '../components/PageSubscriptionConfirmation'
-import PageNotFound from '../components/PageNotFound'
+import Router from 'vue-router'
+import routesConfig from '@/config/routes'
+import config from '@/config/app.json'
+import Page from '@/components/Page'
+import PageBlog from '@/components/PageBlog'
+import PageSubscriptionConfirmation from '@/components/PageSubscriptionConfirmation'
+import PageNotFound from '@/components/PageNotFound'
+const forEach = require('axios/lib/utils.js').forEach
 
-Vue.use(VueRouter)
+Vue.use(Router)
 
 // Build routes from configuration.
 let routes = []
@@ -43,7 +43,7 @@ routes.push({
   component: PageNotFound
 })
 
-export default new VueRouter({
+export default new Router({
   mode: 'history',
   routes,
   routesConfig,

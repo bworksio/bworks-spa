@@ -30,11 +30,11 @@
 </template>
 
 <script type="text/javascript">
-  import { forEach } from '../../utils'
-  import config from '../../config/app.json'
-  import routesConfig from '../../config/routes'
-  import GetInTouch from './GetInTouch'
-  import LanguageSwitcher from './LanguageSwitcher'
+  import config from '@/config/app.json'
+  import routesConfig from '@/config/routes'
+  import GetInTouch from '@/components/elements/GetInTouch'
+  import LanguageSwitcher from '@/components/elements/LanguageSwitcher'
+  const forEach = require('axios/lib/utils.js').forEach
 
   export default {
     name: 'Menu',
@@ -72,7 +72,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../../assets/scss/mixins';
+  @import 'assets/scss/mixins';
 
   #main-menu {
     display: flex;

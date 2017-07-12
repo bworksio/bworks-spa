@@ -18,8 +18,8 @@
 </template>
 
 <script type="text/javascript">
-  import MenuToggle from './MenuToggle'
-  import MenuOverlay from './MenuOverlay'
+  import MenuToggle from '@/components/elements/MenuToggle'
+  import MenuOverlay from '@/components/elements/MenuOverlay'
 
   export default {
     name: 'SiteHeader',
@@ -27,7 +27,7 @@
     data () {
       return {
         assets: {
-          bWorksLogo: require('!!raw!../../assets/images/bworks-logo.svg')
+          bWorksLogo: require('!!raw-loader!assets/images/bworks-logo.svg')
         }
       }
     },
@@ -40,7 +40,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import "../../assets/scss/mixins";
+  @import "assets/scss/mixins";
 
   #site-header {
     position: fixed;

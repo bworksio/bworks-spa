@@ -43,9 +43,9 @@
 </template>
 
 <script type="text/javascript">
-  import Node from '../nodes/Node'
-  import GetInTouch from '../elements/GetInTouch'
-  import SocialLinks from '../elements/SocialLinks'
+  import Node from '@/components/nodes/Node'
+  import GetInTouch from '@/components/elements/GetInTouch'
+  import SocialLinks from '@/components/elements/SocialLinks'
 
   export default {
     name: 'bworks_footer',
@@ -54,7 +54,7 @@
       return {
         node: {},
         assets: {
-          switzerland: require('!!raw!../../assets/images/icon-switzerland.svg')
+          switzerland: require('!!raw-loader!assets/images/icon-switzerland.svg')
         }
       }
     },
@@ -66,7 +66,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../../assets/scss/mixins';
+  @import 'assets/scss/mixins';
 
   .node-bworks_footer {
     padding-top: 4rem;

@@ -67,11 +67,11 @@
 </template>
 
 <script type="text/javascript">
-  import Node from './Node'
+  import Node from '@/components/nodes/Node'
   import ScrollMagic from 'scrollmagic'
-  import ScrollMagicMixin from '../elements/ScrollMagicMixin'
-  import FlexSlider from '../elements/FlexSlider'
-  import { forEach, cleanId } from '../../utils'
+  import ScrollMagicMixin from '@/components/elements/ScrollMagicMixin'
+  import FlexSlider from '@/components/elements/FlexSlider'
+  const forEach = require('axios/lib/utils.js').forEach
 
   export default {
     name: 'bworks_project',
@@ -86,6 +86,10 @@
     },
 
     computed: {
+      cleanId () {
+        return this.getCleanId(this.getField('title'))
+      },
+
       /**
        * Build url to projects page.
        * @returns {string}
@@ -112,10 +116,6 @@
       getImageFields () {
         return this.getAllFields('field_image')
       }
-    },
-
-    created () {
-      this.cleanId = cleanId(this.getField('title'))
     },
 
     mounted () {
@@ -152,7 +152,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../../assets/scss/mixins';
+  @import 'assets/scss/mixins';
 
   @keyframes kenburns-project {
     0% {

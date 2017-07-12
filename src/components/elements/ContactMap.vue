@@ -8,7 +8,7 @@
 <script type="text/javascript">
   import Vue from 'vue'
   import * as VueGoogleMaps from 'vue2-google-maps'
-  import config from '../../config/app.json'
+  import config from '@/config/app.json'
 
   Vue.use(VueGoogleMaps, {
     load: {

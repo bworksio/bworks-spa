@@ -3,7 +3,7 @@
 </template>
 
 <script type="text/javascript">
-  import config from '../../config/app.json'
+  import config from '@/config/app.json'
   import Axios from 'axios'
 
   /**
@@ -34,7 +34,7 @@
           this.svg = result.data
         })
         .catch(() => {
-          this.svg = require('!!raw!../../assets/images/missing.svg')
+          this.svg = require('!!raw-loader!assets/images/missing.svg')
         })
     }
   }

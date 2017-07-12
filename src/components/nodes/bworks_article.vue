@@ -37,8 +37,8 @@
 </template>
 
 <script type="text/javascript">
-  import Node from './Node'
-  import DrupalImage from '../elements/DrupalImage'
+  import Node from '@/components/nodes/Node'
+  import DrupalImage from '@/components/elements/DrupalImage'
 
   export default {
     name: 'bworks_article',
@@ -75,7 +75,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../../assets/scss/mixins';
+  @import 'assets/scss/mixins';
 
   .node-bworks_article {
     img {

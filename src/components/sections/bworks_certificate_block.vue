@@ -11,10 +11,10 @@
 </template>
 
 <script type="text/javascript">
-  import { forEach } from '../../utils'
-  import Node from '../nodes/Node'
+  import Node from '@/components/nodes/Node'
   /* eslint-disable camelcase */
-  import bworks_certificate from '../nodes/bworks_certificate'
+  import bworks_certificate from '@/components/nodes/bworks_certificate'
+  const forEach = require('axios/lib/utils.js').forEach
 
   export default {
     name: 'bworks_certificate_block',
@@ -41,7 +41,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../../assets/scss/mixins';
+  @import 'assets/scss/mixins';
 
   @include media-breakpoint-up(md) {
     .node-bworks_certificate_block {

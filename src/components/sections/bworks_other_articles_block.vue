@@ -13,7 +13,7 @@
 
 <script type="text/javascript">
   /* eslint-disable camelcase */
-  import bworks_article from '../nodes/bworks_article'
+  import bworks_article from '@/components/nodes/bworks_article'
 
   export default {
     name: 'bworks_other_articles_block',
@@ -48,7 +48,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../../assets/scss/mixins';
+  @import 'assets/scss/mixins';
 
   .node-bworks_other_articles_block {
     .container-fluid {

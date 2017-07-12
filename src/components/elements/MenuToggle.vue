@@ -38,7 +38,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../../assets/scss/mixins';
+  @import 'assets/scss/mixins';
 
   a.menu-toggle {
     // Vertically center the element.

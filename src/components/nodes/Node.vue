@@ -1,7 +1,7 @@
 <template lang="html"></template>
 
 <script type="text/javascript">
-  import config from '../../config/app.json'
+  import config from '@/config/app.json'
 
   /**
    * Abstract Drupal Node.
@@ -92,6 +92,18 @@
         return markup.replace(/\ssrc="(\/[^/"][^"]+)"/g, (match, url) => {
           return match.replace(url, config.api.baseUrl + url.substr(1))
         })
+      },
+
+      /**
+       * Cleans an identifier for use in the DOM.
+       *
+       * @param {String} id
+       * @returns {String} The cleaned id
+       */
+      getCleanId (id) {
+        return id.toLocaleLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-|-$/g, '')
       }
     },
 

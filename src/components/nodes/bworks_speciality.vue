@@ -36,10 +36,9 @@
 </template>
 
 <script type="text/javascript">
-  import Node from './Node'
-  import svg from 'components/elements/Svg'
+  import Node from '@/components/nodes/Node'
+  import svg from '@/components/elements/Svg'
   import jump from 'jump.js'
-  import { cleanId } from '../../utils'
 
   export default {
     name: 'bworks_speciality',
@@ -54,13 +53,11 @@
       }
     },
 
-    data () {
-      return {
-        cleanId: ''
-      }
-    },
-
     computed: {
+      cleanId () {
+        return this.getCleanId(this.getField('title'))
+      },
+
       /**
        * Get url to specialties page including generated fragment.
        * @returns {string}
@@ -84,10 +81,6 @@
       }
     },
 
-    created () {
-      this.cleanId = cleanId(this.getField('title'))
-    },
-
     mounted () {
       // Check if there is a hash in the url, and if it matches the component,
       // then scroll to it when mounted
@@ -103,7 +96,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../../assets/scss/mixins';
+  @import 'assets/scss/mixins';
 
   .node-bworks_speciality {
     svg {

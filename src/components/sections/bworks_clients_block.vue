@@ -21,9 +21,9 @@
 </template>
 
 <script type="text/javascript">
-  import Node from '../nodes/Node'
-  import DrupalImage from '../elements/DrupalImage'
-  import { forEach } from '../../utils'
+  import Node from '@/components/nodes/Node'
+  import DrupalImage from '@/components/elements/DrupalImage'
+  const forEach = require('axios/lib/utils.js').forEach
 
   export default {
     name: 'bworks_clients_block',
@@ -68,7 +68,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../../assets/scss/mixins';
+  @import 'assets/scss/mixins';
 
   .node-bworks_clients_block {
     padding-top: 2rem;

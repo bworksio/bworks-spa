@@ -11,10 +11,10 @@
 </template>
 
 <script type="text/javascript">
-  import { forEach } from '../../utils'
-  import Node from '../nodes/Node'
+  import Node from '@/components/nodes/Node'
   /* eslint-disable camelcase */
-  import bworks_award from '../nodes/bworks_award'
+  import bworks_award from '@/components/nodes/bworks_award'
+  const forEach = require('axios/lib/utils.js').forEach
 
   export default {
     name: 'bworks_awards_block',
@@ -41,5 +41,5 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../../assets/scss/mixins';
+  @import 'assets/scss/mixins';
 </style>

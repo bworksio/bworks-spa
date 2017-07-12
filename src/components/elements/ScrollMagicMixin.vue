@@ -1,5 +1,5 @@
 <script type="text/javascript">
-  import { forEach } from '../../utils'
+  const forEach = require('axios/lib/utils.js').forEach
 
   let scrollMagicScenes = []
 

@@ -22,13 +22,13 @@
 </template>
 
 <script type="text/javascript">
-  import { getData } from '../store'
-  import config from '../config/app.json'
-  import ShareLinks from './elements/ShareLinks'
+  import { getData } from '@/store'
+  import config from '@/config/app.json'
+  import ShareLinks from '@/components/elements/ShareLinks'
   import unserialize from 'locutus/php/var/unserialize'
   /* eslint-disable camelcase */
-  import bworks_other_articles_block from './sections/bworks_other_articles_block'
-  import bworks_footer from './sections/bworks_footer'
+  import bworks_other_articles_block from '@/components/sections/bworks_other_articles_block'
+  import bworks_footer from '@/components/sections/bworks_footer'
 
   export default {
     name: 'PageBlog',
@@ -188,7 +188,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../assets/scss/mixins';
+  @import 'assets/scss/mixins';
 
   .node-bworks_article {
     &.full {

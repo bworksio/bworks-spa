@@ -9,9 +9,10 @@
 </template>
 
 <script type="text/javascript">
-  import { forEach, merge } from '../../utils'
-  import config from '../../config/app.json'
-  import routesConfig from '../../config/routes'
+  import config from '@/config/app.json'
+  import routesConfig from '@/config/routes'
+  const forEach = require('axios/lib/utils.js').forEach
+  const merge = require('axios/lib/utils.js').merge
 
   export default {
     name: 'LanguageSwitcher',
@@ -47,7 +48,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../../assets/scss/mixins';
+  @import 'assets/scss/mixins';
 
   .language-switcher {
     ul {

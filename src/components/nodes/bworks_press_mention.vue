@@ -11,7 +11,7 @@
 </template>
 
 <script type="text/javascript">
-  import Node from './Node'
+  import Node from '@/components/nodes/Node'
 
   export default {
     name: 'bworks_press_mention',
@@ -62,7 +62,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../../assets/scss/mixins';
+  @import 'assets/scss/mixins';
 
   .node-bworks_press_mention {
     display: flex;

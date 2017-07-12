@@ -7,8 +7,8 @@
 </template>
 
 <script type="text/javascript">
-  import SiteHeader from './components/elements/SiteHeader'
-  import PreloadOverlay from './components/elements/PreloadOverlay'
+  import SiteHeader from '@/components/elements/SiteHeader'
+  import PreloadOverlay from '@/components/elements/PreloadOverlay'
 
   export default {
     name: 'App',
@@ -44,6 +44,6 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss">
-  // Load global styles
-  @import './assets/scss/main';
+  // Global styles
+  @import 'assets/scss/main';
 </style>
