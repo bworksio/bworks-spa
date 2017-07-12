@@ -9,12 +9,15 @@
   import Vue from 'vue'
   import * as GoogleMaps from 'vue2-google-maps'
   import config from '@/config/app.json'
+  import googleMapsStyles from '@/config/google-maps-styles'
 
   Vue.use(GoogleMaps, {
-    load: {
-      key: config.googleApiKey
-    }
+    load: { key: config.googleApiKey },
+    installComponents: false
   })
+
+  Vue.component('GmapMap', GoogleMaps.Map)
+  Vue.component('GmapMarker', GoogleMaps.Marker)
 
   export default {
     name: 'ContactMap',
@@ -27,88 +30,7 @@
           streetViewControl: false,
           minZoom: 7,
           maxZoom: 13,
-          // @see https://snazzymaps.com/editor/customize/25
-          /* eslint-disable quotes */
-          styles: [
-            {
-              "featureType": "administrative",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                {
-                  "color": "#444444"
-                }
-              ]
-            },
-            {
-              "featureType": "landscape",
-              "elementType": "all",
-              "stylers": [
-                {
-                  "color": "#f2f2f2"
-                }
-              ]
-            },
-            {
-              "featureType": "poi",
-              "elementType": "all",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "road",
-              "elementType": "all",
-              "stylers": [
-                {
-                  "saturation": -100
-                },
-                {
-                  "lightness": 45
-                }
-              ]
-            },
-            {
-              "featureType": "road.highway",
-              "elementType": "all",
-              "stylers": [
-                {
-                  "visibility": "simplified"
-                }
-              ]
-            },
-            {
-              "featureType": "road.arterial",
-              "elementType": "labels.icon",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "transit",
-              "elementType": "all",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "water",
-              "elementType": "all",
-              "stylers": [
-                {
-                  "color": "#4b7fe2"
-                },
-                {
-                  "visibility": "on"
-                }
-              ]
-            }
-          ]
+          styles: googleMapsStyles
         }
       }
     },
@@ -120,7 +42,7 @@
     },
 
     mounted () {
-      if (!this.$store.state.isPhantom) {
+      if (!this.$store.state.isPhantom && typeof google !== 'undefined') {
         /* global google */
         // Keep map centered on window resize
         google.maps.event.addDomListener(window, 'resize', () => this.$children[0].resizePreserveCenter())
