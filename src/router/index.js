@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import routesConfig from '@/config/routes'
 import config from '@/config/app.json'
 import Page from '@/components/Page'
-import PageBlog from '@/components/PageBlog'
+const PageBlog = () => import(/* webpackChunkName: "page-blog" */'@/components/PageBlog')
 import PageSubscriptionConfirmation from '@/components/PageSubscriptionConfirmation'
 import PageNotFound from '@/components/PageNotFound'
 const forEach = require('axios/lib/utils.js').forEach

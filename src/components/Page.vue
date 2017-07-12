@@ -2,7 +2,7 @@
   <div v-if="nodes" id="page" :class="'page-' + name + ' lang-' + lang" :key="lang +'/'+ name">
     <component
       v-for="node in nodes"
-      :is="node.type"
+      :is="componentType(node.type)"
       :nid="parseInt(node.nid)"
       :lang="lang"
       :viewMode="viewMode"
@@ -15,7 +15,8 @@
   /* eslint-disable camelcase */
   import bworks_basic_page from '@/components/sections/bworks_basic_page'
   import bworks_html_block from '@/components/sections/bworks_html_block'
-  import bworks_project_block from '@/components/sections/bworks_project_block'
+  const bworks_project_block_full = () => import(/* webpackChunkName: "projects" */'@/components/sections/bworks_project_block_full')
+  import bworks_project_block_teaser from '@/components/sections/bworks_project_block_teaser'
   import bworks_speciality_block from '@/components/sections/bworks_speciality_block'
   import bworks_article from '@/components/nodes/bworks_article'
   import bworks_blog_block from '@/components/sections/bworks_blog_block'
@@ -26,7 +27,7 @@
   import bworks_clients_block from '@/components/sections/bworks_clients_block'
   import bworks_awards_block from '@/components/sections/bworks_awards_block'
   import bworks_press_mentions_block from '@/components/sections/bworks_press_mentions_block'
-  import bworks_contact_block from '@/components/sections/bworks_contact_block'
+  const bworks_contact_block = () => import(/* webpackChunkname: "contact" */'@/components/sections/bworks_contact_block')
   import bworks_footer from '@/components/sections/bworks_footer'
 
   export default {
@@ -102,13 +103,21 @@
         }).catch(() => {
           /* Error handled upstream */
         })
+      },
+
+      componentType (type) {
+        // To be able to use code splitting for the projects page,
+        // we need to separate components. Moves all jQuery code out of
+        // vendor chunk.
+        return type === 'bworks_project_block' ? type + '_' + this.viewMode : type
       }
     },
 
     components: {
       bworks_basic_page,
       bworks_html_block,
-      bworks_project_block,
+      bworks_project_block_full,
+      bworks_project_block_teaser,
       bworks_speciality_block,
       bworks_article,
       bworks_blog_block,
