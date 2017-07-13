@@ -6,7 +6,7 @@
           <nav class="menu-main">
             <ul>
               <li v-for="item in menuItems" v-if="item.title">
-                <router-link :to="item.path" exact>{{ item.title }}</router-link>
+                <router-link :to="getMenuItemPath(item)" exact>{{ item.title }}</router-link>
                 <div class="line">&nbsp;</div>
               </li>
             </ul>
@@ -58,10 +58,29 @@
         const lang = this.$store.state.currentLanguage
         forEach(routesConfig, (languages, name) => {
           if (!('show' in languages) || !!languages.show) {
+            languages[lang]['name'] = name + '_' + lang
             menuItems.push(languages[lang])
           }
         })
         this.menuItems = menuItems
+      },
+
+      /**
+       * Provides empty params for routes that use them
+       */
+      getMenuItemPath (item) {
+        const path = item.path
+        if (path.indexOf(':') !== -1) {
+          const re = /:(\w+)/g
+          let params = {}
+          let m
+          do {
+            m = re.exec(path)
+            if (m) params[m[1]] = null
+          } while (m)
+          return { name: item.name, params }
+        }
+        return path
       }
     },
     components: {

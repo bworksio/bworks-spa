@@ -57,7 +57,10 @@
        */
       projectUrl () {
         const route = this.$router.options.getRouteByProps('works', this.lang)
-        return route.path + '/' + this.getCleanId(this.getField('title'))
+        return {
+          name: route.name,
+          params: { project: this.getCleanId(this.getField('title')) }
+        }
       }
     },
 
