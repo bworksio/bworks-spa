@@ -30,8 +30,6 @@
       const parent = this.$el.parentNode
       // Move all children out of this component
       while (this.$el.firstChild) parent.insertBefore(this.$el.firstChild, this.$el)
-      // Remove the empty element
-      parent.removeChild(this.$el)
 
       /* global jQuery */
       jQuery('#page').fullpage({
@@ -47,8 +45,8 @@
         const anchors = Array.from(document.querySelectorAll('.section'))
           .map(el => el.getAttribute('data-id') || '')
         const index = anchors.indexOf(this.$route.params.project)
-        if (index !== -1) {
-          jQuery.fn.fullpage.moveTo(index)
+        if (index > 0) {
+          jQuery.fn.fullpage.moveTo(index + 1)
         }
       }
     },
