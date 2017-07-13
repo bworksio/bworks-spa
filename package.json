@@ -11,7 +11,7 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
-    "axios": "^0.15.3",
+    "axios": "^0.16.2",
     "expose-loader": "^0.7.3",
     "flexslider": "^2.6.3",
     "fullpage.js": "^2.9.4",
@@ -22,10 +22,10 @@
     "lodash": "^4.17.4",
     "scrollmagic": "^2.0.5",
     "sitemap": "^1.12.0",
-    "vue": "^2.3.3",
-    "vue-analytics": "^3.2.1",
+    "vue": "^2.4.1",
+    "vue-analytics": "^4.1.2",
     "vue-i18n": "^7.0.5",
-    "vue-router": "^2.3.1",
+    "vue-router": "^2.7.0",
     "vue2-google-maps": "^0.7.5",
     "vuex": "^2.1.1"
   },
@@ -71,7 +71,7 @@
     "url-loader": "^0.5.8",
     "vue-loader": "^12.1.0",
     "vue-style-loader": "^3.0.1",
-    "vue-template-compiler": "^2.3.3",
+    "vue-template-compiler": "^2.4.1",
     "webpack": "^2.6.1",
     "webpack-bundle-analyzer": "^2.2.1",
     "webpack-dev-middleware": "^1.10.0",
