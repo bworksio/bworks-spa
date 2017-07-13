@@ -57,15 +57,15 @@ module.exports = {
   },
   'works': {
     'de': {
-      'path': '/arbeiten',
+      'path': '/arbeiten/:project?',
       'title': 'Unsere Projekte'
     },
     'en': {
-      'path': '/en/work',
+      'path': '/en/work/:project?',
       'title': 'Our Work'
     },
     'it': {
-      'path': '/it/lavori',
+      'path': '/it/lavori/:project?',
       'title': 'I nostri lavori'
     }
   },

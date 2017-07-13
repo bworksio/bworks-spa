@@ -1,5 +1,5 @@
 <template>
-  <div :data-id="cleanId" :class="'section node-' + getType() + ' ' + viewMode">
+  <div :class="'node-' + getType() + ' ' + viewMode">
     <router-link class="unstyled" :to="projectUrl">
       <div class="image animation-wrapper">
         <img :src="getField('field_image', 'url')">
@@ -51,17 +51,13 @@
     },
 
     computed: {
-      cleanId () {
-        return this.getCleanId(this.getField('title'))
-      },
-
       /**
        * Build url to projects page.
        * @returns {string}
        */
       projectUrl () {
         const route = this.$router.options.getRouteByProps('works', this.lang)
-        return route.path + '#' + this.cleanId
+        return route.path + '/' + this.getCleanId(this.getField('title'))
       }
     },
 
