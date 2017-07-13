@@ -69,37 +69,31 @@
       vertical-align: bottom;
     }
 
-    #fp-nav {
-      position: fixed;
+    #fp-nav.right {
       right: 4.1617%;
-      top: 50%;
 
       ul li {
-        width: 17px;
+        width: 27px;
         height: 9px;
         margin: 0 0 4rem;
 
-        a {
-          height: auto;
-          width: auto;
-
+        a,
+        a.active {
           span {
-            left: auto;
-            top: auto;
+            left: 0;
+            top: -9px;
             width: 9px;
             height: 9px;
-            margin: 0; //-4px 0 0 -3px;
-            transform: translateX(-50%);
+            margin: 9px;
             background-color: $white;
             border-radius: 0;
           }
+        }
 
-          &.active span {
-            width: 17px;
-            height: 17px;
-            margin: 0; //-11px 0 0 -8px;
-            border-radius: 0;
-          }
+        &:hover a span,
+        & a.active span {
+          transform: scale(1.8889);
+          border-radius: 0;
         }
 
         &:not(:last-of-type):after {
@@ -108,7 +102,7 @@
           position: absolute;
           width: 1px;
           height: 4rem;
-          transform: translateY(9px);
+          margin: 0 0 0 13px;
           background-color: $white;
         }
       }
