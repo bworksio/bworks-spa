@@ -3,7 +3,7 @@
   "defaultLanguage": "en",
   "activeLanguages": ["de", "en"],
   "api": {
-    "baseUrl": "//backend.b-works.io/"
+    "baseUrl": "https://backend.b-works.io/"
   },
   "siteEmail": "alex.beninca@b-works.io",
   "googleApiKey": "AIzaSyCg0cUaKJQL-kkKIW3vW4nBug-kNsq1cm0",

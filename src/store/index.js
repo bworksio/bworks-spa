@@ -222,9 +222,9 @@ const store = new Vuex.Store({
      * @returns {Object|boolean}
      */
     getTag: (state, getters) => (id, lang) => {
-      if (store.state.tags.hasOwnProperty(id)) {
+      if (state.tags.hasOwnProperty(id)) {
         const tags = {}
-        store.state.tags[id].name.forEach(tag => {
+        state.tags[id].name.forEach(tag => {
           tags[tag.lang] = tag.value
         })
         if (tags.hasOwnProperty(lang)) {

@@ -77,8 +77,6 @@
        * Fetches the list of nodes in the current queue to display.
        */
       fetchData () {
-        // FIXME Resetting node list is required, otherwise DOM doesn't re-render on $route change.
-        this.nodes = []
         getData(this.lang).then(() => {
           // Get section nodes from active queue in store
           const queue = this.$store.getters.getQueue(this.name)

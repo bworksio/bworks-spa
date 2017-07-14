@@ -71,8 +71,6 @@
        * Fetches the list of nodes in the current queue to display.
        */
       fetchData () {
-        // FIXME Resetting node list is required, otherwise DOM doesn't re-render on $route change.
-        this.node = {}
         getData(this.lang).then(() => {
           // Find matching node by path
           this.node = this.$store.getters.getNodeByPath(this.$route.path, this.lang)
