@@ -22,7 +22,6 @@
 </template>
 
 <script type="text/javascript">
-  import { getData } from '@/store'
   import config from '@/config/app.json'
   import ShareLinks from '@/components/elements/ShareLinks'
   import unserialize from 'locutus/php/var/unserialize'
@@ -71,7 +70,7 @@
        * Fetches the list of nodes in the current queue to display.
        */
       fetchData () {
-        getData(this.lang).then(() => {
+        return this.$store.dispatch('getData', this.lang).then(() => {
           // Find matching node by path
           this.node = this.$store.getters.getNodeByPath(this.$route.path, this.lang)
           // Find first footer node

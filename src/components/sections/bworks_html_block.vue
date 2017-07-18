@@ -6,8 +6,10 @@
 
 <script type="text/javascript">
   import Node from '@/components/nodes/Node'
-  import ScrollMagic from 'scrollmagic'
   import ScrollMagicMixin from '@/components/elements/ScrollMagicMixin'
+  if (process.BROWSER_BUILD) {
+    const ScrollMagic = require('scrollmagic')
+  }
   const forEach = require('axios/lib/utils.js').forEach
 
   export default {

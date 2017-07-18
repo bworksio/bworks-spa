@@ -11,7 +11,6 @@
 </template>
 
 <script type="text/javascript">
-  import { getData } from '@/store'
   /* eslint-disable camelcase */
   import bworks_basic_page from '@/components/sections/bworks_basic_page'
   import bworks_html_block from '@/components/sections/bworks_html_block'
@@ -77,12 +76,13 @@
        * Fetches the list of nodes in the current queue to display.
        */
       fetchData () {
-        getData(this.lang).then(() => {
+        return this.$store.dispatch('getData', this.lang).then(() => {
           // Get section nodes from active queue in store
           const queue = this.$store.getters.getQueue(this.name)
           this.nodes = queue.nodes
 
           // Set meta data
+/*
           if (queue.meta.title) {
             document.title = queue.meta.title
           }
@@ -92,12 +92,15 @@
             el.content = queue.meta.description
             document.getElementsByTagName('head')[0].appendChild(el)
           }
+*/
 
           // Emit trigger event for webpack prerender_spa_plugin
+/*
           window.setTimeout(() => {
-            /* global Event */
+            /!* global Event *!/
             document.dispatchEvent(new Event('prerender'))
           }, 100)
+*/
         }).catch(() => {
           /* Error handled upstream */
         })

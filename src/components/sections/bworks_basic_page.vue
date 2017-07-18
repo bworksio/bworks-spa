@@ -24,8 +24,10 @@
 <script type="text/javascript">
   import Node from '@/components/nodes/Node'
   import LanguageSwitcher from '@/components/elements/LanguageSwitcher'
-  import ScrollMagic from 'scrollmagic'
   import ScrollMagicMixin from '@/components/elements/ScrollMagicMixin'
+  if (process.BROWSER_BUILD) {
+    const ScrollMagic = require('scrollmagic')
+  }
 
   export default {
     name: 'bworks_basic_page',

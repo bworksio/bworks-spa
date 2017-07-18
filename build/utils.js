@@ -1,13 +1,5 @@
 var path = require('path')
-var config = require('../config')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
-
-exports.assetsPath = function (_path) {
-  var assetsSubDirectory = process.env.NODE_ENV === 'production'
-    ? config.build.assetsSubDirectory
-    : config.dev.assetsSubDirectory
-  return path.posix.join(assetsSubDirectory, _path)
-}
 
 exports.cssLoaders = function (options) {
   options = options || {}
@@ -48,11 +40,11 @@ exports.cssLoaders = function (options) {
   return {
     css: generateLoaders(),
     postcss: generateLoaders(),
-    less: generateLoaders('less'),
-    sass: generateLoaders('sass', { indentedSyntax: true, includePaths: [path.join(__dirname, '..', 'src')] }),
+    //less: generateLoaders('less'),
+    //sass: generateLoaders('sass', { indentedSyntax: true, includePaths: [path.join(__dirname, '..', 'src')] }),
     scss: generateLoaders('sass', { includePaths: [path.join(__dirname, '..', 'src')] }),
-    stylus: generateLoaders('stylus'),
-    styl: generateLoaders('stylus')
+    //stylus: generateLoaders('stylus'),
+    //styl: generateLoaders('stylus')
   }
 }
 
@@ -60,6 +52,7 @@ exports.cssLoaders = function (options) {
 exports.styleLoaders = function (options) {
   var output = []
   var loaders = exports.cssLoaders(options)
+  //console.log(require('util').inspect(loaders, {depth: 5}))
   for (var extension in loaders) {
     var loader = loaders[extension]
     output.push({
