@@ -16,9 +16,7 @@ export function createStore () {
       nodes: {},
       tags: {},
       showMenu: false,
-      currentLanguage: 'en',
-      scrollMagicMainController: null,
-      isPhantom: false // /PhantomJS/.test(window.navigator.userAgent)
+      currentLanguage: 'en'
     },
     actions,
     mutations,

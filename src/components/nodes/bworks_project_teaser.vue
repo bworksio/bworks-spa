@@ -34,11 +34,7 @@
 
 <script type="text/javascript">
   import Node from '@/components/nodes/Node'
-  import ScrollMagicMixin from '@/components/elements/ScrollMagicMixin'
-  if (process.BROWSER_BUILD) {
-    const ScrollMagic = require('scrollmagic')
-  }
-  const forEach = require('axios/lib/utils.js').forEach
+  import ScrollMagicMixin from '@/components/mixins/ScrollMagicMixin'
 
   export default {
     name: 'bworks_project_teaser',
@@ -67,20 +63,18 @@
     },
 
     mounted () {
-      if (!this.$store.state.isPhantom) {
-        forEach(this.$el.querySelectorAll('.html-container, .image'), (el) => {
-          // Run html animations on enter.
-          const options = {
-            triggerElement: el,
-            triggerHook: 'onEnter',
-            offset: 50,
-            reverse: false
-          }
-          this.addScrollMagicScene(new ScrollMagic.Scene(options)
+      const ScrollMagicScene = require('scrollmagic').Scene
+      Array.from(this.$el.querySelectorAll('.html-container, .image')).forEach((el) => {
+        // Run html animations on enter.
+        const options = {
+          triggerElement: el,
+          triggerHook: 'onEnter',
+          offset: 50,
+          reverse: false
+        }
+        this.addScrollMagicScene(new ScrollMagicScene(options))
           .setClassToggle(el, 'run')
-          .addTo(this.$store.state.scrollMagicMainController))
-        })
-      }
+      })
     },
 
     methods: {

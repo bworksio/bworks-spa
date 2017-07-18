@@ -18,11 +18,6 @@ export default {
    * Query all data (queues, nodes, tags) for all languages.
    */
   getData ({ state, getters, commit }, currentLang) {
-    if (process.BROWSER_BUILD) {
-      const ScrollMagic = require('scrollmagic')
-      state.scrollMagicMainController = new ScrollMagic.Controller()
-    }
-
     /**
      * Query a list of queues.
      * @returns {AxiosPromise}

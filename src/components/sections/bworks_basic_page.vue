@@ -24,10 +24,7 @@
 <script type="text/javascript">
   import Node from '@/components/nodes/Node'
   import LanguageSwitcher from '@/components/elements/LanguageSwitcher'
-  import ScrollMagicMixin from '@/components/elements/ScrollMagicMixin'
-  if (process.BROWSER_BUILD) {
-    const ScrollMagic = require('scrollmagic')
-  }
+  import ScrollMagicMixin from '@/components/mixins/ScrollMagicMixin'
 
   export default {
     name: 'bworks_basic_page',
@@ -59,19 +56,17 @@
 
     mounted () {
       // Invert the site header as long as this basic page is visible.
-      if (!this.$store.state.isPhantom) {
-        const options = {
-          triggerElement: this.$el,
-          triggerHook: 'onLeave',
-          offset: -90
-        }
-        this.addScrollMagicScene(new ScrollMagic.Scene(options)
-          .duration(() => {
-            return this.$el.clientHeight
-          })
-          .setClassToggle('#site-header', 'invert')
-          .addTo(this.$store.state.scrollMagicMainController))
+      const ScrollMagicScene = require('scrollmagic').Scene
+      const options = {
+        triggerElement: this.$el,
+        triggerHook: 'onLeave',
+        offset: -90
       }
+      this.addScrollMagicScene(new ScrollMagicScene(options))
+        .duration(() => {
+          return this.$el.clientHeight
+        })
+        .setClassToggle('#site-header', 'invert')
     },
 
     components: {

@@ -1,3 +1,5 @@
+import config from '@/config/app.json'
+
 export default {
   /**
    * Returns a list of node for a given queue.
