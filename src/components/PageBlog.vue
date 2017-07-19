@@ -87,29 +87,6 @@
           })
           .filter(node => node.nid[0].value !== this.node.nid[0].value)
           .slice(0, 2)
-
-          // Set page title
-          let meta = this.getField('field_meta_tags', 'value', 0, false)
-          if (meta) {
-            meta = unserialize(meta)
-            if (meta.title) {
-              document.title = meta.title
-            }
-            if (meta.description) {
-              const el = document.createElement('meta')
-              el.name = 'description'
-              el.content = meta.description
-              document.getElementsByTagName('head')[0].appendChild(el)
-            }
-          } else {
-            document.title = this.getField('title')
-          }
-
-          // Emit trigger event for webpack prerender_spa_plugin
-          window.setTimeout(() => {
-            /* global Event */
-            document.dispatchEvent(new Event('prerender'))
-          }, 100)
         }).catch(() => {
           /* Error handled upstream */
         })
@@ -173,6 +150,15 @@
       getTag () {
         const id = this.getField('field_tags', 'target_id', 0, false)
         return id ? this.$store.getters.getTag(id, this.lang) : this.$t('message.blog')
+      }
+    },
+
+    meta () {
+      let meta = this.getField('field_meta_tags', 'value', 0, false)
+      if (meta) {
+        return unserialize(meta)
+      } else {
+        return { title: this.getField('title') }
       }
     },
 

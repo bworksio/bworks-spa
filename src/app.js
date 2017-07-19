@@ -3,6 +3,7 @@ import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import VueAnalytics from 'vue-analytics'
 import App from '@/App.vue'
+import metaMixin from '@/components/mixins/meta'
 import { createStore } from '@/store'
 import { createRouter } from '@/router'
 import { sync } from 'vuex-router-sync'
@@ -10,9 +11,11 @@ import messages from '@/translations'
 
 Vue.config.productionTip = false
 
-Vue.use(VueI18n)
+// mixin for handling title and meta description
+Vue.mixin(metaMixin)
 
 // Create VueI18n instance with options
+Vue.use(VueI18n)
 const i18n = new VueI18n({
   locale: 'en',
   messages
@@ -28,14 +31,6 @@ export function createApp () {
   // sync the router with the vuex store.
   // this registers `store.state.route`
   sync(store, router)
-
-  // Set page title to route title
-/*
-  router.beforeEach((to, from, next) => {
-    document.title = to.meta.title
-    next()
-  })
-*/
 
   // Google Analytics
   if (process.BROWSER_BUILD) {

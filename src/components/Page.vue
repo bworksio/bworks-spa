@@ -80,27 +80,6 @@
           // Get section nodes from active queue in store
           const queue = this.$store.getters.getQueue(this.name)
           this.nodes = queue.nodes
-
-          // Set meta data
-/*
-          if (queue.meta.title) {
-            document.title = queue.meta.title
-          }
-          if (queue.meta.description) {
-            const el = document.createElement('meta')
-            el.name = 'description'
-            el.content = queue.meta.description
-            document.getElementsByTagName('head')[0].appendChild(el)
-          }
-*/
-
-          // Emit trigger event for webpack prerender_spa_plugin
-/*
-          window.setTimeout(() => {
-            /!* global Event *!/
-            document.dispatchEvent(new Event('prerender'))
-          }, 100)
-*/
         }).catch(() => {
           /* Error handled upstream */
         })
@@ -111,6 +90,14 @@
         // we need to separate components. Moves all jQuery code out of
         // vendor chunk.
         return type === 'bworks_project_block' ? type + '_' + this.viewMode : type
+      }
+    },
+
+    meta () {
+      const queue = this.$store.getters.getQueue(this.name)
+      return {
+        title: queue.meta.title || '',
+        description: queue.meta.description || ''
       }
     },
 
