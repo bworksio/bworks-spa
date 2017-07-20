@@ -8,8 +8,7 @@ Vue.use(Router)
 
 // route level code splitting
 import Page from '@/components/Page'
-//const PageBlog = () => import(/* webpackChunkName: "page-blog" */'@/components/PageBlog')
-import PageBlog from '@/components/PageBlog'
+const PageBlog = () => import(/* webpackChunkName: "page-blog" */'@/components/PageBlog')
 import PageSubscriptionConfirmation from '@/components/PageSubscriptionConfirmation'
 import PageNotFound from '@/components/PageNotFound'
 
