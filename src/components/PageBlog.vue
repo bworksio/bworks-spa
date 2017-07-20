@@ -54,6 +54,13 @@
       }
     },
 
+    asyncData ({ app, route }) {
+      const lang = route.matched[0].props.default.lang
+      app.$i18n.locale = lang
+      app.$store.commit('setLanguage', lang)
+      return app.$store.dispatch('getData', lang)
+    },
+
     created () {
       // Update nodes to display for the current queue name.
       this.fetchData()

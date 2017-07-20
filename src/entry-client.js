@@ -8,7 +8,7 @@ Vue.mixin({
     const { asyncData } = this.$options
     if (asyncData) {
       asyncData({
-        store: this.$store,
+        app: this,
         route: to
       }).then(next).catch(next)
     } else {
@@ -44,7 +44,7 @@ router.onReady(() => {
       return next()
     }
 
-    Promise.all(asyncDataHooks.map(hook => hook({ store, route: to })))
+    Promise.all(asyncDataHooks.map(hook => hook({ app, route: to })))
       .then(() => {
         next()
       })

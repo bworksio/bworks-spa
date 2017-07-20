@@ -34,7 +34,7 @@ export default context => {
       // which is resolved when the action is complete and store state has been
       // updated.
       Promise.all(matchedComponents.map(({ asyncData }) => asyncData && asyncData({
-        store,
+        app,
         route: router.currentRoute
       }))).then(() => {
         isDev && console.log(`data pre-fetch: ${Date.now() - s}ms`)
