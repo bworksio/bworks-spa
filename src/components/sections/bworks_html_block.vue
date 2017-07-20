@@ -16,7 +16,7 @@
 
     mounted () {
       const ScrollMagicScene = require('scrollmagic').Scene
-      Array.from(this.$el.querySelectorAll('.html-container, .image')).forEach((el) => {
+      Array.from(this.$el.querySelectorAll('.animation-wrapper')).forEach((el) => {
         // Run html animations on enter.
         const options = {
           triggerElement: el,

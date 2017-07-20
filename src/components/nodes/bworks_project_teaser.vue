@@ -11,7 +11,7 @@
             <div class="description">{{ getField('body', 'summary') }}</div>
             <div class="subtitle">{{ getField('field_subtitle') }}</div>
         </div>
-        <div class="tags-wrapper">
+        <div class="tags-wrapper animation-wrapper animate-children">
           <ul>
             <li v-for="tag in getTags()">{{ tag }}</li>
           </ul>
@@ -64,7 +64,7 @@
 
     mounted () {
       const ScrollMagicScene = require('scrollmagic').Scene
-      Array.from(this.$el.querySelectorAll('.html-container, .image')).forEach((el) => {
+      Array.from(this.$el.querySelectorAll('.animation-wrapper')).forEach((el) => {
         // Run html animations on enter.
         const options = {
           triggerElement: el,
@@ -242,8 +242,9 @@
           height: 22.9vw;
         }
         object-fit: cover;
+        opacity: 0;
         filter: saturate(50%) contrast(105%);
-        transition: transform .4s, filter .4s;
+        transition: transform .2s ease-out, opacity .2s ease-out, filter .4s;
 
         @include hover-focus() {
           animation: kenburns-project 15s infinite;
