@@ -42,7 +42,7 @@
     },
 
     mounted () {
-      if (!this.$store.state.isPhantom && typeof google !== 'undefined') {
+      if (typeof google !== 'undefined') {
         /* global google */
         // Keep map centered on window resize
         google.maps.event.addDomListener(window, 'resize', () => this.$children[0].resizePreserveCenter())

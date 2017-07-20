@@ -31,12 +31,12 @@
     computed: {
       /** @var {Boolean} True while preloading data. */
       isLoading () {
-        return !this.$store.state.initialized && !this.$store.state.isPhantom
+        return !this.$store.state.initialized
       },
 
       /** @var {String} Returns the last error. */
       error () {
-        return this.$store.state.error ? this.$store.state.error.toString() : ''
+        return this.$store.getters.getError
       }
     }
   }

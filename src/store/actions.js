@@ -75,14 +75,18 @@ export default {
 
     return Axios.all(queries).then(() => {
       // Preload header images
-      const preloader = new ImagePreloader()
-      preloader.preload(...preloadImages)
-      .then(function (status) {
+      if (preloadImages.length) {
+        const preloader = new ImagePreloader()
+        preloader.preload(...preloadImages)
+        .then(status => {
+          commit('setInitialized', true)
+        })
+      } else {
         commit('setInitialized', true)
-      })
+      }
     })
-    .catch(() => {
-      commit('setError', new Error('Failed loading contents, check your internet connection.'))
+    .catch(error => {
+      commit('setError', new Error('Failed loading contents.'))
     })
   }
 }

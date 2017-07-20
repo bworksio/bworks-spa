@@ -106,5 +106,9 @@ export default {
 
     // Error
     return false
+  },
+
+  getError: (state) => {
+    return state.error ? state.error.toString() : ''
   }
 }
