@@ -23,7 +23,7 @@ export default {
    */
   getNodesByType: (state, getters) => (type, lang) => {
     const nodes = []
-    forEach(getters.getNodes(lang), node => {
+    Object.values(getters.getNodes(lang)).forEach(node => {
       if (node.type[0].target_id === type) {
         nodes.push(node)
       }
@@ -67,7 +67,7 @@ export default {
     let found
     // Remove trailing slash
     path = path.replace(/\/+$/, '')
-    forEach(getters.getNodes(lang), node => {
+    Object.values(getters.getNodes(lang)).forEach(node => {
       if (node.path.length && (path === node.path[0].alias)) {
         found = node
       }
