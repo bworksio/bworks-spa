@@ -22,21 +22,21 @@
         @extend %grid-column;
       }
     }
-    .col#{$infix} {
-      @extend %grid-column;
-    }
+    //.col#{$infix} {
+    //  @extend %grid-column;
+    //}
 
     @include media-breakpoint-up($breakpoint, $breakpoints) {
       // Provide basic `.col-{bp}` classes for equal-width flexbox columns
-      .col#{$infix} {
-        flex-basis: 0;
-        flex-grow: 1;
-        max-width: 100%;
-      }
-      .col#{$infix}-auto {
-        flex: 0 0 auto;
-        width: auto;
-      }
+      //.col#{$infix} {
+      //  flex-basis: 0;
+      //  flex-grow: 1;
+      //  max-width: 100%;
+      //}
+      //.col#{$infix}-auto {
+      //  flex: 0 0 auto;
+      //  width: auto;
+      //}
 
       @for $i from 1 through $columns {
         .col#{$infix}-#{$i} {
@@ -44,13 +44,13 @@
         }
       }
 
-      @each $modifier in (pull, push) {
-        @for $i from 0 through $columns {
-          .#{$modifier}#{$infix}-#{$i} {
-            @include make-col-modifier($modifier, $i, $columns)
-          }
-        }
-      }
+      //@each $modifier in (pull, push) {
+      //  @for $i from 0 through $columns {
+      //    .#{$modifier}#{$infix}-#{$i} {
+      //      @include make-col-modifier($modifier, $i, $columns)
+      //    }
+      //  }
+      //}
 
       // `$columns - 1` because offsetting by the width of an entire row isn't possible
       @for $i from 0 through ($columns - 1) {
