@@ -1,18 +1,18 @@
 <template lang="html">
-  <div class="contact" :class="hoverClass">
+  <div class="contact">
     <h2 @mouseenter="showAll()">{{ $t('message.contact') }}</h2>
 
-    <a href="mailto:contact@b-works.io" class="email">
+    <a href="mailto:contact@b-works.io" class="email animate-onhover">
       <div class="icon" v-html="assets.email"></div>
-      <div class="animation-wrapper">
-        <div class="animated onhover mirrored">contact@b-works.io</div>
+      <div class="animation-wrapper" :class="hoverClass">
+        <div class="animated mirrored">contact@b-works.io</div>
       </div>
     </a>
 
-    <a href="tel:+41792240112" class="phone">
+    <a href="tel:+41792240112" class="phone animate-onhover">
       <div class="icon" v-html="assets.phone"></div>
-      <div class="animation-wrapper">
-        <div class="phone-number animated onhover">+41 79 224 0112</div>
+      <div class="animation-wrapper" :class="hoverClass">
+        <div class="phone-number animated">+41 79 224 0112</div>
       </div>
     </a>
   </div>
@@ -73,12 +73,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-
-      &:hover {
-        .animation-wrapper > .animated {
-          transform: translateX(0) !important;
-        }
-      }
 
       .animated {
         padding-left: 1rem;

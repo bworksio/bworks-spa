@@ -101,14 +101,7 @@ ul.row {
     &.mirrored {
       @include media-breakpoint-up(md) {
         text-align: right;
-        transform: translateX(120%);
-      }
-    }
-
-    // Hovering support (contact)
-    &.onhover {
-      @include hover-focus {
-        transform: translateX(0);
+        transform: translateX(2vw);
       }
     }
   }
@@ -118,6 +111,18 @@ ul.row {
     > .animated {
       transform: translateX(0) !important;
       opacity: 1;
+    }
+  }
+}
+
+// Hovering support (contact)
+.animate-onhover {
+  @include hover-focus {
+    .animation-wrapper {
+      > .animated {
+        transform: translateX(0);
+        opacity: 1;
+      }
     }
   }
 }
