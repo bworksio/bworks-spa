@@ -6,6 +6,7 @@ const favicon = require('serve-favicon')
 const compression = require('compression')
 const resolve = file => path.resolve(__dirname, file)
 const { createBundleRenderer } = require('vue-server-renderer')
+const generateSitemap = require('./build/sitemap')
 
 const isProd = process.env.NODE_ENV === 'production'
 const useMicroCache = process.env.MICRO_CACHE !== 'false'
@@ -63,6 +64,8 @@ app.use(favicon('./public/favicon/favicon-32x32.png'))
 app.use('/dist', serve('./dist', true))
 app.use('/public', serve('./public', true))
 app.use('/service-worker.js', serve('./dist/service-worker.js'))
+
+app.get('/sitemap.xml', generateSitemap);
 
 // 1-second microcache.
 // https://www.nginx.com/blog/benefits-of-microcaching-nginx/
