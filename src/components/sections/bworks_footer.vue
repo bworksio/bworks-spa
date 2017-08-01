@@ -306,7 +306,7 @@
   @include media-breakpoint-down(xl) {
     footer .social-links {
       .text {
-        display: none;
+        @include sr-only;
       }
     }
   }
