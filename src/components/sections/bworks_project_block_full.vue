@@ -20,9 +20,11 @@
   export default {
     name: 'bworks_project_block_full',
     extends: Node,
+
     props: {
       viewMode: String
     },
+
     mounted () {
       // Unwrap the project child components, i.e. remove this component's
       // wrapping div, so projects are on the same level as the other
@@ -50,9 +52,16 @@
         }
       }
     },
+
     beforeDestroy () {
       jQuery.fn.fullpage.destroy('all')
+
+      // Move child components back in place, otherwise DOM patching would
+      // ignore the moved nodes
+      const sections = document.querySelectorAll('.section.node-bworks_project')
+      Array.from(sections).map(el => this.$el.appendChild(el))
     },
+
     components: {
       bworks_project_full
     }
