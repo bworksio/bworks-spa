@@ -1,7 +1,6 @@
 import Axios from 'axios'
 import ImagePreloader from 'image-preloader'
 import config from '@/config/app.json'
-const forEach = require('axios/lib/utils.js').forEach
 
 // Create and configure instance.
 const options = { baseURL: config.api.baseUrl }
@@ -78,14 +77,14 @@ export default {
       if (preloadImages.length) {
         const preloader = new ImagePreloader()
         preloader.preload(...preloadImages)
-        .then(status => {
+        .then(() => {
           commit('setInitialized', true)
         })
       } else {
         commit('setInitialized', true)
       }
     })
-    .catch(error => {
+    .catch(() => {
       commit('setError', new Error('Failed loading contents.'))
     })
   }
