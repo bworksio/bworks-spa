@@ -2,7 +2,7 @@
   <div :class="'node-' + getType() + ' ' + viewMode">
     <router-link class="unstyled" :to="projectUrl">
       <div class="image animation-wrapper">
-        <img :src="getField('field_image', 'url')">
+        <img :src="getField('field_image', 'url')" :alt="getField('field_image', 'alt')">
       </div>
 
       <template v-if="index === 0">
