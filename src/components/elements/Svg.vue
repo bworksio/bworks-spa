@@ -28,8 +28,8 @@
       }
     },
     // Component lifecycle hooks
-    beforeCreate () {
-      Axios.get(this.$options.propsData.url, { baseURL: config.api.baseUrl })
+    mounted () {
+      Axios.get(this.url + '.remote', { baseURL: config.api.baseUrl })
         .then(result => {
           this.svg = result.data
         })
