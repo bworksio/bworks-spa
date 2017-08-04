@@ -1,7 +1,5 @@
 import Axios from 'axios'
-if (process.env.NODE_ENV !== 'production') {
-  require('axios-debug-log')
-}
+import {} from 'axios-debug-log'
 import ImagePreloader from 'image-preloader'
 import config from '@/config/app.json'
 
