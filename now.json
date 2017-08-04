@@ -5,6 +5,7 @@
     "www.b-works.io"
   ],
   "env": {
-    "NODE_ENV": "production"
+    "NODE_ENV": "production",
+    "DEBUG": "axios"
   }
 }

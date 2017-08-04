@@ -11,7 +11,7 @@
     "build:client": "NODE_ENV=production webpack --config build/webpack.client.config.js --progress --hide-modules",
     "build:server": "NODE_ENV=production webpack --config build/webpack.server.config.js --progress --hide-modules",
     "now-start": "node server",
-    "now-build": "false",
+    "now-build": "",
     "lint": "eslint --ext .js,.vue src"
   },
   "engines": {
@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "axios-debug-log": "^0.3.0",
     "compression": "^1.7.0",
     "cross-env": "^5.0.1",
     "es6-promise": "^4.1.0",
@@ -47,7 +48,6 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.7.7",
-    "axios-debug-log": "^0.3.0",
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^7.1.1",
