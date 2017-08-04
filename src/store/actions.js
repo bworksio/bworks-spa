@@ -1,21 +1,20 @@
 import Axios from 'axios'
+if (process.env.NODE_ENV !== 'production') {
+  require('axios-debug-log')
+}
 import ImagePreloader from 'image-preloader'
 import config from '@/config/app.json'
 
 // Create and configure instance.
-const options = { baseURL: config.api.baseUrl }
-if (process.env.NODE_ENV !== 'production') {
-  options.params = { t: Math.floor((new Date()).getTime() / (10 * 1000)).toString() }
-}
-const axios = Axios.create(options)
-
-let preloadImages = []
+const axios = Axios.create({ baseURL: config.api.baseUrl })
 
 export default {
   /**
    * Query all data (queues, nodes, tags) for all languages.
    */
   getData ({ state, getters, commit }) {
+    let preloadImages = []
+
     /**
      * Query a list of queues.
      * @returns {AxiosPromise}
