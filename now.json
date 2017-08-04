@@ -1,0 +1,10 @@
+{
+  "name": "bworks",
+  "alias": [
+    "b-works.io",
+    "www.b-works.io"
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
+}
