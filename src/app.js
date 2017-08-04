@@ -1,6 +1,8 @@
 //import 'es6-promise/auto'
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
+import Raven from 'raven-js'
+import RavenVue from 'raven-js/plugins/vue'
 import VueAnalytics from 'vue-analytics'
 import App from '@/App.vue'
 import metaMixin from '@/components/mixins/meta'
@@ -10,6 +12,10 @@ import { sync } from 'vuex-router-sync'
 import messages from '@/translations'
 
 Vue.config.productionTip = false
+
+Raven.config('https://c797f4afa8e347a1a886a7d994aa1372@sentry.io/199080')
+  .addPlugin(RavenVue, Vue)
+  .install()
 
 // mixin for handling title and meta description
 Vue.mixin(metaMixin)

@@ -34,6 +34,7 @@
     "locutus": "^2.0.8",
     "lru-cache": "^4.1.1",
     "pm2": "^2.6.1",
+    "raven-js": "^3.17.0",
     "scrollmagic": "^2.0.5",
     "serve-favicon": "^2.4.3",
     "sitemap": "^1.12.0",
