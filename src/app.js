@@ -13,9 +13,11 @@ import messages from '@/translations'
 
 Vue.config.productionTip = false
 
-Raven.config('https://c797f4afa8e347a1a886a7d994aa1372@sentry.io/199080')
+if (typeof window !== 'undefined') {
+  Raven.config('https://c797f4afa8e347a1a886a7d994aa1372@sentry.io/199080')
   .addPlugin(RavenVue, Vue)
   .install()
+}
 
 // mixin for handling title and meta description
 Vue.mixin(metaMixin)
