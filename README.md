@@ -27,7 +27,7 @@ npm run build --report
      "defaultLanguage": "en",
      "activeLanguages": ["de", "en"],
      "api": {
-       "baseUrl": "//backend.b-works.io/"
+       "baseUrl": "https://backend.b-works.io/"
      },
      "social": {
        "facebook": "https://www.facebook.com/Bworks.io",
@@ -39,3 +39,11 @@ npm run build --report
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## Deployment
+
+```
+now
+now alias set [deploymentId] b-works.io
+now alias set [deploymentId] www.b-works.io
+```
