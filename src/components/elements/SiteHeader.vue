@@ -119,7 +119,7 @@
             background-color: $body-color;
           }
 
-          @include media-breakpoint-down(sm) {
+          @include media-breakpoint-down(md) {
             &:after {
               display: none;
             }
