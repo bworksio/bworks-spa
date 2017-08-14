@@ -111,6 +111,7 @@
       .animated {
         display: inline;
         transform: translateX(0) !important;
+        opacity: 1;
       }
 
       svg {
