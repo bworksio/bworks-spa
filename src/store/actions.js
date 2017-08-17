@@ -1,5 +1,5 @@
 import Axios from 'axios'
-import {} from 'axios-debug-log'
+import 'axios-debug-log'
 import ImagePreloader from 'image-preloader'
 import config from '@/config/app.json'
 
