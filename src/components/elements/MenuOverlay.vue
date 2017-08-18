@@ -175,10 +175,16 @@
 
     .line {
       height: 1px;
-      margin-top: .5rem;
+      margin-top: 1px;
+      margin-bottom: 1px;
       background-color: $white;
       transform: translateX(-101%);
       transition: transform .2s cubic-bezier(unquote($menu));
+
+      @media (min-width: 768px) {
+        margin-top: .875vh;
+        margin-bottom: .875vh;
+      }
     }
 
     ul {
