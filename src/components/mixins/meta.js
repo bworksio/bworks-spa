@@ -20,14 +20,23 @@ const serverMetaMixin = {
   }
 }
 
+function getClientMeta (vm) {
+  const { title, description } = getMeta(vm)
+  if (title) {
+    document.title = title
+  }
+  if (description) {
+    document.querySelector('meta[name="description"]').setAttribute('content', description)
+  }
+}
+
 const clientMetaMixin = {
   mounted () {
-    const { title, description } = getMeta(this)
-    if (title) {
-      document.title = title
-    }
-    if (description) {
-      document.querySelector('meta[name="description"]').setAttribute('content', description)
+    getClientMeta(this)
+  },
+  watch: {
+    '$route' (to, from) {
+      getClientMeta(this)
     }
   }
 }

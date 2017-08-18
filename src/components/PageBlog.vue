@@ -72,9 +72,19 @@
       }
     },
 
+    meta () {
+      this.node = this.$store.getters.getNodeByPath(this.$route.path, this.lang)
+      const meta = this.getField('field_meta_tags', 'value', 0, false)
+      if (meta) {
+        return unserialize(meta)
+      } else {
+        return { title: this.getField('title') }
+      }
+    },
+
     methods: {
       /**
-       * Fetches the list of nodes in the current queue to display.
+       * Fetches the node to display.
        */
       fetchData () {
         return this.$store.dispatch('getData', this.lang).then(() => {
@@ -157,15 +167,6 @@
       getTag () {
         const id = this.getField('field_tags', 'target_id', 0, false)
         return id ? this.$store.getters.getTag(id, this.lang) : this.$t('message.blog')
-      }
-    },
-
-    meta () {
-      let meta = this.getField('field_meta_tags', 'value', 0, false)
-      if (meta) {
-        return unserialize(meta)
-      } else {
-        return { title: this.getField('title') }
       }
     },
 

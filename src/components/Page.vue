@@ -1,7 +1,7 @@
 <template>
-  <div v-if="nodes" id="page" :class="'page-' + name + ' lang-' + lang" :key="lang +'/'+ name">
+  <div v-if="queue" id="page" :class="'page-' + name + ' lang-' + lang" :key="lang +'/'+ name">
     <component
-      v-for="node in nodes"
+      v-for="node in queue.nodes"
       :is="componentType(node.type)"
       :nid="parseInt(node.nid)"
       :lang="lang"
@@ -48,8 +48,7 @@
 
     data () {
       return {
-        // The list of section nodes to be displayed.
-        nodes: []
+        queue: null
       }
     },
 
@@ -78,6 +77,14 @@
       }
     },
 
+    meta () {
+      const queue = this.$store.getters.getQueue(this.name)
+      return {
+        title: queue.meta.title || '',
+        description: queue.meta.description || ''
+      }
+    },
+
     methods: {
       /**
        * Fetches the list of nodes in the current queue to display.
@@ -85,8 +92,7 @@
       fetchData () {
         return this.$store.dispatch('getData', this.lang).then(() => {
           // Get section nodes from active queue in store
-          const queue = this.$store.getters.getQueue(this.name)
-          this.nodes = queue.nodes
+          this.queue = this.$store.getters.getQueue(this.name)
         }).catch(() => {
           /* Error handled upstream */
         })
@@ -97,14 +103,6 @@
         // we need to separate components. Moves all jQuery code out of
         // vendor chunk.
         return type === 'bworks_project_block' ? type + '_' + this.viewMode : type
-      }
-    },
-
-    meta () {
-      const queue = this.$store.getters.getQueue(this.name)
-      return {
-        title: queue.meta.title || '',
-        description: queue.meta.description || ''
       }
     },
 
