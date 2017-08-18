@@ -153,7 +153,7 @@
 
         svg {
           width: 15vw;
-          height: auto;
+          height: 100%;
         }
 
         h3 {
@@ -168,7 +168,7 @@
 
         svg {
           width: 15vw;
-          height: auto;
+          height: 100%;
         }
       }
     }
@@ -182,13 +182,13 @@
 
       .icon {
         flex: 1 30%;
-        width: 8.33333%;
+        width: 8.33333vw;
         padding-right: 8.33333%;
       }
 
       svg {
-        width: 100%;
-        height: auto;
+        width: 8.33333vw;
+        height: 8.33333vw;
       }
 
       .text {
