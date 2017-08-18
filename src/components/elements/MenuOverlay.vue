@@ -104,18 +104,34 @@
     width: 100%;
     height: 100%;
     background-color: transparentize($brand-primary, .1);
-    padding-top: 75px;
+    padding-top: calc(75px + 2rem + 1vw);
     z-index: 989;
   }
 
   .menu-wrapper {
     display: flex;
 
-    @include media-breakpoint-down(md) {
+    @media (max-height: 414px) {
+      .menu-main {
+        width: 83.33333% !important;
+
+        ul {
+          flex-wrap: wrap;
+          max-height: calc(100vh - (75px + 2rem + 1vw) - 4rem);
+        }
+      }
+
+      .menu-contact,
+      .menu-language-switcher,
+      .menu-social-links {
+        display: none !important;
+      }
+    }
+
+    @media (max-width: 667px) {
       flex-direction: column;
       align-items: center;
       align-content: space-between;
-      height: calc(100vh - 10vh - 10rem);
 
       .menu-main,
       .menu-contact,
@@ -123,21 +139,12 @@
         width: 83.33333%;
       }
 
-      .menu-main {
-        flex-basis: 50%;
-      }
-      .menu-contact {
-        flex-basis: 30%;
-      }
       .menu-social-links {
         display: none;
       }
-      .menu-language-switcher {
-        flex-basis: 20%;
-      }
     }
 
-    @include media-breakpoint-up(lg) {
+    @media (min-width: 668px) {
       flex-wrap: wrap;
 
       .menu-main,
@@ -147,11 +154,11 @@
       }
       .menu-social-links {
         width: 75%;
-        margin-top: 4rem;
+        margin-top: 5.185vh;
       }
       .menu-language-switcher {
         width: 25%;
-        margin-top: 4rem;
+        margin-top: 5.185vh;
       }
     }
   }
@@ -160,8 +167,11 @@
     font-size: 1rem;
     line-height: 2.14285;
     letter-spacing: .06642em;
-    margin-top: 1rem;
-    margin-bottom: .78571rem;
+    margin-bottom: calc(1rem + 1.4815vh);
+
+    a {
+      display: block;
+    }
 
     .line {
       height: 1px;
@@ -171,8 +181,13 @@
       transition: transform .2s cubic-bezier(unquote($menu));
     }
 
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
     li {
-      margin-bottom: .71428rem;
       overflow: hidden;
 
       &:focus,
@@ -187,28 +202,32 @@
       transform: translateX(0);
     }
 
-    @media (max-width: 345px) {
+    @include media-breakpoint-down(sm) {
       line-height: 1.64285;
 
       .line {
-        margin-top: 2px;
+        margin-top: .33333vh;
       }
 
       li {
-        margin-bottom: 3px;
+        margin-bottom: .5vh;
       }
     }
 
-    @include media-breakpoint-up(md) {
-      font-size: 2.14285rem;
+    @media (min-width: 360px) {
+      font-size: calc(1rem + .7vh);
       line-height: 1.5;
       letter-spacing: .06667em;
+    }
+
+    @media (min-width: 414px) {
+      font-size: calc(1rem + 1.4815vh);
     }
   }
 
   // Override AppContact component colors
   .menu-contact {
-    margin-bottom: 1rem;
+    margin-bottom: calc(1rem + 1.4815vh);
 
     .contact h2 {
       color: $white;
