@@ -50,8 +50,9 @@
     padding: calc(2rem + 1vw) 0 0;
     background-color: $white;
     z-index: 990;
+    transform: translateY(-1.25rem);
     transition: .2s;
-    transition-property: background-color;
+    transition-property: transform, background-color;
 
     a {
       color: $white;
@@ -70,9 +71,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      transform: translateY(-1.25rem);
-      transition: .2s;
-      transition-property: transform;
 
       > div {
         flex: 0 0 33.3333%;
@@ -138,10 +136,9 @@
     html.fp-enabled & {
       background-color: transparent;
       background-image: linear-gradient(to bottom, transparentize(#222, .66), transparentize(#222, 1));
+      transform: translateY(0);
 
       .header-wrapper {
-        transform: translateY(0);
-
         div.logo {
           a {
             @media (min-width: 346px) {
