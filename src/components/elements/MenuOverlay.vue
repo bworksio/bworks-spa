@@ -101,8 +101,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-color: transparentize($brand-primary, .1);
     padding-top: calc(75px + 2rem + 1vw);
     z-index: 989;
