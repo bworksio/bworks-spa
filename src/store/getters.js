@@ -2,11 +2,28 @@ import config from '@/config/app.json'
 
 export default {
   /**
-   * Returns a list of node for a given queue.
+   * Returns a queue for a given queue name.
    * @param {string} queue
-   * @returns {Array}
+   * @returns {Object}
    */
   getQueue: state => queue => state.queues[queue],
+
+  /**
+   * Returns a queue for a given path.
+   * @param {string} path
+   * @param {string} lang
+   * @returns {Object}
+   */
+  getQueueByPath: (state, getters) => (path, lang) => {
+    let found
+    path = (lang !== 'de' ? '/' + lang : '') + '/' + path
+    Object.values(state.queues).forEach(queue => {
+      if (queue.path[lang] === path) {
+        found = queue
+      }
+    })
+    return found
+  },
 
   /**
    * Returns all nodes from store for a given language.

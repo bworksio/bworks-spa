@@ -41,7 +41,16 @@ routes.push({
   component: PageSubscriptionConfirmation,
   props: { lang: 'en' }
 }, {
-  path: '*',
+  path: '/en/:path',
+  component: Page,
+  props: { name: 'custom', lang: 'en' },
+}, {
+  path: '/:path',
+  component: Page,
+  props: { name: 'custom', lang: 'de' },
+}, {
+  name: 'not_found',
+  path: '/404',
   component: PageNotFound
 })
 

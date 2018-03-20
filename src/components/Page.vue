@@ -43,6 +43,10 @@
       lang: {
         type: String,
         required: true
+      },
+      // In case of a custom page, the path without lang prefix
+      path: {
+        type: String
       }
     },
 
@@ -78,18 +82,23 @@
     },
 
     meta () {
-      const queue = this.$store.getters.getQueue(this.name)
-      if (!queue.meta[this.$i18n.locale]) {
+      let queue
+      if (this.name !== 'custom') {
+        queue = this.$store.getters.getQueue(this.name)
+      }
+      else {
+        queue = this.$store.getters.getQueueByPath(this.$route.params.path, this.lang)
+      }
+      if (queue && queue.meta[this.$i18n.locale]) {
         return {
-          title: '',
-          description: ''
+          title: queue.meta[this.$i18n.locale].title || '',
+          description: queue.meta[this.$i18n.locale].description || ''
         }
       }
       return {
-        title: queue.meta[this.$i18n.locale].title || '',
-        description: queue.meta[this.$i18n.locale].description || ''
+        title: '',
+        description: ''
       }
-      return meta
     },
 
     methods: {
@@ -98,8 +107,16 @@
        */
       fetchData () {
         return this.$store.dispatch('getData', this.lang).then(() => {
-          // Get section nodes from active queue in store
-          this.queue = this.$store.getters.getQueue(this.name)
+          if (this.name !== 'custom') {
+            // Get section nodes from active queue in store
+            this.queue = this.$store.getters.getQueue(this.name)
+          }
+          else {
+            this.queue = this.$store.getters.getQueueByPath(this.$route.params.path, this.lang)
+          }
+          if (!this.queue) {
+            this.$router.push({ name: 'not_found' })
+          }
         }).catch(() => {
           /* Error handled upstream */
         })
