@@ -79,10 +79,17 @@
 
     meta () {
       const queue = this.$store.getters.getQueue(this.name)
-      return {
-        title: queue.meta.title || '',
-        description: queue.meta.description || ''
+      if (!queue.meta[this.$i18n.locale]) {
+        return {
+          title: '',
+          description: ''
+        }
       }
+      return {
+        title: queue.meta[this.$i18n.locale].title || '',
+        description: queue.meta[this.$i18n.locale].description || ''
+      }
+      return meta
     },
 
     methods: {
