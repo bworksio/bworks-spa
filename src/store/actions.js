@@ -19,7 +19,7 @@ export default {
      */
     const getQueues = function () {
       if (!Object.keys(state.queues).length) {
-        return axios.get('spa_api/contents_map')
+        return axios.get('spa_api/contents_map?_format=json')
         .then(result => {
           commit('setQueues', result.data)
         })
@@ -34,7 +34,7 @@ export default {
      */
     const getNodes = function (lang) {
       if (!Object.keys(getters.getNodes(lang)).length) {
-        return axios.get(lang + '/spa_api/contents')
+        return axios.get(lang + '/spa_api/contents?_format=json')
         .then(result => {
           // Collect header images for preloading
           /*
