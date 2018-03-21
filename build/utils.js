@@ -62,3 +62,8 @@ exports.styleLoaders = function (options) {
   }
   return output
 }
+
+// Clean a router url for the sitemap
+exports.cleanUrl = function (url) {
+  return url.replace(/:\w+\??/, '').replace(/\/$/, '')
+}

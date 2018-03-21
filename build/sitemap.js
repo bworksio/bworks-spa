@@ -10,6 +10,10 @@
  */
 
 var sm = require('sitemap')
+var request = require('request')
+var utils = require('./utils')
+var appConfig = require('../src/config/app.json')
+var routesConfig = require('../src/config/routes.js')
 
 /**
  * Module exports.
@@ -22,25 +26,22 @@ var sm = require('sitemap')
  * @param res
  */
 module.exports = (req, res) => {
-  var routesConfig = require('../src/config/routes.js')
-  var appConfig = require('../src/config/app.json')
   var urls = []
-  var lang = 'en'
 
   Object.keys(routesConfig).forEach(name => {
     var languages = routesConfig[name]
 
     if (!('show' in languages) || !!languages.show) {
-      var links = []
 
       // First pass: collect language variations
+      var links = []
       Object.keys(languages).forEach(lang => {
         var item = languages[lang]
         if (appConfig.activeLanguages.indexOf(lang) !== -1) {
           // Add language variation
           links.push({
             lang: lang,
-            url: appConfig.baseUrl + item.path.substr(1)
+            url: utils.cleanUrl(appConfig.baseUrl + item.path.substr(1))
           })
         }
       })
@@ -50,9 +51,7 @@ module.exports = (req, res) => {
         var item = languages[lang]
         if (appConfig.activeLanguages.indexOf(lang) !== -1) {
           urls.push({
-            url: appConfig.baseUrl + item.path.substr(1),
-            //changefreq: 'weekly',
-            //priority: 0.5,
+            url: utils.cleanUrl(appConfig.baseUrl + item.path.substr(1)),
             links: links
           })
         }
@@ -60,9 +59,8 @@ module.exports = (req, res) => {
     }
   })
 
-  // Synchonous getNodes() to add dynamic routes
-  var request = require('request')
-  var uri = appConfig.api.baseUrl + lang + '/spa_api/contents'
+  // Synchonous getNodes() to add custom blog article routes (only english)
+  var uri = appConfig.api.baseUrl + 'en/spa_api/contents?_format=json'
 
   request({ uri: uri }, function (rErr, rRes, body) {
     if (rErr) {
@@ -74,7 +72,6 @@ module.exports = (req, res) => {
     Object.values(nodes).forEach(node => {
       if (node.type[0].target_id === 'bworks_article') {
         if (node.hasOwnProperty('path') && node.path.length) {
-          // Add to sitemap (without language variations)
           urls.push({
             url: appConfig.baseUrl + node.path[0].alias.substr(1)
           })
@@ -82,19 +79,53 @@ module.exports = (req, res) => {
       }
     })
 
-    // Generate and send sitemap
-    var sitemap = sm.createSitemap({
-      hostname: appConfig.baseUrl.substr(0, -1),
-      cacheTime: 10 * 60 * 1000,  // 10 min cache purge period
-      urls: urls
-    });
+    // Synchonous getData() to add custom routes
+    var uri = appConfig.api.baseUrl + 'spa_api/contents_map?_format=json'
 
-    sitemap.toXML((err, xml) => {
-      if (err) {
+    request({uri: uri}, function (rErr, rRes, body) {
+      if (rErr) {
         return res.status(500).end();
       }
-      res.header('Content-Type', 'application/xml');
-      res.send(xml);
-    });
+      var queue = JSON.parse(body)
+
+      Object.keys(queue).forEach(name => {
+        // Skip if this is a known route.
+        if (routesConfig[name]) return;
+
+        // First pass: collect language variations
+        var links = []
+        appConfig.activeLanguages.forEach(lang => {
+          if (queue[name].path[lang]) {
+            links.push({
+              lang: lang,
+              url: appConfig.baseUrl + queue[name].path[lang].substr(1)
+            })
+          }
+        })
+
+        // Second pass: add urls together with language variations to sitemap
+        links.forEach(link => {
+          urls.push({
+            url: link.url,
+            links: links
+          })
+        })
+      })
+
+      // Generate and send sitemap
+      var sitemap = sm.createSitemap({
+        hostname: appConfig.baseUrl.substr(0, -1),
+        cacheTime: 10 * 60 * 1000,  // 10 min cache purge period
+        urls: urls
+      });
+
+      sitemap.toXML((err, xml) => {
+        if (err) {
+          return res.status(500).end();
+        }
+        res.header('Content-Type', 'application/xml');
+        res.send(xml);
+      });
+    })
   })
 }
