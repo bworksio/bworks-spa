@@ -44,6 +44,5 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 ```
 now
-now alias set [deploymentId] b-works.io
-now alias set [deploymentId] www.b-works.io
+now alias
 ```
