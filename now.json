@@ -3,7 +3,5 @@
   "alias": [
     "www.b-works.io"
   ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  "env": {}
 }

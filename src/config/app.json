@@ -1,0 +1,16 @@
+{
+  "baseUrl": "https://www.b-works.io/",
+  "defaultLanguage": "en",
+  "activeLanguages": ["de", "en"],
+  "api": {
+    "baseUrl": "https://backend.b-works.io/"
+  },
+  "siteEmail": "alex.beninca@b-works.io",
+  "googleApiKey": "AIzaSyCg0cUaKJQL-kkKIW3vW4nBug-kNsq1cm0",
+  "social": {
+    "facebook": "https://www.facebook.com/Bworks.io",
+    "twitter": "https://twitter.com/_B_works",
+    "instagram": "https://www.instagram.com/bworks.io",
+    "linkedin": "https://www.linkedin.com/company/b-works"
+  }
+}
