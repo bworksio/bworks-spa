@@ -85,7 +85,7 @@ export default {
     // Remove trailing slash
     path = path.replace(/\/+$/, '')
     Object.values(getters.getNodes(lang)).forEach(node => {
-      if (node.path.length && (path === node.path[0].alias)) {
+      if (('path' in node) && node.path.length && (path === node.path[0].alias)) {
         found = node
       }
     })

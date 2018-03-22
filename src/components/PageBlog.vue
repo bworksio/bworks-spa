@@ -24,7 +24,6 @@
 <script type="text/javascript">
   import config from '@/config/app.json'
   import ShareLinks from '@/components/elements/ShareLinks'
-  import unserialize from 'locutus/php/var/unserialize'
   /* eslint-disable camelcase */
   import bworks_other_articles_block from '@/components/sections/bworks_other_articles_block'
   import bworks_footer from '@/components/sections/bworks_footer'
@@ -74,9 +73,8 @@
 
     meta () {
       this.node = this.$store.getters.getNodeByPath(this.$route.path, this.lang)
-      const meta = this.getField('field_meta_tags', 'value', 0, false)
-      if (meta) {
-        return unserialize(meta)
+      if ('metatag' in this.node && this.node.metatag.value) {
+        return this.node.metatag.value
       } else {
         return { title: this.getField('title') }
       }

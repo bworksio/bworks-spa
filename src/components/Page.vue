@@ -83,18 +83,22 @@
 
     meta () {
       let queue
+
+      // Fetch queue by route name.
       if (this.name !== 'custom') {
         queue = this.$store.getters.getQueue(this.name)
       }
       else {
         queue = this.$store.getters.getQueueByPath(this.$route.params.path, this.lang)
       }
+
       if (queue && queue.meta[this.$i18n.locale]) {
         return {
           title: queue.meta[this.$i18n.locale].title || '',
           description: queue.meta[this.$i18n.locale].description || ''
         }
       }
+
       return {
         title: '',
         description: ''
