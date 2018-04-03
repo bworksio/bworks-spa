@@ -14,6 +14,15 @@
     "now-build": "",
     "lint": "eslint --ext .js,.vue src"
   },
+  "browserslist": [
+    "> 0.5% in DE",
+    "> 0.5% in CH",
+    "last 2 versions",
+    "Firefox ESR",
+    "iOS >= 9",
+    "Safari >= 9",
+    "Android >= 4.4"
+  ],
   "engines": {
     "node": ">=7.0",
     "npm": ">=4.0"
