@@ -9,13 +9,14 @@ VueJS single page application https://www.b-works.io
 yarn  # or npm install
 
 # serve with hot reload at localhost:8080
-npm run dev
+yarn dev
 
-# build for production with minification
-npm run build
+# build and start for production with minification
+yarn build
+yarn start
 
 # build for production and view the bundle analyzer report
-npm run build --report
+yarn build --report
 ```
 
 ## Configuration
