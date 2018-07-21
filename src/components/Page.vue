@@ -50,13 +50,14 @@
       }
     },
 
-    data () {
-      return {
-        queue: null
-      }
-    },
-
     computed: {
+      queue () {
+        return this.name !== 'custom'
+          // Get section nodes from active queue in store
+          ? this.$store.getters.getQueue(this.name)
+          : this.$store.getters.getQueueByPath(this.$route.params.path, this.lang)
+      },
+
       /** @var {String} The view mode for contents to display, 'teaser' on home page, 'full' otherwise */
       viewMode () {
         return this.$route.meta.name === 'home' ? 'teaser' : 'full'
@@ -70,14 +71,9 @@
       return app.$store.dispatch('getData', lang)
     },
 
-    created () {
-      // Update nodes to display for the current queue name.
-      this.fetchData()
-    },
-
     watch: {
       '$route' (to, from) {
-        this.fetchData()
+        this.updateData()
       }
     },
 
@@ -107,22 +103,13 @@
 
     methods: {
       /**
-       * Fetches the list of nodes in the current queue to display.
+       * Updates the list of nodes after route change.
        */
-      fetchData () {
+      updateData () {
         return this.$store.dispatch('getData', this.lang).then(() => {
-          if (this.name !== 'custom') {
-            // Get section nodes from active queue in store
-            this.queue = this.$store.getters.getQueue(this.name)
-          }
-          else {
-            this.queue = this.$store.getters.getQueueByPath(this.$route.params.path, this.lang)
-          }
           if (!this.queue) {
             this.$router.push({ name: 'not_found' })
           }
-        }).catch(() => {
-          /* Error handled upstream */
         })
       },
 
