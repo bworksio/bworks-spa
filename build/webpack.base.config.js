@@ -57,53 +57,11 @@ module.exports = {
         }
       },
       {
-        test: /\.css?$/,
+        test: /\.s?css$/,
         use: isProd
           ? ExtractTextPlugin.extract({
             use: [
-              {
-                loader: 'css-loader',
-                options: { minimize: true }
-              },
-              {
-                loader: 'postcss-loader',
-                options: {
-                  ident: 'postcss',
-                  plugins: (loader) => [
-                    require('autoprefixer')(),
-                    require('cssnano')()
-                  ]
-                }
-              }
-            ],
-            fallback: 'vue-style-loader'
-          })
-          : [
-            'vue-style-loader',
-            {
-              loader: 'css-loader',
-              options: { sourceMap: true }
-            },
-            {
-              loader: 'postcss-loader',
-              options: {
-                ident: 'postcss',
-                plugins: (loader) => [
-                  require('autoprefixer')()
-                ]
-              }
-            }
-          ]
-      },
-      {
-        test: /\.scss?$/,
-        use: isProd
-          ? ExtractTextPlugin.extract({
-            use: [
-              {
-                loader: 'css-loader',
-                options: { minimize: true }
-              },
+              'css-loader',
               {
                 loader: 'postcss-loader',
                 options: {
@@ -137,7 +95,8 @@ module.exports = {
                 ident: 'postcss',
                 plugins: (loader) => [
                   require('autoprefixer')()
-                ]
+                ],
+                sourceMap: true
               }
             },
             {
