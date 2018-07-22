@@ -15,8 +15,7 @@
   import Node from '@/components/nodes/Node'
   import bworks_project_full from '@/components/nodes/bworks_project_full'
   import jQuery from 'jquery'
-  import 'fullpage.js'
-  import 'fullpage.js/dist/jquery.fullpage.css'
+  import 'fullpage.js/dist/fullpage.css'
 
   export default {
     name: 'bworks_project_block_full',
@@ -27,6 +26,8 @@
     },
 
     mounted () {
+      require('script-loader!fullpage.js')
+
       // Unwrap the project child components, i.e. remove this component's
       // wrapping div, so projects are on the same level as the other
       // fullpage sections

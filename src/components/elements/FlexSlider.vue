@@ -10,7 +10,6 @@
 
 <script type="text/javascript">
   import jQuery from 'jquery'
-  import 'flexslider'
   import 'flexslider/flexslider.css'
 
   export default {
@@ -33,6 +32,8 @@
     },
 
     mounted () {
+      require('script-loader!flexslider')
+
       jQuery(this.$el).flexslider({
         slideshowSpeed: 6000,
         initDelay: 500,
