@@ -14,6 +14,7 @@
   /* eslint-disable camelcase */
   import Node from '@/components/nodes/Node'
   import bworks_project_full from '@/components/nodes/bworks_project_full'
+  import jQuery from 'jquery'
   import 'fullpage.js'
   import 'fullpage.js/dist/jquery.fullpage.css'
 
