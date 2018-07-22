@@ -25,7 +25,6 @@
     "babel-runtime": "^6.26.0",
     "compression": "^1.7.1",
     "cross-env": "^5.1.1",
-    "es6-promise": "^4.1.1",
     "express": "^4.16.2",
     "flexslider": "^2.6.3",
     "fullpage.js": "^2.9.4",
