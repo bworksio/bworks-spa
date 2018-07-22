@@ -2,7 +2,6 @@
 
 var sm = require('sitemap')
 var request = require('request')
-var utils = require('./utils')
 var appConfig = require('../src/config/app.json')
 var routesConfig = require('../src/config/routes.js')
 
