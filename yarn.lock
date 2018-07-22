@@ -786,7 +786,7 @@ babel-plugin-transform-regenerator@^6.22.0:
   dependencies:
     regenerator-transform "^0.10.0"
 
-babel-plugin-transform-runtime@^6.15.0, babel-plugin-transform-runtime@^6.23.0:
+babel-plugin-transform-runtime@^6.23.0:
   version "6.23.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-runtime/-/babel-plugin-transform-runtime-6.23.0.tgz#88490d446502ea9b8e7efb0fe09ec4d99479b1ee"
   dependencies:
@@ -3359,6 +3359,10 @@ latest-version@^3.0.0:
   resolved "https://registry.yarnpkg.com/latest-version/-/latest-version-3.1.0.tgz#a205383fea322b33b5ae3b18abee0dc2f356ee15"
   dependencies:
     package-json "^4.0.0"
+
+lazy-value@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/lazy-value/-/lazy-value-1.0.0.tgz#06e2088790b3c72f7b16c5427be2c83ea302ce38"
 
 lcid@^1.0.0:
   version "1.0.0"
@@ -5961,12 +5965,12 @@ vue-template-es2015-compiler@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
 
-vue2-google-maps@^0.7.5:
-  version "0.7.10"
-  resolved "https://registry.yarnpkg.com/vue2-google-maps/-/vue2-google-maps-0.7.10.tgz#4f746ccd87aaeb6f2bf72f81ffa1c8d7fdc754f2"
+vue2-google-maps@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/vue2-google-maps/-/vue2-google-maps-0.10.0.tgz#a46ad54ae5d4f1261014f7e6dc0e2221438ee565"
   dependencies:
-    babel-plugin-transform-runtime "^6.15.0"
     babel-runtime "^5.8.0"
+    lazy-value "^1.0.0"
     marker-clusterer-plus "^2.1.4"
 
 vue@^2.5.16:
