@@ -78,7 +78,7 @@
       vertical-align: bottom;
     }
 
-    #fp-nav.right {
+    #fp-nav.fp-right {
       right: 4.1617%;
 
       ul li {
