@@ -8,6 +8,7 @@
   "siteEmail": "alex.beninca@b-works.io",
   "googleApiKey": "AIzaSyCg0cUaKJQL-kkKIW3vW4nBug-kNsq1cm0",
   "googleAnalyticsId": "UA-97185138-1",
+  "ravenPublicDsn": "https://c797f4afa8e347a1a886a7d994aa1372@sentry.io/199080",
   "social": {
     "facebook": "https://www.facebook.com/Bworks.io",
     "twitter": "https://twitter.com/_B_works",
