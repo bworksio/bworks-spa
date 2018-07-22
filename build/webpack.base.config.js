@@ -1,12 +1,14 @@
 const path = require('path')
 const webpack = require('webpack')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+//const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 
 const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
+  mode: isProd ? 'production' : 'development',
   devtool: isProd
     ? false
     : '#cheap-module-source-map',
@@ -56,8 +58,9 @@ module.exports = {
           name: 'fonts/[name].[hash:7].[ext]'
         }
       },
+/*
       {
-        test: /\.css?$/,
+        test: /\.css$/,
         use: isProd
           ? ExtractTextPlugin.extract({
             use: [
@@ -95,36 +98,32 @@ module.exports = {
             }
           ]
       },
+*/
       {
-        test: /\.scss?$/,
+        test: /\.s?css$/,
         use: isProd
-          ? ExtractTextPlugin.extract({
-            use: [
-              {
-                loader: 'css-loader',
-                options: { minimize: true }
-              },
-              {
-                loader: 'postcss-loader',
-                options: {
-                  ident: 'postcss',
-                  plugins: (loader) => [
-                    require('autoprefixer')(),
-                    require('cssnano')({
-                      preset: 'default',
-                    })
-                  ]
-                }
-              },
-              {
-                loader: 'sass-loader',
-                options: {
-                  includePaths: [path.join(__dirname, '..', 'src')],
-                }
+          ? [
+            MiniCssExtractPlugin.loader,
+            'css-loader',
+            {
+              loader: 'postcss-loader',
+              options: {
+                ident: 'postcss',
+                plugins: (loader) => [
+                  require('autoprefixer')(),
+                  require('cssnano')({
+                    preset: 'default',
+                  })
+                ]
               }
-            ],
-            fallback: 'vue-style-loader'
-          })
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                includePaths: [path.join(__dirname, '..', 'src')],
+              }
+            }
+          ]
           : [
             'vue-style-loader',
             {
@@ -161,17 +160,30 @@ module.exports = {
   },
   plugins: isProd
     ? [
-        new VueLoaderPlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-          compress: { warnings: false }
-        }),
-        new webpack.optimize.ModuleConcatenationPlugin(),
-        new ExtractTextPlugin({
-          filename: 'common.[chunkhash].css'
-        })
-      ]
+      new VueLoaderPlugin(),
+/*
+      new webpack.optimize.UglifyJsPlugin({
+        compress: { warnings: false }
+      }),
+*/
+      new webpack.optimize.ModuleConcatenationPlugin(),
+/*
+      new ExtractTextPlugin({
+        filename: 'common.[chunkhash].css'
+      }),
+*/
+      new MiniCssExtractPlugin({
+        // Options similar to the same options in webpackOptions.output
+        // both options are optional
+        filename: isProd ? '[name].[hash].css' : '[name].css',
+        chunkFilename: isProd ? '[id].[hash].css' : '[id].css',
+      })
+    ]
     : [
-        new VueLoaderPlugin(),
-        new FriendlyErrorsPlugin()
-      ]
+      new VueLoaderPlugin(),
+      new FriendlyErrorsPlugin()
+    ],
+  stats: {
+    entrypoints: false
+  }
 }
