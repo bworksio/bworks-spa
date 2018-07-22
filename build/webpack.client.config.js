@@ -1,4 +1,3 @@
-const glob = require('glob')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const base = require('./webpack.base.config')
@@ -70,6 +69,5 @@ if (process.env.NODE_ENV === 'production') {
 }
 */
 
-//console.log(require('util').inspect(config.module.rules, {depth: 5}))
 
 module.exports = config

@@ -1,13 +1,4 @@
-/**
- * Generate sitemap.xml
- */
-
 'use strict';
-
-/**
- * Module dependencies.
- * @private
- */
 
 var sm = require('sitemap')
 var request = require('request')
@@ -15,16 +6,10 @@ var utils = require('./utils')
 var appConfig = require('../src/config/app.json')
 var routesConfig = require('../src/config/routes.js')
 
-/**
- * Module exports.
- * @public
- */
+var cleanUrl = function (url) {
+  return url.replace(/:\w+\??/, '').replace(/\/$/, '')
+}
 
-/**
- * Build sitemap from configuration.
- * @param req
- * @param res
- */
 module.exports = (req, res) => {
   var urls = []
 
@@ -41,7 +26,7 @@ module.exports = (req, res) => {
           // Add language variation
           links.push({
             lang: lang,
-            url: utils.cleanUrl(appConfig.baseUrl + item.path.substr(1))
+            url: cleanUrl(appConfig.baseUrl + item.path.substr(1))
           })
         }
       })
@@ -51,7 +36,7 @@ module.exports = (req, res) => {
         var item = languages[lang]
         if (appConfig.activeLanguages.indexOf(lang) !== -1) {
           urls.push({
-            url: utils.cleanUrl(appConfig.baseUrl + item.path.substr(1)),
+            url: cleanUrl(appConfig.baseUrl + item.path.substr(1)),
             links: links
           })
         }

@@ -1,9 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
-var utils = require('./utils')
-const vueConfig = require('./vue-loader.config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -17,7 +16,7 @@ module.exports = {
     filename: '[name].[chunkhash].js'
   },
   resolve: {
-    extensions: ['*', '.js', '.vue', '.json'],
+    extensions: ['.wasm', '.mjs', '.js', '.json', '.vue'],
     alias: {
       '@': path.resolve(__dirname, '../src'),
       'assets': path.resolve(__dirname, '../src/assets'),
@@ -27,19 +26,14 @@ module.exports = {
   module: {
     noParse: /es6-promise\.js$/, // avoid webpack shimming process
     rules: [
-      /*{
-        test: /\.(js|vue)$/,
-        loader: 'eslint-loader',
-        enforce: 'pre',
-        include: [resolve('src'), resolve('test')],
-        options: {
-          formatter: require('eslint-friendly-formatter')
-        }
-      },*/
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: vueConfig
+        options: {
+          compilerOptions: {
+            preserveWhitespace: false
+          }
+        }
       },
       {
         test: /\.js$/,
@@ -62,23 +56,104 @@ module.exports = {
           name: 'fonts/[name].[hash:7].[ext]'
         }
       },
-      /*{
-        test: /\.css$/,
+      {
+        test: /\.css?$/,
         use: isProd
           ? ExtractTextPlugin.extract({
-              use: 'css-loader?minimize',
-              fallback: 'vue-style-loader'
-            })
-          : ['vue-style-loader', 'css-loader']
-      },*/
+            use: [
+              {
+                loader: 'css-loader',
+                options: { minimize: true }
+              },
+              {
+                loader: 'postcss-loader',
+                options: {
+                  ident: 'postcss',
+                  plugins: (loader) => [
+                    require('autoprefixer')(),
+                    require('cssnano')()
+                  ]
+                }
+              }
+            ],
+            fallback: 'vue-style-loader'
+          })
+          : [
+            'vue-style-loader',
+            {
+              loader: 'css-loader',
+              options: { sourceMap: true }
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                ident: 'postcss',
+                plugins: (loader) => [
+                  require('autoprefixer')()
+                ]
+              }
+            }
+          ]
+      },
+      {
+        test: /\.scss?$/,
+        use: isProd
+          ? ExtractTextPlugin.extract({
+            use: [
+              {
+                loader: 'css-loader',
+                options: { minimize: true }
+              },
+              {
+                loader: 'postcss-loader',
+                options: {
+                  ident: 'postcss',
+                  plugins: (loader) => [
+                    require('autoprefixer')(),
+                    require('cssnano')({
+                      preset: 'default',
+                    })
+                  ]
+                }
+              },
+              {
+                loader: 'sass-loader',
+                options: {
+                  includePaths: [path.join(__dirname, '..', 'src')],
+                }
+              }
+            ],
+            fallback: 'vue-style-loader'
+          })
+          : [
+            'vue-style-loader',
+            {
+              loader: 'css-loader',
+              options: { sourceMap: true }
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                ident: 'postcss',
+                plugins: (loader) => [
+                  require('autoprefixer')()
+                ]
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                includePaths: [path.join(__dirname, '..', 'src')],
+                sourceMap: true
+              }
+            }
+          ]
+      },
       {
         test: require.resolve('jquery'),
         loader: 'expose-loader?$!expose-loader?jQuery'
       }
-    ].concat(utils.styleLoaders({
-      sourceMap: !isProd,
-      extract: isProd
-    }))
+    ]
   },
   performance: {
     maxEntrypointSize: 300000,
@@ -86,14 +161,17 @@ module.exports = {
   },
   plugins: isProd
     ? [
+        new VueLoaderPlugin(),
         new webpack.optimize.UglifyJsPlugin({
           compress: { warnings: false }
         }),
+        new webpack.optimize.ModuleConcatenationPlugin(),
         new ExtractTextPlugin({
           filename: 'common.[chunkhash].css'
         })
       ]
     : [
+        new VueLoaderPlugin(),
         new FriendlyErrorsPlugin()
       ]
 }

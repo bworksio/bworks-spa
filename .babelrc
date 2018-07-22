@@ -3,13 +3,11 @@
     ["env", {
       "targets": {
         "browsers": [
-          "> 0.5% in DE",
           "> 0.5% in CH",
+          "> 0.5% in DE",
+          "> 0.5% in IT",
           "last 2 versions",
-          "Firefox ESR",
-          "iOS >= 9",
-          "Safari >= 9",
-          "Android >= 4.4"
+          "Firefox ESR"
         ]
       },
       "modules": false
