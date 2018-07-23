@@ -7,7 +7,8 @@
 
 <script>
   import Vue from 'vue'
-  import * as GoogleMaps from 'vue2-google-maps'
+  // See https://github.com/xkjyeah/vue-google-maps/wiki/Developing---Building---Nuxt---ESLint-FAQ
+  import * as GoogleMaps from '@/../node_modules/vue2-google-maps/dist/main'
   import config from '@/config/app.json'
   import googleMapsStyles from '@/config/google-maps-styles'
 
