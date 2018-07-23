@@ -58,47 +58,6 @@ module.exports = {
           name: 'fonts/[name].[hash:7].[ext]'
         }
       },
-/*
-      {
-        test: /\.css$/,
-        use: isProd
-          ? ExtractTextPlugin.extract({
-            use: [
-              {
-                loader: 'css-loader',
-                options: { minimize: true }
-              },
-              {
-                loader: 'postcss-loader',
-                options: {
-                  ident: 'postcss',
-                  plugins: (loader) => [
-                    require('autoprefixer')(),
-                    require('cssnano')()
-                  ]
-                }
-              }
-            ],
-            fallback: 'vue-style-loader'
-          })
-          : [
-            'vue-style-loader',
-            {
-              loader: 'css-loader',
-              options: { sourceMap: true }
-            },
-            {
-              loader: 'postcss-loader',
-              options: {
-                ident: 'postcss',
-                plugins: (loader) => [
-                  require('autoprefixer')()
-                ]
-              }
-            }
-          ]
-      },
-*/
       {
         test: /\.s?css$/,
         use: isProd
