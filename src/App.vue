@@ -40,7 +40,7 @@
   }
 </script>
 
-<style lang="scss" rel="stylesheet/scss">
+<style lang="scss">
   // Global styles
   @import 'assets/scss/main';
 </style>
