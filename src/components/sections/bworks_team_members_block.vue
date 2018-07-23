@@ -17,7 +17,7 @@
   </div>
 </template>
 
-<script type="text/javascript">
+<script>
   import Node from '@/components/nodes/Node'
   /* eslint-disable camelcase */
   import bworks_team_member from '@/components/nodes/bworks_team_member'
@@ -61,7 +61,7 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss">
   @import 'assets/scss/mixins';
 
   .node-bworks_team_members_block {

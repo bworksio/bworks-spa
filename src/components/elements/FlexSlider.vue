@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<script type="text/javascript">
+<script>
   import jQuery from 'jquery'
   import 'flexslider/flexslider.css'
 

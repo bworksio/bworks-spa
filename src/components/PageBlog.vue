@@ -21,7 +21,7 @@
   </div>
 </template>
 
-<script type="text/javascript">
+<script>
   import config from '@/config/app.json'
   import ShareLinks from '@/components/elements/ShareLinks'
   /* eslint-disable camelcase */
@@ -176,7 +176,7 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss">
   @import 'assets/scss/mixins';
 
   .node-bworks_article {

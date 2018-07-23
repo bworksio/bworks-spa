@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script type="text/javascript">
+<script>
   import Node from '@/components/nodes/Node'
   import ScrollMagicMixin from '@/components/mixins/ScrollMagicMixin'
 
@@ -31,7 +31,7 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss">
   @import 'assets/scss/mixins';
 
   .node-bworks_html_block {

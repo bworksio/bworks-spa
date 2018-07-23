@@ -16,7 +16,7 @@
   </transition>
 </template>
 
-<script type="text/javascript">
+<script>
   export default {
     name: 'PreloadOverlay',
 
@@ -42,7 +42,7 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss">
   #preloading {
     position: fixed;
     top: 0;

@@ -8,7 +8,7 @@
   </nav>
 </template>
 
-<script type="text/javascript">
+<script>
   import config from '@/config/app.json'
   import routesConfig from '@/config/routes'
   const forEach = require('axios/lib/utils.js').forEach
@@ -47,7 +47,7 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss">
   @import 'assets/scss/mixins';
 
   .language-switcher {

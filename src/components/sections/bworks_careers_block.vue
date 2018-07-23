@@ -25,7 +25,7 @@
   </div>
 </template>
 
-<script type="text/javascript">
+<script>
   import Node from '@/components/nodes/Node'
   import ShareLinks from '@/components/elements/ShareLinks'
 
@@ -53,7 +53,7 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss">
   @import 'assets/scss/mixins';
 
   .job-wrapper {

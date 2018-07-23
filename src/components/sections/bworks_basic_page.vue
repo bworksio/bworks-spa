@@ -21,7 +21,7 @@
   </div>
 </template>
 
-<script type="text/javascript">
+<script>
   import Node from '@/components/nodes/Node'
   import LanguageSwitcher from '@/components/elements/LanguageSwitcher'
   import ScrollMagicMixin from '@/components/mixins/ScrollMagicMixin'
@@ -75,7 +75,7 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss">
   @import 'assets/scss/mixins';
 
   .node-bworks_basic_page {

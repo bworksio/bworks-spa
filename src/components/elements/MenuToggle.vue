@@ -2,7 +2,7 @@
   <a class="menu-toggle" @click.prevent="toggleMenu()" href="#">{{ $t($store.state.showMenu ? 'close' : 'menu') }}</a>
 </template>
 
-<script type="text/javascript">
+<script>
   export default {
     name: 'MenuToggle',
 
@@ -37,7 +37,7 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss">
   @import 'assets/scss/mixins';
 
   a.menu-toggle {

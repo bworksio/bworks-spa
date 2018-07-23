@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<script type="text/javascript">
+<script>
   import Node from '@/components/nodes/Node'
   /* eslint-disable camelcase */
   import bworks_press_mention from '@/components/nodes/bworks_press_mention'
@@ -44,7 +44,7 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss">
   @import 'assets/scss/mixins';
 
   .node-bworks_press_mentions_block {

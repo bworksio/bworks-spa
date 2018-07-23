@@ -5,7 +5,7 @@
   </gmap-map>
 </template>
 
-<script type="text/javascript">
+<script>
   import Vue from 'vue'
   import * as GoogleMaps from 'vue2-google-maps'
   import config from '@/config/app.json'
@@ -51,7 +51,7 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss">
   .vue-map-container {
     margin-top: 4rem;
     margin-bottom: 4rem;

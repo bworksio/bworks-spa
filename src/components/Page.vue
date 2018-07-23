@@ -10,7 +10,7 @@
   </div>
 </template>
 
-<script type="text/javascript">
+<script>
   /* eslint-disable camelcase */
   import bworks_basic_page from '@/components/sections/bworks_basic_page'
   import bworks_html_block from '@/components/sections/bworks_html_block'
@@ -142,6 +142,6 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss">
   @import 'assets/scss/mixins';
 </style>

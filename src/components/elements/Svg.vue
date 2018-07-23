@@ -2,7 +2,7 @@
   <div class="icon" v-html="svg"></div>
 </template>
 
-<script type="text/javascript">
+<script>
   import config from '@/config/app.json'
   import Axios from 'axios'
 
@@ -40,4 +40,4 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss"></style>
+<style lang="scss"></style>
