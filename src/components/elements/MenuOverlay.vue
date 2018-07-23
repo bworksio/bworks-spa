@@ -29,7 +29,7 @@
   </transition>
 </template>
 
-<script type="text/javascript">
+<script>
   import config from '@/config/app.json'
   import routesConfig from '@/config/routes'
   import GetInTouch from '@/components/elements/GetInTouch'
@@ -90,7 +90,7 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss">
   @import 'assets/scss/mixins';
 
   #main-menu {

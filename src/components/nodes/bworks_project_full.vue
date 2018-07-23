@@ -32,7 +32,7 @@
   </div>
 </template>
 
-<script type="text/javascript">
+<script>
   import Node from '@/components/nodes/Node'
   import FlexSlider from '@/components/elements/FlexSlider'
 
@@ -76,7 +76,7 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss">
   @import 'assets/scss/mixins';
 
   .node-bworks_project {

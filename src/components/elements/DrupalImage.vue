@@ -2,7 +2,7 @@
   <img :src="image.url" :width="image.width" :height="image.height" :alt="image.alt">
 </template>
 
-<script type="text/javascript">
+<script>
   /**
    * Renders a Drupal image field.
    */
@@ -18,4 +18,4 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss"></style>
+<style lang="scss"></style>

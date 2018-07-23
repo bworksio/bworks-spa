@@ -18,7 +18,7 @@
   </div>
 </template>
 
-<script type="text/javascript">
+<script>
   export default {
     name: 'GetInTouch',
 
@@ -53,7 +53,7 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss">
   @import 'assets/scss/mixins';
 
   .contact {

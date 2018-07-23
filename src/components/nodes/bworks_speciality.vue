@@ -35,7 +35,7 @@
   </div>
 </template>
 
-<script type="text/javascript">
+<script>
   import Node from '@/components/nodes/Node'
   import svg from '@/components/elements/Svg'
   import jump from 'jump.js'
@@ -95,7 +95,7 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss">
   @import 'assets/scss/mixins';
 
   .node-bworks_speciality {

@@ -10,7 +10,7 @@
   </div>
 </template>
 
-<script type="text/javascript">
+<script>
   import Node from '@/components/nodes/Node'
   /* eslint-disable camelcase */
   import bworks_article from '@/components/nodes/bworks_article'
@@ -33,6 +33,6 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss">
   @import 'assets/scss/mixins';
 </style>

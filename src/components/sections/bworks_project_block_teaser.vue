@@ -17,7 +17,7 @@
   </div>
 </template>
 
-<script type="text/javascript">
+<script>
   /* eslint-disable camelcase */
   import Node from '@/components/nodes/Node'
   import bworks_project_teaser from '@/components/nodes/bworks_project_teaser'
@@ -34,7 +34,7 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss">
   @import '../../assets/scss/mixins.scss';
 
   .node-bworks_project_block {

@@ -10,7 +10,7 @@
   </div>
 </template>
 
-<script type="text/javascript">
+<script>
   import Node from '@/components/nodes/Node'
   /* eslint-disable camelcase */
   import bworks_certificate from '@/components/nodes/bworks_certificate'
@@ -40,7 +40,7 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss">
   @import 'assets/scss/mixins';
 
   @include media-breakpoint-up(md) {

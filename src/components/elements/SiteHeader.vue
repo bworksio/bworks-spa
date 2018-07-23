@@ -17,7 +17,7 @@
   </header>
 </template>
 
-<script type="text/javascript">
+<script>
   import MenuToggle from '@/components/elements/MenuToggle'
   import MenuOverlay from '@/components/elements/MenuOverlay'
 
@@ -39,7 +39,7 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss">
   @import "assets/scss/mixins";
 
   #site-header {

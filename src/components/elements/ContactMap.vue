@@ -5,7 +5,7 @@
   </gmap-map>
 </template>
 
-<script type="text/javascript">
+<script>
   import Vue from 'vue'
   // See https://github.com/xkjyeah/vue-google-maps/wiki/Developing---Building---Nuxt---ESLint-FAQ
   import * as GoogleMaps from '@/../node_modules/vue2-google-maps/dist/main'
@@ -52,7 +52,7 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss">
   .vue-map-container {
     margin-top: 4rem;
     margin-bottom: 4rem;

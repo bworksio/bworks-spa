@@ -42,7 +42,7 @@
   </footer>
 </template>
 
-<script type="text/javascript">
+<script>
   import Node from '@/components/nodes/Node'
   import GetInTouch from '@/components/elements/GetInTouch'
   import SocialLinks from '@/components/elements/SocialLinks'
@@ -65,7 +65,7 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss">
   @import 'assets/scss/mixins';
 
   .node-bworks_footer {

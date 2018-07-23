@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<script type="text/javascript">
+<script>
   export default {
     name: 'NotFound',
     created () {
@@ -15,7 +15,7 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss">
   @import 'assets/scss/mixins';
 
   .page-not-found {

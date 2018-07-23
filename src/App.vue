@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script type="text/javascript">
+<script>
   import SiteHeader from '@/components/elements/SiteHeader'
 
   export default {

@@ -23,7 +23,7 @@
   </div>
 </template>
 
-<script type="text/javascript">
+<script>
   import Node from '@/components/nodes/Node'
   import ContactMap from '@/components/elements/ContactMap'
   import SocialLinks from '@/components/elements/SocialLinks'
@@ -62,7 +62,7 @@
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss">
   @import 'assets/scss/mixins';
 
   .node-bworks_contact_block {
