@@ -18,10 +18,10 @@
   import bworks_project_block_teaser from '@/components/sections/bworks_project_block_teaser'
   import bworks_speciality_block from '@/components/sections/bworks_speciality_block'
   import bworks_article from '@/components/nodes/bworks_article'
-  import bworks_blog_block from '@/components/sections/bworks_blog_block'
-  import bworks_careers_block from '@/components/sections/bworks_careers_block'
-  import bworks_team_members_block from '@/components/sections/bworks_team_members_block'
-  import bworks_certificate_block from '@/components/sections/bworks_certificate_block'
+  const bworks_blog_block = () => import(/* webpackChunkName: "blog" */'@/components/sections/bworks_blog_block')
+  const bworks_careers_block = () => import(/* webpackChunkName: "careers" */'@/components/sections/bworks_careers_block')
+  const bworks_team_members_block = () => import(/* webpackChunkName: "team" */'@/components/sections/bworks_team_members_block')
+  const bworks_certificate_block = () => import(/* webpackChunkName: "team" */'@/components/sections/bworks_certificate_block')
   import bworks_other_specialties_block from '@/components/sections/bworks_other_specialties_block'
   import bworks_clients_block from '@/components/sections/bworks_clients_block'
   import bworks_awards_block from '@/components/sections/bworks_awards_block'
