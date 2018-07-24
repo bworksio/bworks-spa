@@ -6,11 +6,11 @@ const forEach = require('axios/lib/utils.js').forEach
 
 Vue.use(Router)
 
-// route level code splitting
-import Page from '@/components/Page'
+// Route level code splitting
+const Page = () => import(/* webpackChunkName: "page" */'@/components/Page')
 const PageBlog = () => import(/* webpackChunkName: "page-blog" */'@/components/PageBlog')
-import PageSubscriptionConfirmation from '@/components/PageSubscriptionConfirmation'
-import PageNotFound from '@/components/PageNotFound'
+const PageSubscriptionConfirmation = () => import(/* webpackChunkName: "page-subscription-confirmation" */'@/components/PageSubscriptionConfirmation')
+const PageNotFound = () => import(/* webpackChunkName: "page-not-found" */'@/components/PageNotFound')
 
 // Build routes from configuration.
 let routes = []
