@@ -9,6 +9,9 @@ import { createStore } from '@/store'
 import { createRouter } from '@/router'
 import { sync } from 'vuex-router-sync'
 import messages from '@/translations'
+import config from '@/config/app.json'
+
+const isProd = process.env.NODE_ENV === 'production'
 
 Vue.config.productionTip = false
 
@@ -26,6 +29,14 @@ const i18n = new VueI18n({
   messages
 })
 
+// Google Analytics
+Vue.use(VueAnalytics, {
+  id: config.googleAnalyticsId,
+  debug: {
+    sendHitTask: isProd
+  }
+})
+
 // Expose a factory function that creates a fresh set of store, router,
 // app instances on each call (which is called for each SSR request)
 export function createApp () {
@@ -36,12 +47,6 @@ export function createApp () {
   // sync the router with the vuex store.
   // this registers `store.state.route`
   sync(store, router)
-
-  // Google Analytics
-  if (process.BROWSER_BUILD) {
-    const id = 'UA-97185138-1'
-    Vue.use(VueAnalytics, { id, router })
-  }
 
   /* eslint-disable no-new */
   // create the app instance.
