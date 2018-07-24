@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import Raven from 'raven-js'
+import RavenVue from 'raven-js/plugins/vue'
 import VueAnalytics from 'vue-analytics'
 import App from '@/App.vue'
 import metaMixin from '@/components/mixins/meta'
@@ -15,9 +16,8 @@ const isProd = process.env.NODE_ENV === 'production'
 Vue.config.productionTip = false
 
 if (isProd) {
-  Raven
-    .config(config.ravenPublicDsn)
-    .addPlugin(Raven.Plugins.Vue)
+  Raven.config(config.ravenPublicDsn)
+    .addPlugin(RavenVue, Vue)
     .install()
 }
 
