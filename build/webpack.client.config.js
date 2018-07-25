@@ -5,6 +5,8 @@ const SWPrecachePlugin = require('sw-precache-webpack-plugin')
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
+const isProd = process.env.NODE_ENV === 'production'
+
 const config = merge(base, {
   entry: {
     app: './src/entry-client.js'
@@ -15,6 +17,12 @@ const config = merge(base, {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
       'process.env.VUE_ENV': '"client"'
     }),
+    new VueSSRClientPlugin()
+  ]
+})
+
+if (!isProd) {
+  config.plugins.push(
     // extract vendor chunks for better caching
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
@@ -33,12 +41,11 @@ const config = merge(base, {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest'
     }),
-    new VueSSRClientPlugin()
-  ]
-})
+  );
+}
 
 /*
-if (process.env.NODE_ENV === 'production') {
+if (isProd) {
   config.plugins.push(
     // auto generate service worker
     new SWPrecachePlugin({
@@ -70,7 +77,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 */
 
-if (process.env.NODE_ENV === 'production' && process.env.REPORT) {
+if (process.env.REPORT) {
   config.plugins.push(new BundleAnalyzerPlugin())
 }
 
