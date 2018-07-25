@@ -49,13 +49,13 @@
       messages: {
         en: {
           send_request: 'Send request',
-          address_zurich: 'Birmensdorferstrasse 541<br>8055 Zurich<br>Switzerland',
-          address_bolzano: 'Museumstrasse 41/A<br>39100 Bozen<br>Italy'
+          address_zurich: 'Advanced B-Works Technologies GmbH<br>Heinrichstrasse 267<br>8005 Zurich<br>Switzerland',
+          address_bolzano: 'B-Works GmbH<br>Via Museo 41/A<br>39100 Bolzano<br>Italy'
         },
         de: {
           send_request: 'Anfrage senden',
-          address_zurich: 'Birmensdorferstrasse 541<br>8055 Zürich<br>Schweiz',
-          address_bolzano: 'Museumstrasse 41/A<br>39100 Bozen<br>Italien'
+          address_zurich: 'Advanced B-Works Technologies GmbH<br>Heinrichstrasse 267<br>8005 Zürich<br>Schweiz',
+          address_bolzano: 'B-Works GmbH<br>Museumstrasse 41/A<br>39100 Bozen<br>Italien'
         }
       }
     }
