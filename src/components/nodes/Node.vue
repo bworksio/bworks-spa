@@ -1,5 +1,3 @@
-<template lang="html"></template>
-
 <script>
   import config from '@/config/app.json'
 
@@ -30,15 +28,6 @@
     data () {
       return {
         node: {}
-      }
-    },
-
-    computed: {
-      /**
-       * Check whether the node has been loaded.
-       */
-      isLoaded () {
-        return Object.keys(this.node).length !== 0 && !this.node.hasOwnProperty('error')
       }
     },
 
@@ -112,5 +101,3 @@
     }
   }
 </script>
-
-<style lang="scss"></style>

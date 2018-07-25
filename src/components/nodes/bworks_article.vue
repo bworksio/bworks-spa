@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isLoaded" :class="'node-' + getType() + ' ' + viewMode">
+  <div :class="'node-' + getType() + ' ' + viewMode">
     <template v-if="viewMode === 'teaser'">
       <div class="article container-fluid">
         <router-link class="unstyled row" :to="getPath()">
