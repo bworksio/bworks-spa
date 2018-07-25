@@ -3,6 +3,7 @@
   "defaultLanguage": "en",
   "activeLanguages": ["de", "en"],
   "api": {
+    "middlewareUrl": "https://middleware-tnraoqipqg.now.sh/",
     "baseUrl": "https://backend.b-works.io/"
   },
   "siteEmail": "alex.beninca@b-works.io",
