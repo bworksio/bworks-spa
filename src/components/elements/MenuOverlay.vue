@@ -1,6 +1,6 @@
 <template>
   <transition name="menu">
-    <div id="main-menu" v-if="$store.state.showMenu">
+    <div id="main-menu" v-show="$store.state.showMenu">
       <div class="container">
         <div class="menu-wrapper">
           <nav class="menu-main">
