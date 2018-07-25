@@ -45,11 +45,30 @@
       }
     },
 
-    data () {
-      return {
-        node: {},
-        otherArticles: [],
-        footerNode: {}
+    computed: {
+      // Find matching node by path
+      node () {
+        return this.$store.getters.getNodeByPath(this.$route.path, this.lang)
+      },
+
+      // Find two newest articles, excluding this node
+      otherArticles () {
+        return this.$store.getters.getNodesByType('bworks_article', this.lang).sort((a, b) => {
+            if (a.field_date[0].value < b.field_date[0].value) {
+              return -1
+            }
+            if (a.field_date[0].value > b.field_date[0].value) {
+              return 1
+            }
+            return 0
+          })
+          .filter(node => node.nid[0].value !== this.node.nid[0].value)
+          .slice(0, 2)
+      },
+
+      // Find first footer node
+      footerNode() {
+        return this.$store.getters.getNodesByType('bworks_footer', this.lang).shift()
       }
     },
 
@@ -61,13 +80,8 @@
     },
 
     created () {
-      // Update nodes to display for the current queue name.
-      this.fetchData()
-    },
-
-    watch: {
-      '$route' (to, from) {
-        this.fetchData()
+      if (!this.node || 'error' in this.node) {
+        this.$router.push({ name: 'not_found' })
       }
     },
 
@@ -81,32 +95,6 @@
     },
 
     methods: {
-      /**
-       * Fetches the node to display.
-       */
-      fetchData () {
-        return this.$store.dispatch('getData', this.lang).then(() => {
-          // Find matching node by path
-          this.node = this.$store.getters.getNodeByPath(this.$route.path, this.lang)
-          // Find first footer node
-          this.footerNode = this.$store.getters.getNodesByType('bworks_footer', this.lang).shift()
-          // Find two newest articles, excluding this node
-          this.otherArticles = this.$store.getters.getNodesByType('bworks_article', this.lang).sort((a, b) => {
-            if (a.field_date[0].value < b.field_date[0].value) {
-              return -1
-            }
-            if (a.field_date[0].value > b.field_date[0].value) {
-              return 1
-            }
-            return 0
-          })
-          .filter(node => node.nid[0].value !== this.node.nid[0].value)
-          .slice(0, 2)
-        }).catch(() => {
-          /* Error handled upstream */
-        })
-      },
-
       /**
        * Returns all field items from the node object.
        *

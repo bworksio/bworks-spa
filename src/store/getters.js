@@ -67,9 +67,7 @@ export default {
     // Error
     return {
       nid: id,
-      type: [
-        { target_id: 'missing_block' }
-      ],
+      type: [{ target_id: 'missing_block' }],
       error: true
     }
   },
@@ -97,7 +95,8 @@ export default {
     // Error
     return {
       nid: [{ value: '0' }],
-      type: [{ target_id: 'missing_node' }]
+      type: [{ target_id: 'missing_node' }],
+      error: true
     }
   },
 

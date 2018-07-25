@@ -71,12 +71,6 @@
       return app.$store.dispatch('getData', lang)
     },
 
-    watch: {
-      '$route' (to, from) {
-        this.updateData()
-      }
-    },
-
     meta () {
       let queue
 
@@ -86,7 +80,11 @@
       }
       else {
         queue = this.$store.getters.getQueueByPath(this.$route.params.path, this.lang)
+    created () {
+      if (!this.queue) {
+        this.$router.push({ name: 'not_found' })
       }
+    },
 
       if (queue && queue.meta[this.$i18n.locale]) {
         return {
@@ -102,17 +100,6 @@
     },
 
     methods: {
-      /**
-       * Updates the list of nodes after route change.
-       */
-      updateData () {
-        return this.$store.dispatch('getData', this.lang).then(() => {
-          if (!this.queue) {
-            this.$router.push({ name: 'not_found' })
-          }
-        })
-      },
-
       componentType (type) {
         // To be able to use code splitting for the projects page,
         // we need to separate components. Moves all jQuery code out of
