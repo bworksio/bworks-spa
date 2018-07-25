@@ -86,8 +86,7 @@
     },
 
     meta () {
-      this.node = this.$store.getters.getNodeByPath(this.$route.path, this.lang)
-      if ('metatag' in this.node && this.node.metatag.value) {
+      if (this.node && 'metatag' in this.node && this.node.metatag.value) {
         return this.node.metatag.value
       } else {
         return { title: this.getField('title') }
