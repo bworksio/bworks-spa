@@ -26,7 +26,7 @@
   import bworks_clients_block from '@/components/sections/bworks_clients_block'
   import bworks_awards_block from '@/components/sections/bworks_awards_block'
   import bworks_press_mentions_block from '@/components/sections/bworks_press_mentions_block'
-  const bworks_contact_block = () => import(/* webpackChunkname: "contact" */'@/components/sections/bworks_contact_block')
+  const bworks_contact_block = () => import(/* webpackChunkName: "contact" */'@/components/sections/bworks_contact_block')
   import bworks_footer from '@/components/sections/bworks_footer'
 
   export default {
