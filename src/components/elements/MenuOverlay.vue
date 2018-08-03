@@ -226,7 +226,7 @@
       letter-spacing: .06667em;
     }
 
-    @media (min-width: 414px) {
+    @media (min-width: 411px) and (min-height: 737px) {
       font-size: calc(1rem + 1.4815vh);
     }
   }
@@ -238,10 +238,15 @@
     .contact h2 {
       color: $white;
     }
+
     svg {
       #Shape {
         fill: $white;
       }
+    }
+
+    .animation-wrapper > .animated {
+      opacity: 1;
     }
   }
 
