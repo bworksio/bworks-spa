@@ -31,14 +31,6 @@ const i18n = new VueI18n({
   messages
 })
 
-// Google Analytics
-Vue.use(VueAnalytics, {
-  id: config.googleAnalyticsId,
-  debug: {
-    sendHitTask: isProd
-  }
-})
-
 // Expose a factory function that creates a fresh set of store, router,
 // app instances on each call (which is called for each SSR request)
 export function createApp () {
@@ -49,6 +41,15 @@ export function createApp () {
   // sync the router with the vuex store.
   // this registers `store.state.route`
   sync(store, router)
+
+  // Google Analytics
+  Vue.use(VueAnalytics, {
+    id: config.googleAnalyticsId,
+    router,
+    debug: {
+      sendHitTask: isProd
+    }
+  })
 
   /* eslint-disable no-new */
   // create the app instance.
