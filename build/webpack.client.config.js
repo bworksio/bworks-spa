@@ -11,6 +11,10 @@ const config = merge(base, {
   entry: {
     app: './src/entry-client.js'
   },
+  performance: {
+    maxEntrypointSize: 300000,
+    hints: isProd ? 'warning' : false
+  },
   plugins: [
     // strip dev-only code in Vue source
     new webpack.DefinePlugin({

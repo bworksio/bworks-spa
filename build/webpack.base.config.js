@@ -115,10 +115,6 @@ module.exports = {
       }
     ]
   },
-  performance: {
-    maxEntrypointSize: 300000,
-    hints: isProd ? 'warning' : false
-  },
   plugins: isProd
     ? [
         new VueLoaderPlugin(),
