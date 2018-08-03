@@ -15,7 +15,7 @@
   import Node from '@/components/nodes/Node'
   import bworks_project_full from '@/components/nodes/bworks_project_full'
   import jQuery from 'jquery'
-  import 'fullpage.js/dist/fullpage.css'
+  import 'fullpage.js/dist/jquery.fullpage.css'
 
   export default {
     name: 'bworks_project_block_full',
@@ -78,7 +78,7 @@
       vertical-align: bottom;
     }
 
-    #fp-nav.fp-right {
+    #fp-nav.right {
       right: 4.1617%;
 
       ul li {
