@@ -7,80 +7,46 @@ module.exports = {
     'en': {
       'path': '/en',
       'title': 'Home'
-    },
-    'it': {
-      'path': '/it',
-      'title': 'Casa'
     }
   },
   'specialities': {
     'de': {
-      'path': '/services',
-      'title': 'Unsere Services'
+      'path': '/dienstleistungen',
+      'title': 'Dienstleistungen'
     },
     'en': {
-      'path': '/en/specialities',
-      'title': 'Our Specialities'
-    },
-    'it': {
-      'path': '/it/specialita',
-      'title': 'Le nostre specialità'
-    }
-  },
-  'approach': {
-    'de': {
-      'path': '/ansatz',
-      'title': 'Unser Ansatz'
-    },
-    'en': {
-      'path': '/en/approach',
-      'title': 'Our Approach'
-    },
-    'it': {
-      'path': '/it/lavori',
-      'title': 'I nostri lavori'
+      'path': '/en/services',
+      'title': 'Services'
     }
   },
   'experience': {
     'de': {
-      'path': '/erfahrung',
-      'title': 'Unsere Erfahrung'
+      'path': '/referenzen',
+      'title': 'Referenzen'
     },
     'en': {
-      'path': '/en/experience',
-      'title': 'Our Experience'
-    },
-    'it': {
-      'path': '/it/esperienza',
-      'title': 'La nostra esperienza'
+      'path': '/en/references',
+      'title': 'References'
     }
   },
   'works': {
     'de': {
-      'path': '/arbeiten/:project?',
-      'title': 'Unsere Projekte'
+      'path': '/projekte/:project?',
+      'title': 'Projekte'
     },
     'en': {
-      'path': '/en/work/:project?',
-      'title': 'Our Work'
-    },
-    'it': {
-      'path': '/it/lavori/:project?',
-      'title': 'I nostri lavori'
+      'path': '/en/projects/:project?',
+      'title': 'Projects'
     }
   },
   'team': {
     'de': {
       'path': '/team',
-      'title': 'Unser Team'
+      'title': 'Team'
     },
     'en': {
       'path': '/en/team',
-      'title': 'Our Team'
-    },
-    'it': {
-      'path': '/it/team',
-      'title': 'Il nostro team'
+      'title': 'Team'
     }
   },
   'careers': {
@@ -91,10 +57,6 @@ module.exports = {
     'en': {
       'path': '/en/careers',
       'title': 'Careers'
-    },
-    'it': {
-      'path': '/it/carriere',
-      'title': 'Carriere'
     }
   },
   'blog': {
@@ -104,10 +66,6 @@ module.exports = {
     },
     'en': {
       'path': '/en/blog',
-      'title': 'Blog'
-    },
-    'it': {
-      'path': '/it/blog',
       'title': 'Blog'
     }
   },
@@ -119,26 +77,18 @@ module.exports = {
     'en': {
       'path': '/en/contact',
       'title': 'Contact'
-    },
-    'it': {
-      'path': '/it/contatto',
-      'title': 'Contatto'
     }
   }
   /*
   'speciality_startup': {
     'show': false,
     'de': {
-      'path': '/services/startup-cto',
-      'title': 'Unsere Dienstleistungen: Startup-CTO'
+      'path': '/dienstleistungen/startup-cto',
+      'title': 'Dienstleistungen: Startup-CTO'
     },
     'en': {
       'path': '/en/services/startup-cto',
-      'title': 'Our Specialities: Startup CTO'
-    },
-    'it': {
-      'path': '/it/specialita/startup-cto',
-      'title': 'Nostre specialità: Startup CTO'
+      'title': 'Services: Startup CTO'
     }
   }
 */
