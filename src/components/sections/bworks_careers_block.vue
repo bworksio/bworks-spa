@@ -98,6 +98,11 @@
   .job-offer {
     margin-top: 6rem;
 
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
     .subtitle {
       margin: -1rem 0 2rem;
       color: $body-color;
