@@ -21,7 +21,7 @@
         const options = {
           triggerElement: el,
           triggerHook: 'onEnter',
-          offset: 50,
+          offset: 25,
           reverse: false
         }
         this.addScrollMagicScene(new ScrollMagicScene(options))
@@ -193,7 +193,7 @@
     }
 
     .line.animated {
-      transition-delay: .3s;
+      transition-delay: .15s;
     }
   }
 
@@ -201,13 +201,13 @@
   .headline-wrapper {
     .headline:nth-child(2) {
       .animated {
-        transition-delay: .6s;
+        transition-delay: .3s;
       }
     }
   }
   .promo-wrapper {
     .promo.animated {
-      transition-delay: .6s;
+      transition-delay: .3s;
     }
   }
 </style>

@@ -93,7 +93,7 @@ ul.row {
 
   // animated sub-element
   > .animated {
-    transform: translateX(-2vw);
+    transform: translateX(-35px);
     opacity: 0;
     transition: transform .2s ease-out, opacity .2s ease-out;
 
@@ -132,9 +132,9 @@ ul.row {
 .animation-wrapper.animate-children {
   > * {
     opacity: 0;
-    transform: translateX(-2vw);
+    transform: translateX(-50%);
     transition: transform .2s ease-out, opacity .2s ease-out;
-    transition-delay: .6s;
+    transition-delay: .15s;
   }
 
   // .run triggers animation
