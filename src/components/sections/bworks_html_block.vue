@@ -188,6 +188,10 @@
 
   // Promo lines
   .promo-wrapper {
+    .animation-wrapper:first-of-type {
+      overflow: hidden;
+    }
+
     .line.animated {
       transition-delay: .3s;
     }
