@@ -66,7 +66,23 @@
         .duration(() => {
           return this.$el.clientHeight
         })
-        .setClassToggle('#site-header', 'invert')
+        // setClassToggle('#site-header', 'invert') triggers when scrolling up
+        // fast, therefore use a custom event.
+        .on("start", event => {
+          if (event.scrollDirection === 'PAUSED') {
+            this.$root.$emit('site-header-invert', true)
+          }
+        })
+        .on("end", event => {
+          switch (event.scrollDirection) {
+            case 'FORWARD':
+              this.$root.$emit('site-header-invert', false)
+              break;
+            case 'REVERSE':
+              this.$root.$emit('site-header-invert', true)
+              break;
+          }
+        })
     },
 
     components: {

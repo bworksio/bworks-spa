@@ -1,5 +1,5 @@
 <template>
-  <header id="site-header" :data-show-menu="$store.state.showMenu ? 'yes' : ''">
+  <header id="site-header" :data-show-menu="$store.state.showMenu ? 'yes' : ''" :class="{ invert: invert }">
     <div class="container">
       <div class="header-wrapper">
         <div class="logo">
@@ -26,10 +26,17 @@
 
     data () {
       return {
+        invert: false,
         assets: {
           bWorksLogo: require('!!raw-loader!assets/images/bworks-logo.svg')
         }
       }
+    },
+
+    mounted () {
+      this.$root.$on('site-header-invert', invert => {
+        this.invert = invert
+      })
     },
 
     components: {
