@@ -193,7 +193,7 @@
     }
 
     .line.animated {
-      transition-delay: .15s;
+      transition-delay: .1s;
     }
   }
 
@@ -201,13 +201,13 @@
   .headline-wrapper {
     .headline:nth-child(2) {
       .animated {
-        transition-delay: .3s;
+        transition-delay: .05s;
       }
     }
   }
   .promo-wrapper {
     .promo.animated {
-      transition-delay: .3s;
+      transition-delay: .15s;
     }
   }
 </style>
