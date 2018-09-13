@@ -23,23 +23,21 @@ REPORT=true yarn build
 
 ```src/config/app.json``` needs to be created from the template first.
 
+When you want to develop fully locally, you'll want to also spin up the
+[middleware](https://github.com/bworksio/bworks-middleware) and point
+```middlewareUrl``` to it, e.g.
+
 ``` json
 {
-     "defaultLanguage": "en",
-     "activeLanguages": ["de", "en"],
      "api": {
+       "middlewareUrl": "http://localhost:3000/",
        "baseUrl": "https://backend.b-works.io/"
      },
-     "social": {
-       "facebook": "https://www.facebook.com/Bworks.io",
-       "twitter": "https://twitter.com/_B_works",
-       "instagram": "https://www.instagram.com/bworks.io",
-       "linkedin": "https://www.linkedin.com/company/b-works"
-     }
    }
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+The ```baseUrl``` is nowadays only used in ```fixUrls()``` and can be safely
+ignored. 
 
 ## Deployment
 
