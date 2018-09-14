@@ -63,8 +63,8 @@
        * @returns {string}
        */
       teaserUrl () {
-        const route = this.$router.options.getRouteByProps('specialities', this.lang)
-        return route ? route.path + '#' + this.cleanId : ''
+        const route = this.$store.getters.getPathByQueue('specialities', this.lang)
+        return route ? route + '#' + this.cleanId : ''
       },
 
       /**
@@ -74,8 +74,7 @@
       pageUrl () {
         const link = this.getField('field_content_map_link', 'value', 0, false)
         if (link) {
-          const route = this.$router.options.getRouteByProps(link, this.lang)
-          return route ? route.path : ''
+          return this.$store.getters.getPathByQueue(link, this.lang) || ''
         }
         return ''
       }

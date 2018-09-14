@@ -26,6 +26,19 @@ export default {
   },
 
   /**
+   * Returns a path for a given queue.
+   *
+   * @param {string} queue Queue machine name
+   * @param {string} lang
+   */
+  getPathByQueue: (state) => (queue, lang) => {
+    if (queue in state.queues && lang in state.queues[queue].path) {
+      return state.queues[queue].path[lang]
+    }
+    return false
+  },
+
+  /**
    * Returns all nodes from store for a given language.
    * @param {string} lang
    * @returns {Object}

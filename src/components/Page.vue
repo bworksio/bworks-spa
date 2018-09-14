@@ -55,7 +55,7 @@
         return this.name !== 'custom'
           // Get section nodes from active queue in store
           ? this.$store.getters.getQueue(this.name)
-          : this.$store.getters.getQueueByPath(this.$route.params.path, this.lang)
+          : this.$store.getters.getQueueByPath(this.$route.params[0], this.lang)
       },
 
       /** @var {String} The view mode for contents to display, 'teaser' on home page, 'full' otherwise */

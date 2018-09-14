@@ -14,6 +14,7 @@ const PageNotFound = () => import(/* webpackChunkName: "page-not-found" */'@/com
 
 // Build routes from configuration.
 let routes = []
+
 forEach(routesConfig, (languages, name) => {
   forEach(languages, (item, lang) => {
     if (config.activeLanguages.indexOf(lang) !== -1) {
@@ -41,17 +42,17 @@ routes.push({
   component: PageSubscriptionConfirmation,
   props: { lang: 'en' }
 }, {
-  path: '/en/:path',
-  component: Page,
-  props: { name: 'custom', lang: 'en' },
-}, {
-  path: '/:path',
-  component: Page,
-  props: { name: 'custom', lang: 'de' },
-}, {
   name: 'not_found',
   path: '/404',
   component: PageNotFound
+}, {
+  path: '/en/*',
+  component: Page,
+  props: { name: 'custom', lang: 'en' },
+}, {
+  path: '/*',
+  component: Page,
+  props: { name: 'custom', lang: 'de' },
 })
 
 export function createRouter () {
