@@ -17,6 +17,7 @@
   const bworks_project_block_full = () => import(/* webpackChunkName: "projects" */'@/components/sections/bworks_project_block_full')
   import bworks_project_block_teaser from '@/components/sections/bworks_project_block_teaser'
   import bworks_speciality_block from '@/components/sections/bworks_speciality_block'
+  import bworks_links_block from '@/components/sections/bworks_links_block'
   import bworks_article from '@/components/nodes/bworks_article'
   const bworks_blog_block = () => import(/* webpackChunkName: "blog" */'@/components/sections/bworks_blog_block')
   const bworks_careers_block = () => import(/* webpackChunkName: "careers" */'@/components/sections/bworks_careers_block')
@@ -105,6 +106,7 @@
       bworks_project_block_full,
       bworks_project_block_teaser,
       bworks_speciality_block,
+      bworks_links_block,
       bworks_article,
       bworks_blog_block,
       bworks_careers_block,
