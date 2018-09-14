@@ -20,6 +20,9 @@
         <div v-if="getField('field_link', 'uri', 0, false)" class="link">
           <a :href="getField('field_link', 'uri')">{{ getField('field_link', 'title', 0, '') }}</a>
         </div>
+        <div v-if="getField('field_pdf_download', 'url', 0, false)" class="link">
+          <a :href="getField('field_pdf_download', 'url')">{{ $t('message.pdf_download') }}</a>
+        </div>
         <div v-if="getTags().length" class="approach-explanation">
           <div class="title">{{ $t('message.characteristics') }}</div>
           <div class="line">&nbsp;</div>

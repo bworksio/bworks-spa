@@ -15,7 +15,8 @@ export default {
       data_switzerland: 'All data 100% stored and hosted in Switzerland',
       looking_for: 'Looking for',
       blog: 'Blog',
-      characteristics: 'Characteristics'
+      characteristics: 'Characteristics',
+      pdf_download: 'Download PDF'
     },
     link: {
       hire_us: 'https://cosmobutler.typeform.com/to/oY7ARZ'
@@ -37,7 +38,8 @@ export default {
       data_switzerland: 'Alle Daten werden zu 100% in der Schweiz gehostet und gespeichert',
       looking_for: 'Wir suchen',
       blog: 'Blog',
-      characteristics: 'Characteristik'
+      characteristics: 'Projektart',
+      pdf_download: 'Download PDF'
     },
     link: {
       hire_us: 'https://cosmobutler.typeform.com/to/t0B8ZJ'
