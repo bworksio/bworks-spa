@@ -74,86 +74,123 @@
       align-items: center;
       justify-content: center;
 
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+
       .animated {
         padding-left: 1rem;
         padding-right: 1rem;
       }
     }
 
-    @media (max-width: 345px) {
-      .icon {
-        display: none !important;
-      }
-
-      .email {
-        margin-bottom: 2px !important;
-      }
-
-      .animated {
-        padding: 0 !important;
-      }
-    }
-
-    @include media-breakpoint-down(md) {
-      h2 {
-        font-size: 1rem;
-        line-height: 1.35714;
-        letter-spacing: .06642em;
-        margin-bottom: .75rem;
-      }
-
-      .email {
-        margin-bottom: .5rem;
-      }
-
-      .icon,
-      .animation-wrapper,
-      .animated {
-        display: inline;
-        transform: translateX(0) !important;
-        opacity: 1;
-      }
-
-      svg {
-        width: 18px;
-        height: auto;
-      }
-    }
-
-    @include media-breakpoint-up(lg) {
-      display: flex;
-      align-items: center;
-      text-align: center;
-
+    // Disable animations in menu overlay
+    .menu-contact & {
       h2,
       .email,
       .phone {
-        width: 33.33333%;
+        margin-bottom: 1rem;
+
+        @include media-breakpoint-down(md) {
+          svg {
+            width: auto;
+            height: 18px;
+          }
+        }
+
+        @include media-breakpoint-up(lg) {
+          font-size: 1.57142rem;
+          line-height: 1.36364;
+
+          svg {
+            width: auto;
+            height: 24px;
+          }
+        }
       }
+    }
 
-      h2 {
-        order: 2;
-        text-align: center;
-        text-transform: none;
-        margin: 0;
-      }
-
-      .email {
-        order: 1;
-        justify-content: flex-end;
-
+    // Limit horizontal/animated style to footer instance
+    .footer-contact & {
+      @media (max-width: 345px) {
         .icon {
-          order: 2;
+          display: none !important;
         }
 
-        .animation-wrapper {
-          order: 1;
+        .email {
+          margin-bottom: 2px !important;
+        }
+
+        .animated {
+          padding: 0 !important;
         }
       }
 
-      .phone {
-        order: 3;
-        justify-content: flex-start;
+      @include media-breakpoint-down(md) {
+        h2 {
+          font-size: 1rem;
+          line-height: 1.35714;
+          letter-spacing: .06642em;
+          margin-bottom: .75rem;
+        }
+
+        .email {
+          margin-bottom: .5rem;
+        }
+
+        .icon,
+        .animation-wrapper,
+        .animated {
+          display: inline;
+        }
+
+        .animation-wrapper > .animated {
+          transform: translateX(0) !important;
+          opacity: 1;
+        }
+
+        svg {
+          width: 18px;
+          height: auto;
+        }
+      }
+
+      @include media-breakpoint-up(lg) {
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        h2,
+        .email,
+        .phone {
+          width: 33.33333%;
+        }
+
+        h2 {
+          order: 2;
+          text-align: center;
+          text-transform: none;
+          margin: 0;
+        }
+
+        .email {
+          order: 1;
+          justify-content: flex-end;
+
+          .icon {
+            order: 2;
+          }
+
+          .animation-wrapper {
+            order: 1;
+          }
+        }
+
+        .phone {
+          order: 3;
+          justify-content: flex-start;
+        }
       }
     }
   }

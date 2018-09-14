@@ -43,6 +43,7 @@
   a.menu-toggle {
     // Vertically center the element.
     transform: translateX(-33.333%);
+    text-decoration: underline;
 
     &:before {
       content: "";

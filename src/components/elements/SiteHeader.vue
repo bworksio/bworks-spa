@@ -158,7 +158,8 @@
           }
         }
 
-        a {
+        a,
+        a.hire-us {
           color: $white;
 
           &.animated {

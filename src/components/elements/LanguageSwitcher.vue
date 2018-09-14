@@ -61,6 +61,7 @@
       margin: 0 .25rem;
       padding: .5rem;
       color: $white;
+      text-decoration: underline;
 
       &.animated {
         &:before {

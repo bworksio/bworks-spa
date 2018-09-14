@@ -214,6 +214,15 @@
 
   .footer-addresses {
     color: $gray-color;
+    line-height: 1.5;
+
+    [itemtype] > :not(:first-child) {
+      font-size: $font-size-sm;
+    }
+
+    a {
+      text-decoration: underline;
+    }
   }
 
   footer .social-links a {
@@ -227,13 +236,22 @@
     }
     .footer-addresses {
       flex: 2 83.3333%;
+      line-height: 1.5;
+
+      > div + div {
+        margin-top: .5rem;
+      }
     }
     footer .social-links {
       flex: 1 auto;
 
       .icon {
         display: block;
-        margin-bottom: .66rem;
+        margin-bottom: 2rem;
+
+        > svg {
+          display: block;
+        }
       }
     }
   }
