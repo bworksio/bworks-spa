@@ -90,7 +90,12 @@
       h2,
       .email,
       .phone {
-        margin-bottom: 1rem;
+        margin-bottom: 1vh;
+        text-transform: none;
+
+        @include media-breakpoint-down(sm) {
+          font-size: 1rem;
+        }
 
         @include media-breakpoint-down(md) {
           svg {
@@ -108,6 +113,11 @@
             height: 24px;
           }
         }
+      }
+
+      .animation-wrapper > .animated {
+        transform: translateX(0);
+        opacity: 1;
       }
     }
 

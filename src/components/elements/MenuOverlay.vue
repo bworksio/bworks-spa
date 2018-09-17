@@ -166,21 +166,25 @@
     letter-spacing: .06642em;
     margin-bottom: calc(1rem + 1.4815vh);
 
+    li {
+      margin-bottom: .5vh;
+    }
+
     a {
       display: block;
     }
 
     .line {
       height: 1px;
-      margin-top: 1px;
+      margin-top: -1px;
       margin-bottom: 1px;
       background-color: $white;
       transform: translateX(-101%);
       transition: transform .2s cubic-bezier(unquote($menu));
 
       @media (min-width: 768px) {
-        margin-top: .875vh;
-        margin-bottom: .875vh;
+        margin-top: .25vh;
+        margin-bottom: .75vh;
       }
     }
 
@@ -207,14 +211,6 @@
 
     @include media-breakpoint-down(sm) {
       line-height: 1.64285;
-
-      .line {
-        margin-top: .33333vh;
-      }
-
-      li {
-        margin-bottom: .5vh;
-      }
     }
 
     @media (min-width: 360px) {
