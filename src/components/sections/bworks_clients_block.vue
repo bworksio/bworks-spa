@@ -2,7 +2,7 @@
   <div class="node node-bworks_clients_block">
     <div class="container">
       <ul class="clients row">
-        <li v-for="(node, index) in nodes" class="col-6 col-sm-4">
+        <li v-for="(node, index) in nodes" class="col-12 col-sm-6 col-md-4">
           <a href="#" :class="{active: index === active}" @click.prevent="show(index)">
             <drupal-image class="logo" :image="node.field_logo[0]"></drupal-image>
             <div class="name">{{ node.title[0].value }}</div>
