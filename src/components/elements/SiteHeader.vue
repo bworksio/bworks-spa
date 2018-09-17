@@ -80,7 +80,7 @@
       align-items: center;
 
       > div {
-        flex: 0 0 33.3333%;
+        width: 33.3333%;
         z-index: 991;
       }
 
