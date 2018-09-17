@@ -33,8 +33,10 @@
       </div>
 
       <div class="footer-addresses">
-        <div class="footer-addresses-1" v-html="getField('field_body_addresses', 'value', 0)"></div>
-        <div class="footer-addresses-2" v-html="getField('field_body_addresses', 'value', 1)"></div>
+        <div class="address" v-html="getField('field_body_addresses', 'value', 0)"></div>
+        <div class="address" v-html="getField('field_body_addresses', 'value', 1)"></div>
+        <div class="link"><router-link :to="$store.getters.getPathByQueue('privacy')">{{ $t('link.privacy_policy') }}</router-link></div>
+        <div class="link"><router-link :to="$store.getters.getPathByQueue('terms')">{{ $t('link.terms_conditions') }}</router-link></div>
       </div>
 
       <social-links :headline="false"></social-links>
@@ -223,6 +225,16 @@
     a {
       text-decoration: underline;
     }
+
+    .link {
+      margin-top: .5rem;
+
+      a {
+        color: $gray-color;
+        letter-spacing: normal;
+        text-transform: none;
+      }
+    }
   }
 
   footer .social-links a {
@@ -270,6 +282,7 @@
     .footer-addresses {
       flex: 1 72.727273%;
       display: flex;
+      flex-wrap: wrap;
 
       > div {
         flex: 1 50%;
@@ -299,6 +312,7 @@
       flex: 1 50%;
       display: flex;
       align-items: flex-end;
+      flex-wrap: wrap;
 
       > div {
         flex: 1 50%;

@@ -19,7 +19,9 @@ export default {
       pdf_download: 'Download PDF'
     },
     link: {
-      hire_us: 'https://cosmobutler.typeform.com/to/oY7ARZ'
+      hire_us: 'https://cosmobutler.typeform.com/to/oY7ARZ',
+      privacy_policy: 'Privacy policy',
+      terms_conditions: 'Terms & Conditions'
     }
   },
   de: {
@@ -42,7 +44,9 @@ export default {
       pdf_download: 'Download PDF'
     },
     link: {
-      hire_us: 'https://cosmobutler.typeform.com/to/t0B8ZJ'
+      hire_us: 'https://cosmobutler.typeform.com/to/t0B8ZJ',
+      privacy_policy: 'Datenschutz',
+      terms_conditions: 'Impressum'
     }
   }
 }
