@@ -10,23 +10,26 @@ function getMeta (vm) {
 
 const serverMetaMixin = {
   created () {
-    const { title, description } = getMeta(this)
-    if (title) {
-      this.$ssrContext.title = title
-    }
-    if (description) {
-      this.$ssrContext.description = description
-    }
+    const meta = getMeta(this);
+    ['title', 'description', 'image'].forEach(el => {
+      if (meta[el]) {
+        this.$ssrContext[el] = meta[el]
+      }
+    })
   }
 }
 
 function getClientMeta (vm) {
-  const { title, description } = getMeta(vm)
+  const { title, description, image } = getMeta(vm)
   if (title) {
     document.title = title
   }
   if (description) {
     document.querySelector('meta[name="description"]').setAttribute('content', description)
+  }
+  if (image) {
+    document.querySelector('meta[property="og:image"]').setAttribute('content', image)
+    document.querySelector('meta[name="twitter:image"]').setAttribute('content', image)
   }
 }
 

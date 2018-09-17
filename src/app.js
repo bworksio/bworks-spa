@@ -4,7 +4,6 @@ import Raven from 'raven-js'
 import RavenVue from 'raven-js/plugins/vue'
 import VueAnalytics from 'vue-analytics'
 import App from '@/App.vue'
-import metaMixin from '@/components/mixins/meta'
 import { createStore } from '@/store'
 import { createRouter } from '@/router'
 import { sync } from 'vuex-router-sync'
@@ -20,9 +19,6 @@ if (isProd) {
     .addPlugin(RavenVue, Vue)
     .install()
 }
-
-// mixin for handling title and meta description
-Vue.mixin(metaMixin)
 
 // Create VueI18n instance with options
 Vue.use(VueI18n)

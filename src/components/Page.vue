@@ -11,6 +11,7 @@
 </template>
 
 <script>
+  import metaMixin from '@/components/mixins/meta'
   /* eslint-disable camelcase */
   import bworks_basic_page from '@/components/sections/bworks_basic_page'
   import bworks_html_block from '@/components/sections/bworks_html_block'
@@ -32,6 +33,7 @@
 
   export default {
     name: 'Page',
+    mixins: [metaMixin],
 
     props: {
       // Page name from route
@@ -82,13 +84,11 @@
       if (this.queue && this.queue.meta[this.$i18n.locale]) {
         return {
           title: this.queue.meta[this.$i18n.locale].title || '',
-          description: this.queue.meta[this.$i18n.locale].description || ''
+          description: this.queue.meta[this.$i18n.locale].description || '',
+          image: this.queue.meta[this.$i18n.locale].image_src || ''
         }
       }
-      return {
-        title: '',
-        description: ''
-      }
+      return {}
     },
 
     methods: {

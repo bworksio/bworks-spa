@@ -100,9 +100,11 @@ function render (req, res) {
     }
   }
 
+  // Default meta data
   const context = {
-    title: 'B-Works', // default meta
+    title: 'B-Works',
     description: '',
+    image: '',
     url: req.url
   }
   renderer.renderToString(context, (err, html) => {

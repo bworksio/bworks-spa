@@ -23,6 +23,7 @@
 
 <script>
   import config from '@/config/app.json'
+  import metaMixin from '@/components/mixins/meta'
   import ShareLinks from '@/components/elements/ShareLinks'
   /* eslint-disable camelcase */
   import bworks_other_articles_block from '@/components/sections/bworks_other_articles_block'
@@ -30,6 +31,7 @@
 
   export default {
     name: 'PageBlog',
+    mixins: [metaMixin],
 
     props: {
       // Page name from route
