@@ -1,6 +1,6 @@
 {
   "name": "b-works",
-  "version": "3.0.0",
+  "version": "3.2.0",
   "description": "B-Works single-page application using server-side rendering.",
   "author": "Stefan Kudwien <stefan.kudwien@b-works.io>",
   "private": true,
