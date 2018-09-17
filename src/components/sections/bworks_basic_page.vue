@@ -96,6 +96,7 @@
 
   .node-bworks_basic_page {
     position: relative;
+    margin: 0;
     padding-top: 125px;
     background-position: center;
     background-size: cover;

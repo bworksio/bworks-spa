@@ -34,8 +34,20 @@
 <style lang="scss">
   @import 'assets/scss/mixins';
 
-  .node-bworks_html_block {
-    padding-top: 4rem;
+  .html-wrapper {
+    @include media-breakpoint-down(sm) {
+      .h2 {
+        margin-bottom: 0;
+      }
+    }
+
+    h1 {
+      margin-bottom: 0;
+    }
+
+    .body {
+      margin-top: 2.14285rem;
+    }
   }
 
   // Ckeditor templates

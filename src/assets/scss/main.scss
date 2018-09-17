@@ -181,6 +181,7 @@ button.animated {
       height: 1.5em;
       background-color: $link-color;
       z-index: -1;
+      pointer-events: none;
       transition: transform .2s ease-out;
       transform-origin: right center;
 
@@ -206,7 +207,10 @@ button.animated {
 }
 
 .node {
-  padding-top: 4rem;
+  margin-top: calc(2rem + 4vh);
+  @include media-breakpoint-up(md) {
+    margin-top: calc(4rem + 2vh);
+  }
 }
 
 // Hide video controls

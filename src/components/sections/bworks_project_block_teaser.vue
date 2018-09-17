@@ -38,6 +38,8 @@
   @import '../../assets/scss/mixins.scss';
 
   .node-bworks_project_block {
+    margin-top: 0;
+
     .view-all {
       text-align: center;
     }

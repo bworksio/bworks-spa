@@ -89,7 +89,7 @@
     }
 
     &.teaser {
-      padding-top: 4rem;
+      margin-top: 2.14285rem;
 
       .article {
         padding-top: 4rem;
@@ -99,14 +99,15 @@
 
       @include media-breakpoint-down(sm) {
         .article {
-          padding-top: 4rem;
+          padding-top: 2.14285rem;
+          padding-bottom: 2.14285rem;
         }
 
         .image {
           width: calc(100% + 16.6677vw);
           margin-left: calc(55% - 50vw);
           margin-right: calc(55% - 50vw);
-          margin-top: -4rem;
+          margin-top: -2.14285rem;
           padding: 0;
         }
 

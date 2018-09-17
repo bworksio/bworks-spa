@@ -71,13 +71,20 @@
   @import 'assets/scss/mixins';
 
   .node-bworks_footer {
-    padding-top: 4rem;
     margin-bottom: 2rem;
+
+    .page-home & {
+      margin-top: 0;
+    }
   }
 
   .footer-newsletter {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: 2.14285rem;
+    padding-bottom: 2.14285rem;
+    @include media-breakpoint-up(sm) {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
     background-color: $brand-primary;
 
     h2 {

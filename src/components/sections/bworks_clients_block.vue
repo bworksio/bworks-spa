@@ -71,7 +71,6 @@
   @import 'assets/scss/mixins';
 
   .node-bworks_clients_block {
-    padding-top: 2rem;
     @include media-breakpoint-up(lg) {
       padding-left: 8.3333%;
       padding-right: 8.3333%;

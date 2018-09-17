@@ -26,9 +26,4 @@
 
 <style lang="scss">
   @import 'assets/scss/mixins';
-
-  .node-bworks_links_block {
-    padding-top: 4rem;
-    padding-bottom: 1rem;
-  }
 </style>
