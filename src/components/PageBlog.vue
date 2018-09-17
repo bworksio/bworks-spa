@@ -53,12 +53,15 @@
 
       // Find two newest articles, excluding this node
       otherArticles () {
-        return this.$store.getters.getNodesByType('bworks_article', this.lang).sort((a, b) => {
-            if (a.field_date[0].value < b.field_date[0].value) {
-              return -1
-            }
-            if (a.field_date[0].value > b.field_date[0].value) {
-              return 1
+        return this.$store.getters.getNodesByType('bworks_article', this.lang)
+          .sort((a, b) => {
+            if (a.field_date.length && b.field_date.length) {
+              if (a.field_date[0].value < b.field_date[0].value) {
+                return -1
+              }
+              if (a.field_date[0].value > b.field_date[0].value) {
+                return 1
+              }
             }
             return 0
           })
