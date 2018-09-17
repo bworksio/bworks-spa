@@ -248,11 +248,11 @@
         display: none;
       }
       @include media-breakpoint-up(md) {
-        right: 8.3333vw;
+        right: 1.3333vw;
         bottom: 7.28571rem;
       }
       @include media-breakpoint-up(lg) {
-        bottom: 5.9285rem;
+        bottom: 6.9285rem;
       }
     }
 
