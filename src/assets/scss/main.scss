@@ -165,37 +165,42 @@ ul.row {
 
 a.animated,
 button.animated {
-  position: relative;
-  display: inline-block;
-  transform: translateX(50%);
-  transition: color .15s ease-out 0s;
+  text-decoration: underline;
 
-  &:after {
-    content: "";
-    position: absolute;
-    width: calc(100% + 1rem);
-    height: 1.5em;
-    background-color: $link-color;
-    z-index: -1;
-    transition: transform .2s ease-out;
-    transform-origin: right center;
-
-    // Scale bar according to viewport width
-    transform: translateX(-200%) scaleY(.22727);
-    @include media-breakpoint-down(sm) {
-      transform: translateX(-200%) scaleX(.75) scaleY(.22727);
-    }
-    @include media-breakpoint-up(lg) {
-      transform: translateX(-200%) scaleY(.22727);
-    }
-  }
-
-  @include hover-focus {
-    color: $white;
-    transition: color .166s ease-out .034s;
+  @include media-breakpoint-up(sm) {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    transform: translateX(50%);
+    transition: color .15s ease-out 0s;
 
     &:after {
-      transform: translateX(calc(-100% + .5rem)) scaleX(1) scaleY(1);
+      content: "";
+      position: absolute;
+      width: calc(100% + 1rem);
+      height: 1.5em;
+      background-color: $link-color;
+      z-index: -1;
+      transition: transform .2s ease-out;
+      transform-origin: right center;
+
+      // Scale bar according to viewport width
+      transform: translateX(-200%) scaleY(.22727);
+      @include media-breakpoint-down(sm) {
+        transform: translateX(-200%) scaleX(.75) scaleY(.22727);
+      }
+      @include media-breakpoint-up(lg) {
+        transform: translateX(-200%) scaleY(.22727);
+      }
+    }
+
+    @include hover-focus {
+      color: $white;
+      transition: color .166s ease-out .034s;
+
+      &:after {
+        transform: translateX(calc(-100% + .5rem)) scaleX(1) scaleY(1);
+      }
     }
   }
 }
