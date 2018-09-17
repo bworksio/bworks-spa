@@ -14,8 +14,19 @@
     <meta name="msapplication-config" content="/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
     <style>
-      #skip a {  position:absolute;  left:-10000px;  top:auto;  width:1px;  height:1px;  overflow:hidden;  }
-      #skip a:focus {  position:static;  width:auto;  height:auto;  }
+      #skip a {
+        position: absolute;
+        left: -10000px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+      #skip a:focus {
+        position: static;
+        width: auto;
+        height: auto;
+      }
       @import url("https://fast.fonts.net/lt/1.css?apiType=css&c=a97b7534-569b-47ae-8717-b84d291f7e36&fontids=721263,721281,721287");
       @font-face{
         font-family:"AvenirNextLTW01";
@@ -36,17 +47,60 @@
         font-weight: 900;
       }
     </style>
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+    <style>
+      .cc-window.cc-banner a {
+        text-transform: none;
+        letter-spacing: normal;
+      }
+    </style>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+    <script>
+      window['ga-disable-{{ googleAnalyticsId }}'] = true;
+
+      var gdprConsented = function() {
+        // ga
+        window['ga-disable-{{ googleAnalyticsId }}'] = false;
+        // www.addthis.com/dashboard
+        (function(d){var s=d.createElement("script");s.type="text/javascript";s.src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58e4b19ecf819718";d.body.appendChild(s);})(document);
+        // adwords.google.com
+        (function(a,e,c,f,g,b,d){var h={ak:"855205735",cl:"UY7OCLKWpXAQ587llwM"};a[c]=a[c]||function(){(a[c].q=a[c].q||[]).push(arguments)};a[f]||(a[f]=h.ak);b=e.createElement(g);b.async=1;b.src="//www.gstatic.com/wcm/loader.js";d=e.getElementsByTagName(g)[0];d.parentNode.insertBefore(b,d);a._googWcmGet=function(b,d,e){a[c](2,b,h,d,null,new Date,e)}})(window,document,"_googWcmImpl","_googWcmAk","script");
+      };
+
+      window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+          "palette": {
+            "popup": {
+              "background": "#4b7fe2"
+            },
+            "button": {
+              "background": "#fff",
+              "text": "#4b7fe2"
+            }
+          },
+          "type": "opt-in",
+          "content": {
+            "message": "{{ cc_message }}",
+            "deny": "{{ cc_deny }}",
+            "allow": "{{ cc_allow }}",
+            "link": "{{ cc_link }}",
+            "href": "{{ cc_href }}"
+          },
+          onInitialise: function (status) {
+            if (this.hasConsented()) {
+              gdprConsented();
+            }
+          },
+          onStatusChange: function(status, chosenBefore) {
+            if (this.hasConsented()) {
+              gdprConsented();
+            }
+          }
+        })});
+    </script>
   </head>
   <body>
     <div id="skip"><a href="#app">skip to content</a></div>
     <!--vue-ssr-outlet-->
-
-    <script>
-      // www.addthis.com/dashboard
-      (function(d){var s=d.createElement("script");s.type="text/javascript";s.src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58e4b19ecf819718";d.body.appendChild(s);})(document);
-
-      // adwords.google.com
-      (function(a,e,c,f,g,b,d){var h={ak:"855205735",cl:"UY7OCLKWpXAQ587llwM"};a[c]=a[c]||function(){(a[c].q=a[c].q||[]).push(arguments)};a[f]||(a[f]=h.ak);b=e.createElement(g);b.async=1;b.src="//www.gstatic.com/wcm/loader.js";d=e.getElementsByTagName(g)[0];d.parentNode.insertBefore(b,d);a._googWcmGet=function(b,d,e){a[c](2,b,h,d,null,new Date,e)}})(window,document,"_googWcmImpl","_googWcmAk","script");
-    </script>
   </body>
 </html>

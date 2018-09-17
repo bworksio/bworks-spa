@@ -22,6 +22,13 @@ export default {
       hire_us: 'https://cosmobutler.typeform.com/to/oY7ARZ',
       privacy_policy: 'Privacy policy',
       terms_conditions: 'Terms & Conditions'
+    },
+    cookieconsent: {
+      message: 'This website uses cookies to ensure you get the best experience on our website.',
+      deny: 'Decline',
+      allow: 'Allow cookies',
+      link: 'Learn more',
+      href: '/en/privacy'
     }
   },
   de: {
@@ -47,6 +54,13 @@ export default {
       hire_us: 'https://cosmobutler.typeform.com/to/t0B8ZJ',
       privacy_policy: 'Datenschutz',
       terms_conditions: 'Impressum'
+    },
+    cookieconsent: {
+      message: 'Diese Webseite verwendet Cookies um Ihnen den bestmöglichen Service zu gewährleisten.',
+      deny: 'Ablehnen',
+      allow: 'Cookies zulassen',
+      link: 'Mehr erfahren',
+      href: '/datenschutz'
     }
   }
 }

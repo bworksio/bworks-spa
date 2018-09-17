@@ -6,6 +6,7 @@
 </template>
 
 <script>
+  import config from '@/config/app.json'
   import SiteHeader from '@/components/elements/SiteHeader'
 
   export default {
@@ -13,6 +14,15 @@
 
     created () {
       this.updateLanguage()
+
+      if (process.env.VUE_ENV === 'server') {
+        this.$ssrContext.googleAnalyticsId = config.googleAnalyticsId
+        this.$ssrContext.cc_message = this.$i18n.t('cookieconsent.message')
+        this.$ssrContext.cc_deny = this.$i18n.t('cookieconsent.deny')
+        this.$ssrContext.cc_allow = this.$i18n.t('cookieconsent.allow')
+        this.$ssrContext.cc_link = this.$i18n.t('cookieconsent.link')
+        this.$ssrContext.cc_href = this.$i18n.t('cookieconsent.href')
+      }
     },
 
     watch: {
