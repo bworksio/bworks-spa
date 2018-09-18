@@ -150,7 +150,8 @@
       align-items: center;
       justify-content: space-between;
 
-      .menu-main {
+      .menu-main,
+      .menu-social-links {
         min-width: 50%;
       }
       .menu-social-links,
