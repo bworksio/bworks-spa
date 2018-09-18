@@ -35,8 +35,8 @@
       <div class="footer-addresses">
         <div class="address" v-html="getField('field_body_addresses', 'value', 0)"></div>
         <div class="address" v-html="getField('field_body_addresses', 'value', 1)"></div>
-        <div class="link"><router-link :to="$store.getters.getPathByQueue('privacy') || '/'">{{ $t('link.privacy_policy') }}</router-link></div>
-        <div class="link"><router-link :to="$store.getters.getPathByQueue('terms') || '/'">{{ $t('link.terms_conditions') }}</router-link></div>
+        <div class="link"><router-link :to="$store.getters.getPathByQueue('privacy', lang) || '/'">{{ $t('link.privacy_policy') }}</router-link></div>
+        <div class="link"><router-link :to="$store.getters.getPathByQueue('terms', lang) || '/'">{{ $t('link.terms_conditions') }}</router-link></div>
       </div>
 
       <social-links :headline="false"></social-links>
