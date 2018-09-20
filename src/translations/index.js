@@ -21,7 +21,7 @@ export default {
     link: {
       hire_us: 'https://cosmobutler.typeform.com/to/oY7ARZ',
       privacy_policy: 'Privacy policy',
-      terms_conditions: 'Terms & Conditions'
+      terms_conditions: 'Imprint'
     },
     cookieconsent: {
       message: 'This website uses cookies to ensure you get the best experience on our website.',
