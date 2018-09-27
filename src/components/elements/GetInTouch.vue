@@ -12,7 +12,7 @@
     <a href="tel:+41792240112" class="phone animate-onhover">
       <div class="icon" v-html="assets.phone"></div>
       <div class="animation-wrapper" :class="hoverClass">
-        <div class="phone-number animated">+41 79 224 0112</div>
+        <div class="phone-number animated">+41 44 500 2615</div>
       </div>
     </a>
   </div>
