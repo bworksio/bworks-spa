@@ -236,6 +236,21 @@
           padding-left: 8.3333%;
         }
       }
+
+      svg.flag {
+        vertical-align: text-top;
+        width: 16px;
+        height: 16px;
+
+        @include media-breakpoint-up(md) {
+          width: 22px;
+          height: 22px;
+        }
+        @include media-breakpoint-up(lg) {
+          width: 32px;
+          height: 32px;
+        }
+      }
     }
 
     .language-switcher-wrapper {
