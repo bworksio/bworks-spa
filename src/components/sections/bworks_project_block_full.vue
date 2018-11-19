@@ -80,6 +80,8 @@
 
     #fp-nav.right {
       right: 4.1617%;
+      margin-top: 0 !important;
+      transform: translateY(calc(-50% + 55px));
 
       ul li {
         width: 27px;

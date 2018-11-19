@@ -62,7 +62,6 @@
 
     .info-wrapper {
       padding-top: .5rem;
-      padding-bottom: 2rem;
       transform: translateY(-101%);
       transition: transform .4s;
     }

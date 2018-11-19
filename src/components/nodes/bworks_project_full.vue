@@ -136,7 +136,7 @@
       }
 
       .subtitle {
-        font-size: 1.57142rem;
+        font-size: 1.28571rem;
         line-height: 1.36363;
         font-weight: $font-weight-bold;
         letter-spacing: .06681em;
@@ -145,13 +145,20 @@
 
       .body {
         margin-top: 2rem;
-        max-width: 50%;
+        margin-right: 1rem;
+        @include media-breakpoint-up(sm) {
+          max-width: 50%;
+        }
 
         &,
         & p {
           line-height: 1.78571;
           letter-spacing: .08071em;
         }
+      }
+
+      .link a {
+        text-decoration: underline;
       }
 
       .approach-explanation {

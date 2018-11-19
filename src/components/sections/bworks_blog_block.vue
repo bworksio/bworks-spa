@@ -35,4 +35,10 @@
 
 <style lang="scss">
   @import 'assets/scss/mixins';
+
+  .node-bworks_blog_block {
+    ul.row > li {
+      margin-bottom: calc(2rem + 4vh);
+    }
+  }
 </style>

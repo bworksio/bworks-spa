@@ -78,9 +78,12 @@
       font-weight: 400;
       color: $body-color;
 
+      span {
+        padding-right: 1rem;
+      }
+
       &:after {
         content: "•";
-        padding: 0 .42857rem;
         color: transparent;
         transition: transform .2s;
       }

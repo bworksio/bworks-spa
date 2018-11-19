@@ -38,6 +38,7 @@
     .logo {
       padding-right: 25px;
       margin-bottom: 1.57142rem;
+      text-align: center;
 
       img {
         max-width: 100%;

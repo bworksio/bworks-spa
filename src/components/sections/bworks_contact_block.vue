@@ -11,7 +11,7 @@
 
       <contact-map></contact-map>
 
-      <div class="col-sm-8 offset-sm-2">
+      <div class="col-md-8 offset-md-2">
         <div class="addresses">
           <div class="address" v-html="$t('address_zurich')" />
           <div class="address" v-html="$t('address_bolzano')" />
@@ -66,7 +66,7 @@
   @import 'assets/scss/mixins';
 
   .node-bworks_contact_block {
-    padding-top: 15rem;
+    padding-top: calc(7rem + 4vh);
 
     h1 {
       border-bottom: 4px solid $brand-primary;
@@ -79,15 +79,25 @@
     .request {
       margin-top: 4rem;
       text-align: center;
+
+      a {
+        font-size: 1.28571rem;
+      }
     }
 
     .addresses {
-      display: flex;
-      justify-content: space-around;
-
       .address {
-        margin-left: 2rem;
-        margin-right: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      @include media-breakpoint-up(sm) {
+        display: flex;
+        justify-content: space-around;
+
+        .address {
+          margin-left: 2rem;
+          margin-right: 2rem;
+        }
       }
     }
 

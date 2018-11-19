@@ -52,13 +52,12 @@
     color: $gray-color;
 
     h3 {
-      margin: 6rem 0 1em;
+      margin: calc(2rem + 4vh) 0 1em;
       font-size: $font-size-h3;
       color: $brand-primary !important;
     }
 
     a {
-      float: left;
       display: flex;
       align-items: center;
       font-weight: $font-weight-normal;
