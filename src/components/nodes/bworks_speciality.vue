@@ -59,10 +59,17 @@
       },
 
       /**
-       * Get url to specialties page including generated fragment.
+       * Get url to specialties page
+       *
+       * Returns either a linked spa page, or a link to the specialties page
+       * including fragment.
+       *
        * @returns {string}
        */
       teaserUrl () {
+        if (this.pageUrl) {
+          return this.pageUrl
+        }
         const route = this.$store.getters.getPathByQueue('specialities', this.lang)
         return route ? route + '#' + this.cleanId : ''
       },
