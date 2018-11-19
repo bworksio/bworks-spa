@@ -173,21 +173,42 @@
 
   .node-bworks_article {
     &.full {
-      padding-top: 10rem;
+      padding-top: calc(4rem + 4vh);
 
-      @include media-breakpoint-down(sm) {
+      .image {
+        margin-bottom: calc(2rem + 4vh);
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      h4 {
+        font-size: 1.28571rem;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      p, ul {
+        font-size: 1.28571rem;
+      }
+
+      @include media-breakpoint-up(sm) {
         .meta {
           display: flex;
           justify-content: space-between;
-        }
-      }
 
-      @include media-breakpoint-only(sm) {
-        .category {
-          flex-basis: 66%;
-        }
-        .date {
-          flex-basis: 33%;
+          .date {
+            text-align: right;
+          }
         }
       }
 
@@ -215,9 +236,7 @@
             flex-basis: 25%;
             text-align: right;
 
-            display: flex;
             flex-direction: column;
-            justify-content: space-between;
             margin-bottom: 2.14285rem;
           }
 
@@ -242,11 +261,9 @@
       color: $body-color;
     }
 
-    @include media-breakpoint-down(sm) {
+    @include media-breakpoint-down(xs) {
       h1 {
-        font-size: 1.28571rem;
-        line-height: 1.38889;
-        letter-spacing: .06667em;
+        font-size: 1.64285rem;
       }
     }
   }

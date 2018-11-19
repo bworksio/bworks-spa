@@ -8,7 +8,7 @@
           </div>
           <div class="body col-md-5 col-lg-6">
             <h2>{{ getField('title') }}</h2>
-            <div v-html="getField('body', 'summary')"></div>
+            <div class="summary" v-html="getField('body', 'summary')"></div>
             <div class="read-more">
               <router-link :to="getPath()">{{ $t('button.read_full_story') }}</router-link>
             </div>
@@ -97,6 +97,14 @@
         background-color: $gray-bg;
       }
 
+      h2 {
+        font-size: 1.42857rem;
+      }
+
+      .summary {
+        font-size: 1.14285rem;
+      }
+
       @include media-breakpoint-down(sm) {
         .article {
           padding-top: 2.14285rem;
@@ -169,6 +177,7 @@
 
       h2 {
         margin: .25em 0 .5em;
+        line-height: 1.6667rem;
         text-transform: none;
         transition: color .4s;
       }

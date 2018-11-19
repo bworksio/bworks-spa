@@ -186,8 +186,9 @@
       }
 
       svg {
-        width: 8.33333vw;
-        height: 8.33333vw;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
       }
 
       .text {

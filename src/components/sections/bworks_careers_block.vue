@@ -3,7 +3,7 @@
     <div class="container">
       <div class="job-wrapper">
         <ul class="job-links row">
-          <li v-for="(node, index) in nodes" class="col-sm-6">
+          <li v-for="(node, index) in nodes" class="col-md-6">
             <a href="#" :class="{active: index === active}" @click.prevent="show(index)"><span>{{ node.title[0].value }}</span></a>
           </li>
         </ul>
@@ -57,15 +57,22 @@
   @import 'assets/scss/mixins';
 
   .job-wrapper {
-    padding-left: 8.3333%;
-    padding-right: 8.3333%;
+    @include media-breakpoint-up(md) {
+      padding-left: 8.3333%;
+      padding-right: 8.3333%;
+    }
   }
 
   ul.job-links {
+    > li {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+    }
+
     a {
-      display: inline-block;
-      width: 85%;
-      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding-top: .5em;
       border-top: 1px solid $body-color;
       font-weight: 400;
@@ -73,10 +80,9 @@
 
       &:after {
         content: "•";
-        position: absolute;
-        right: calc(15% + 1rem);
+        padding: 0 .42857rem;
         color: transparent;
-        transition: transform .4s;
+        transition: transform .2s;
       }
 
       &.active:after {
@@ -96,7 +102,7 @@
   }
 
   .job-offer {
-    margin-top: 6rem;
+    margin-top: calc(2rem + 4vh);
 
     img {
       max-width: 100%;
@@ -110,6 +116,7 @@
 
     .apply {
       margin-top: 4rem;
+      font-size: 1.21428rem;
       text-align: center;
     }
   }
@@ -127,6 +134,7 @@
       margin: 0;
       padding: 0;
       list-style: none;
+      font-size: 1.14285rem;
 
       li {
         padding-left: 1.5em;

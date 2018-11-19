@@ -208,6 +208,11 @@
     .line.animated {
       transition-delay: .1s;
     }
+
+    h4.promo {
+      font-size: 1rem;
+      line-height: 1.28571;
+    }
   }
 
   // Headline #2 & promos

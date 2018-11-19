@@ -1,5 +1,5 @@
 <template>
-  <div class="node-bworks_certificate_block">
+  <div class="node node-bworks_certificate_block">
     <div class="container">
       <ul class="row">
         <li v-for="node in nodes" class="col-md-6">
@@ -43,8 +43,8 @@
 <style lang="scss">
   @import 'assets/scss/mixins';
 
-  @include media-breakpoint-up(md) {
-    .node-bworks_certificate_block {
+  .node-bworks_certificate_block {
+    @include media-breakpoint-up(md) {
       li:nth-child(odd) {
         padding-right: 2rem;
       }

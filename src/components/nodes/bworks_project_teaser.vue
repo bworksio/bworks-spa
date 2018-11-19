@@ -265,9 +265,8 @@
 
       .tags-wrapper {
         margin: 1.5rem 0 2rem;
-        font-size: .9375rem;
         font-weight: $font-weight-bold;
-        line-height: 1.16667;
+        line-height: 1.28571;
         letter-spacing: .044167em;
         text-transform: uppercase;
 

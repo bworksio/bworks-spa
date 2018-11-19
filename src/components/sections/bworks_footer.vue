@@ -87,8 +87,15 @@
     }
     background-color: $brand-primary;
 
+    #mc_embed_signup_scroll {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     h2 {
-      width: 100%;
+      width: 83.3333%;;
+      text-align: center
     }
 
     @include media-breakpoint-down(md) {
@@ -103,6 +110,7 @@
       .submit {
         width: 83.3333%;
         margin-top: 8rem;
+        font-size: 1.14285rem;
       }
     }
 
@@ -115,12 +123,11 @@
       }
 
       .mc-field-group {
-        width: 50%;
+        width: 66.6667%;
       }
 
       .submit {
-        margin-top: 2.7rem;
-        margin-left: 10rem;
+        margin-top: 4.4rem;
       }
     }
 
@@ -137,6 +144,7 @@
       label {
         position: absolute;
         top: 0;
+        font-size: 1.14285rem;
         transition: transform .2s ease-out;
         transform: translateY(.2rem);
         transform-origin: left top;
@@ -184,12 +192,15 @@
         background-color: $white;
       }
 
-      @include hover-focus {
-        color: $brand-primary;
+      @include media-breakpoint-up(sm) {
+        @include hover-focus {
+          color: $brand-primary;
+        }
       }
     }
 
     .submit {
+      font-size: 1.21428rem;
       text-align: center;
     }
   }

@@ -189,7 +189,6 @@
     .intro-text {
       p {
         margin-top: 2rem;
-        font-size: 1rem;
         line-height: 1.28571;
         letter-spacing: .11571em;
         color: $white;
