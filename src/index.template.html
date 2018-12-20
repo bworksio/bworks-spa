@@ -73,7 +73,7 @@
         // Deny using cookies if set to the end of url: ?cookieconsent-deny
         var url_parameter = window.location.search.substring(1);
         if(url_parameter == "cookieconsent-deny") {
-          document.cookie = "cookieconsent_status=deny";
+          document.cookie = "cookieconsent_status=deny; expires=Fri, 31 Dec 9999 23:59:59 GMT";
         }
 
         window.cookieconsent.initialise({
