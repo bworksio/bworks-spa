@@ -60,10 +60,11 @@
     transform: translateY(-1.25rem);
     transition: .2s;
     transition-property: transform, background-color;
+    font-size: 1.28571rem;
 
     a {
       color: $white;
-
+      font-size: 1.28571rem;
       &.animated:after {
         background-color: $white;
       }
