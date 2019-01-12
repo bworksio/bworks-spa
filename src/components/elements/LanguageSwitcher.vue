@@ -31,17 +31,26 @@
     },
     methods: {
       fetchLinks () {
-        let links = []
-        const currentRoute = this.$route.meta.name
+        let links = [];
+        const currentRoute = this.$route.meta.name;
         if (currentRoute) {
           forEach(routesConfig[currentRoute], (item, lang) => {
             if (config.activeLanguages.indexOf(lang) !== -1) {
               // Modify *a copy* of the router item.
-              links.push(merge(item, { title: lang.toUpperCase() }))
+              links.push(merge(item, {title: lang.toUpperCase()}));
             }
           })
         }
-        this.links = links
+        else {
+          // If can't get appropriate values from Route, then get it from Queue.
+          const currentQueue = this.$store.getters.getQueueByPath(this.$route.params[0], this.$route.matched[0].props.default.lang);
+          if (currentQueue.path) {
+            forEach(currentQueue.path, (item, lang) => {
+              links.push({path: item, title: lang.toUpperCase()});
+            })
+          }
+        }
+        this.links = links;
       }
     }
   }
