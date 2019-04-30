@@ -5,17 +5,9 @@
         <li v-for="(node, index) in nodes" class="col-12 col-sm-6 col-md-4">
           <a href="#" :class="{active: index === active}" @click.prevent="show(index)">
             <drupal-image class="logo" :image="node.field_logo[0]"></drupal-image>
-            <div class="name">{{ node.title[0].value }}</div>
           </a>
         </li>
       </ul>
-
-      <transition name="fade" mode="out-in">
-        <div v-if="nodes[active]" :key="active" class="quote">
-          <h3 class="h2">{{ $t('what_they_say') }}</h3>
-          <div class="description" v-html="nodes[active].field_they_say_about_us[0].value"></div>
-        </div>
-      </transition>
     </div>
   </div>
 </template>
