@@ -42,11 +42,11 @@ module.exports = {
   'team': {
     'de': {
       'path': '/team',
-      'title': 'Team'
+      'title': 'Über uns'
     },
     'en': {
       'path': '/en/team',
-      'title': 'Team'
+      'title': 'About us'
     }
   },
   'careers': {
