@@ -18,25 +18,31 @@ let routes = []
 forEach(routesConfig, (languages, name) => {
   forEach(languages, (item, lang) => {
     if (config.activeLanguages.indexOf(lang) !== -1) {
-      routes.push({
-        name: name + '_' + lang,
-        path: item.path,
-        component: Page,
-        props: { name, lang },
-        meta: { name, title: item.title }
-      })
+      if(name == 'blog_article') {
+        // For blog should be used PageBlog component.
+        routes.push({
+          name: name + '_' + lang,
+          path: item.path,
+          component: PageBlog,
+          props: { name, lang },
+          meta: { name, title: item.title }
+        })
+      }
+      else {
+        routes.push({
+          name: name + '_' + lang,
+          path: item.path,
+          component: Page,
+          props: {name, lang},
+          meta: {name, title: item.title}
+        })
+      }
     }
   })
 })
 
 // Add language independent routes.
 routes.push({
-  name: 'blog_article',
-  path: '/blog/:name',
-  component: PageBlog,
-  props: { name: 'blog', lang: 'en' },
-  meta: { name: 'blog' }
-}, {
   name: 'subscription_confirmation',
   path: '/subscription-confirmation',
   component: PageSubscriptionConfirmation,

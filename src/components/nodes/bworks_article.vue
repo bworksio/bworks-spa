@@ -45,13 +45,24 @@
 
     extends: Node,
 
+    props: ['parentType'],
+
     methods: {
       /**
        * Returns the current node's url alias.
        * @returns {string}
        */
       getPath () {
-        return this.node.hasOwnProperty('path') && this.node.path.length ? this.node.path[0].alias : ''
+
+        // Use "props" parentType for adding language prefix only to blog, for "other" prefix was not used.
+        const alias = this.node.hasOwnProperty('path') && this.node.path.length ? this.node.path[0].alias : '';
+        if(this.parentType === "blog") {
+          const path = this.lang === 'en' ? '/en' + alias : alias;
+          return path;
+        }
+        else {
+          return alias;
+        }
       },
 
       /**
@@ -65,7 +76,12 @@
     },
 
     created () {
-      this.node = this.$store.getters.getNode(this.nid, 'en')
+      if(this.parentType === "blog") {
+        this.node = this.$store.getters.getNode(this.nid, this.lang)
+      }
+      else {
+        this.node = this.$store.getters.getNode(this.nid, 'en')
+      }
     },
 
     components: {

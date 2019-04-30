@@ -57,9 +57,11 @@
         let menuItems = []
         const lang = this.$store.state.currentLanguage
         forEach(routesConfig, (languages, name) => {
-          if (!('show' in languages) || !!languages.show) {
-            languages[lang]['name'] = name + '_' + lang
-            menuItems.push(languages[lang])
+          if(name !== "blog_article") {
+            if (!('show' in languages) || !!languages.show) {
+              languages[lang]['name'] = name + '_' + lang
+              menuItems.push(languages[lang])
+            }
           }
         })
         this.menuItems = menuItems

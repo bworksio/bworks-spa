@@ -93,6 +93,8 @@ export default {
    */
   getNodeByPath: (state, getters) => (path, lang) => {
     let found
+    // Remove language prefix from path.
+    path = path.replace(/^\/en/, '')
     // Remove trailing slash
     path = path.replace(/\/+$/, '')
     Object.values(getters.getNodes(lang)).forEach(node => {

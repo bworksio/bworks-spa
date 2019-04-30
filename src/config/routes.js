@@ -69,6 +69,16 @@ module.exports = {
       'title': 'Blog'
     }
   },
+  'blog_article': {
+    'de': {
+      'path': '/blog/:name',
+      'title': 'Blog'
+    },
+    'en': {
+      'path': '/en/blog/:name',
+      'title': 'Blog'
+    }
+  },
   'contact': {
     'de': {
       'path': '/kontakt',

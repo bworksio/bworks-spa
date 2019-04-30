@@ -3,7 +3,7 @@
     <div class="container">
       <ul class="row">
         <li v-for="node in nodes" class="col-sm-6 col-md-4">
-          <bworks_article :nid="node.nid[0].value" :lang="lang" viewMode="list"></bworks_article>
+          <bworks_article :nid="node.nid[0].value" :lang="lang" parentType="blog" viewMode="list"></bworks_article>
         </li>
       </ul>
     </div>
@@ -25,7 +25,7 @@
     },
     created () {
       // Get all articles
-      this.nodes = this.$store.getters.getNodesByType('bworks_article', /*this.lang*/ 'en')
+      this.nodes = this.$store.getters.getNodesByType('bworks_article', this.lang)
     },
     components: {
       bworks_article
