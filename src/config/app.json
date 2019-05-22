@@ -3,8 +3,8 @@
   "defaultLanguage": "en",
   "activeLanguages": ["de", "en"],
   "api": {
-    "middlewareUrl": "https://bworks-mw.now.sh/",
-    "baseUrl": "https://backend.b-works.io/"
+    "middlewareUrl": "http://localhost:3000/",
+    "baseUrl": "http://bworks/"
   },
   "siteEmail": "alex.beninca@b-works.io",
   "googleApiKey": "AIzaSyCg0cUaKJQL-kkKIW3vW4nBug-kNsq1cm0",
