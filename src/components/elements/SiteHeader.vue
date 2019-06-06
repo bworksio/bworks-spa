@@ -9,7 +9,7 @@
           <menu-toggle />
         </div>
         <div class="hire-us">
-          <a class="hire-us animated" :href="$i18n.t('link.hire_us')">{{ $t('button.hire_us') }}</a>
+          <a class="hire-us animated" :href="$i18n.t('link.hire_us')" target="_blank">{{ $t('button.hire_us') }}</a>
         </div>
       </div>
     </div>
