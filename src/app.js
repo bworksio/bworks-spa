@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import Raven from 'raven-js'
 import RavenVue from 'raven-js/plugins/vue'
-//import VueAnalytics from 'vue-analytics'
+import VueAnalytics from 'vue-analytics'
 import App from '@/App.vue'
 import { createStore } from '@/store'
 import { createRouter } from '@/router'
@@ -39,13 +39,13 @@ export function createApp () {
   sync(store, router)
 
   // Google Analytics
-  // Vue.use(VueAnalytics, {
-  //   id: config.googleAnalyticsId,
-  //   router,
-  //   debug: {
-  //     sendHitTask: isProd
-  //   }
-  // })
+  Vue.use(VueAnalytics, {
+    id: config.googleAnalyticsId,
+    router,
+    debug: {
+      sendHitTask: isProd
+    }
+  })
 
   /* eslint-disable no-new */
   // create the app instance.
