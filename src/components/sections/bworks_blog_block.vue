@@ -26,6 +26,7 @@
     created () {
       // Get all articles
       this.nodes = this.$store.getters.getNodesByType('bworks_article', this.lang)
+        .filter(node => (!node.field_scheduled_date[0] || (node.field_scheduled_date[0] && new Date(node.field_scheduled_date[0].value) <= new Date())))
     },
     components: {
       bworks_article
