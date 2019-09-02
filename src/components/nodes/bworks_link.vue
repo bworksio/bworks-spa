@@ -1,8 +1,6 @@
 <template>
   <div :class="'node-' + getType()">
-    <router-link class="unstyled" :to="routerLink">
-      <h4 class="body" v-html="getField('body')"></h4>
-    </router-link>
+    <h4 class="body" v-html="getField('body')"></h4>
   </div>
 </template>
 
