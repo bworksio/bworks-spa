@@ -4,7 +4,7 @@ VueJS single page application https://www.b-works.io
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 yarn  # or npm install
 
@@ -21,23 +21,23 @@ REPORT=true yarn build
 
 ## Configuration
 
-```src/config/app.json``` needs to be created from the template first.
+`src/config/app.json` needs to be created from the template first.
 
 When you want to develop fully locally, you'll want to also spin up the
 [middleware](https://github.com/bworksio/bworks-middleware) and point
-```middlewareUrl``` to it, e.g.
+`middlewareUrl` to it, e.g.
 
-``` json
+```json
 {
-     "api": {
-       "middlewareUrl": "http://localhost:3000/",
-       "baseUrl": "https://backend.b-works.io/"
-     },
-   }
+  "api": {
+    "middlewareUrl": "http://localhost:3000/",
+    "baseUrl": "https://backend.b-works.io/"
+  }
+}
 ```
 
-The ```baseUrl``` is nowadays only used in ```fixUrls()``` and can be safely
-ignored. 
+The `baseUrl` is nowadays only used in `fixUrls()` and can be safely
+ignored.
 
 ## Deployment
 
