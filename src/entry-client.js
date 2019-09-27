@@ -73,6 +73,7 @@ jQuery(document).on('click', 'a[href^="tel:"]', function () {
     eventLabel: `Click on phone ${jQuery(this).attr('href').substr(4)}`
   })
 })
+console.log('test auto deploy');
 // service worker
 // if ('https:' === location.protocol && navigator.serviceWorker) {
 //   navigator.serviceWorker.register('/service-worker.js')
