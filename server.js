@@ -104,7 +104,7 @@ function render (req, res) {
   const context = {
     title: 'B-Works',
     description: '',
-    image: '',
+    image: [],
     url: req.url
   }
   renderer.renderToString(context, (err, html) => {

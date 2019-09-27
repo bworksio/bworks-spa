@@ -1,4 +1,4 @@
-function getMeta (vm) {
+function getMeta(vm) {
   const { meta } = vm.$options
   if (meta) {
     return typeof meta === 'function'
@@ -9,7 +9,7 @@ function getMeta (vm) {
 }
 
 const serverMetaMixin = {
-  created () {
+  created() {
     const meta = getMeta(this);
     ['title', 'description', 'image'].forEach(el => {
       if (meta[el]) {
@@ -19,26 +19,38 @@ const serverMetaMixin = {
   }
 }
 
-function getClientMeta (vm) {
-  const { title, description, image } = getMeta(vm)
-  if (title) {
-    document.title = title
+function getClientMeta(vm) {
+  const meta = getMeta(vm)
+  if (meta.title) {
+    document.title = meta.title
   }
-  if (description) {
-    document.querySelector('meta[name="description"]').setAttribute('content', description)
+  if (meta.description) {
+    document.querySelector('meta[name="description"]').setAttribute('content', meta.description);
   }
-  if (image) {
-    document.querySelector('meta[property="og:image"]').setAttribute('content', image)
-    document.querySelector('meta[name="twitter:image"]').setAttribute('content', image)
+  var metaTagsImages = [];
+  if (meta.image && meta.image.length > 0) {
+    // document.querySelector('meta[property="og:image"]').setAttribute('content', image);
+    // document.querySelector('meta[name="twitter:image"]').setAttribute('content', image);
+    meta.image.forEach((img) => {
+      let el = document.createElement('meta');
+      el.setAttribute('property', 'og:image');
+      el.setAttribute('content', img);
+      metaTagsImages.unshift(el.outerHTML);
+      let twitterEl = document.createElement('meta');
+      twitterEl.setAttribute('name', 'twitter:image');
+      twitterEl.setAttribute('content', img);
+      metaTagsImages.push(twitterEl.outerHTML);
+    });
   }
+  meta.image = metaTagsImages.join('');
 }
 
 const clientMetaMixin = {
-  mounted () {
+  mounted() {
     getClientMeta(this)
   },
   watch: {
-    '$route' (to, from) {
+    '$route'(to, from) {
       getClientMeta(this)
     }
   }
