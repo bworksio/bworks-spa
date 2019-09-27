@@ -49,13 +49,9 @@ router.onReady(() => {
   // Google analytics for router
   router.beforeEach(function (to, from, next) {
     app.$ga.event({
-      eventCategory: 'router',
-      eventAction: 'click',
-      eventLabel: 'Router link click',
-      eventValue: {
-        from: from.path,
-        to: to.path
-      }
+      eventCategory: 'Router link click',
+      eventAction: 'Click',
+      eventLabel: `Go from page ${from.path} to page ${to.path}`
     })
     next()
   })
@@ -65,18 +61,16 @@ router.onReady(() => {
 // Google analytics for email anf phones links
 jQuery(document).on('click', 'a[href^="mailto:"]', function () {
   app.$ga.event({
-    eventCategory: 'Email link',
+    eventCategory: 'Email click',
     eventAction: 'click',
-    eventLabel: 'Email link click',
-    eventValue: jQuery(this).attr('href').substr(7)
+    eventLabel: `Click on email ${jQuery(this).attr('href').substr(7)}`
   })
 })
 jQuery(document).on('click', 'a[href^="tel:"]', function () {
   app.$ga.event({
-    eventCategory: 'Phone link',
+    eventCategory: 'Phone click',
     eventAction: 'click',
-    eventLabel: 'Phone link click',
-    eventValue: jQuery(this).attr('href').substr(4)
+    eventLabel: `Click on phone ${jQuery(this).attr('href').substr(4)}`
   })
 })
 // service worker

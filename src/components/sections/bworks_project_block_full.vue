@@ -41,14 +41,9 @@
             ? this.next()[0].__vue__.node.title[0].value
             : this.prev()[0].__vue__.node.title[0].value
           vm.$ga.event({
-            eventCategory: 'Projects scrolling',
-            eventAction: 'scroll',
-            eventLabel: 'Scrolling event on projects page',
-            eventValue: {
-              originProject,
-              destinationProject,
-              direction
-            }
+            eventCategory: 'Projects page scrolling',
+            eventAction: 'Scroll',
+            eventLabel: `Scrolling to project ${destinationProject}`
           })
         },
       })
