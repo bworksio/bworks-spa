@@ -7,7 +7,6 @@ function getMeta (vm) {
   }
   return {}
 }
-
 const serverMetaMixin = {
   created () {
     const meta = getMeta(this);
@@ -18,9 +17,10 @@ const serverMetaMixin = {
     })
   }
 }
-
 function getClientMeta (vm) {
   const { title, description, image } = getMeta(vm)
+  const { type: nodeType, nid: nodeId} = vm.queue.nodes[0]
+  const nodeData = vm.$store.getters.getNode(nodeId, vm.lang)
   if (title) {
     document.title = title
   }
@@ -30,9 +30,16 @@ function getClientMeta (vm) {
   if (image) {
     document.querySelector('meta[property="og:image"]').setAttribute('content', image)
     document.querySelector('meta[name="twitter:image"]').setAttribute('content', image)
+  } else if (nodeType === 'bworks_basic_page'
+          && nodeData.field_header_image
+          && nodeData.field_header_image[0]
+          && nodeData.field_header_image[0].url
+  ) {
+    const imgUrl = nodeData.field_header_image[0].url
+    document.querySelector('meta[property="og:image"]').setAttribute('content', imgUrl)
+    document.querySelector('meta[name="twitter:image"]').setAttribute('content', imgUrl)
   }
 }
-
 const clientMetaMixin = {
   mounted () {
     getClientMeta(this)
@@ -43,7 +50,6 @@ const clientMetaMixin = {
     }
   }
 }
-
 export default process.env.VUE_ENV === 'server'
   ? serverMetaMixin
   : clientMetaMixin
