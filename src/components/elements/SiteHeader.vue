@@ -15,14 +15,14 @@
         <div class="hire-us">
           <a v-show="lang === 'en'"
             @click.prevent
-            class="hire-us typeform-share button"
+            class="hire-us typeform-share animated button"
             :href="typeformLinkEn"
             data-mode="drawer_right"
             target="_blank"
           >{{ $t('button.hire_us') }}</a>
           <a v-show="lang === 'de'"
             @click.prevent
-            class="hire-us typeform-share button"
+            class="hire-us typeform-share animated button"
             :href="typeformLinkDe"
             data-mode="drawer_right"
             target="_blank"
@@ -100,28 +100,6 @@ export default {
   transition: 0.2s;
   transition-property: transform, background-color;
   font-size: 1.28571rem;
-  .typeform-share {
-    display: inline-block;
-    text-decoration: none;
-    background-color: #267ddd;
-    color: white;
-    cursor: pointer;
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 20px;
-    line-height: 50px;
-    text-align: center;
-    margin: 0;
-    height: 50px;
-    padding: 0px 33px;
-    border-radius: 25px;
-    max-width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-weight: bold;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
   a {
     color: $white;
     font-size: 1.28571rem;
