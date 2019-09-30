@@ -1,6 +1,24 @@
 import { createApp } from './app'
+import { getHeaderImage } from './helpers/getHeaderImage.js'
 
 const isDev = process.env.NODE_ENV !== 'production'
+
+// const getHeaderImage = (store) => {
+//   const lang = store.state.currentLanguage
+//   const name = store.state.route.meta.name
+//   const queue = store.getters.getQueue(name)
+//   if (!queue) return null 
+//   const { nid: firstNodeId, type: nodeType } = queue.nodes[0]
+//   const nodeData = store.getters.getNode(firstNodeId, lang)
+//   if (nodeType === 'bworks_basic_page'
+//       && nodeData.field_header_image
+//       && nodeData.field_header_image[0]
+//       && nodeData.field_header_image[0].url
+//   ) {
+//     return nodeData.field_header_image[0].url
+//   }
+//   return null
+// }
 
 // This exported function will be called by `bundleRenderer`.
 // This is where we perform data-prefetching to determine the
@@ -45,6 +63,11 @@ export default context => {
         // store to pick-up the server-side state without having to duplicate
         // the initial data fetching on the client.
         context.state = store.state
+        // Add image to meta from header block
+        const headerImg = getHeaderImage(store)
+        if (!context.image && headerImg) {
+          context.image = headerImg
+        }
         resolve(app)
       }).catch(reject)
     }, reject)
