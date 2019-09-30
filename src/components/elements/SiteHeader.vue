@@ -12,9 +12,6 @@
         <div class="menu-toggle">
           <menu-toggle />
         </div>
-        <!--<div class="hire-us">
-          <a class="hire-us animated" :href="$i18n.t('link.hire_us')" target="_blank">{{ $t('button.hire_us') }}</a>
-        </div>-->
         <div class="hire-us">
           <a
             @click.prevent="openTypeForm()"
