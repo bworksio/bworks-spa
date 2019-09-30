@@ -59,7 +59,6 @@ export default {
   },
   methods: {
     createScript() {
-      debugger
       var qs, js, q, s, d = document, gi = d.getElementById, ce = d.createElement, gt = d.getElementsByTagName,
         id = "typef_orm_share", b = "https://embed.typeform.com/";
       if (!gi.call(d, id)) {
