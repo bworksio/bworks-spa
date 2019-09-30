@@ -14,7 +14,7 @@
         </div>
         <div class="hire-us">
           <a
-            @click.prevent="openTypeForm()"
+            @click.prevent
             class="hire-us typeform-share button"
             :href="$i18n.t('link.hire_us')"
             data-mode="drawer_right"
@@ -42,8 +42,20 @@ export default {
       }
     }
   },
+  computed: {
+    lang() {
+      return this.$store.state.currentLanguage
+    }
+  },
+  watch: {
+    lang() {
+      document.getElementById('typef_orm_share').remove()
+      // this.createScript()
+    }
+  },
   methods: {
-    openTypeForm() {
+    createScript() {
+      debugger
       var qs, js, q, s, d = document, gi = d.getElementById, ce = d.createElement, gt = d.getElementsByTagName,
         id = "typef_orm_share", b = "https://embed.typeform.com/";
       if (!gi.call(d, id)) {
@@ -60,7 +72,7 @@ export default {
     this.$root.$on('site-header-invert', invert => {
       this.invert = invert
     })
-    this.openTypeForm()
+    // this.createScript()
   },
 
   components: {
