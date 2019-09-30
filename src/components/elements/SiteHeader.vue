@@ -13,10 +13,17 @@
           <menu-toggle />
         </div>
         <div class="hire-us">
-          <a
+          <a v-show="lang === 'en'"
             @click.prevent
             class="hire-us typeform-share button"
-            :href="$i18n.t('link.hire_us')"
+            :href="typeformLinkEn"
+            data-mode="drawer_right"
+            target="_blank"
+          >{{ $t('button.hire_us') }}</a>
+          <a v-show="lang === 'de'"
+            @click.prevent
+            class="hire-us typeform-share button"
+            :href="typeformLinkDe"
             data-mode="drawer_right"
             target="_blank"
           >{{ $t('button.hire_us') }}</a>
@@ -30,6 +37,7 @@
 <script>
 import MenuToggle from '@/components/elements/MenuToggle'
 import MenuOverlay from '@/components/elements/MenuOverlay'
+import translations from '@/translations/index'
 
 export default {
   name: 'SiteHeader',
@@ -37,6 +45,8 @@ export default {
   data() {
     return {
       invert: false,
+      typeformLinkEn: translations.en.link.hire_us,
+      typeformLinkDe: translations.de.link.hire_us,
       assets: {
         bWorksLogo: require('!!raw-loader!assets/images/bworks-logo.svg')
       }
@@ -45,12 +55,6 @@ export default {
   computed: {
     lang() {
       return this.$store.state.currentLanguage
-    }
-  },
-  watch: {
-    lang() {
-      document.getElementById('typef_orm_share').remove()
-      // this.createScript()
     }
   },
   methods: {
@@ -72,7 +76,7 @@ export default {
     this.$root.$on('site-header-invert', invert => {
       this.invert = invert
     })
-    // this.createScript()
+    this.createScript()
   },
 
   components: {
