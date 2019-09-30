@@ -37,7 +37,6 @@ export default {
   data() {
     return {
       invert: false,
-      js: null,
       assets: {
         bWorksLogo: require('!!raw-loader!assets/images/bworks-logo.svg')
       }
@@ -53,7 +52,6 @@ export default {
         js.src = b + "embed.js";
         q = gt.call(d, "script")[0];
         q.parentNode.insertBefore(js, q)
-        this.js = js
       }
     },
   },
