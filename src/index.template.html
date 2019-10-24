@@ -1,127 +1,175 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KBX89QC');</script>
-    <!-- End Google Tag Manager -->
-    <meta charset="utf-8">
-    <title>{{ title }}</title>
-    <meta name="description" content="{{ description }}">
-    <meta property="og:image" content="{{ image }}">
-    <meta name="twitter:image" content="{{ image }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="/favicon/manifest.json">
-    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#4b7fe2">
-    <link rel="shortcut icon" href="/favicon/favicon.ico">
-    <meta name="msapplication-config" content="/favicon/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-    <style>
-      #skip a {
-        position: absolute;
-        left: -10000px;
-        top: auto;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-      }
-      #skip a:focus {
-        position: static;
-        width: auto;
-        height: auto;
-      }
-      @import url("https://fast.fonts.net/lt/1.css?apiType=css&c=a97b7534-569b-47ae-8717-b84d291f7e36&fontids=721263,721281,721287");
-      @font-face{
-        font-family:"AvenirNextLTW01";
-        src:url("/fonts/721263/e9167238-3b3f-4813-a04a-a384394eed42.eot?#iefix");
-        src:url("/fonts/721263/e9167238-3b3f-4813-a04a-a384394eed42.eot?#iefix") format("eot"),url("/fonts/721263/2cd55546-ec00-4af9-aeca-4a3cd186da53.woff2") format("woff2"),url("/fonts/721263/1e9892c0-6927-4412-9874-1b82801ba47a.woff") format("woff"),url("/fonts/721263/46cf1067-688d-4aab-b0f7-bd942af6efd8.ttf") format("truetype");
-        font-weight: 400;
-      }
-      @font-face{
-        font-family:"AvenirNextLTW01";
-        src:url("/fonts/721281/dccb10af-07a2-404c-bfc7-7750e2716bc1.eot?#iefix");
-        src:url("/fonts/721281/dccb10af-07a2-404c-bfc7-7750e2716bc1.eot?#iefix") format("eot"),url("/fonts/721281/14c73713-e4df-4dba-933b-057feeac8dd1.woff2") format("woff2"),url("/fonts/721281/b8e906a1-f5e8-4bf1-8e80-82c646ca4d5f.woff") format("woff"),url("/fonts/721281/890bd988-5306-43ff-bd4b-922bc5ebdeb4.ttf") format("truetype");
-        font-weight: 700;
-      }
-      @font-face{
-        font-family:"AvenirNextLTW01";
-        src:url("/fonts/721287/3418f6be-70a5-4c26-af1d-c09a8642ca20.eot?#iefix");
-        src:url("/fonts/721287/3418f6be-70a5-4c26-af1d-c09a8642ca20.eot?#iefix") format("eot"),url("/fonts/721287/5c57b2e2-f641-421e-a95f-65fcb47e409a.woff2") format("woff2"),url("/fonts/721287/181c847e-cdbc-43d5-ae14-03a81c8953b4.woff") format("woff"),url("/fonts/721287/045d1654-97f2-4ff0-9d24-21ba9dfee219.ttf") format("truetype");
-        font-weight: 900;
-      }
-    </style>
-    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
-    <style>
-      .cc-window.cc-banner a {
-        text-transform: none;
-        letter-spacing: normal;
-      }
-    </style>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
-    <script>
-      window['ga-disable-{{ googleAnalyticsId }}'] = true;
 
-      var gdprConsented = function() {
-        // ga
-        window['ga-disable-{{ googleAnalyticsId }}'] = false;
-        // www.addthis.com/dashboard
-        (function(d){var s=d.createElement("script");s.type="text/javascript";s.src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58e4b19ecf819718";d.body.appendChild(s);})(document);
-        // adwords.google.com
-        (function(a,e,c,f,g,b,d){var h={ak:"855205735",cl:"UY7OCLKWpXAQ587llwM"};a[c]=a[c]||function(){(a[c].q=a[c].q||[]).push(arguments)};a[f]||(a[f]=h.ak);b=e.createElement(g);b.async=1;b.src="//www.gstatic.com/wcm/loader.js";d=e.getElementsByTagName(g)[0];d.parentNode.insertBefore(b,d);a._googWcmGet=function(b,d,e){a[c](2,b,h,d,null,new Date,e)}})(window,document,"_googWcmImpl","_googWcmAk","script");
-      };
+<head>
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KBX89QC');
 
-      window.addEventListener("load", function(){
-        // Deny using cookies if set to the end of url: ?cookieconsent-deny
-        var url_parameter = window.location.search.substring(1);
-        if(url_parameter == "cookieconsent-deny") {
-          document.cookie = "cookieconsent_status=deny; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+  </script>
+  <!-- End Google Tag Manager -->
+  <meta charset="utf-8">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <meta property="og:image" content="{{ image }}">
+  <meta name="twitter:image" content="{{ image }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/favicon/manifest.json">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#4b7fe2">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <style>
+    #skip a {
+      position: absolute;
+      left: -10000px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    #skip a:focus {
+      position: static;
+      width: auto;
+      height: auto;
+    }
+
+    @import url("https://fast.fonts.net/lt/1.css?apiType=css&c=a97b7534-569b-47ae-8717-b84d291f7e36&fontids=721263,721281,721287");
+
+    @font-face {
+      font-family: "AvenirNextLTW01";
+      src: url("/fonts/721263/e9167238-3b3f-4813-a04a-a384394eed42.eot?#iefix");
+      src: url("/fonts/721263/e9167238-3b3f-4813-a04a-a384394eed42.eot?#iefix") format("eot"), url("/fonts/721263/2cd55546-ec00-4af9-aeca-4a3cd186da53.woff2") format("woff2"), url("/fonts/721263/1e9892c0-6927-4412-9874-1b82801ba47a.woff") format("woff"), url("/fonts/721263/46cf1067-688d-4aab-b0f7-bd942af6efd8.ttf") format("truetype");
+      font-weight: 400;
+    }
+
+    @font-face {
+      font-family: "AvenirNextLTW01";
+      src: url("/fonts/721281/dccb10af-07a2-404c-bfc7-7750e2716bc1.eot?#iefix");
+      src: url("/fonts/721281/dccb10af-07a2-404c-bfc7-7750e2716bc1.eot?#iefix") format("eot"), url("/fonts/721281/14c73713-e4df-4dba-933b-057feeac8dd1.woff2") format("woff2"), url("/fonts/721281/b8e906a1-f5e8-4bf1-8e80-82c646ca4d5f.woff") format("woff"), url("/fonts/721281/890bd988-5306-43ff-bd4b-922bc5ebdeb4.ttf") format("truetype");
+      font-weight: 700;
+    }
+
+    @font-face {
+      font-family: "AvenirNextLTW01";
+      src: url("/fonts/721287/3418f6be-70a5-4c26-af1d-c09a8642ca20.eot?#iefix");
+      src: url("/fonts/721287/3418f6be-70a5-4c26-af1d-c09a8642ca20.eot?#iefix") format("eot"), url("/fonts/721287/5c57b2e2-f641-421e-a95f-65fcb47e409a.woff2") format("woff2"), url("/fonts/721287/181c847e-cdbc-43d5-ae14-03a81c8953b4.woff") format("woff"), url("/fonts/721287/045d1654-97f2-4ff0-9d24-21ba9dfee219.ttf") format("truetype");
+      font-weight: 900;
+    }
+
+  </style>
+  <link rel="stylesheet" type="text/css"
+    href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+  <style>
+    .cc-window.cc-banner a {
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+  </style>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+  <script>
+    window['ga-disable-{{ googleAnalyticsId }}'] = true;
+
+    var gdprConsented = function () {
+      // ga
+      window['ga-disable-{{ googleAnalyticsId }}'] = false;
+      // www.addthis.com/dashboard
+      (function (d) {
+        var s = d.createElement("script");
+        s.type = "text/javascript";
+        s.src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58e4b19ecf819718";
+        d.body.appendChild(s);
+      })(document);
+      // adwords.google.com
+      (function (a, e, c, f, g, b, d) {
+        var h = {
+          ak: "855205735",
+          cl: "UY7OCLKWpXAQ587llwM"
+        };
+        a[c] = a[c] || function () {
+          (a[c].q = a[c].q || []).push(arguments)
+        };
+        a[f] || (a[f] = h.ak);
+        b = e.createElement(g);
+        b.async = 1;
+        b.src = "//www.gstatic.com/wcm/loader.js";
+        d = e.getElementsByTagName(g)[0];
+        d.parentNode.insertBefore(b, d);
+        a._googWcmGet = function (b, d, e) {
+          a[c](2, b, h, d, null, new Date, e)
         }
+      })(window, document, "_googWcmImpl", "_googWcmAk", "script");
+    };
 
-        window.cookieconsent.initialise({
-          "palette": {
-            "popup": {
-              "background": "#4b7fe2"
-            },
-            "button": {
-              "background": "#fff",
-              "text": "#4b7fe2"
-            }
+    window.addEventListener("load", function () {
+      // Deny using cookies if set to the end of url: ?cookieconsent-deny
+      var url_parameter = window.location.search.substring(1);
+      if (url_parameter == "cookieconsent-deny") {
+        document.cookie = "cookieconsent_status=deny; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+      }
+
+      window.cookieconsent.initialise({
+        "palette": {
+          "popup": {
+            "background": "#4b7fe2"
           },
-          "type": "opt-in",
-          "content": {
-            "message": "{{ cc_message }}",
-            "deny": "{{ cc_deny }}",
-            "allow": "{{ cc_allow }}",
-            "link": "{{ cc_link }}",
-            "href": "{{ cc_href }}"
-          },
-          "revokeBtn": "<div></div>",
-          onInitialise: function (status) {
-            if (this.hasConsented()) {
-              gdprConsented();
-            }
-          },
-          onStatusChange: function(status, chosenBefore) {
-            if (this.hasConsented()) {
-              gdprConsented();
-            }
+          "button": {
+            "background": "#fff",
+            "text": "#4b7fe2"
           }
-        })});
-    </script>
-  </head>
-  <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KBX89QC"
-                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <div id="skip"><a href="#app">skip to content</a></div>
-    <!--vue-ssr-outlet-->
-    <!-- LiveCall -->
-    <script async src=“https://assets.livecall.io/accounts/8236/widget.js“></script>
-  </body>
+        },
+        "type": "opt-in",
+        "content": {
+          "message": "{{ cc_message }}",
+          "deny": "{{ cc_deny }}",
+          "allow": "{{ cc_allow }}",
+          "link": "{{ cc_link }}",
+          "href": "{{ cc_href }}"
+        },
+        "revokeBtn": "<div></div>",
+        onInitialise: function (status) {
+          if (this.hasConsented()) {
+            gdprConsented();
+          }
+        },
+        onStatusChange: function (status, chosenBefore) {
+          if (this.hasConsented()) {
+            gdprConsented();
+          }
+        }
+      })
+    });
+
+  </script>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KBX89QC" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div id="skip"><a href="#app">skip to content</a></div>
+  <!--vue-ssr-outlet-->
+  <!-- LiveCall -->
+  <script async src="https://assets.livecall.io/accounts/8236/widget.js"></script>
+</body>
+
 </html>
