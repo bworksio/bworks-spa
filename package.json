@@ -30,7 +30,7 @@
     "flexslider": "^2.7.1",
     "fullpage.js": "^2.9.4",
     "image-preloader": "^1.1.1",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "jump.js": "^1.0.2",
     "locutus": "^2.0.8",
     "lru-cache": "^4.1.1",
