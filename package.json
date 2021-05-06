@@ -32,7 +32,7 @@
     "image-preloader": "^1.1.1",
     "jquery": "^3.3.1",
     "jump.js": "^1.0.2",
-    "locutus": "^2.0.8",
+    "locutus": "^2.0.12",
     "lru-cache": "^4.1.1",
     "raven-js": "^3.17.0",
     "route-cache": "^0.4.3",
